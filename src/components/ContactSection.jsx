@@ -19,7 +19,7 @@ const ContactSection = () => {
           </div>
           <div className="mt-10 border-t border-white/10 pt-10">
             <h3 className="font-display text-base font-semibold text-white">
-              Our offices
+              Our Address
             </h3>
             <Offices
               invert

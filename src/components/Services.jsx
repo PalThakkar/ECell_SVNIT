@@ -15,8 +15,8 @@ const Services = () => {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
+        We provide comprehensive support to help you identify, explore, and respond to new business opportunities. Let us help you turn your ideas into successful ventures.
+
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -33,23 +33,20 @@ const Services = () => {
           {/* List item */}
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+            Crafting high-quality, dynamic websites tailored to your needs, ensuring a strong online presence.
+
             </ListItem>
             <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+            Developing robust, user-friendly applications using the latest frameworks.
+
             </ListItem>
             <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+            Designing and developing customized e-commerce platforms to help you reach your customers effectively.
+
             </ListItem>
             <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            Providing robust and tailored CMS solutions to ensure your website remains engaging and up-to-date.
+
             </ListItem>
           </List>
         </div>
