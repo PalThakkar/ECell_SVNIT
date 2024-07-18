@@ -19,7 +19,7 @@ export default function Home() {
           </p>
         </FadeIn>
       </Container>
-      <Clients />
+
       <Testimonials
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: "Phobia", logo: logoPhobiaDark }}
@@ -27,7 +27,7 @@ export default function Home() {
                 The team at E-Cell SVNIT went above and beyond with our onboarding, providing unparalleled support and resources.
 
       </Testimonials>
-      <Services />
+      
       <ContactSection />
     </main>
   );
