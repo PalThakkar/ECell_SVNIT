@@ -11,6 +11,9 @@ module.exports = {
       borderRadius: {
         "4xl": "2.5rem",
       },
+      colors: {
+        yellow: '#f0da4a',
+      },
       fontFamily: {
         sans: ["Mona Sans", ...defaultTheme.fontFamily.sans],
         display: [
