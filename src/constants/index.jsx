@@ -24,6 +24,7 @@ export const navigation = [
       { title: "Process", href: "/process" },
       { title: "Blog", href: "/blog" },
       { title: "Contact us", href: "/contact" },
+      { title: "FAQ", href: "/Faq" },  // Added FAQ link
     ],
   },
   {
