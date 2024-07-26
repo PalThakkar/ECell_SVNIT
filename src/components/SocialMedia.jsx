@@ -11,23 +11,23 @@ import {
 export const SocialMediaProfiles = [
   {
     title: "Youtube",
-    href: "https://www.youtube.com/",
+    href: "https://www.youtube.com/ecell-svnit",
     icon: BsYoutube,
   },
-  { title: "GitHub", href: "https://github.com/srjay", icon: BsGithub },
+  { title: "GitHub", href: "https://github.com/ecell", icon: BsGithub },
   {
     title: "Facebook",
-    href: "https://www.facebook.com",
+    href: "https://www.facebook.com/",
     icon: BsFacebook,
   },
   {
     title: "linkedin",
-    href: "https://www.linkedin.com/srjay",
+    href: "https://www.linkedin.com/in/ecell-svnit",
     icon: BsLinkedin,
   },
   {
     title: "Twitter",
-    href: "https://twitter.com/srjay",
+    href: "https://twitter.com/ecell-svnit",
     icon: BsTwitter,
   },
 ];
