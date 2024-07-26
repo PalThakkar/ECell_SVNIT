@@ -43,7 +43,7 @@ const teamMembers = {
       instagram: 'https://www.instagram.com/_srjay',
     },
     {
-      photo: '/shambhavi.png',
+      photo: '/dummy.jpg',
       name: 'Shambhavi Shinde',
       position: 'Co-head',
       linkedin: 'https://www.linkedin.com/in/shambhavishinde?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
