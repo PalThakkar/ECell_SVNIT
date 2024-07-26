@@ -10,13 +10,12 @@ const Services = () => {
   return (
     <>
       <SectionIntro
-        eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        eyebrow="Vision"
+        title="E-Cell SVNIT fosters vibrant entrepreneurship, innovation, creativity, collaboration, and student leadership."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-        We provide comprehensive support to help you identify, explore, and respond to new business opportunities. Let us help you turn your ideas into successful ventures.
-
+        E-Cell at SVNIT envisions a vibrant campus where entrepreneurship thrives as a driving force of innovation and impact. Guided by our vision, we aspire to create a dynamic ecosystem that nurtures creativity, collaboration, and leadership among students.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -32,21 +31,25 @@ const Services = () => {
           </div>
           {/* List item */}
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-            Crafting high-quality, dynamic websites tailored to your needs, ensuring a strong online presence.
+            <ListItem title="Lead the Way">
+            Make SVNIT a top spot for entrepreneurial activities in India.
 
             </ListItem>
-            <ListItem title="Application development">
-            Developing robust, user-friendly applications using the latest frameworks.
+            <ListItem title="Grow a Startup Ecosystem">
+            Build a thriving, sustainable startup culture on campus.
 
             </ListItem>
-            <ListItem title="E-commerce">
-            Designing and developing customized e-commerce platforms to help you reach your customers effectively.
+            <ListItem title="Forge Global Partnerships:">
+            Connect with industry leaders, investors, and top universities around the world.
 
             </ListItem>
-            <ListItem title="Custom content management">
-            Providing robust and tailored CMS solutions to ensure your website remains engaging and up-to-date.
+            <ListItem title="Solve Real Problems">
+            Support startups that tackle important challenges and make a difference.
 
+            </ListItem>
+            <ListItem title="Empower Future Leaders">
+            Equip students with the skills and confidence to become innovative entrepreneurs and changemakers.
+            
             </ListItem>
           </List>
         </div>

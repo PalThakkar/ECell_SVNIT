@@ -26,9 +26,11 @@ const Header = ({
     <Container>
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <Link href={"/"} aria-label="Home">
-          <Logo invert={invert}>E-Cell SVNIT</Logo>
-        </Link>
+        {!expanded && (
+          <Link href={"/"} aria-label="Home">
+            <Logo invert={invert}>E-Cell SVNIT</Logo>
+          </Link>
+        )}
         <div className="flex items-center gap-x-8">
           <Button href={"/contact"} invert={invert}>
             Contact us
@@ -85,11 +87,11 @@ const Navigation = () => {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">Projects</NavigationItem>
+        <NavigationItem href="/team">Team</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/process">Our Process</NavigationItem>
+        <NavigationItem href="/contact">Contact Us</NavigationItem>
         <NavigationItem href="/blog">Blog</NavigationItem>
       </NavigationRow>
     </nav>
