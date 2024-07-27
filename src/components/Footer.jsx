@@ -65,7 +65,27 @@ const Footer = () => {
             <Logo className="h-8 mb-16" fillOnHover />
           </Link>
           <p className="text-sm text-neutral-700">
-            © E-Cell SVNIT Inc. {new Date().getFullYear()}
+          Developed by{" "}
+    <a 
+      href="https://www.instagram.com/_srjay/" 
+      target="_blank" 
+      style={{ color: '#FF9900', textDecoration: 'none' }}
+      onMouseOver={(e) => e.currentTarget.style.color = 'inherit'}
+      onMouseOut={(e) => e.currentTarget.style.color = '#FF9900'}
+    >
+      S R Jay
+    </a>{" "}
+    &{" "}
+    <a 
+      href="https://www.instagram.com/shmbhvi/" 
+      target="_blank" 
+      style={{ color: '#FF9900', textDecoration: 'none' }}
+      onMouseOver={(e) => e.currentTarget.style.color = 'inherit'}
+      onMouseOut={(e) => e.currentTarget.style.color = '#FF9900'}
+    >
+      Shambhvi
+    </a>{" "}
+    , managed by E-Cell Technical Team © {new Date().getFullYear()}
           </p>
         </div>
       </FadeIn>
