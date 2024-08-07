@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import FadeIn from "@/components/FadeIn";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
+import Faq from "@/components/Faq";
 import logoPhobiaDark from "@/images/ecell.svg";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
                 The team at E-Cell SVNIT went above and beyond with our onboarding, providing unparalleled support and resources.
 
       </Testimonials>
+      <Faq />
       <Services />
       <ContactSection />
     </main>
