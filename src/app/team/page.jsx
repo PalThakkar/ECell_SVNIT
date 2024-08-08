@@ -6,28 +6,28 @@ import TeamMember from '@/components/TeamMember';
 const teamMembers = {
   chiefExecutive: [
     {
-      photo: '/dummy.jpg',
+      photo: '/jeet.svg',
       name: 'Jeet Ariwala',
       position: 'Chief Executive',
       linkedin: 'https://www.linkedin.com/in/jeet-ariwala-152243256',
       instagram: 'https://www.instagram.com/jeet_ariwala21',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/kartik.svg',
       name: 'Kartik Srivastava',
       position: 'Chief Executive',
-      linkedin: 'https://www.linkedin.com/in/kartik-srivastava-b46b561b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      linkedin: 'https://www.linkedin.com/in/kartik-srivastava-b46b561b7',
       instagram: 'https://www.instagram.com/__.the.prodigal.son.__',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/kashish.svg',
       name: 'Kashish Sharma',
       position: 'Chief Executive',
-      linkedin: 'https://www.linkedin.com/in/kashish-sharma-545774215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      linkedin: 'https://www.linkedin.com/in/kashish-sharma-545774215',
       instagram: 'https://www.instagram.com/kashishhh__11',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/omraa.svg',
       name: 'Om Ramanuj',
       position: 'Chief Executive',
       linkedin: 'https://www.linkedin.com/in/om-ramanuj-511501266',
@@ -36,30 +36,30 @@ const teamMembers = {
   ],
   technical: [
     {
-      photo: '/dummy.jpg',
+      photo: '/srjay.svg',
       name: 'S R Jay Kikani',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/srjaykikani',
       instagram: 'https://www.instagram.com/_srjay',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/shambhavi.svg',
       name: 'Shambhavi Shinde',
       position: 'Co-head',
-      linkedin: 'https://www.linkedin.com/in/shambhavishinde?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      linkedin: 'https://www.linkedin.com/in/shambhavishinde',
       instagram: 'https://www.instagram.com/shmbhvi',
     },
   ],
   mediaAndPublicity: [
     {
-      photo: '/dummy.jpg',
+      photo: '/dangar.svg',
       name: 'Ronak Dangar',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/ronak-dangar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      linkedin: 'https://www.linkedin.com/in/ronak-dangar',
       instagram: 'https://www.instagram.com/ronak_dangar_04',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/om-p.svg',
       name: 'Om Panchal',
       position: 'Co-Head',
       linkedin: 'https://in.linkedin.com/in/om-panchal-136410257',
@@ -68,14 +68,14 @@ const teamMembers = {
   ],
   events: [
     {
-      photo: '/dummy.jpg',
+      photo: '/tripathi.svg',
       name: 'Pritish Tripathi',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/pritish-tripathi-362006271',
       instagram: 'https://www.instagram.com/tripathipritish',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/tanish.svg',
       name: 'Tanish Panchal',
       position: 'Co-head',
       linkedin: 'https://www.linkedin.com/in/tanish2311',
@@ -84,14 +84,14 @@ const teamMembers = {
   ],
   startupTeam: [
     {
-      photo: '/dummy.jpg',
+      photo: '/ridhayu.svg',
       name: 'Gosai Ridhayu',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/ridhayu-gosai-4b063a280?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      instagram: 'https://www.instagram.com/ridhayu_gosai_28?igsh=ZWttdnQ1NGxhdHNh',
+      linkedin: 'https://www.linkedin.com/in/ridhayu-gosai-4b063a280',
+      instagram: 'https://www.instagram.com/ridhayu_gosai_28',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/sp.svg',
       name: 'Soumyashree Parida',
       position: 'Co-head',
       linkedin: 'https://www.linkedin.com/in/soumyashreeparida785',
@@ -100,17 +100,17 @@ const teamMembers = {
   ],
   publicRelations: [
     {
-      photo: '/dummy.jpg',
+      photo: '/zala.svg',
       name: 'Nanviya Zala',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/nanviya-zala-108324306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      linkedin: 'https://www.linkedin.com/in/nanviya-zala-108324306',
       instagram: 'https://www.instagram.com/notnanviazala',
     },
     {
-      photo: '/dummy.jpg',
+      photo: '/parmar.svg',
       name: 'Krish Parmar',
       position: 'Co-Head',
-      linkedin: 'https://www.linkedin.com/in/krish-parmar-a30211258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      linkedin: 'https://www.linkedin.com/in/krish-parmar-a30211258',
       instagram: 'https://www.instagram.com/krishh_.003',
     },
   ],
