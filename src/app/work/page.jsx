@@ -1,9 +1,18 @@
+import Head from "next/head";
 import PageIntro from "@/components/PageIntro";
 import React from "react";
 
 const WorkPage = () => {
   return (
     <>
+      <Head>
+        <title>Our Work | E-Cell SVNIT</title>
+        <meta
+          name="description"
+          content="Explore our proven solutions for real-world problems. See how we create impact through our projects."
+        />
+        <link rel="canonical" href="https://ecellsvnit.com/work" />
+      </Head>
       <PageIntro
         eyebrow="Our work"
         title="Proven solutions for real-world problems."
