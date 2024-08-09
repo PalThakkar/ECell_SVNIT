@@ -1,4 +1,5 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 import RootLayout from "@/components/RootLayout";
 import "./globals.css";
 
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
       <body className="flex min-h-full flex-col">
         <RootLayout>{children}
         <SpeedInsights />
+        <Analytics />
         </RootLayout>
         
       </body>
