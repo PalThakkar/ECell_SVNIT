@@ -7,6 +7,7 @@ import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import logoPhobiaDark from "@/images/ecell.svg";
 
+
 export default function Home() {
   return (
     <main className="text-black">
