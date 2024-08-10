@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Build from "@/components/Build";
 import ContactSection from "@/components/ContactSection";
 import Deliver from "@/components/Deliver";
@@ -10,14 +9,6 @@ import React from "react";
 const ProcessPage = () => {
   return (
     <>
-      <Head>
-        <title>Our Process | E-Cell SVNIT</title>
-        <meta
-          name="description"
-          content="Discover how E-Cell SVNIT works. Learn about our process from discovery to delivery and beyond."
-        />
-        <link rel="canonical" href="https://ecellsvnit.com/process" />
-      </Head>
       <PageIntro eyebrow="Our process" title="How we work">
         <p>
           We believe in efficiency and maximizing our resources to provide the
@@ -26,10 +17,14 @@ const ProcessPage = () => {
         </p>
       </PageIntro>
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
+        {/* Discover */}
         <Discover />
+        {/* Build */}
         <Build />
+        {/* Deliver */}
         <Deliver />
       </div>
+      {/* Values */}
       <Values />
       <ContactSection />
     </>

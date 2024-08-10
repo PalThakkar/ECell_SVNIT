@@ -1,4 +1,3 @@
-import Head from "next/head";
 import ContactSection from "@/components/ContactSection";
 import Container from "@/components/Container";
 import Cultures from "@/components/Cultures";
@@ -9,14 +8,6 @@ import React from "react";
 const AboutPage = () => {
   return (
     <>
-      <Head>
-        <title>About Us | E-Cell SVNIT</title>
-        <meta
-          name="description"
-          content="Learn more about the team and mission behind E-Cell SVNIT, fostering entrepreneurship and innovation among students."
-        />
-        <link rel="canonical" href="https://ecellsvnit.com/about" />
-      </Head>
       <PageIntro eyebrow="About us" title="Our strength is collaboration">
         <p>
           We believe that our strength lies in our collaborative approach, which
