@@ -39,7 +39,6 @@ const FAQ = () => (
   </div>
 );
 
-
 const AccordionTrigger = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
   <Accordion.Header className="AccordionHeader">
     <Accordion.Trigger
@@ -53,6 +52,8 @@ const AccordionTrigger = React.forwardRef(({ children, className, ...props }, fo
   </Accordion.Header>
 ));
 
+AccordionTrigger.displayName = "AccordionTrigger";
+
 const AccordionContent = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
   <Accordion.Content
     className={classNames('AccordionContent', className)}
@@ -62,5 +63,7 @@ const AccordionContent = React.forwardRef(({ children, className, ...props }, fo
     <div className="AccordionContentText">{children}</div>
   </Accordion.Content>
 ));
+
+AccordionContent.displayName = "AccordionContent";
 
 export default FAQ;
