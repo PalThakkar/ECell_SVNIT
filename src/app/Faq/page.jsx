@@ -1,7 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import React from 'react';
+import * as Accordion from '@radix-ui/react-accordion';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
+import classNames from 'classnames';
+import './styles.css';
 
 const faqData = [
   {
@@ -22,56 +25,42 @@ const faqData = [
   },
 ];
 
-const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+const FAQ = () => (
+  <div className="faq-container">
+    <h2 className="faq-title">Frequently Asked Questions</h2>
+    <Accordion.Root className="AccordionRoot" type="single" defaultValue="item-1" collapsible>
+      {faqData.map((faq, index) => (
+        <Accordion.Item className="AccordionItem" value={`item-${index + 1}`} key={index}>
+          <AccordionTrigger>{faq.question}</AccordionTrigger>
+          <AccordionContent>{faq.answer}</AccordionContent>
+        </Accordion.Item>
+      ))}
+    </Accordion.Root>
+  </div>
+);
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
-  return (
-    <div className="mt-24 sm:mt-32">
-      <h2 className="text-4xl font-bold text-center text-neutral-950" style={{ fontFamily: 'Mona Sans, sans-serif' }}>
-        Frequently Asked Questions
-      </h2>
-      <div className="max-w-screen-xl mx-auto my-4 p-6 md:p-10 bg-black rounded-4xl shadow-lg" style={{ height: 'calc(100vh - 5.32cm)', overflowY: 'auto' }}>
-        <div className="space-y-6">
-          {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className={`relative p-6 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer ${
-                openIndex === index ? 'shadow-lg' : 'shadow-md'
-              } hover:bg-gray-800 hover:border-gray-400 hover:shadow-xl`}
-              style={{
-                background: 'rgba(255, 255, 255, 0.1)', // Semi-transparent white
-                backdropFilter: 'blur(10px)', // Matte glass effect
-                WebkitBackdropFilter: 'blur(10px)', // Safari support
-                border: '1px solid rgba(255, 255, 255, 0.2)', // Light border for glass effect
-              }}
-              onClick={() => toggleFAQ(index)}
-            >
-              <div className="relative flex justify-between items-center">
-                <h3 className={`text-xl font-semibold text-white transition-transform duration-300 ease-in-out ${openIndex === index ? 'translate-x-3' : ''}`}>
-                  {faq.question}
-                </h3>
-                <div className="ml-2 text-white">
-                  {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
-                </div>
-              </div>
-              {openIndex === index && <p className="mt-2 text-neutral-300">{faq.answer}</p>}
-              {/* Dark overlay on hover */}
-              <div
-                className="absolute inset-0 bg-gray-300 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-10"
-                style={{
-                  borderRadius: 'inherit', // Ensure the overlay follows the rounded corners
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+const AccordionTrigger = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Header className="AccordionHeader">
+    <Accordion.Trigger
+      className={classNames('AccordionTrigger', className)}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+      <ChevronDownIcon className="AccordionChevron" aria-hidden />
+    </Accordion.Trigger>
+  </Accordion.Header>
+));
+
+const AccordionContent = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Content
+    className={classNames('AccordionContent', className)}
+    {...props}
+    ref={forwardedRef}
+  >
+    <div className="AccordionContentText">{children}</div>
+  </Accordion.Content>
+));
 
 export default FAQ;
