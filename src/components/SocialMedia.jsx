@@ -6,29 +6,20 @@ import {
   BsGithub,
   BsYoutube,
   BsLinkedin,
+  BsInstagram,
 } from "react-icons/bs";
 
 export const SocialMediaProfiles = [
-  {
-    title: "Youtube",
-    href: "https://www.youtube.com/ecell-svnit",
-    icon: BsYoutube,
-  },
-  { title: "GitHub", href: "https://github.com/ecell", icon: BsGithub },
+  { title: "Instagram", href: "https://www.instagram.com/ecell.svnit/", icon: BsInstagram },
   {
     title: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/ecell.svnit/",
     icon: BsFacebook,
   },
   {
     title: "linkedin",
-    href: "https://www.linkedin.com/in/ecell-svnit",
+    href: "https://www.linkedin.com/company/e-cell-nit-surat/",
     icon: BsLinkedin,
-  },
-  {
-    title: "Twitter",
-    href: "https://twitter.com/ecell-svnit",
-    icon: BsTwitter,
   },
 ];
 
