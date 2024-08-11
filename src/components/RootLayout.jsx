@@ -1,7 +1,9 @@
 "use client";
+
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import Loader from "./Loader";
 import Container from "./Container";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -13,19 +15,10 @@ import Offices from "./Offices";
 import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 
-const Header = ({
-  panelId,
-  invert = false,
-  icon: Icon,
-  expanded,
-  onToggle,
-  toggleRef,
-}) => {
-  // Container
+const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggleRef }) => {
   return (
     <Container>
       <div className="flex items-center justify-between">
-        {/* Logo */}
         {!expanded && (
           <Link href={"/"} aria-label="Home">
             <Logo invert={invert}>E-Cell SVNIT</Logo>
@@ -50,9 +43,7 @@ const Header = ({
             <Icon
               className={clsx(
                 "h-6 w-6",
-                invert
-                  ? "fill-white group-hover:fill-neutral-200"
-                  : "fill-neutral-950 group-hover:fill-neutral-700"
+                invert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
               )}
             />
           </button>
@@ -61,6 +52,7 @@ const Header = ({
     </Container>
   );
 };
+
 const NavigationRow = ({ children }) => {
   return (
     <div className="even:mt-px sm:bg-neutral-950">
@@ -105,6 +97,7 @@ const RootLayoutInner = ({ children }) => {
   const closeRef = useRef();
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
+
   useEffect(() => {
     function onClick(event) {
       if (event.target.closest("a")?.href === window.location.href) {
@@ -117,6 +110,7 @@ const RootLayoutInner = ({ children }) => {
       window.removeEventListener("click", onClick);
     };
   }, []);
+
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
@@ -125,7 +119,6 @@ const RootLayoutInner = ({ children }) => {
           aria-hidden={expanded ? "true" : undefined}
           inert={expanded ? "" : undefined}
         >
-          {/* Header */}
           <Header
             panelId={panelId}
             icon={HiMenuAlt4}
@@ -163,7 +156,6 @@ const RootLayoutInner = ({ children }) => {
                 }}
               />
             </div>
-            {/* Navigation */}
             <Navigation />
             <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
               <Container>
@@ -199,7 +191,6 @@ const RootLayoutInner = ({ children }) => {
           className="relative isolate flex w-full flex-col pt-9"
         >
           <main className="w-full flex-auto">{children}</main>
-          {/* Footer */}
           <Footer />
         </motion.div>
       </motion.div>
@@ -208,8 +199,24 @@ const RootLayoutInner = ({ children }) => {
 };
 
 const RootLayout = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const pathName = usePathname();
-  return <RootLayoutInner key={pathName}>{children}</RootLayoutInner>;
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust this duration to match your Loader component
+
+    return () => clearTimeout(timeout);
+  }, [pathName]);
+
+  return (
+    <>
+      {loading && <Loader />}
+      <RootLayoutInner key={pathName}>{children}</RootLayoutInner>
+    </>
+  );
 };
 
 export default RootLayout;
