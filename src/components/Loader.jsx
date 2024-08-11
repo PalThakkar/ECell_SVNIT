@@ -1,4 +1,5 @@
 // src/components/Loader.jsx
+"use client";
 import { useEffect, useState } from "react";
 
 export default function Loader() {
@@ -34,13 +35,9 @@ export default function Loader() {
           z-index: 9999;
         }
         video {
+          max-width: 100%;
           height: auto;
           display: block;
-        }
-        @media screen and (max-width: 375px) {
-          video {
-            width: 80%;
-          }
         }
       `}</style>
     </div>

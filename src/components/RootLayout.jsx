@@ -1,5 +1,5 @@
+// src/components/RootLayout.jsx
 "use client";
-
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
@@ -206,7 +206,7 @@ const RootLayout = ({ children }) => {
     setLoading(true);
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust this duration to match your Loader component
+    }, 2000); // Matches your Loader duration
 
     return () => clearTimeout(timeout);
   }, [pathName]);
