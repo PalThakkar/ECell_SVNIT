@@ -100,4 +100,7 @@
   .AccordionRoot {
       padding: 2.5rem;
   }
+  .faq-container {
+      min-height:fit-content;
+  }
 }
