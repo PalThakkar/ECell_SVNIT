@@ -1,9 +1,17 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 
 export function JobCard({ job }) {
+  const router = useRouter();
+
+  const handleApplyClick = () => {
+    const companyNameSlug = job.company.toLowerCase().replace(/\s+/g, '');
+    router.push(`/${companyNameSlug}`);
+  };
+
   return (
     <div className="w-full mx-auto">
       <FollowerPointerCard
@@ -47,9 +55,12 @@ export function JobCard({ job }) {
                     {tag}
                   </span>
                 ))}
-                <div className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl text-xs">
+                <button
+                  onClick={handleApplyClick}
+                  className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl text-xs"
+                >
                   Apply Now
-                </div>
+                </button>
               </div>
             </div>
           </div>
