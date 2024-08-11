@@ -4,6 +4,7 @@ import FadeIn from "./FadeIn";
 import FooterNavigation from "./FooterNavigation";
 import Logo from "./Logo";
 import Link from "next/link";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 const ArrowIcon = (props) => {
   return (
@@ -65,27 +66,26 @@ const Footer = () => {
             <Logo className="h-8 mb-16" fillOnHover />
           </Link>
           <p className="text-sm text-neutral-700">
-          Developed by{" "}
-    <a 
-      href="https://www.instagram.com/_srjay/" 
-      target="_blank" 
-      style={{ color: '#FF9900', textDecoration: 'none' }}
-      onMouseOver={(e) => e.currentTarget.style.color = 'inherit'}
-      onMouseOut={(e) => e.currentTarget.style.color = '#FF9900'}
-    >
-      S R Jay
-    </a>{" "}
-    &{" "}
-    <a 
-      href="https://www.instagram.com/shmbhvi/" 
-      target="_blank" 
-      style={{ color: '#FF9900', textDecoration: 'none' }}
-      onMouseOver={(e) => e.currentTarget.style.color = 'inherit'}
-      onMouseOut={(e) => e.currentTarget.style.color = '#FF9900'}
-    >
-      Shambhvi
-    </a>{" "}
-    , managed by E-Cell Technical Team © {new Date().getFullYear()}
+            Developed by{" "}
+            <LinkPreview
+              url="https://srjay.com"
+              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              S R Jay Kikani
+            </LinkPreview>{" "}
+            &{" "}
+            <a
+              href="https://in.linkedin.com/in/shambhavishinde"
+              target="_blank"
+              style={{ color: "#FF9900", textDecoration: "none" }}
+              onMouseOver={(e) => (e.currentTarget.style.color = "inherit")}
+              onMouseOut={(e) => (e.currentTarget.style.color = "#FF9900")}
+            >
+              Shambhvi
+            </a>{" "}
+            , managed by E-Cell Technical Team © {new Date().getFullYear()}
           </p>
         </div>
       </FadeIn>
