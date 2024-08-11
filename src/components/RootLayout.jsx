@@ -83,7 +83,7 @@ const Navigation = () => {
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/contact">Contact Us</NavigationItem>
+        <NavigationItem href="/jobs">Jobs</NavigationItem>
         <NavigationItem href="/blog">Blog</NavigationItem>
       </NavigationRow>
     </nav>

@@ -8,6 +8,7 @@ export const navigation = [
       { title: "Team", href: "/team" },
       { title: "Blog", href: "/blog" },
       { title: "Contact us", href: "/contact" },
+      { title: "Job", href: "/jobs" },
       { title: "FAQ", href: "/Faq" },  // Added FAQ link
     ],
   },
