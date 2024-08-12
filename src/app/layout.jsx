@@ -40,6 +40,9 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="en" className="h-full bg-neutral-950 text-base antialiased text-neutral-100">
+      <head>
+        {/* Additional <head> elements can go here if needed */}
+      </head>
       <body className="flex min-h-full flex-col">
         <RootLayout>{children}</RootLayout>
         <SpeedInsights />
