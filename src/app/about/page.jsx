@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "E-Cell SVNIT",
     images: [
       {
-        url: "https://www.ecellsvnit.com/images/about-og-image.png",
+        url: "https://www.ecellsvnit.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "About E-Cell SVNIT",
@@ -31,7 +31,7 @@ export const metadata = {
     title: "About Us | E-Cell SVNIT",
     description:
       "Discover how collaboration is at the heart of E-Cell SVNIT. Learn more about our values, our team, and our story.",
-    images: ["https://www.ecellsvnit.com/images/about-og-image.png"],
+    images: ["https://www.ecellsvnit.com/og-image.png"],
   },
 };
 

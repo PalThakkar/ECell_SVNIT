@@ -11,7 +11,7 @@ export const metadata = {
       siteName: "E-Cell SVNIT",
       images: [
         {
-          url: "https://www.ecellsvnit.com/images/jobs-og-image.png",
+          url: "https://www.ecellsvnit.com/og-image.png",
           width: 1200,
           height: 630,
           alt: "Job Opportunities at E-Cell SVNIT",
@@ -24,7 +24,7 @@ export const metadata = {
       title: "Job Opportunities | E-Cell SVNIT",
       description:
         "Explore job opportunities at E-Cell SVNIT, including internships and part-time roles.",
-      images: ["https://www.ecellsvnit.com/images/jobs-og-image.png"],
+      images: ["https://www.ecellsvnit.com/og-image.png"],
     },
   };
   

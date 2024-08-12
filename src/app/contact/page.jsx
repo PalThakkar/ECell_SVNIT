@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "E-Cell SVNIT",
     images: [
       {
-        url: "https://www.ecellsvnit.com/images/contact-og-image.png",
+        url: "https://www.ecellsvnit.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Contact E-Cell SVNIT",

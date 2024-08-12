@@ -24,7 +24,7 @@ export const metadata = {
       title: "Job Application | Arcrete | E-Cell SVNIT",
       description:
         "Apply for part-time or internship positions at Arcrete through E-Cell SVNIT. Join our team and contribute to innovative projects.",
-      images: ["https://www.ecellsvnit.com/images/arcrete-job-og-image.png"],
+      images: ["https://www.ecellsvnit.com/og-image.png"],
     },
   };
   

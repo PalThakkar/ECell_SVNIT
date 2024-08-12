@@ -8,7 +8,7 @@ export const metadata = {
       siteName: "E-Cell SVNIT",
       images: [
         {
-          url: "https://www.ecellsvnit.com/images/faqs-og-image.png", // Replace with your image URL
+          url: "https://www.ecellsvnit.com/og-image.png", // Replace with your image URL
           width: 1200,
           height: 630,
           alt: "FAQs at E-Cell SVNIT",
@@ -21,7 +21,7 @@ export const metadata = {
       card: "summary_large_image",
       title: "FAQs | E-Cell SVNIT",
       description: "Find answers to frequently asked questions about E-Cell SVNIT, our events, and how to get involved.",
-      images: ["https://www.ecellsvnit.com/images/faqs-og-image.png"], // Replace with your image URL
+      images: ["https://www.ecellsvnit.com/og-image.png"], // Replace with your image URL
     },
     icons: {
       icon: "/favicon.ico",
