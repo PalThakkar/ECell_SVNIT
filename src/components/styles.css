@@ -1,92 +1,110 @@
-/* Root container */
 .faq-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 2rem;
-  }
-  
-  /* Title Styling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height:100vh;
+}
+
+.faq-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.AccordionRoot {
+  width: 90%;
+  max-width: 1200px;
+  background-color: #000;
+  padding: 4rem;
+  border-radius: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,.3)
+}
+
+.AccordionItem {
+  overflow: hidden;
+  margin-top: 20px;
+  border-radius: 12px;
+  background-color: #181818;
+  box-shadow: 0 4px 6px rgba(0,0,0,.2);
+  transition: transform .3s ease
+}
+
+.AccordionItem:first-child {
+  margin-top: 0
+}
+
+.AccordionItem:last-child {
+  margin-bottom: 0
+}
+
+.AccordionHeader {
+  display: flex
+}
+
+.AccordionTrigger {
+  font-family: inherit;
+  padding: 1rem 1.5rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: transparent;
+  transition: background-color .3s ease,transform .3s ease
+}
+
+.AccordionTrigger:hover {
+  background-color: #252525
+}
+
+.AccordionContent {
+  padding: 1rem 1.5rem;
+  background-color: transparent
+}
+
+.AccordionContent,.AccordionContentText {
+  font-size: 1rem;
+  color: #d3d3d3
+}
+
+.AccordionChevron {
+  color: #d3d3d3;
+  transition: transform .3s cubic-bezier(.87,0,.13,1)
+}
+
+.AccordionTrigger[data-state=open]>.AccordionChevron {
+  transform: rotate(180deg)
+}
+
+@media screen and (max-width:590px) {
   .faq-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #000; /* Black text for the title */
-    text-align: center;
-    margin-bottom: 2rem;
+      line-height: 2.5rem;
   }
   
-  /* Radix Accordion Styles */
+  .faq-container {
+      min-height:fit-content;
+  }
+}
+
+@media screen and (max-width:414px) {
+  .faq-container {
+      padding:0.5rem;
+  }
+  .faq-title {
+      line-height: 2.5rem;
+  }
   .AccordionRoot {
-    width: 90%; /* Set the FAQ section to occupy about 90% of the screen width */
-    max-width: 1200px; /* Limit the max width on large screens */
-    background-color: #000; /* Black background for the FAQ section */
-    padding: 4rem;
-    border-radius: none;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for the FAQ box */
+      padding: 2.5rem;
   }
-  
-  .AccordionItem {
-    overflow: hidden;
-    margin-top: 20px; /* Increased gap between questions */
-    border-radius: 12px;
-    background-color: #181818; /* Darker background for items */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow for elevation */
-    transition: transform 0.3s ease;
+  .faq-container {
+      min-height:fit-content;
   }
-  
-  .AccordionItem:first-child {
-    margin-top: 0;
-  }
-  
-  .AccordionItem:last-child {
-    margin-bottom: 0;
-  }
-  
-  .AccordionHeader {
-    display: flex;
-  }
-  
-  .AccordionTrigger {
-    font-family: inherit;
-    padding: 1rem 1.5rem;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.25rem; /* Larger font size for questions */
-    font-weight: bold; /* Bold font for questions */
-    color: white; /* White color for questions */
-    cursor: pointer;
-    border-radius: 12px;
-    background-color: transparent;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .AccordionTrigger:hover {
-    background-color: #252525; /* Slightly lighter on hover */
-  }
-  
-  .AccordionContent {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    color: #d3d3d3; /* Light grey color for answers */
-    background-color: transparent; /* Transparent background so it blends with the trigger */
-    /* Removed the border-top to eliminate the divider line */
-  }
-  
-  .AccordionContentText {
-    font-size: 1rem;
-    color: #d3d3d3; /* Light grey color for answers */
-  }
-  
-  .AccordionChevron {
-    color: #d3d3d3; /* Light grey color for chevron */
-    transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
-  }
-  
-  .AccordionTrigger[data-state='open'] > .AccordionChevron {
-    transform: rotate(180deg);
-  }
-  
+}
