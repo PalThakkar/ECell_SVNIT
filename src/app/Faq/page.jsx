@@ -4,7 +4,7 @@ import React from 'react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import classNames from 'classnames';
-import 'src/components/styles.css';
+import './styles.css';
 
 const faqData = [
   {
