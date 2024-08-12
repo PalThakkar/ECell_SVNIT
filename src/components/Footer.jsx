@@ -80,7 +80,7 @@ const Footer = () => {
               href="https://in.linkedin.com/in/shambhavishinde"
               target="_blank"
               style={{ color: "#FF9900", textDecoration: "none" }}
-              onMouseOver={(e) => (e.currentTarget.style.color = "inherit")}
+              onMouseOver={(e) => (e.currentTarget.style.color = "#4f9b0c")}
               onMouseOut={(e) => (e.currentTarget.style.color = "#FF9900")}
             >
               Shambhvi
