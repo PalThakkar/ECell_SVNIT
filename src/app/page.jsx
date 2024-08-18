@@ -20,6 +20,7 @@ export default function Home() {
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-4xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-6xl">
             Ignite Innovation, Inspire Entrepreneurship
+            Ignite Innovation, Inspire Entrepreneurship
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
             E-cell is the heartbeat of Entrepreneurial Spirit on Campus. We are

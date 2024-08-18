@@ -83,7 +83,7 @@ const Footer = () => {
               onMouseOver={(e) => (e.currentTarget.style.color = "#4f9b0c")}
               onMouseOut={(e) => (e.currentTarget.style.color = "#FF9900")}
             >
-              Shambhvi
+              Shambhavi Shinde
             </a>{" "}
             , managed by E-Cell Technical Team © {new Date().getFullYear()}
           </p>
