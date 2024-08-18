@@ -79,11 +79,9 @@ const Footer = () => {
             <a
               href="https://in.linkedin.com/in/shambhavishinde"
               target="_blank"
-              style={{ color: "#FF9900", textDecoration: "none" }}
-              onMouseOver={(e) => (e.currentTarget.style.color = "inherit")}
-              onMouseOut={(e) => (e.currentTarget.style.color = "#FF9900")}
+              className=" font-bold  bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-600"
             >
-              Shambhvi
+              Shambhavi Shinde
             </a>{" "}
             , managed by E-Cell Technical Team © {new Date().getFullYear()}
           </p>

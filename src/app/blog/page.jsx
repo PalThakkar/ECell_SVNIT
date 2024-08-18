@@ -1,16 +1,23 @@
-import PageIntro from "@/components/PageIntro";
+import BlogPreview from "@/components/BlogPreview";
 
-const BlogPage = () => {
+const blogPosts = [
+ 
+  {
+    title: "Understanding MVP: The Key to Startup Success",
+    excerpt: "Learn about MVP (Minimum Viable Product) and how it can drive startup success.",
+    slug: "understanding-mvp",
+    image: "/mvp blog.jpg",
+  },
+];
+
+export default function BlogPage() {
   return (
-    <>
-      <PageIntro eyebrow="Blog" title="The latest articles and news">
-        <p>
-          Stay up-to-date with the latest industry news as our marketing teams
-          finds new ways to re-purpose old CSS tricks articles.
-        </p>
-      </PageIntro>
-    </>
+    <main className="text-black">
+      <div className="container mx-auto px-4 py-1">
+        
+        
+        <BlogPreview posts={blogPosts} />
+      </div>
+    </main>
   );
-};
-
-export default BlogPage;
+}
