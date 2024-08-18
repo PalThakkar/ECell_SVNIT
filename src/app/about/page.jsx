@@ -58,7 +58,7 @@ const AboutPage = () => {
             We believe in the little guys—or as we like to call them, “future giant corporations.” We&rsquo;re here to help grassroots businesses grow with a bit of guidance, some opportunities, and a lot of cheering from the sidelines. Who said entrepreneurship had to be all about tech? We&rsquo;re here for the chaiwalas, the street vendors, and everyone in between.
           </p>
 
-          <h2 className="mt-6 text-xl font-bold">What's in store?</h2>
+          <h2 className="mt-6 text-xl font-bold">What&apos;s in store?</h2>
           <h3 className="mt-6 text-xl font-semibold">E-Summit & Beyond</h3>
           <p>
             Buckle up, because this year is going to be a wild ride! We&rsquo;re kicking off with an intro event, then diving headfirst into our flagship E-Summit, where dreams are made, or at least pitched very convincingly. We&rsquo;ve got workshops, a pitch deck battle royale, a business fair, and an internship drive that&rsquo;s basically like The Hunger Games, but with fewer arrows. And don&rsquo;t miss our podcast, &ldquo;Chai with E-Cell,&rdquo; where we spill the entrepreneurial tea.
