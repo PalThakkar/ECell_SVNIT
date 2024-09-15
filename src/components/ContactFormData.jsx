@@ -25,7 +25,7 @@ const ContactFormData = () => {
       convenientTime: 'entry.550692642',
     };
 
-    const url = `https://docs.google.com/forms/u/0/d/e/1FAIpQLSe1tswz9CoTUek_SvjG9ku19Dm4Bs9GXF3PVFsuHoNsr-4PTA/formResponse`;
+    const url = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
 
     const data = new URLSearchParams({
       [entryNames.name]: name,
@@ -38,13 +38,20 @@ const ContactFormData = () => {
 
     fetch(url, {
       method: 'POST',
-      body: data,
+      body: data.toString(),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
       .then(() => {
         alert('Message sent successfully!');
+        // Optionally clear form fields after submission
+        setName('');
+        setEmail('');
+        setCompany('');
+        setPhone('');
+        setMessage('');
+        setConvenientTime('');
       })
       .catch((error) => {
         alert('Error in sending the message');
