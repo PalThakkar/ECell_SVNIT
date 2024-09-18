@@ -33,6 +33,30 @@ export const metadata = {
 };
 
 const teamMembers = {
+  executiveBoard: [
+    {
+      name: "Mihir Gandhi",
+      position: "President",
+      photo: "/mihir.jpg",
+      linkedin: "https://www.linkedin.com/in/mihir--gandhi",
+      instagram: 'https://www.instagram.com/mihir__gandhi/',
+    },
+    {
+      name: "Darshan Upadhyay",
+      position: "Vice President",
+      photo: "/darshan.jpg",
+      linkedin: "https://www.linkedin.com/in/thedarshanupadhyay/",
+      instagram: 'https://www.instagram.com/upadhyay__darshan/',
+    },
+    {
+      name: "Burhanuddin Lokhandwala",
+      position: "Secretary",
+      photo: "/secraty.jpeg",
+      linkedin: "https://www.linkedin.com/in/burhanuddinlokhandwala04/",
+      instagram: 'https://www.instagram.com/burhan____04/',
+    }
+  ],
+
   chiefExecutive: [
     {
       photo: '/jeet.jpg',
@@ -146,7 +170,7 @@ const teamMembers = {
 };
 
 const renderTeamSection = (sectionTitle, members) => (
-  <>
+  <section>
     <h2 className="text-3xl font-bold text-center mt-10 text-neutral-950">{sectionTitle}</h2>
     <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
       {members.map((member, index) => (
@@ -160,7 +184,7 @@ const renderTeamSection = (sectionTitle, members) => (
         />
       ))}
     </div>
-  </>
+  </section>
 );
 
 const TeamPage = () => {
@@ -172,12 +196,13 @@ const TeamPage = () => {
         </p>
       </PageIntro>
       <Container className="mt-12 flex flex-col items-center">
+        {renderTeamSection('Executive Board', teamMembers.executiveBoard)}
         {renderTeamSection('Chief Executives', teamMembers.chiefExecutive)}
-        {renderTeamSection('Technical', teamMembers.technical)}
-        {renderTeamSection('Media and Publicity', teamMembers.mediaAndPublicity)}
-        {renderTeamSection('Events', teamMembers.events)}
+        {renderTeamSection('Technical Team', teamMembers.technical)}
+        {renderTeamSection('Media and Publicity Team', teamMembers.mediaAndPublicity)}
+        {renderTeamSection('Events Team', teamMembers.events)}
         {renderTeamSection('Startup Team', teamMembers.startupTeam)}
-        {renderTeamSection('Public Relations', teamMembers.publicRelations)}
+        {renderTeamSection('Public Relations Team', teamMembers.publicRelations)}
       </Container>
     </>
   );
