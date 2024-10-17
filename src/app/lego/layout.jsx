@@ -9,7 +9,7 @@ export const metadata = {
     url: "https://www.ecellsvnit.com/lego",
     siteName: "E-Cell SVNIT",
     images: [{
-      url: "https://www.ecellsvnit.com/images/lego-job-og-image.png",
+      url: "/lego.png", // Changed to relative path assuming it's accessible publicly through the site.
       width: 1200,
       height: 630,
       alt: "LEGO Startup Event",
@@ -20,7 +20,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "LEGO Startup | E-Cell SVNIT",
     description: "Join the LEGO Startup event and showcase your entrepreneurial skills.",
-    images: ["https://www.ecellsvnit.com/lego-og-image.png"],
+    images: ["/lego.png"], // Changed to relative path assuming it's accessible publicly through the site.
   },
 };
 
