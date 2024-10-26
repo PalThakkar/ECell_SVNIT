@@ -76,15 +76,15 @@ const Footer = () => {
               S R Jay Kikani
             </LinkPreview>{" "}
             &{" "}
-            <a
-              href="https://in.linkedin.com/in/shambhavishinde"
+            <LinkPreview
+              url="https://in.linkedin.com/in/shambhavishinde"
+              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
               target="_blank"
-              style={{ color: "#FF9900", textDecoration: "none" }}
-              onMouseOver={(e) => (e.currentTarget.style.color = "#4f9b0c")}
-              onMouseOut={(e) => (e.currentTarget.style.color = "#FF9900")}
+              rel="noopener noreferrer"
             >
               Shambhavi Shinde
-            </a>{" "}
+              </LinkPreview>
+            {" "}
             , managed by E-Cell Technical Team © {new Date().getFullYear()}
           </p>
         </div>

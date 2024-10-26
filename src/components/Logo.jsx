@@ -1,19 +1,28 @@
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Logo = ({ invert, href, className, fillOnHover, children, ...props }) => {
-  // Use the fillOnHover prop internally to apply custom styles or logic
+  const pathname = usePathname();
+  const isEventsPage = pathname === '/events';
+  
+  // Use black logo on events page when not inverted
+  const logoSrc = (isEventsPage && !invert) ? "/logo-black.svg" : "/logo.svg";
+  
   className = clsx(
     className,
-    invert ? "text-white hover:text-blue-600" : "text-black hover:text-blue-600",
-    fillOnHover && "hover:fill-current" // Example of how you might use fillOnHover
+    {
+      'text-white hover:text-blue-600': invert || isEventsPage,
+      'text-black hover:text-blue-600': !invert && !isEventsPage
+    },
+    fillOnHover && "hover:fill-current"
   );
 
   const inner = (
     <span className="relative">
       <Image
-        src="/logo.svg"
+        src={logoSrc}
         alt="Logo"
         width={180}
         height={180}

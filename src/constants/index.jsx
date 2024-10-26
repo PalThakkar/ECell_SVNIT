@@ -6,7 +6,7 @@ export const navigation = [
     links: [
       { title: "About", href: "/about" },
       { title: "Team", href: "/team" },
-      { title: "Blog", href: "/blog" },
+      { title: "Events", href: "/events" },
       { title: "Contact us", href: "/contact" },
       { title: "Job", href: "/jobs" },
       { title: "FAQ", href: "/Faq" },  // Added FAQ link

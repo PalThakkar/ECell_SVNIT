@@ -1,4 +1,3 @@
-// src/components/RootLayout.jsx
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
@@ -16,16 +15,27 @@ import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 
 const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggleRef }) => {
+  const pathname = usePathname();
+  const isEventsPage = pathname === '/events';
+  
+  // Combine the invert prop with events page condition
+  const shouldInvert = invert || isEventsPage;
+
   return (
     <Container>
       <div className="flex items-center justify-between">
         {!expanded && (
           <Link href={"/"} aria-label="Home">
-            <Logo invert={invert}>E-Cell SVNIT</Logo>
-          </Link>
+          <Logo className="h-8 mb-16" fillOnHover />
+        </Link>
         )}
         <div className="flex items-center gap-x-8">
-          <Button href={"/contact"} invert={invert}>
+          <Button 
+            href={"/contact"} 
+            className={clsx(
+              isEventsPage && !expanded && "text-white hover:text-neutral-200"
+            )}
+          >
             Contact us
           </Button>
           <button
@@ -36,14 +46,14 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
             aria-controls={panelId}
             className={clsx(
               "group -m-2.5 rounded-full p-2.5 transition",
-              invert ? "hover:bg-white/10" : "hover:bg-neutral-950/10"
+              shouldInvert ? "hover:bg-white/10" : "hover:bg-neutral-950/10"
             )}
             aria-label="Toggle navigation"
           >
             <Icon
               className={clsx(
                 "h-6 w-6",
-                invert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
+                shouldInvert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
               )}
             />
           </button>
@@ -84,7 +94,7 @@ const Navigation = () => {
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/jobs">Jobs</NavigationItem>
-        <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem href="/events">Events</NavigationItem>
       </NavigationRow>
     </nav>
   );
@@ -97,6 +107,8 @@ const RootLayoutInner = ({ children }) => {
   const closeRef = useRef();
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
+  const pathname = usePathname();
+  const isEventsPage = pathname === '/events';
 
   useEffect(() => {
     function onClick(event) {
@@ -115,7 +127,10 @@ const RootLayoutInner = ({ children }) => {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
         <div
-          className="absolute left-0 right-0 top-2 z-40 pt-14"
+          className={clsx(
+            "absolute left-0 right-0 top-2 z-40 pt-14",
+            isEventsPage && "text-white"
+          )}
           aria-hidden={expanded ? "true" : undefined}
           inert={expanded ? "" : undefined}
         >
@@ -132,6 +147,7 @@ const RootLayoutInner = ({ children }) => {
             }}
           />
         </div>
+
         <motion.div
           layout
           id={panelId}
@@ -181,14 +197,21 @@ const RootLayoutInner = ({ children }) => {
           </motion.div>
         </motion.div>
       </header>
+
       <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-white pt-14"
+        className={clsx(
+          "relative flex flex-auto overflow-hidden pt-14",
+          isEventsPage ? "bg-gray-950" : "bg-white"
+        )}
       >
         <motion.div
           layout
-          className="relative isolate flex w-full flex-col pt-9"
+          className={clsx(
+            "relative isolate flex w-full flex-col pt-9",
+            isEventsPage && "text-white"
+          )}
         >
           <main className="w-full flex-auto">{children}</main>
           <Footer />
