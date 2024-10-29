@@ -23,34 +23,39 @@ const FormUILego = ({
 }) => {
   return (
     <FadeIn>
-      <form onSubmit={handleSubmit}>
-        <h2 className="font-display text-base font-semibold text-neutral-950">
-          Lego Startup Idea Submission Form
-        </h2>
-        <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput label="Idea Title" value={ideaTitle} onChange={e => setIdeaTitle(e.target.value)} />
-          <TextInput label="Team Name" value={teamName} onChange={e => setTeamName(e.target.value)} />
-          <TextInput label="Team Leader Phone" type="tel" value={teamLeaderPhone} onChange={e => setTeamLeaderPhone(e.target.value)} />
-          
-          {/* Inputs for team members */}
-          <TextInput label="Member 1 Name" value={member1Name} onChange={e => setMember1Name(e.target.value)} />
-          <TextInput label="Member 1 Admission Number" value={member1Admission} onChange={e => setMember1Admission(e.target.value)} />
-          <TextInput label="Member 2 Name" value={member2Name} onChange={e => setMember2Name(e.target.value)} />
-          <TextInput label="Member 2 Admission Number" value={member2Admission} onChange={e => setMember2Admission(e.target.value)} />
-          <TextInput label="Member 3 Name" value={member3Name} onChange={e => setMember3Name(e.target.value)} />
-          <TextInput label="Member 3 Admission Number" value={member3Admission} onChange={e => setMember3Admission(e.target.value)} />
-          <TextInput label="Member 4 Name" value={member4Name} onChange={e => setMember4Name(e.target.value)} />
-          <TextInput label="Member 4 Admission Number" value={member4Admission} onChange={e => setMember4Admission(e.target.value)} />
-
-          <TextInput label="Problems Being Solved" value={problemsSolved} onChange={e => setProblemsSolved(e.target.value)} />
-          <TextInput label="Users" value={users} onChange={e => setUsers(e.target.value)} />
-          <TextInput label="Value Provided to Users" value={valueProvided} onChange={e => setValueProvided(e.target.value)} />
-          <TextInput label="Execution Steps" value={executionSteps} onChange={e => setExecutionSteps(e.target.value)} />
+      <div className="space-y-6">
+        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+          <p className="font-bold">Registration Closed</p>
+          <p>We're sorry, but the registration period for the Lego Startup Idea competition has ended. Thank you for your interest!</p>
         </div>
-        <Button type="submit" className="mt-10">
-          Submit Form
-        </Button>
-      </form>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <h2 className="font-display text-base font-semibold text-neutral-950">
+            Lego Startup Idea Submission Form
+          </h2>
+          <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
+            <TextInput label="Idea Title" value={ideaTitle} onChange={e => setIdeaTitle(e.target.value)} disabled />
+            <TextInput label="Team Name" value={teamName} onChange={e => setTeamName(e.target.value)} disabled />
+            <TextInput label="Team Leader Phone" type="tel" value={teamLeaderPhone} onChange={e => setTeamLeaderPhone(e.target.value)} disabled />
+            
+            <TextInput label="Member 1 Name" value={member1Name} onChange={e => setMember1Name(e.target.value)} disabled />
+            <TextInput label="Member 1 Admission Number" value={member1Admission} onChange={e => setMember1Admission(e.target.value)} disabled />
+            <TextInput label="Member 2 Name" value={member2Name} onChange={e => setMember2Name(e.target.value)} disabled />
+            <TextInput label="Member 2 Admission Number" value={member2Admission} onChange={e => setMember2Admission(e.target.value)} disabled />
+            <TextInput label="Member 3 Name" value={member3Name} onChange={e => setMember3Name(e.target.value)} disabled />
+            <TextInput label="Member 3 Admission Number" value={member3Admission} onChange={e => setMember3Admission(e.target.value)} disabled />
+            <TextInput label="Member 4 Name" value={member4Name} onChange={e => setMember4Name(e.target.value)} disabled />
+            <TextInput label="Member 4 Admission Number" value={member4Admission} onChange={e => setMember4Admission(e.target.value)} disabled />
+
+            <TextInput label="Problems Being Solved" value={problemsSolved} onChange={e => setProblemsSolved(e.target.value)} disabled />
+            <TextInput label="Users" value={users} onChange={e => setUsers(e.target.value)} disabled />
+            <TextInput label="Value Provided to Users" value={valueProvided} onChange={e => setValueProvided(e.target.value)} disabled />
+            <TextInput label="Execution Steps" value={executionSteps} onChange={e => setExecutionSteps(e.target.value)} disabled />
+          </div>
+          <Button type="submit" className="mt-10" disabled>
+            Registration Closed
+          </Button>
+        </form>
+      </div>
     </FadeIn>
   );
 };
