@@ -26,8 +26,8 @@ const FormUILego = ({
       <div className="space-y-6">
         <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
           <p className="font-bold">Registration Closed</p>
-          <p>We're sorry, but the registration period for the Lego Startup Idea competition has ended. Thank you for your interest!</p>
-        </div>
+          <p>We&apos;re sorry, but the registration period for the Lego Startup Idea competition has ended. Thank you for your interest!</p>
+          </div>
         <form onSubmit={(e) => e.preventDefault()}>
           <h2 className="font-display text-base font-semibold text-neutral-950">
             Lego Startup Idea Submission Form
