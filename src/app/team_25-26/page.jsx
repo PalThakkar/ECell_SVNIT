@@ -33,136 +33,112 @@ export const metadata = {
 };
 
 const teamMembers = {
-  executiveBoard: [
-    {
-      name: "Mihir Gandhi",
-      position: "President",
-      photo: "/mihir.jpg",
-      linkedin: "https://www.linkedin.com/in/mihir--gandhi",
-      instagram: 'https://www.instagram.com/mihir__gandhi/',
-    },
-    {
-      name: "Darshan Upadhyay",
-      position: "Vice President",
-      photo: "/darshan.jpg",
-      linkedin: "https://www.linkedin.com/in/thedarshanupadhyay/",
-      instagram: 'https://www.instagram.com/upadhyay__darshan/',
-    },
-    {
-      name: "Burhanuddin Lokhandwala",
-      position: "Secretary",
-      photo: "/secraty.jpeg",
-      linkedin: "https://www.linkedin.com/in/burhanuddinlokhandwala04/",
-      instagram: 'https://www.instagram.com/burhan____04/',
-    }
-  ],
-
   chiefExecutive: [
     {
-      photo: '/jeet.jpg',
-      name: 'Jeet Ariwala',
-      position: 'Chief Executive',
+      photo: '/atman.png',
+      name: 'Atman Shah',
+      position: 'Convener',
       linkedin: 'https://www.linkedin.com/in/jeet-ariwala-152243256',
       instagram: 'https://www.instagram.com/jeet_ariwala21',
     },
     {
-      photo: '/kartik.jpg',
-      name: 'Kartik Srivastava',
-      position: 'Chief Executive',
+      photo: '/aman.png',
+      name: 'Aman Kapoor',
+      position: 'Co-Convener',
       linkedin: 'https://www.linkedin.com/in/kartik-srivastava-b46b561b7',
       instagram: 'https://www.instagram.com/__.the.prodigal.son.__',
     },
     {
-      photo: '/kashish.jpg',
-      name: 'Kashish Sharma',
-      position: 'Chief Executive',
+      photo: '/asmi.png',
+      name: 'Asmi Wadhwa',
+      position: 'Secretary',
       linkedin: 'https://www.linkedin.com/in/kashish-sharma-545774215',
       instagram: 'https://www.instagram.com/kashishhh__11',
     },
     {
-      photo: '/omraa.jpg',
-      name: 'Om Ramanuj',
-      position: 'Chief Executive',
+      photo: '/soni.png',
+      name: 'Lakshya Soni',
+      position: 'Treasurer',
       linkedin: 'https://www.linkedin.com/in/om-ramanuj-511501266',
       instagram: 'https://www.instagram.com/ramanuj_om',
     },
   ],
-  technical: [
+  finance: [
     {
-      photo: '/srjay.jpg',
-      name: 'S R Jay Kikani',
+      photo: '/adi.jpg',
+      name: 'Aditya Panchal',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/srjaykikani',
       instagram: 'https://www.instagram.com/_srjay',
     },
     {
-      photo: '/shambhavi.jpg',
-      name: 'Shambhavi Shinde',
-      position: 'Co-head',
+      photo: '/shabbir.png',
+      name: 'Shabbir Hussainy',
+      position: 'Head',
       linkedin: 'https://www.linkedin.com/in/shambhavishinde',
       instagram: 'https://www.instagram.com/shmbhvi',
     },
   ],
-  mediaAndPublicity: [
+  mediaAndDesign: [
     {
-      photo: '/dangar.jpg',
-      name: 'Ronak Dangar',
+      photo: '/kasera.png',
+      name: 'Tanish Kasera',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/ronak-dangar',
       instagram: 'https://www.instagram.com/ronak_dangar_04',
     },
     {
-      photo: '/om-p.jpg',
-      name: 'Om Panchal',
-      position: 'Co-Head',
+      photo: '/altaf.jpg',
+      name: 'Altaf Shams',
+      position: 'Head',
       linkedin: 'https://in.linkedin.com/in/om-panchal-136410257',
       instagram: 'https://www.instagram.com/om_panchal_op7',
     },
   ],
   events: [
     {
-      photo: '/tripathi.jpg',
-      name: 'Pritish Tripathi',
+      photo: '/priti.jpg',
+      name: 'Priti Sand',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/pritish-tripathi-362006271',
       instagram: 'https://www.instagram.com/tripathipritish',
     },
     {
-      photo: '/tanish.jpg',
-      name: 'Tanish Panchal',
-      position: 'Co-head',
+      photo: '/harsh.png',
+      name: 'Harsh Solanki',
+      position: 'Head',
       linkedin: 'https://www.linkedin.com/in/tanish2311',
       instagram: 'https://www.instagram.com/ttan_ishh',
     },
   ],
-  startupTeam: [
+  contentTeam: [
     {
-      photo: '/ridhayu.jpg',
-      name: 'Gosai Ridhayu',
+      photo: '/tanisha.jpg',
+      name: 'Tanisha Mishra',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/ridhayu-gosai-4b063a280',
       instagram: 'https://www.instagram.com/ridhayu_gosai_28',
     },
     {
-      photo: '/sp.jpg',
-      name: 'Soumya Parida',
-      position: 'Co-head',
+      photo: '/jash.jpg',
+      name: 'Jash Vadani',
+      position: 'Head',
       linkedin: 'https://www.linkedin.com/in/soumyashreeparida785',
       instagram: 'https://www.instagram.com/pvtt_soumya',
     },
   ],
   publicRelations: [
     {
-      photo: '/zala.jpg',
-      name: 'Nanviya Zala',
+      photo: '/meet.png',
+      name: 'Meet Pandya',
       position: 'Head',
       linkedin: 'https://www.linkedin.com/in/nanviya-zala-108324306',
       instagram: 'https://www.instagram.com/notnanviazala',
     },
     {
-      photo: '/parmar.jpg',
-      name: 'Krish Parmar',
-      position: 'Co-Head',
+      photo: '/devanshi.jpg',
+      name: 'Devanshi Rathwa',
+      position: 'Head',
       linkedin: 'https://www.linkedin.com/in/krish-parmar-a30211258',
       instagram: 'https://www.instagram.com/krishh_.003',
     },
@@ -170,42 +146,45 @@ const teamMembers = {
 };
 
 const renderTeamSection = (sectionTitle, members) => (
-  <section>
-    <h2 className="text-3xl font-bold text-center mt-10 text-neutral-950">{sectionTitle}</h2>
-    <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
-      {members.map((member, index) => (
-        <TeamMember
-          key={index}
-          photo={member.photo}
-          name={member.name}
-          position={member.position}
-          linkedin={member.linkedin}
-          instagram={member.instagram}
-        />
-      ))}
-    </div>
+  <section className="w-full">
+    <h2 className="text-5xl font-extrabold text-center mt-16 text-neutral-900 tracking-tight">
+      {sectionTitle}
+    </h2>
+    <div className="flex justify-center mt-10 gap-8 flex-wrap">
+  {members.map((member, index) => (
+    <TeamMember
+      key={index}
+      photo={member.photo}
+      name={member.name}
+      position={member.position}
+      linkedin={member.linkedin}
+      instagram={member.instagram}
+    />
+  ))}
+</div>
+
   </section>
 );
 
-const TeamPage = () => {
-  return (
-    <>
-      <PageIntro eyebrow="Team" title="Meet Our Team" centered>
-        <p>
-          Get to know the amazing team behind E-Cell SVNIT. Connect with us on LinkedIn and Instagram.
-        </p>
-      </PageIntro>
-      <Container className="mt-12 flex flex-col items-center">
-        {renderTeamSection('Executive Board', teamMembers.executiveBoard)}
-        {renderTeamSection('Chief Executives', teamMembers.chiefExecutive)}
-        {renderTeamSection('Technical Team', teamMembers.technical)}
-        {renderTeamSection('Media and Publicity Team', teamMembers.mediaAndPublicity)}
-        {renderTeamSection('Events Team', teamMembers.events)}
-        {renderTeamSection('Startup Team', teamMembers.startupTeam)}
-        {renderTeamSection('Public Relations Team', teamMembers.publicRelations)}
-      </Container>
-    </>
-  );
-};
+
+const TeamPage = () => (
+  <>
+    <PageIntro eyebrow="Team" title="Meet Our Team" centered>
+      <p className="text-lg sm:text-xl max-w-4xl mx-auto">
+        Get to know the amazing team behind E-Cell SVNIT. Connect with us on LinkedIn and Instagram.
+      </p>
+    </PageIntro>
+
+    <div className="mt-16 px-8 lg:px-12 w-full max-w-[1700px] mx-auto">
+      {renderTeamSection('Chief Executives', teamMembers.chiefExecutive)}
+      {renderTeamSection('Events Team', teamMembers.events)}
+      {renderTeamSection('Podcast and Content Team', teamMembers.contentTeam)}
+      {renderTeamSection('Finance and Documentation Team', teamMembers.finance)}
+      {renderTeamSection('Public Relations Team', teamMembers.publicRelations)}
+      {renderTeamSection('Media and Design Team', teamMembers.mediaAndDesign)}
+    </div>
+  </>
+);
+
 
 export default TeamPage;
