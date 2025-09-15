@@ -1,89 +1,232 @@
+"use client";
 import ContactSection from "@/components/ContactSection";
 import Cultures from "@/components/Cultures";
 import PageIntro from "@/components/PageIntro";
 import React from "react";
-
-// Define metadata for the About page
-export const metadata = {
-  title: "About Us | E-Cell SVNIT",
-  description:
-    "Discover how collaboration is at the heart of E-Cell SVNIT. Learn more about our values, our team, and our commitment to making a difference.",
-  openGraph: {
-    title: "About Us | E-Cell SVNIT",
-    description:
-      "E-Cell SVNIT thrives on collaboration. Learn more about our approach, our team, and our story.",
-    url: "https://www.ecellsvnit.com/about",
-    siteName: "E-Cell SVNIT",
-    images: [
-      {
-        url: "https://www.ecellsvnit.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "About E-Cell SVNIT",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Us | E-Cell SVNIT",
-    description:
-      "Discover how collaboration is at the heart of E-Cell SVNIT. Learn more about our values, our team, and our story.",
-    images: ["https://www.ecellsvnit.com/og-image.png"],
-  },
-};
+import { motion } from "framer-motion";
 
 const AboutPage = () => {
   return (
-    <>
-      <PageIntro eyebrow="About us" title="Welcome to E-Cell" max-w-10xl>
-        <p>
-          Where business ideas are born from sleep-deprived minds and fueled by an excessive amount of caffeine! If you&rsquo;ve ever thought, &ldquo;Hey, I could totally be the next Steve Jobs,&rdquo; or simply wondered why no one&rsquo;s invented edible textbooks yet, you&rsquo;re in the right place.
-        </p>
-
-        <h2 className="mt-6 text-xl font-bold">What We Do:</h2>
-        <div className="mt-10 max-w-none w-full space-y-6 text-base">
-          <h3 className="mt-6 text-xl font-semibold">1. Incubate Startups</h3>
-          <p>
-            Think of us as your entrepreneurial fairy godparents. We&rsquo;re here to wave our magic wands and turn your half-baked ideas into fully baked startups. This year, we&rsquo;re adopting 2-3 lucky startups, providing them with all the resources, mentorship, and support they need. All you need to do is show up with a great idea (and maybe a bribe in the form of coffee).
-          </p>
-          
-          <h3 className="mt-6 text-xl font-semibold">2. Collaborate & Innovate</h3>
-          <p>
-            We&rsquo;re all about making friends in high places—or at least with other E-Cells and institutes. We&rsquo;re setting up 10 collaborations this year, which is code for “let&rsquo;s see how many brains we can cram into one room and hope genius happens.” We&rsquo;ll be sharing knowledge, trading ideas, and throwing some pretty epic parties, all in the name of innovation.
-          </p>
-          
-          <h3 className="mt-6 text-xl font-semibold">3. Support Grassroots Businesses</h3>
-          <p>
-            We believe in the little guys—or as we like to call them, “future giant corporations.” We&rsquo;re here to help grassroots businesses grow with a bit of guidance, some opportunities, and a lot of cheering from the sidelines. Who said entrepreneurship had to be all about tech? We&rsquo;re here for the chaiwalas, the street vendors, and everyone in between.
-          </p>
-
-          <h2 className="mt-6 text-xl font-bold">What&apos;s in store?</h2>
-          <h3 className="mt-6 text-xl font-semibold">E-Summit & Beyond</h3>
-          <p>
-            Buckle up, because this year is going to be a wild ride! We&rsquo;re kicking off with an intro event, then diving headfirst into our flagship E-Summit, where dreams are made, or at least pitched very convincingly. We&rsquo;ve got workshops, a pitch deck battle royale, a business fair, and an internship drive that&rsquo;s basically like The Hunger Games, but with fewer arrows. And don&rsquo;t miss our podcast, &ldquo;Chai with E-Cell,&rdquo; where we spill the entrepreneurial tea.
-          </p>
-          
-          <h3 className="mt-6 text-xl font-semibold">The Business Wall</h3>
-          <p>
-            Got a million-dollar idea? Or just a doodle of a stick figure with a lightbulb over its head? Stick it on our Business Wall! This is where the magic happens—or at least where we collect all the sticky notes that might one day become the next big thing. It&rsquo;s like Twitter, but with paper, and nobody&rsquo;s trolling you.
-          </p>
-          
-          <h3 className="mt-6 text-xl font-semibold">Sell-Out & Merch Madness</h3>
-          <p>
-            Can you sell water to a fish? Great! Because we&rsquo;re putting your sales skills to the test with our Sell-Out challenge. Turn those sales into cold, hard mini-rewards and eternal E-Cell glory. And if that wasn&rsquo;t enough, we&rsquo;re tossing out some of our super-cool E-Cell merch. Trust us, you&rsquo;ll want to be seen in these T-shirts—your mom will be so proud.
-          </p>
-
-          <h2 className="mt-6 text-xl font-bold">Launchpad – Where Ideas Take Off</h2>
-          <p>
-            Introducing Launchpad, where your baby startup gets its first wings—or maybe just a gentle push off a very high cliff (with a parachute, of course). This yearlong program offers financial backing, strategic guidance, and the kind of tough love you&rsquo;d expect from a boot camp. You&rsquo;ll learn everything from creating an MVP to navigating the treacherous waters of scaling your business. We&rsquo;ll be there every step of the way, yelling “You got this!” from the sidelines.
-          </p>
+    <div className="bg-white min-h-screen scroll-smooth m-5 ml-5 mt-20 mb-5">
+      {/* Intro Section */}
+      <motion.div
+        className="mt-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
+      >
+        <span
+          className="text-[#FBBD58] text-left block font-bold text-3xl md:text-4xl relative pb-2 mt-2 ml-10"
+          style={{ textShadow: "2px 2px 6px #000, 0 1px 0 #000" }}
+        >
+          About <span className="text-black">Us</span>
+          <span
+            className="absolute left-0 bottom-0 w-full h-[3px] bg-[#FBBD58] rounded"
+            style={{ opacity: 0.5 }}
+          ></span>
+        </span>
+        <div className="flex flex-col md:flex-row md:items-center md:gap-8 w-full mt-4">
+          {/* Left: Heading */}
+          <div className="md:w-1/3 w-full mb-4 md:mb-0 ml-10 mr-10 mt-0">
+            <div className="text-center flex items-end flex-wrap gap-1">
+              <span className="text-black font-normal text-2xl md:text-3xl leading-tight">
+                Welcome to
+              </span>
+              <span className="relative inline-block align-bottom">
+                <span
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-3/4 bg-[#FBBD58] z-0 rounded"
+                  style={{ height: "70%", minWidth: "100%", top: "60%" }}
+                ></span>
+                <span
+                  className="relative text-black font-extrabold text-5xl md:text-6xl leading-none px-2"
+                  style={{ zIndex: 1 }}
+                >
+                  E-Cell
+                </span>
+              </span>
+            </div>
+          </div>
+          {/* Right: Intro Text */}
+          <div className="md:w-2/3 w-full">
+            <p className="text-black mt-4 md:mt-0 text-xl md:text-2xl">
+              NIT-Surat’s Entrepreneurship Cell (E-Cell) was established in June
+              2024, aims to serve as a hub for innovation by organizing multiple
+              events to foster entrepreneurial mindset, innovation and ambition
+              among students.
+            </p>
+            <p className="text-black mt-4 md:mt-0 text-xl md:text-2xl">
+              Guided by our{" "}
+              <span className="font-bold text-[#FBBD58]">
+                Chairperson, Dr. Amit Singh
+              </span>{" "}
+              from the Department of Mechanical Engineering and{" "}
+              <span className="font-bold text-[#FBBD58]">
+                Co-Chairperson, Dr. Vaishali Dhingra
+              </span>
+              from the Department of Mathematics and Humanities, we aspire to
+              transform student ideas into viable business ventures and
+              fostering a culture of job creators not just job seekers.
+            </p>
+            <p className="text-black mt-4 md:mt-0 text-xl md:text-2xl">
+              This cell is a dynamic mini-ecosystem designed to cultivate an
+              entrepreneurial mindset and equip students with the practical
+              skills needed to launch their own startups and serving as a
+              platform for students to test their ideas through a variety of
+              competitive events. They achieve this through educational
+              workshops, high impact competitions and extensive networking
+              opportunities.
+            </p>
+          </div>
         </div>
-      </PageIntro>
-     
-      <Cultures />
-      <ContactSection />
-    </>
+      </motion.div>
+
+      {/* What We Do Section */}
+      <motion.section
+        className="bg-[#f9f9f9] py-6 mt-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+      >
+        <div className="w-full m-0 flex flex-col md:flex-row md:items-start md:gap-1">
+          <div className="md:w-1/3 w-full mb-1 md:mb-0 flex-shrink-0 flex items-center justify-center">
+            <h2 className="text-3xl font-extrabold text-black uppercase tracking-wide mb-0">
+              What We Do
+              <span
+                className="block border-b-2 border-[#FBBD58] w-10 mt-1"
+                style={{ opacity: 0.7 }}
+              ></span>
+            </h2>
+          </div>
+          <div className="md:w-2/3 w-full mr-10 grid md:grid-cols-3 gap-4">
+            {/* Card 1 */}
+            <div className="rounded-2xl border-l-4 border-[#FBBD58] bg-white shadow p-6">
+              <h3 className="text-xl font-bold text-black mb-2 flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-8 h-8 bg-[#FBBD58] text-white font-bold rounded-sm mr-2">
+                  1
+                </span>
+                Events & Workshops
+              </h3>
+              <p className="text-[#222]">
+                Organising competitions, Quiz Events and summits to foster
+                entrepreneurial thinking and culture amongst students.
+              </p>
+            </div>
+            {/* Card 2 */}
+            <div className="rounded-2xl border-l-4 border-[#FBBD58] bg-white shadow p-6">
+              <h3 className="text-xl font-bold text-black mb-2 flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-8 h-8 bg-[#FBBD58] text-white font-bold rounded-sm mr-2">
+                  2
+                </span>
+                Skill Development:
+              </h3>
+              <p className="text-[#222]">
+                Conducts sessions and events on business modelling, marketing
+                and finance to mimic real-world startups.
+              </p>
+            </div>
+            {/* Card 3 */}
+            <div className="rounded-2xl border-l-4 border-[#FBBD58] bg-white shadow p-6">
+              <h3 className="text-xl font-bold text-black mb-2 flex items-center gap-2">
+                <span className="inline-flex items-center justify-center w-8 h-8 bg-[#FBBD58] text-white font-bold rounded-sm mr-2">
+                  3
+                </span>
+                Community Building
+              </h3>
+              <p className="text-[#222]">
+                Connects students with alumni, industry experts, fellow students
+                and other founders to create an interactive environment to
+                foster connections.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* What's in Store Section */}
+      <motion.section
+        className="py-6"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      >
+        <div className="w-full m-0 flex flex-col md:flex-row md:items-start md:gap-1">
+          <div className="md:w-2/3 w-full ml-10 grid md:grid-cols-2 gap-4 order-2 md:order-1">
+            <div className="bg-[#f9f9f9] rounded-2xl border-l-4 border-[#FBBD58] shadow p-8">
+              <h3 className="text-xl font-bold text-black mb-2">
+                <span className="font-bold text-[#FBBD58]">E-Summit</span> &
+                Beyond
+              </h3>
+              <p className="text-[#222]">
+                The{" "}
+                <span className="font-bold text-[#FBBD58]">
+                  flagship event of E-Cell NIT-Surat
+                </span>
+                , celebrates innovation and entrepreneurship by featuring
+                competitions, workshops, and networking with experts and alumni.
+                It empowers students to transform their ideas into impactful
+                ventures.
+              </p>
+            </div>
+            <div className="bg-[#f9f9f9] rounded-2xl border-l-4 border-[#FBBD58] shadow p-8">
+              <h3 className="text-xl font-bold text-black mb-2">
+                <span className="font-bold text-[#FBBD58]">Lego </span>Start-Up
+              </h3>
+              <p className="text-[#222]">
+                Held every odd semester, it is designed to ignite the
+                entrepreneurial spirit among students and build a strong startup
+                culture amongst students. The event features interactive
+                workshops, mentor-led sessions, and the lively Business Fair,
+                where students showcase their models and get valuable feedback.
+                The grand finale is the{" "}
+                <span className="font-bold text-[#FBBD58]">
+                  Investor Pitching round
+                </span>
+                , where the remarkable ideas take the stage and get the
+                recognition they deserve.
+              </p>
+            </div>
+            <div className="bg-[#f9f9f9] rounded-2xl border-l-[5px] border-[#FBBD58] shadow p-6 md:col-span-2">
+              <h3 className="text-xl font-bold text-black mb-2">
+                <span className="font-bold text-[#FBBD58]">Corporate </span>{" "}
+                Catastrophe
+              </h3>
+              <p className="text-[#222]">
+                This event aims to challenge critical thinking and test
+                problem-solving skills of the participants. Consisting of
+                multiple rounds incorporating riddles and puzzles, the entire
+                event was a series of interconnected challenges that tested
+                player’s observation, problem-solving, and deduction skills to
+                progress from one room to the next.
+              </p>
+            </div>
+          </div>
+          <div className="md:w-1/3 w-full mb-4 md:mb-0 flex-shrink-0 flex items-start order-1 md:order-2">
+            <h2 className="text-3xl font-extrabold text-black uppercase tracking-wide mb-1 ml-auto text-center w-full">
+              What's in Store
+              <span
+                className="block border-b-2 border-[#FBBD58] w-16 ml-24 mt-1"
+                style={{ opacity: 0.7 }}
+              ></span>
+            </h2>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Cultures & Contact Section */}
+      <motion.div
+        className="mt-6"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+      >
+        <Cultures />
+        <ContactSection />
+      </motion.div>
+    </div>
   );
 };
 
