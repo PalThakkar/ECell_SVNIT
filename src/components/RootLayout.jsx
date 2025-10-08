@@ -26,7 +26,7 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
       <div className="flex items-center justify-between">
         {!expanded && (
           <Link href={"/"} aria-label="Home">
-          {/* <Logo className="h-8 mb-16" fillOnHover /> */}
+          <Logo className="h-8 mb-16" fillOnHover />
         </Link>
         )}
         <div className="flex items-center gap-x-8">
