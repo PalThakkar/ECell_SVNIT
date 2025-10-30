@@ -1,3 +1,18 @@
 @import "./base.css";
 @tailwind components;
 @tailwind utilities;
+
+.section-spacing {
+  margin-top: 0; /* Removes the white gap */
+  margin-bottom: 0; /* Removes the white gap */
+}
+
+.smooth-transition {
+  background: var(--background); /* Uniform background color */
+  transition: background 0.3s ease-in-out;
+}
+
+.faq-section {
+  background: var(--secondary); /* Updated FAQ background color */
+  color: var(--primary-foreground);
+}

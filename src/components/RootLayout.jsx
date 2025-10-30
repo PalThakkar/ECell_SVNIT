@@ -128,7 +128,7 @@ const RootLayoutInner = ({ children }) => {
       <header>
         <div
           className={clsx(
-            "absolute left-0 right-0 top-2 z-40 pt-14",
+            "absolute left-0 right-0 top-2 z-40",
             isEventsPage && "text-white"
           )}
           aria-hidden={expanded ? "true" : undefined}
@@ -151,8 +151,8 @@ const RootLayoutInner = ({ children }) => {
         <motion.div
           layout
           id={panelId}
-          style={{ height: expanded ? "auto" : "0.5rem" }}
-          className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
+          style={{ height: expanded ? "auto" : "0" }}
+          className="relative z-50 overflow-hidden bg-neutral-950"
           aria-hidden={expanded ? undefined : "true"}
           inert={expanded ? undefined : ""}
         >
@@ -203,7 +203,7 @@ const RootLayoutInner = ({ children }) => {
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
         className={clsx(
           "relative flex flex-auto overflow-hidden pt-14",
-          isEventsPage ? "bg-gray-950" : "bg-white"
+          isEventsPage ? "bg-gray-950" : "bg-gradient-to-br from-white via-gray-50 to-gray-100"
         )}
       >
         <motion.div

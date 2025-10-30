@@ -66,4 +66,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  html, body {
+    margin: 0; /* Removes black strip */
+    padding: 0; /* Removes black strip */
+  }
 }

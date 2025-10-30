@@ -4,7 +4,7 @@ import Clients from "@/components/Clients";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Services from "@/components/Services";
-import ContactSection from "@/components/ContactSection";
+// import ContactSection from "@/components/ContactSection";
 import logoPhobiaDark from "@/images/ecell.svg";
 import HeroSection from "@/components/HeroSection";
 
@@ -17,9 +17,9 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="text-black">
-      <Container className="mt-24 sm:mt-32">
-        <HeroSection />
-      </Container>
+      <HeroSection />
+      {/* <Container className="mt-24 sm:mt-32">
+      </Container> */}
       {/* <Clients /> */}
       <Testimonials
         className="mt-24 sm:mt-32 lg:mt-40"
@@ -30,7 +30,7 @@ export default function Home() {
       </Testimonials>
       <Faq />
       <Services />
-      <ContactSection />
+      {/* <ContactSection /> */}
     </main>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 relative overflow-hidden flex items-center py-8">
+    <section className="min-h-screen relative overflow-hidden flex items-center py-8">
       <div className="max-w-6xl mx-auto px-8 relative z-10">
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
