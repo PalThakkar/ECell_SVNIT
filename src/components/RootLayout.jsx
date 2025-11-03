@@ -29,10 +29,12 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
           <Logo className="h-8 mb-16" fillOnHover />
         </Link>
         )}
+        {expanded && <div className="flex-1" />}
         <div className="flex items-center gap-x-8">
           <Button 
             href={"/contact"} 
             className={clsx(
+              "px-6 py-3 text-base",
               isEventsPage && !expanded && "text-white hover:text-neutral-200"
             )}
           >
@@ -45,14 +47,14 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
             aria-expanded={expanded.toString()}
             aria-controls={panelId}
             className={clsx(
-              "group -m-2.5 rounded-full p-2.5 transition",
+              "group -m-2.5 rounded-full p-4 transition",
               shouldInvert ? "hover:bg-white/10" : "hover:bg-neutral-950/10"
             )}
             aria-label="Toggle navigation"
           >
             <Icon
               className={clsx(
-                "h-6 w-6",
+                "h-8 w-8",
                 shouldInvert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
               )}
             />
@@ -63,39 +65,54 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
   );
 };
 
-const NavigationRow = ({ children }) => {
-  return (
-    <div className="even:mt-px sm:bg-neutral-950">
-      <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
-      </Container>
-    </div>
-  );
-};
-
-const NavigationItem = ({ href, children }) => {
+const NavigationItem = ({ href, children, align = "center" }) => {
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+      className="group relative bg-neutral-950 border-b border-neutral-800 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
     >
-      {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <div className="relative overflow-hidden px-8 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20 flex items-center justify-center min-h-[120px] sm:min-h-[180px]">
+        <div className={`relative z-10 text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight w-full ${
+          align === 'left' ? 'text-left' : align === 'right' ? 'text-right' : 'text-center'
+        }`}>
+          {children}
+        </div>
+        
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-neutral-800 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
+        
+        {/* Animated gradient on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
+        
+        {/* Shine effect on hover */}
+        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
     </Link>
   );
 };
 
 const Navigation = () => {
   return (
-    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
-      <NavigationRow>
-        <NavigationItem href="/team">Team</NavigationItem>
-        <NavigationItem href="/about">About Us</NavigationItem>
-      </NavigationRow>
-      <NavigationRow>
-        <NavigationItem href="/jobs">Jobs</NavigationItem>
-        <NavigationItem href="/events">Events</NavigationItem>
-      </NavigationRow>
+    <nav className="font-display text-white bg-neutral-950">
+      {/* Mobile: Single column layout - all center aligned for better mobile UX */}
+      <div className="sm:hidden">
+        <NavigationItem href="/team" align="center">Team</NavigationItem>
+        <NavigationItem href="/about" align="center">About Us</NavigationItem>
+        <NavigationItem href="/jobs" align="center">Jobs</NavigationItem>
+        <NavigationItem href="/events" align="center">Events</NavigationItem>
+        <NavigationItem href="/work" align="center">Work</NavigationItem>
+        <NavigationItem href="/Faq" align="center">FAQ</NavigationItem>
+      </div>
+
+      {/* Tablet & Desktop: 3-column grid with varied alignment */}
+      <div className="hidden sm:grid sm:grid-cols-3">
+        <NavigationItem href="/team" align="center">Team</NavigationItem>
+        <NavigationItem href="/about" align="center">About Us</NavigationItem>
+        <NavigationItem href="/jobs" align="center">Jobs</NavigationItem>
+        <NavigationItem href="/events" align="center">Events</NavigationItem>
+        <NavigationItem href="/work" align="center">Work</NavigationItem>
+        <NavigationItem href="/Faq" align="center">FAQ</NavigationItem>
+      </div>
     </nav>
   );
 };
@@ -175,21 +192,21 @@ const RootLayoutInner = ({ children }) => {
             <Navigation />
             <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
               <Container>
-                <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
+                <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
                   <div>
-                    <h2 className="font-display text-base font-semibold text-white">
+                    <h2 className="font-display text-2xl font-semibold text-white mb-2">
                       Our Address
                     </h2>
                     <Offices
                       invert
-                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                      className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2"
                     />
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">
-                    <h2 className="font-display text-base font-semibold text-white">
+                    <h2 className="font-display text-xl font-semibold text-white mb-2">
                       Follow us
                     </h2>
-                    <SocialMedia className="mt-6" invert />
+                    <SocialMedia className="mt-8" invert />
                   </div>
                 </div>
               </Container>

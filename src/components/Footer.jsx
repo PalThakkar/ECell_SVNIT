@@ -4,7 +4,6 @@ import FadeIn from "./FadeIn";
 import FooterNavigation from "./FooterNavigation";
 import Logo from "./Logo";
 import Link from "next/link";
-import { LinkPreview } from "@/components/ui/link-preview";
 
 const ArrowIcon = (props) => {
   return (
@@ -18,6 +17,24 @@ const ArrowIcon = (props) => {
     </svg>
   );
 };
+
+// const RocketIcon = () => (
+//   <svg className="w-16 h-16 text-yellow-500 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+//     <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+//   </svg>
+// );
+
+// const LightbulbIcon = () => (
+//   <svg className="w-12 h-12 text-yellow-400 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+//     <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
+//   </svg>
+// );
+
+const SparkleIcon = ({ className }) => (
+  <svg className={`${className} animate-pulse`} fill="currentColor" viewBox="0 0 20 20">
+    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+  </svg>
+);
 
 const NewsletterForm = () => {
   return (
@@ -52,41 +69,98 @@ const NewsletterForm = () => {
 };
 
 const Footer = () => {
+  const initiatives = [
+    { name: "E-Summit", href: "/events" },
+    { name: "Workshops", href: "/events" },
+    { name: "Lego Startup", href: "/lego" },
+    { name: "Collaborations", href: "/work" },
+  ];
+
   return (
     <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
       <FadeIn>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
-          <FooterNavigation />
-          <div className="flex lg:justify-end">
-            <NewsletterForm />
+        {/* Decorative elements */}
+        {/* <div className="absolute right-10 top-0 opacity-20 hidden lg:block">
+          <RocketIcon />
+        </div> */}
+        {/* <div className="absolute left-10 top-20 opacity-20 hidden lg:block">
+          <LightbulbIcon />
+        </div> */}
+
+        {/* Main Footer Content */}
+        <div className="relative">
+          {/* Top Section with gradient border */}
+          <div className="border-t-4 border-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 mb-12" 
+               style={{ borderImage: 'linear-gradient(to right, #fbbf24, #f59e0b, #fbbf24) 1' }}>
           </div>
-        </div>
-        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
-          <Link href={"/"} aria-label="Home">
-            <Logo className="h-8 mb-16" fillOnHover />
-          </Link>
-          <p className="text-sm text-neutral-700">
-            Developed by{" "}
-            <LinkPreview
-              url="https://srjay.com"
-              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              S R Jay Kikani
-            </LinkPreview>{" "}
-            &{" "}
-            <LinkPreview
-              url="https://in.linkedin.com/in/shambhavishinde"
-              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Shambhavi Shinde
-              </LinkPreview>
-            {" "}
-            , managed by E-Cell Technical Team © {new Date().getFullYear()}
-          </p>
+          <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-4 lg:gap-x-12">
+            {/* Logo */}
+            <div className="lg:col-span-1">
+              <Link href={"/"} aria-label="Home" className="block">
+                <Logo className="h-10 w-auto" fillOnHover />
+              </Link>
+              <div className="mt-6 flex gap-2">
+                <SparkleIcon className="w-5 h-5 text-yellow-500" />
+                <SparkleIcon className="w-4 h-4 text-yellow-400" />
+                <SparkleIcon className="w-3 h-3 text-yellow-300" />
+              </div>
+            </div>
+
+            {/* Our Initiatives */}
+            <div className="lg:col-span-1">
+              <h3 className="text-lg font-bold text-neutral-950 mb-6">
+                Our Initiatives
+              </h3>
+              <ul className="space-y-4">
+                {initiatives.map((initiative) => (
+                  <li key={initiative.name}>
+                    <Link
+                      href={initiative.href}
+                      className="group text-sm text-neutral-700 hover:text-yellow-600 transition-colors font-medium hover:translate-x-1 inline-block"
+                    >
+                      {initiative.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Navigation */}
+            <div className="lg:col-span-1">
+              <FooterNavigation />
+            </div>
+
+            {/* Newsletter */}
+            <div className="lg:col-span-1">
+              <NewsletterForm />
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="mt-16 pt-8 border-t border-neutral-200">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              {/* Managed by Technical Team */}
+              <div className="text-lg font-bold text-neutral-950">
+                Managed by{" "}
+                <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+                  Technical Team {new Date().getFullYear()}
+                </span>
+              </div>
+
+              {/* Copyright */}
+              <div className="text-sm font-bold text-neutral-700">
+                © {new Date().getFullYear()} Copyright:{" "}
+                <span className="text-neutral-950">E-Cell SVNIT</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative bottom elements */}
+          <div className="mt-8 flex justify-center gap-3 opacity-50">
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+            <div className="w-2 h-2 bg-yellow-500 rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-2 h-2 bg-yellow-600 rounded-full animate-ping" style={{ animationDelay: '0.4s' }}></div>
+          </div>
         </div>
       </FadeIn>
     </Container>
