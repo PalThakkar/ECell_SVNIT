@@ -18,7 +18,7 @@
 .AccordionRoot {
   width: 90%;
   max-width: 1200px;
-  background-color: #000;
+  background-color: #fff;
   padding: 4rem;
   border-radius: none;
   box-shadow: 0 8px 16px rgba(0,0,0,.3)
@@ -28,7 +28,7 @@
   overflow: hidden;
   margin-top: 20px;
   border-radius: 12px;
-  background-color: #181818;
+  background-color: #f7f7f7;
   box-shadow: 0 4px 6px rgba(0,0,0,.2);
   transition: transform .3s ease
 }
@@ -54,7 +54,7 @@
   justify-content: space-between;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   cursor: pointer;
   border-radius: 12px;
   background-color: transparent;
@@ -62,7 +62,8 @@
 }
 
 .AccordionTrigger:hover {
-  background-color: #252525
+  background-color: #252525;
+  color: #d3d3d3;
 }
 
 .AccordionContent {
@@ -72,7 +73,7 @@
 
 .AccordionContent,.AccordionContentText {
   font-size: 1rem;
-  color: #d3d3d3
+  color: #000
 }
 
 .AccordionChevron {

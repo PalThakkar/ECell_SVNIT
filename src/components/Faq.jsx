@@ -5,7 +5,6 @@ import Link from "next/link";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import classNames from "classnames";
-import "./styles.css";
 
 const faqData = [
   {
@@ -16,10 +15,7 @@ const faqData = [
         promoting entrepreneurship, innovation, and leadership among students.
         We aim to create an environment where ideas can flourish and future
         entrepreneurs can thrive. <br />
-        <Link
-          href="/about"
-          className="text-[#fbbd58] underline hover:text-white transition-colors"
-        >
+        <Link href="/about" className="text-yellow-500 underline">
           Learn more on our About page.
         </Link>
       </>
@@ -37,10 +33,7 @@ const faqData = [
         We host a wide range of events including workshops, seminars,
         hackathons, startup competitions, and networking sessions — all designed
         to enhance entrepreneurial skills and foster innovation. <br />
-        <Link
-          href="/events"
-          className="text-[#fbbd58] underline hover:text-white transition-colors"
-        >
+        <Link href="/events" className="text-yellow-500 underline">
           Have a look at our Events.
         </Link>
       </>
@@ -54,188 +47,65 @@ const faqData = [
 ];
 
 const FAQ = () => (
-  <div className="faq-container">
-    <h2 className="faq-title">Frequently Asked Questions</h2>
-    <Accordion.Root
-      className="AccordionRoot"
-      type="multiple"
-      defaultValue={["item-1"]}
-      collapsible
-    >
-      {faqData.map((faq, index) => (
-        <Accordion.Item
-          className="AccordionItem"
-          value={`item-${index + 1}`}
-          key={index}
-        >
-          <AccordionTrigger>{faq.question}</AccordionTrigger>
-          <AccordionContent>{faq.answer}</AccordionContent>
-        </Accordion.Item>
-      ))}
-    </Accordion.Root>
+  <section className="relative overflow-hidden py-20 faq-bg">
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="flex justify-center -ml-6 lg:-ml-12 lg:col-span-1 mb-10">
+        <h2 className="text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 mb-6">
+          Frequently Asked <span className="text-[#fbbd58]">Questions</span>
+        </h2>
+      </div>
+
+      <Accordion.Root type="multiple" defaultValue={["item-1"]} collapsible>
+        <div className="space-y-4">
+          {faqData.map((faq, index) => (
+            <Accordion.Item
+              key={index}
+              value={`item-${index + 1}`}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden border-l-4 border-l-[#fbbd58]"
+            >
+              <Accordion.Header>
+                <Accordion.Trigger
+                  className={classNames(
+                    "w-full flex items-center justify-between px-6 py-4 text-left text-gray-900 font-semibold text-lg",
+                    "rounded-xl border border-transparent transition transform",
+                    "hover:bg-gray-50 hover:shadow-md hover:border-gray-100",
+                  )}
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDownIcon className="w-5 h-5 text-yellow-500" />
+                </Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content className="px-6 pb-6 pt-2 text-gray-700">
+                <div className="prose prose-sm max-w-none">{faq.answer}</div>
+              </Accordion.Content>
+            </Accordion.Item>
+          ))}
+        </div>
+      </Accordion.Root>
+    </div>
+
     <style jsx>{`
-      .faq-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 2rem 0.5rem;
-        background: #f7f7f7;
+      .faq-bg {
+        background: linear-gradient(45deg, #ffffff 0%, #eee 100%);
       }
-      .faq-title {
-        font-size: 3rem;
-        font-weight: 900;
-        color: #fbbd58;
-        text-align: center;
-        margin-bottom: 2.5rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        text-shadow: 0 2px 16px #fbbd5840, 0 1px 0 #fff4da;
-        position: relative;
+
+      /* subtle open animation for accordion content (Radix controls max-height internally) */
+      .AccordionContent-enter {
+        animation: fadeIn 220ms ease-out;
       }
-      .faq-title::after {
-        content: "";
-        display: block;
-        margin: 0.7rem auto 0 auto;
-        width: 4rem;
-        height: 5px;
-        border-radius: 3px;
-        background: linear-gradient(90deg, #fbbd58 60%, #fff4da 100%);
-        opacity: 0.85;
-      }
-      .AccordionRoot {
-        width: 100%;
-        max-width: 700px;
-        background: #fff;
-        padding: 2.5rem 1.5rem;
-        border-radius: 18px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        border: 2px solid #fbbd58;
-        margin-bottom: 2rem;
-      }
-      .AccordionItem {
-        overflow: hidden;
-        margin-top: 18px;
-        border-radius: 14px;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-        border: 1.5px solid #ececec;
-        transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
-      }
-      .AccordionItem:first-child {
-        margin-top: 0;
-      }
-      .AccordionHeader {
-        display: flex;
-      }
-      .AccordionTrigger {
-        font-family: inherit;
-        padding: 1.1rem 1.5rem;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 1.35rem;
-        font-weight: 700;
-        color: #ffe6b0;
-        cursor: pointer;
-        border-radius: 12px;
-        background: transparent;
-        border: none;
-        outline: none;
-        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-        box-shadow: none;
-      }
-      .AccordionTrigger:hover,
-      .AccordionTrigger:focus {
-        background: #232323;
-        color: #fbbd58;
-        outline: none;
-        box-shadow: 0 0 0 2px #fbbd5844;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        text-decoration-thickness: 2px;
-      }
-      .AccordionTrigger[data-state="open"] {
-        color: #fff;
-        background: #fbbd58;
-        font-weight: 700;
-        box-shadow: 0 2px 8px #fbbd5833;
-      }
-      .AccordionContent {
-        padding: 1.1rem 1.5rem 1.5rem 1.5rem;
-        font-size: 1.08rem;
-        color: #fff;
-        background: transparent;
-        border-left: 3px solid #fbbd58;
-        border-radius: 0 0 12px 12px;
-        margin-top: -2px;
-        animation: fadeInAccordion 0.3s;
-        opacity: 1;
-        transition: opacity 0.35s cubic-bezier(0.87, 0, 0.13, 1),
-          max-height 0.35s cubic-bezier(0.87, 0, 0.13, 1);
-      }
-      @keyframes fadeInAccordion {
+
+      @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(-10px);
+          transform: translateY(-6px);
         }
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
-      .AccordionContentText {
-        font-size: 1.08rem;
-        color: #fff;
-        line-height: 1.7;
-        letter-spacing: 0.01em;
-        transition: color 0.2s;
-      }
-      .AccordionChevron {
-        color: #fbbd58;
-        margin-left: 1rem;
-        font-size: 1.5rem;
-        transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1), color 0.2s;
-      }
-      .AccordionTrigger[data-state="open"] > .AccordionChevron {
-        transform: rotate(180deg) scale(1.2);
-        color: #fbbd58;
-      }
     `}</style>
-  </div>
+  </section>
 );
-
-const AccordionTrigger = React.forwardRef(
-  ({ children, className, ...props }, forwardedRef) => (
-    <Accordion.Header className="AccordionHeader">
-      <Accordion.Trigger
-        className={classNames("AccordionTrigger", className)}
-        {...props}
-        ref={forwardedRef}
-      >
-        {children}
-        <ChevronDownIcon className="AccordionChevron" aria-hidden />
-      </Accordion.Trigger>
-    </Accordion.Header>
-  )
-);
-
-AccordionTrigger.displayName = "AccordionTrigger";
-
-const AccordionContent = React.forwardRef(
-  ({ children, className, ...props }, forwardedRef) => (
-    <Accordion.Content
-      className={classNames("AccordionContent", className)}
-      {...props}
-      ref={forwardedRef}
-    >
-      <div className="AccordionContentText">{children}</div>
-    </Accordion.Content>
-  )
-);
-
-AccordionContent.displayName = "AccordionContent";
 
 export default FAQ;
