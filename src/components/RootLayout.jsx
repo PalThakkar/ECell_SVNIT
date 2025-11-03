@@ -15,12 +15,6 @@ import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 
 const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggleRef }) => {
-  const pathname = usePathname();
-  const isEventsPage = pathname === '/events';
-  
-  // Combine the invert prop with events page condition
-  const shouldInvert = invert || isEventsPage;
-
   return (
     <Container>
       <div className="flex items-center justify-between">
@@ -33,10 +27,7 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
         <div className="flex items-center gap-x-8">
           <Button 
             href={"/contact"} 
-            className={clsx(
-              "px-6 py-3 text-base",
-              isEventsPage && !expanded && "text-white hover:text-neutral-200"
-            )}
+            className="px-6 py-3 text-base"
           >
             Contact us
           </Button>
@@ -48,14 +39,14 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
             aria-controls={panelId}
             className={clsx(
               "group -m-2.5 rounded-full p-4 transition",
-              shouldInvert ? "hover:bg-white/10" : "hover:bg-neutral-950/10"
+              invert ? "hover:bg-white/10" : "hover:bg-neutral-950/10"
             )}
             aria-label="Toggle navigation"
           >
             <Icon
               className={clsx(
                 "h-8 w-8",
-                shouldInvert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
+                invert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
               )}
             />
           </button>
@@ -125,7 +116,6 @@ const RootLayoutInner = ({ children }) => {
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
-  const isEventsPage = pathname === '/events';
 
   useEffect(() => {
     function onClick(event) {
@@ -144,10 +134,7 @@ const RootLayoutInner = ({ children }) => {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
         <div
-          className={clsx(
-            "absolute left-0 right-0 top-2 z-40",
-            isEventsPage && "text-white"
-          )}
+          className="absolute left-0 right-0 top-2 z-40"
           aria-hidden={expanded ? "true" : undefined}
           inert={expanded ? "" : undefined}
         >
@@ -218,17 +205,11 @@ const RootLayoutInner = ({ children }) => {
       <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className={clsx(
-          "relative flex flex-auto overflow-hidden pt-14",
-          isEventsPage ? "bg-gray-950" : "bg-gradient-to-br from-white via-gray-50 to-gray-100"
-        )}
+        className="relative flex flex-auto overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 pt-14"
       >
         <motion.div
           layout
-          className={clsx(
-            "relative isolate flex w-full flex-col pt-9",
-            isEventsPage && "text-white"
-          )}
+          className="relative isolate flex w-full flex-col pt-9"
         >
           <main className="w-full flex-auto">{children}</main>
           <Footer />

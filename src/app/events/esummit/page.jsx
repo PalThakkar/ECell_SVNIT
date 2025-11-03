@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 
 const ESummitPage = () => {
@@ -328,8 +329,8 @@ const ESummitPage = () => {
               className="text-xl text-gray-600 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Register now for E-Summit 2025 and be part of India's premier
-              entrepreneurship event
+              Register now for E-Summit 2025 and be part of premier
+              entrepreneurship events!
             </p>
           </div>
 

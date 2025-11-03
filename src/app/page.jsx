@@ -28,8 +28,8 @@ export default function Home() {
         The team at E-Cell SVNIT went above and beyond with our onboarding,
         providing unparalleled support and resources.
       </Testimonials>
-      <Faq />
       <Services />
+      <Faq />
       {/* <ContactSection /> */}
     </main>
   );
