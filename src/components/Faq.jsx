@@ -73,7 +73,6 @@ const FAQ = () => {
           type="multiple" 
           value={openItems}
           onValueChange={setOpenItems}
-          collapsible
         >
           <div className="space-y-4">
             {faqData.map((faq, index) => {
