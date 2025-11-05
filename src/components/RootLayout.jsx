@@ -13,6 +13,7 @@ import clsx from "clsx";
 import Offices from "./Offices";
 import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
+import Merch from "./Merch";
 
 const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggleRef }) => {
   return (
@@ -92,6 +93,7 @@ const Navigation = () => {
         <NavigationItem href="/jobs" align="center">Jobs</NavigationItem>
         <NavigationItem href="/events" align="center">Events</NavigationItem>
         <NavigationItem href="/work" align="center">Work</NavigationItem>
+        <NavigationItem href="/merch" align="center">Merch</NavigationItem>
         <NavigationItem href="/Faq" align="center">FAQ</NavigationItem>
       </div>
 
@@ -102,6 +104,7 @@ const Navigation = () => {
         <NavigationItem href="/jobs" align="center">Jobs</NavigationItem>
         <NavigationItem href="/events" align="center">Events</NavigationItem>
         <NavigationItem href="/work" align="center">Work</NavigationItem>
+        <NavigationItem href="/merch" align="center">Merch</NavigationItem>
         <NavigationItem href="/Faq" align="center">FAQ</NavigationItem>
       </div>
     </nav>
