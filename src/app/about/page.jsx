@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import GroupPhotoCarousel from "@/components/GroupPhotoCarousel";
 const AboutPage = () => {
   return (
     <main className="min-h-screen text-black">
@@ -85,16 +86,8 @@ const AboutPage = () => {
               </div>
             </div>
 
-            <div className="inline-block">
-              <div className="inline-block rounded-2xl overflow-hidden border border-[#fbbd58]/50 shadow bg-white">
-                <Image
-                  src="/images/rocket.png"
-                  alt="Abstract startup rocket"
-                  width={800}
-                  height={800}
-                  className="block"
-                />
-              </div>
+            <div className="w-full h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px] rounded-2xl overflow-hidden border-2 border-[#fbbd58]/50 shadow-lg">
+              <GroupPhotoCarousel />
             </div>
           </div>
         </motion.div>

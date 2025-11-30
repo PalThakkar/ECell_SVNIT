@@ -15,21 +15,25 @@ import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 import Merch from "./Merch";
 
-const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggleRef }) => {
+const Header = ({
+  panelId,
+  invert = false,
+  icon: Icon,
+  expanded,
+  onToggle,
+  toggleRef,
+}) => {
   return (
     <Container>
       <div className="flex items-center justify-between">
         {!expanded && (
           <Link href={"/"} aria-label="Home">
-          <Logo className="h-8 mb-16" fillOnHover />
-        </Link>
+            <Logo className="h-8 mb-16" fillOnHover />
+          </Link>
         )}
         {expanded && <div className="flex-1" />}
         <div className="flex items-center gap-x-8">
-          <Button 
-            href={"/contact"} 
-            className="px-6 py-3 text-base"
-          >
+          <Button href={"/contact"} className="px-6 py-3 text-base">
             Contact us
           </Button>
           <button
@@ -47,7 +51,9 @@ const Header = ({ panelId, invert = false, icon: Icon, expanded, onToggle, toggl
             <Icon
               className={clsx(
                 "h-8 w-8",
-                invert ? "fill-white group-hover:fill-neutral-200" : "fill-neutral-950 group-hover:fill-neutral-700"
+                invert
+                  ? "fill-white group-hover:fill-neutral-200"
+                  : "fill-neutral-950 group-hover:fill-neutral-700"
               )}
             />
           </button>
@@ -64,18 +70,24 @@ const NavigationItem = ({ href, children, align = "center" }) => {
       className="group relative bg-neutral-950 border-b border-neutral-800 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
     >
       <div className="relative overflow-hidden px-8 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20 flex items-center justify-center min-h-[120px] sm:min-h-[180px]">
-        <div className={`relative z-10 text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight w-full ${
-          align === 'left' ? 'text-left' : align === 'right' ? 'text-right' : 'text-center'
-        }`}>
+        <div
+          className={`relative z-10 text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight w-full ${
+            align === "left"
+              ? "text-left"
+              : align === "right"
+              ? "text-right"
+              : "text-center"
+          }`}
+        >
           {children}
         </div>
-        
+
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-neutral-800 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
-        
+
         {/* Animated gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
-        
+
         {/* Shine effect on hover */}
         <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
@@ -88,24 +100,52 @@ const Navigation = () => {
     <nav className="font-display text-white bg-neutral-950">
       {/* Mobile: Single column layout - all center aligned for better mobile UX */}
       <div className="sm:hidden">
-        <NavigationItem href="/team" align="center">Team</NavigationItem>
-        <NavigationItem href="/about" align="center">About Us</NavigationItem>
-        <NavigationItem href="/jobs" align="center">Jobs</NavigationItem>
-        <NavigationItem href="/events" align="center">Events</NavigationItem>
-        <NavigationItem href="/work" align="center">Work</NavigationItem>
-        <NavigationItem href="/merch" align="center">Merch</NavigationItem>
-        <NavigationItem href="/Faq" align="center">FAQ</NavigationItem>
+        <NavigationItem href="/team" align="center">
+          Team
+        </NavigationItem>
+        <NavigationItem href="/about" align="center">
+          About Us
+        </NavigationItem>
+        <NavigationItem href="/jobs" align="center">
+          Jobs
+        </NavigationItem>
+        <NavigationItem href="/events" align="center">
+          Events
+        </NavigationItem>
+        <NavigationItem href="/work" align="center">
+          Work
+        </NavigationItem>
+        <NavigationItem href="/merch" align="center">
+          Merch
+        </NavigationItem>
+        <NavigationItem href="/Faq" align="center">
+          FAQ
+        </NavigationItem>
       </div>
 
       {/* Tablet & Desktop: 3-column grid with varied alignment */}
       <div className="hidden sm:grid sm:grid-cols-3">
-        <NavigationItem href="/team" align="center">Team</NavigationItem>
-        <NavigationItem href="/about" align="center">About Us</NavigationItem>
-        <NavigationItem href="/jobs" align="center">Jobs</NavigationItem>
-        <NavigationItem href="/events" align="center">Events</NavigationItem>
-        <NavigationItem href="/work" align="center">Work</NavigationItem>
-        <NavigationItem href="/merch" align="center">Merch</NavigationItem>
-        <NavigationItem href="/Faq" align="center">FAQ</NavigationItem>
+        <NavigationItem href="/team" align="center">
+          Team
+        </NavigationItem>
+        <NavigationItem href="/about" align="center">
+          About Us
+        </NavigationItem>
+        <NavigationItem href="/jobs" align="center">
+          Jobs
+        </NavigationItem>
+        <NavigationItem href="/events" align="center">
+          Events
+        </NavigationItem>
+        <NavigationItem href="/work" align="center">
+          Work
+        </NavigationItem>
+        <NavigationItem href="/merch" align="center">
+          Merch
+        </NavigationItem>
+        <NavigationItem href="/Faq" align="center">
+          FAQ
+        </NavigationItem>
       </div>
     </nav>
   );
@@ -139,7 +179,7 @@ const RootLayoutInner = ({ children }) => {
         <div
           className="absolute left-0 right-0 top-2 z-40"
           aria-hidden={expanded ? "true" : undefined}
-          inert={expanded ? "" : undefined}
+          inert={expanded ? true : undefined}
         >
           <Header
             panelId={panelId}
@@ -161,7 +201,7 @@ const RootLayoutInner = ({ children }) => {
           style={{ height: expanded ? "auto" : "0" }}
           className="relative z-50 overflow-hidden bg-neutral-950"
           aria-hidden={expanded ? undefined : "true"}
-          inert={expanded ? undefined : ""}
+          inert={expanded ? undefined : true}
         >
           <motion.div layout className="bg-neutral-800">
             <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
