@@ -1,11 +1,7 @@
 "use client";
 
-import React from "react";
-import EventsPageMain from "@/components/Event-Home";
-
+import EventsLanding from "@/components/EventsLanding";
 
 export default function EventsPage() {
-  return (
-    <EventsPageMain />
-  );
+  return <EventsLanding />;
 }

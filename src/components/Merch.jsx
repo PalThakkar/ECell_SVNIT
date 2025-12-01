@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ComingSoonMerch from "../app/merch/ComingSoonMerch";
-import MerchTShirt from "../app/merch/MerchTShirt";
+import MerchTshirt from "../app/merch/MerchTshirt";
 
 const Merch = () => {
   const [tab, setTab] = useState("coming");
@@ -9,15 +9,14 @@ const Merch = () => {
     { key: "coming", label: "Coming Soon" },
     { key: "shop", label: "Shop T-Shirt" },
   ];
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
       <header className="sticky top-0 z-20 bg-white/70 backdrop-blur border-b border-yellow-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-2xl md:text-3xl font-black text-gray-900">
-            E‑Cell{" "}
-            <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
-              Merch
-            </span>
+            E‑Cell {" "}
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">Merch</span>
           </h1>
           <nav className="flex items-center gap-2">
             {tabs.map((t) => (
@@ -45,22 +44,20 @@ const Merch = () => {
           </div>
         ) : (
           <div className="animate-[fade-in_0.4s_ease-out]">
-            <MerchTShirt />
+            <MerchTshirt />
           </div>
         )}
       </section>
 
       <style jsx>{`
         @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
       `}</style>
     </main>
   );
 };
+
 export default Merch;
+      
