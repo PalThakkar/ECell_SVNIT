@@ -1,38 +1,124 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import PageIntro from '@/components/PageIntro';
 import Container from '@/components/Container';
 import TeamMember from '@/components/TeamMember';
 
-export const metadata = {
-  title: "Meet Our Team | E-Cell SVNIT",
-  description:
-    "Meet the dedicated team behind E-Cell SVNIT. Connect with our executives and leaders on LinkedIn and Instagram.",
-  openGraph: {
-    title: "Meet Our Team | E-Cell SVNIT",
-    description:
-      "Get to know the team that drives E-Cell SVNIT forward. Connect with our leaders and team members on LinkedIn and Instagram.",
-    url: "https://www.ecellsvnit.com/team",
-    siteName: "E-Cell SVNIT",
-    images: [
-      {
-        url: "https://www.ecellsvnit.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "E-Cell SVNIT Team",
-      },
-    ],
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Meet Our Team | E-Cell SVNIT",
-    description:
-      "Meet the amazing team behind E-Cell SVNIT. Connect with our leaders on LinkedIn and Instagram.",
-    images: ["https://www.ecellsvnit.com/og-image.png"],
-  },
+const team2025Data = {
+  chiefExecutive: [
+    {
+      photo: '/atman.png',
+      name: 'Atman Shah',
+      position: 'Convener',
+      linkedin: 'https://www.linkedin.com/in/jeet-ariwala-152243256',
+      instagram: 'https://www.instagram.com/jeet_ariwala21',
+    },
+    {
+      photo: '/aman.png',
+      name: 'Aman Kapoor',
+      position: 'Co-Convener',
+      linkedin: 'https://www.linkedin.com/in/kartik-srivastava-b46b561b7',
+      instagram: 'https://www.instagram.com/__.the.prodigal.son.__',
+    },
+    {
+      photo: '/asmi.png',
+      name: 'Asmi Wadhwa',
+      position: 'Secretary',
+      linkedin: 'https://www.linkedin.com/in/kashish-sharma-545774215',
+      instagram: 'https://www.instagram.com/kashishhh__11',
+    },
+    {
+      photo: '/soni.png',
+      name: 'Lakshya Soni',
+      position: 'Treasurer',
+      linkedin: 'https://www.linkedin.com/in/om-ramanuj-511501266',
+      instagram: 'https://www.instagram.com/ramanuj_om',
+    },
+  ],
+  finance: [
+    {
+      photo: '/adi.jpg',
+      name: 'Aditya Panchal',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/srjaykikani',
+      instagram: 'https://www.instagram.com/_srjay',
+    },
+    {
+      photo: '/shabbir.png',
+      name: 'Shabbir Hussainy',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/shambhavishinde',
+      instagram: 'https://www.instagram.com/shmbhvi',
+    },
+  ],
+  mediaAndDesign: [
+    {
+      photo: '/kasera.png',
+      name: 'Tanish Kasera',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/ronak-dangar',
+      instagram: 'https://www.instagram.com/ronak_dangar_04',
+    },
+    {
+      photo: '/altaf.jpg',
+      name: 'Altaf Shams',
+      position: 'Head',
+      linkedin: 'https://in.linkedin.com/in/om-panchal-136410257',
+      instagram: 'https://www.instagram.com/om_panchal_op7',
+    },
+  ],
+  events: [
+    {
+      photo: '/priti.jpg',
+      name: 'Priti Sand',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/pritish-tripathi-362006271',
+      instagram: 'https://www.instagram.com/tripathipritish',
+    },
+    {
+      photo: '/harsh.png',
+      name: 'Harsh Solanki',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/tanish2311',
+      instagram: 'https://www.instagram.com/ttan_ishh',
+    },
+  ],
+  contentTeam: [
+    {
+      photo: '/tanisha.jpg',
+      name: 'Tanisha Mishra',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/ridhayu-gosai-4b063a280',
+      instagram: 'https://www.instagram.com/ridhayu_gosai_28',
+    },
+    {
+      photo: '/jash.jpg',
+      name: 'Jash Vadani',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/soumyashreeparida785',
+      instagram: 'https://www.instagram.com/pvtt_soumya',
+    },
+  ],
+  publicRelations: [
+    {
+      photo: '/meet.png',
+      name: 'Meet Pandya',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/nanviya-zala-108324306',
+      instagram: 'https://www.instagram.com/notnanviazala',
+    },
+    {
+      photo: '/devanshi.jpg',
+      name: 'Devanshi Rathwa',
+      position: 'Head',
+      linkedin: 'https://www.linkedin.com/in/krish-parmar-a30211258',
+      instagram: 'https://www.instagram.com/krishh_.003',
+    },
+  ],
 };
 
-const teamMembers = {
+const team2024Data = {
   executiveBoard: [
     {
       name: "Mihir Gandhi",
@@ -56,7 +142,6 @@ const teamMembers = {
       instagram: 'https://www.instagram.com/burhan____04/',
     }
   ],
-
   chiefExecutive: [
     {
       photo: '/jeet.jpg',
@@ -169,10 +254,45 @@ const teamMembers = {
   ],
 };
 
+const TEAMS_CONFIG = {
+  '2025-26': {
+    label: '2025-26 Team',
+    data: team2025Data,
+    sections: [
+      { key: 'chiefExecutive', title: 'Chief Executives' },
+      { key: 'events', title: 'Events Team' },
+      { key: 'contentTeam', title: 'Podcast & Content' },
+      { key: 'finance', title: 'Finance & Documentation' },
+      { key: 'publicRelations', title: 'Public Relations' },
+      { key: 'mediaAndDesign', title: 'Media & Design' },
+    ]
+  },
+  '2024-25': {
+    label: '2024-25 Team',
+    data: team2024Data,
+    sections: [
+      { key: 'executiveBoard', title: 'Executive Board' },
+      { key: 'chiefExecutive', title: 'Chief Executives' },
+      { key: 'technical', title: 'Technical Team' },
+      { key: 'mediaAndPublicity', title: 'Media & Publicity' },
+      { key: 'events', title: 'Events Team' },
+      { key: 'startupTeam', title: 'Startup Team' },
+      { key: 'publicRelations', title: 'Public Relations' },
+    ]
+  }
+};
+
 const renderTeamSection = (sectionTitle, members) => (
-  <section>
-    <h2 className="text-3xl font-bold text-center mt-10 text-neutral-950">{sectionTitle}</h2>
-    <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
+  <section className="w-full mb-8">
+    <div className="relative flex justify-center mb-6">
+      <div className="relative inline-block">
+        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white tracking-tight relative z-10">
+          {sectionTitle}
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-3 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-orange-400/30 -z-0 transform -skew-y-1"></div>
+      </div>
+    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
       {members.map((member, index) => (
         <TeamMember
           key={index}
@@ -187,25 +307,79 @@ const renderTeamSection = (sectionTitle, members) => (
   </section>
 );
 
+
 const TeamPage = () => {
+  const [selectedYear, setSelectedYear] = useState('2025-26');
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleYearChange = (year) => {
+    if (year !== selectedYear) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setSelectedYear(year);
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
+
+  const currentTeamConfig = TEAMS_CONFIG[selectedYear];
+
   return (
     <>
-      <PageIntro eyebrow="Team" title="Meet Our Team" centered>
-        <p>
-          Get to know the amazing team behind E-Cell SVNIT. Connect with us on LinkedIn and Instagram.
+      <PageIntro title="Meet Our Amazing Squad" centered>
+        <p className="text-base md:text-lg max-w-3xl mx-auto text-neutral-600 dark:text-neutral-300">
+          The passionate minds driving innovation and entrepreneurship at E-Cell SVNIT 🚀
         </p>
       </PageIntro>
-      <Container className="mt-12 flex flex-col items-center">
-        {renderTeamSection('Executive Board', teamMembers.executiveBoard)}
-        {renderTeamSection('Chief Executives', teamMembers.chiefExecutive)}
-        {renderTeamSection('Technical Team', teamMembers.technical)}
-        {renderTeamSection('Media and Publicity Team', teamMembers.mediaAndPublicity)}
-        {renderTeamSection('Events Team', teamMembers.events)}
-        {renderTeamSection('Startup Team', teamMembers.startupTeam)}
-        {renderTeamSection('Public Relations Team', teamMembers.publicRelations)}
-      </Container>
+
+      {/* Modern Year Selector */}
+      <div className="flex justify-center items-center mt-8 mb-10 px-4 gap-4">
+        {Object.entries(TEAMS_CONFIG).map(([year, config]) => (
+          <button
+            key={year}
+            onClick={() => handleYearChange(year)}
+            className={`relative px-6 md:px-8 py-2.5 md:py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 overflow-hidden group ${
+              selectedYear === year
+                ? 'bg-white dark:bg-white text-neutral-900 shadow-lg scale-105'
+                : 'bg-white/60 dark:bg-white/70 text-neutral-600 dark:text-neutral-700 hover:bg-white hover:shadow-md hover:scale-102'
+            }`}
+            style={{
+              boxShadow: selectedYear === year 
+                ? 'inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -2px 4px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.15)'
+                : 'inset 0 1px 2px rgba(255,255,255,0.6), inset 0 -1px 2px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.1)'
+            }}
+          >
+            {/* Gloss overlay */}
+            <span className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent rounded-xl top-0 left-0 h-1/2 pointer-events-none"></span>
+            {/* Hover shine effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none"></span>
+            <span className="relative z-10">{config.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Team Sections with Animation */}
+      <div 
+        className={`px-4 md:px-6 lg:px-10 max-w-[1600px] mx-auto transition-all duration-300 ${
+          isAnimating ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'
+        }`}
+      >
+        {currentTeamConfig.sections.map(({ key, title }) => {
+          const members = currentTeamConfig.data[key];
+          return members && members.length > 0 ? (
+            <div key={key}>
+              {renderTeamSection(title, members)}
+            </div>
+          ) : null;
+        })}
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="fixed top-20 right-10 w-72 h-72 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="fixed bottom-20 left-10 w-96 h-96 bg-pink-300/20 dark:bg-pink-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
     </>
   );
 };
+
 
 export default TeamPage;
