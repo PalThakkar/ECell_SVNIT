@@ -1,13 +1,15 @@
-import React from 'react';
-import ComingSoonMerch from './ComingSoonMerch';
-import MerchTShirt from './MerchTshirt';
+import React from "react";
+import ComingSoonMerch from "./ComingSoonMerch";
+import MerchTShirt from "./MerchTshirt";
 
 export const metadata = {
   title: "E-Cell Merch | E-Cell SVNIT",
-  description: "Explore E-Cell SVNIT official merchandise. Premium quality tees and apparel for entrepreneurs and innovators.",
+  description:
+    "Explore E-Cell SVNIT official merchandise. Premium quality tees and apparel for entrepreneurs and innovators.",
   openGraph: {
     title: "E-Cell Merch | E-Cell SVNIT",
-    description: "Official E-Cell SVNIT merchandise - Premium tees, apparel and more.",
+    description:
+      "Official E-Cell SVNIT merchandise - Premium tees, apparel and more.",
     url: "https://www.ecellsvnit.com/merch",
     siteName: "E-Cell SVNIT",
     images: [
@@ -23,7 +25,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "E-Cell Merch | E-Cell SVNIT",
-    description: "Official E-Cell SVNIT merchandise - Premium tees, apparel and more.",
+    description:
+      "Official E-Cell SVNIT merchandise - Premium tees, apparel and more.",
     images: ["https://www.ecellsvnit.com/og-image.png"],
   },
 };

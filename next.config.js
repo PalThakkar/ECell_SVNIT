@@ -1,33 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "api.microlink.io",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'api.microlink.io',
       },
       {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/photo-**",
-      },
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      }
     ],
   },
-};
+}
 
 module.exports = nextConfig;
