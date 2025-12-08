@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 const ComingSoonMerch = ({
   title = "E‑Cell Tee Drop",
@@ -169,10 +170,11 @@ const ComingSoonMerch = ({
               }}
             />
             {/* Tee image */}
-            <img
+            <Image
               src={src}
               alt={title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
+              fill
+              className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
             />
 
             {/* Shine sweep */}

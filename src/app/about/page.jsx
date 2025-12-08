@@ -1,10 +1,10 @@
 "use client";
-import ContactSection from "@/components/ContactSection";
-import Cultures from "@/components/Cultures";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Services from "@/components/Services";
 import Image from "next/image";
+import GroupPhotoCarousel from "@/components/GroupPhotoCarousel";
 const AboutPage = () => {
   return (
     <main className="min-h-screen text-black">
@@ -85,16 +85,8 @@ const AboutPage = () => {
               </div>
             </div>
 
-            <div className="inline-block">
-              <div className="inline-block rounded-2xl overflow-hidden border border-[#fbbd58]/50 shadow bg-white">
-                <Image
-                  src="/images/rocket.png"
-                  alt="Abstract startup rocket"
-                  width={800}
-                  height={800}
-                  className="block"
-                />
-              </div>
+            <div className="w-full h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px] rounded-2xl overflow-hidden border-2 border-[#fbbd58]/50 shadow-lg">
+              <GroupPhotoCarousel />
             </div>
           </div>
         </motion.div>
@@ -193,7 +185,7 @@ const AboutPage = () => {
           <div className="flex flex-col gap-8">
             <div className="w-full text-left">
               <h2 className="text-2xl md:text-3xl font-black tracking-wide">
-                What's in Store
+                What&apos;s in Store
                 <span className="block h-1 w-16 mt-2 bg-[#fbbd58] rounded"></span>
               </h2>
             </div>
@@ -340,8 +332,7 @@ const AboutPage = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <Cultures />
-          <ContactSection />
+          <Services />
         </motion.div>
       </div>
     </main>
