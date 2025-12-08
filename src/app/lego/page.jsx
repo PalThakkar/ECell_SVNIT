@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import FormDataLego from "../../components/FormDatalego";
 import LegoDetails from "../../components/LegoDetails";
