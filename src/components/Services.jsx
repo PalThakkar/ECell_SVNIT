@@ -2,44 +2,45 @@
 
 import React from "react";
 import Image from "next/image";
+import { Rocket, Sprout, Globe, Lightbulb, Users } from "lucide-react";
 
 const Services = () => {
   const [hoveredIndex, setHoveredIndex] = React.useState(null);
 
   const visionPoints = [
     {
-      icon: "🚀",
+      icon: Rocket,
       title: "Lead the Way",
-      description: "Position SVNIT as India's premier hub for entrepreneurial excellence and innovation.",
-      expandedDescription: "We're committed to establishing SVNIT as a nationally recognized center for entrepreneurial excellence. Through cutting-edge incubation programs, industry mentorship, and access to venture capital, we provide students with the resources needed to transform innovative ideas into successful ventures. Our goal is to create a reputation that attracts top talent, investors, and opportunities to our campus.",
+      description: "Position SVNIT as a premier hub for entrepreneurial excellence and innovation.",
+      expandedDescription: "We're aspiring to establish SVNIT as a recognized center for entrepreneurial excellence. Through cutting-edge workshops, hands-on experience through events, and collaborative projects, we provide students with the platform needed to transform innovative ideas into successful ventures. Our goal is to create a reputation that attracts top talent, investors, and opportunities to our campus.",
       color: "from-yellow-400 to-yellow-500"
     },
     {
-      icon: "🌱",
+      icon: Sprout,
       title: "Grow a Startup Ecosystem",
       description: "Cultivate a thriving, self-sustaining startup culture that empowers student ventures.",
-      expandedDescription: "Building a startup ecosystem means creating an environment where ideas flourish naturally. We facilitate peer-to-peer learning, provide seed funding opportunities, and connect students with alumni entrepreneurs. Our ecosystem includes co-working spaces, regular pitch sessions, and a network of mentors who've walked the entrepreneurial path. We believe in learning by doing, with failure as a stepping stone to success.",
+      expandedDescription: "Building a startup ecosystem means creating an environment where ideas flourish naturally. We facilitate peer-to-peer learning, provide seed funding opportunities, and connect students with alumni entrepreneurs. Our ecosystem includes co-working spaces in collaboration with ASHINE-SVNIT, and a network of mentors who've walked the entrepreneurial path. We believe in learning by doing, with failure as a stepping stone to success.",
       color: "from-yellow-400 to-yellow-500"
     },
     {
-      icon: "🌍",
-      title: "Forge Global Partnerships",
-      description: "Build strategic alliances with industry giants, investors, and leading universities worldwide.",
-      expandedDescription: "Innovation knows no boundaries. We actively cultivate relationships with Fortune 500 companies, venture capital firms, and prestigious universities across the globe. These partnerships open doors to international internships, collaborative research projects, cross-border funding opportunities, and exposure to global best practices. Our students gain invaluable perspectives from diverse markets and cultures, preparing them for the global stage.",
+      icon: Globe,
+      title: "Forge Partnerships",
+      description: "Build meaningful collaborations with organizations and academic groups.",
+      expandedDescription: "We focus on forming practical partnerships with startups, student communities, and industry professionals. These collaborations help us bring guest talks, great workshops, mentorship opportunities, and project guidance to students. By connecting with the right people around us, we create learning and networking opportunities that genuinely support our members’ growth.",
       color: "from-yellow-400 to-yellow-500"
     },
     {
-      icon: "💡",
+      icon: Lightbulb,
       title: "Solve Real Problems",
       description: "Champion startups that address critical challenges and create meaningful societal impact.",
-      expandedDescription: "True entrepreneurship goes beyond profit—it's about creating value that transforms lives. We encourage ventures that tackle pressing issues in healthcare, education, sustainability, and social equity. Through impact-focused workshops, connections with NGOs and government initiatives, and specialized mentorship, we guide students to build businesses that generate both financial returns and positive social change.",
+      expandedDescription: "True entrepreneurship goes beyond profit—it's about creating value that transforms lives. We encourage ventures that tackle pressing issues in healthcare, education, sustainability, and social equity. Through impact-focused workshops and specialized mentorship, we guide students to build businesses that generate both financial returns and positive social change.",
       color: "from-yellow-400 to-yellow-500"
     },
     {
-      icon: "👥",
+      icon: Users,
       title: "Empower Future Leaders",
       description: "Transform students into visionary entrepreneurs and changemakers through mentorship and resources.",
-      expandedDescription: "Leadership development is at the heart of our mission. We offer comprehensive skill-building workshops covering everything from public speaking and negotiation to financial modeling and growth hacking. Our mentorship program pairs students with successful entrepreneurs and industry leaders. Through hands-on projects, leadership roles in E-Cell initiatives, and exposure to real-world challenges, we nurture the confidence and capabilities needed to lead in tomorrow's business landscape.",
+      expandedDescription: "Leadership development is at the heart of our mission. We offer skill-building events and opportunities covering everything from public speaking and negotiation to financial modeling and growth hacking. Our mentorship program pairs students with successful entrepreneurs and industry leaders. Through hands-on projects, leadership roles in E-Cell initiatives, and exposure to real-world challenges, we nurture the confidence and capabilities needed to lead in tomorrow's business landscape.",
       color: "from-yellow-400 to-yellow-500"
     }
   ];
@@ -83,15 +84,15 @@ const Services = () => {
             Our Impact in <span className="text-[#fbbd58]">Numbers</span>
           </h3>
           <p className="max-w-2xl mx-auto text-gray-600">
-            From ideation to execution, we have been the catalyst for countless entrepreneurial journeys at SVNIT
+            From ideation to execution, we have been the catalyst for entrepreneurial journeys at SVNIT
           </p>
         </div>
         <div className="grid grid-cols-2 gap-6 mb-20 md:grid-cols-4">
           {[
-            { number: "500+", label: "Students Engaged" },
-            { number: "50+", label: "Events Hosted" },
-            { number: "20+", label: "Startups Mentored" },
-            { number: "100+", label: "Industry Connections" }
+            { number: "2000+", label: "Students Engaged" },
+            { number: "5+", label: "Events Hosted" },
+            { number: "5+", label: "Collaborations" },
+            { number: "10+", label: "Industry Connections" }
           ].map((stat, index) => (
             <div
               key={index}
@@ -135,20 +136,25 @@ const Services = () => {
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-start gap-2">
                     <span className="mt-1 text-yellow-500">▸</span>
-                    <span>Network with industry leaders and successful entrepreneurs</span>
+                    <span>Foster and strengthen the startup culture within SVNIT</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1 text-yellow-500">▸</span>
-                    <span>Access to funding opportunities and incubation support</span>
+                    <span>Work on flagship events like E-Summit and gain value from high-impact combined efforts</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1 text-yellow-500">▸</span>
-                    <span>Hands-on experience through real startup projects</span>
+                    <span>Get hands-on experience through real startup projects and collaborations</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1 text-yellow-500">▸</span>
-                    <span>Participate in national-level competitions and events</span>
+                    <span>Participate in national-level competitions and networking events</span>
                   </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-yellow-500">▸</span>
+                    <span>Connect with like-minded innovators, exchange ideas, and grow your network</span>
+                  </li>
+
                 </ul>
               </div>
 
@@ -159,7 +165,7 @@ const Services = () => {
                   Join E-Cell SVNIT and transform your entrepreneurial dreams into reality.
                 </p>
                 <a
-                  href="https://www.bing.com/ck/a?!&&p=30ded17a573485ebe0ee1c73c7365e716d14403afc209f9f8bc734eb44c5d131JmltdHM9MTc2MTc4MjQwMA&ptn=3&ver=2&hsh=4&fclid=3d9e4798-4855-689c-32c1-518749ce6907&psq=e+cell+svnit+instagram&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9lY2VsbC5zdm5pdC8"
+                  href="/contact"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-3 font-semibold text-gray-900 no-underline transition-colors duration-300 bg-white rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl"
@@ -188,8 +194,8 @@ const Services = () => {
                   
                   <div className="relative z-10">
                     <div className="flex items-start gap-4">
-                      <div className="text-4xl transition-transform duration-300 group-hover:scale-110">
-                        {point.icon}
+                      <div className="p-3 transition-all duration-300 bg-yellow-100 rounded-xl group-hover:bg-yellow-200 group-hover:scale-110">
+                        <point.icon className="w-8 h-8 text-yellow-600" strokeWidth={2} />
                       </div>
                       <div className="flex-1">
                         <h4 className="mb-2 text-xl font-bold text-gray-800 transition-colors duration-300 group-hover:text-yellow-600">

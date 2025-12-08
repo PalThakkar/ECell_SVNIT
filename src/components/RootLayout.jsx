@@ -106,20 +106,17 @@ const Navigation = () => {
         <NavigationItem href="/about" align="center">
           About Us
         </NavigationItem>
-        <NavigationItem href="/jobs" align="center">
-          Jobs
-        </NavigationItem>
         <NavigationItem href="/events" align="center">
           Events
         </NavigationItem>
-        <NavigationItem href="/work" align="center">
-          Work
+        <NavigationItem href="/jobs" align="center">
+          Jobs
         </NavigationItem>
         <NavigationItem href="/merch" align="center">
           Merch
         </NavigationItem>
-        <NavigationItem href="/Faq" align="center">
-          FAQ
+        <NavigationItem href="/blog&podcast" align="center">
+          Podcast and Blogs
         </NavigationItem>
       </div>
 
@@ -131,20 +128,17 @@ const Navigation = () => {
         <NavigationItem href="/about" align="center">
           About Us
         </NavigationItem>
-        <NavigationItem href="/jobs" align="center">
-          Jobs
-        </NavigationItem>
         <NavigationItem href="/events" align="center">
           Events
         </NavigationItem>
-        <NavigationItem href="/work" align="center">
-          Work
+        <NavigationItem href="/jobs" align="center">
+          Jobs
         </NavigationItem>
         <NavigationItem href="/merch" align="center">
           Merch
         </NavigationItem>
-        <NavigationItem href="/Faq" align="center">
-          FAQ
+        <NavigationItem href="/blog&podcast" align="center">
+          Podcast & Blogs
         </NavigationItem>
       </div>
     </nav>
