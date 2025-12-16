@@ -3,6 +3,9 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import HorizontalEventCard from "@/components/HorizontalEventCard";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/dropdown";
+import { Button } from "@heroui/button";
+import { ChevronDown } from "lucide-react";
 
 // Sample event data - replace with actual data from your API/database
 const eventsData = [
@@ -100,111 +103,117 @@ export default function EventsLanding() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-[87%] mx-auto">
-        <AnimatePresence mode="wait">
-          {/* Header */}
-          <motion.header 
-            className="text-center mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.h1 
-              className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-4"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Events
-            </motion.h1>
-            <motion.div 
-              className="h-1 w-20 bg-[#fbbd58] rounded-full mx-auto mb-6"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            />
-            <motion.p 
-              className="max-w-3xl mx-auto text-lg md:text-xl text-gray-700"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              Join us for exciting events and workshops designed to inspire, educate, and empower the next generation of entrepreneurs. 
-              From ideation to execution, we've got you covered.
-            </motion.p>
-          </motion.header>
-
-          {/* Year Filter */}
-          <motion.div 
-            className="flex justify-end mb-8"
+        {/* Header */}
+        <motion.header 
+          className="text-center mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.h1 
+            className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="relative w-48">
-              <select
-                value={selectedYear}
-                onChange={(e) => setSelectedYear(e.target.value)}
-                className="block w-full px-4 py-2.5 pr-8 text-gray-800 bg-white border-2 border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#fbbd58] focus:border-[#fbbd58] transition-colors cursor-pointer font-medium"
-              >
-                <option value="all">All Years</option>
-                {years.map(year => (
-                  year !== 'all' && (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  )
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Events Grid - Vertical Stack */}
+            Events
+          </motion.h1>
           <motion.div 
-            className="space-y-8 w-[100%] mx-auto "
+            className="h-1 w-20 bg-[#fbbd58] rounded-full mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          />
+          <motion.p 
+            className="max-w-3xl mx-auto text-lg md:text-xl text-gray-700"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            {filteredEvents.length > 0 ? (
-              <AnimatePresence>
-                {filteredEvents.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="w-full"
-                  >
-                    <HorizontalEventCard event={event} />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            ) : (
-              <motion.div 
-                className="text-center py-16 bg-white rounded-2xl shadow-lg"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
+            Join us for exciting events and workshops designed to inspire, educate, and empower the next generation of entrepreneurs. 
+            From ideation to execution, we have got you covered.
+          </motion.p>
+        </motion.header>
+
+        {/* Year Filter */}
+        <motion.div 
+          className="flex justify-end mb-8"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Dropdown>
+            <DropdownTrigger>
+              <Button
+                variant="bordered"
+                className="px-6 py-6 text-gray-800 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-[#fbbd58] hover:bg-gray-50 transition-all duration-200 font-semibold text-base"
+                endContent={<ChevronDown className="w-5 h-5 text-gray-600" />}
               >
-                <h3 className="text-xl font-semibold text-gray-800">No events found</h3>
-                <p className="mt-2 text-gray-600">There are no events scheduled for the selected year.</p>
-                <button 
-                  onClick={() => setSelectedYear('all')}
-                  className="mt-4 px-5 py-2.5 text-sm font-medium text-[#fbbd58] hover:text-[#e6a12b] transition-colors cursor-pointer"
+                {selectedYear === 'all' ? 'All Years' : selectedYear}
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              aria-label="Year filter"
+              selectionMode="single"
+              selectedKeys={new Set([selectedYear.toString()])}
+              onSelectionChange={(keys) => {
+                const selected = Array.from(keys)[0];
+                setSelectedYear(selected);
+              }}
+              className="min-w-[200px] bg-white rounded-xl shadow-xl border border-gray-100"
+            >
+              {years.map(year => (
+                <DropdownItem 
+                  key={year} 
+                  className="text-gray-800 hover:bg-[#fbbd58]/10 hover:text-[#fbbd58] font-medium py-3 px-4 rounded-lg transition-all"
                 >
-                  View all events
-                </button>
-              </motion.div>
-            )}
-          </motion.div>
-          
-        </AnimatePresence>
+                  {year === 'all' ? 'All Years' : year}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
+        </motion.div>
+
+        {/* Events Grid - Vertical Stack */}
+        <motion.div 
+          className="space-y-8 w-[100%] mx-auto "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {filteredEvents.length > 0 ? (
+            <AnimatePresence>
+              {filteredEvents.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="w-full"
+                >
+                  <HorizontalEventCard event={event} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          ) : (
+            <motion.div 
+              className="text-center py-16 bg-white rounded-2xl shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-xl font-semibold text-gray-800">No events found</h3>
+              <p className="mt-2 text-gray-600">There are no events scheduled for the selected year.</p>
+              <button 
+                onClick={() => setSelectedYear('all')}
+                className="mt-4 px-5 py-2.5 text-sm font-medium text-[#fbbd58] hover:text-[#e6a12b] transition-colors cursor-pointer"
+              >
+                View all events
+              </button>
+            </motion.div>
+          )}
+        </motion.div>
       </div>
     </div>
   );

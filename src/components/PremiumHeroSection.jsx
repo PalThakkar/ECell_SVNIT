@@ -327,7 +327,7 @@ const PremiumHeroSection = () => {
             animationFillMode: "both",
             animationDelay: `${patchBlocks[3].delay}, 1.2s`,
           }}
-          className="absolute top-[15%] right-[5%] group"
+          className="absolute top-[15%] right-[5%] group hidden lg:block"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           

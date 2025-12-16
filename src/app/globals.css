@@ -1,18 +1,18 @@
+@import "tailwindcss";
 @import "./base.css";
-@tailwind components;
-@tailwind utilities;
 
+/* custom utility classes */
 .section-spacing {
-  margin-top: 0; /* Removes the white gap */
-  margin-bottom: 0; /* Removes the white gap */
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .smooth-transition {
-  background: var(--background); /* Uniform background color */
+  background: hsl(var(--background));
   transition: background 0.3s ease-in-out;
 }
 
 .faq-section {
-  background: var(--secondary); /* Updated FAQ background color */
-  color: var(--primary-foreground);
+  background: hsl(var(--secondary));
+  color: hsl(var(--primary-foreground));
 }
