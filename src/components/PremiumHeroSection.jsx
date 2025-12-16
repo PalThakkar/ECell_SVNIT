@@ -1,10 +1,166 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useId, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Lightbulb,Laptop, Hammer, Rocket, Target, Award } from "lucide-react";
+import { Lightbulb, Laptop, Hammer, Rocket, Target, Award } from "lucide-react";
+import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import Link from "next/link";
+import Logo from "./Logo";
+import Button from "./Button";
+import { HiMenuAlt4 } from "react-icons/hi";
+import { IoMdClose } from "react-icons/io";
+import Container from "./Container";
+import Offices from "./Offices";
+import SocialMedia from "./SocialMedia";
+import clsx from "clsx";
+
+const TransparentContainer = ({ className, children }) => {
+  return (
+    <div className={clsx("max-w-7xl mx-auto px-6 lg:px-8", className)}>
+      {children}
+    </div>
+  );
+};
+
+const TransparentHeader = ({
+  panelId,
+  invert = false,
+  icon: Icon,
+  expanded,
+  onToggle,
+  toggleRef,
+}) => {
+  return (
+    <TransparentContainer>
+      <div className="flex items-center justify-between">
+        {!expanded && (
+          <Link href={"/"} aria-label="Home">
+            <Logo className="h-8 mb-16" fillOnHover />
+          </Link>
+        )}
+        {expanded && <div className="flex-1" />}
+        <div className="flex items-center gap-x-8">
+          <Button href={"/contact"} className="px-6 py-3 text-base">
+            Contact us
+          </Button>
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={onToggle}
+            aria-expanded={expanded.toString()}
+            aria-controls={panelId}
+            className={clsx(
+              "group -m-2.5 rounded-full p-4 transition",
+              invert ? "hover:bg-white/10" : "hover:bg-white/10"
+            )}
+            aria-label="Toggle navigation"
+          >
+            <Icon
+              className={clsx(
+                "h-8 w-8",
+                invert
+                  ? "fill-white group-hover:fill-neutral-200"
+                  : "fill-white group-hover:fill-neutral-200"
+              )}
+            />
+          </button>
+        </div>
+      </div>
+    </TransparentContainer>
+  );
+};
+
+const NavigationItem = ({ href, children, align = "center" }) => {
+  return (
+    <Link
+      href={href}
+      className="group relative bg-neutral-950 border-b border-neutral-800 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
+    >
+      <div className="relative overflow-hidden px-8 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20 flex items-center justify-center min-h-[120px] sm:min-h-[180px]">
+        <div
+          className={`relative z-10 text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight w-full ${
+            align === "left"
+              ? "text-left"
+              : align === "right"
+              ? "text-right"
+              : "text-center"
+          }`}
+        >
+          {children}
+        </div>
+        <div className="absolute inset-0 bg-neutral-800 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
+        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+    </Link>
+  );
+};
+
+const Navigation = () => {
+  return (
+    <nav className="font-display text-white bg-neutral-950">
+      <div className="sm:hidden">
+        <NavigationItem href="/team" align="center">
+          Team
+        </NavigationItem>
+        <NavigationItem href="/about" align="center">
+          About Us
+        </NavigationItem>
+        <NavigationItem href="/events" align="center">
+          Events
+        </NavigationItem>
+        <NavigationItem href="/jobs" align="center">
+          Jobs
+        </NavigationItem>
+        <NavigationItem href="/merch" align="center">
+          Merch
+        </NavigationItem>
+        <NavigationItem href="/blog&podcast" align="center">
+          Podcast and Blogs
+        </NavigationItem>
+      </div>
+      <div className="hidden sm:grid sm:grid-cols-3">
+        <NavigationItem href="/team" align="center">
+          Team
+        </NavigationItem>
+        <NavigationItem href="/about" align="center">
+          About Us
+        </NavigationItem>
+        <NavigationItem href="/events" align="center">
+          Events
+        </NavigationItem>
+        <NavigationItem href="/jobs" align="center">
+          Jobs
+        </NavigationItem>
+        <NavigationItem href="/merch" align="center">
+          Merch
+        </NavigationItem>
+        <NavigationItem href="/blog&podcast" align="center">
+          Podcast & Blogs
+        </NavigationItem>
+      </div>
+    </nav>
+  );
+};
 
 const PremiumHeroSection = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const panelId = useId();
+  const [expanded, setExpanded] = useState(false);
+  const openRef = useRef();
+  const closeRef = useRef();
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    function onClick(event) {
+      if (event.target.closest("a")?.href === window.location.href) {
+        setExpanded(false);
+      }
+    }
+    window.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("click", onClick);
+    };
+  }, []);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -23,12 +179,72 @@ const PremiumHeroSection = () => {
   ];
 
   return (
-    <section
-      className="relative min-h-screen overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
-      onMouseMove={handleMouseMove}
-    >
-      {/* Blurred event background */}
-      <div className="absolute inset-0 -z-20">
+    <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+      {/* Transparent Header */}
+      <header className="absolute top-0 left-0 right-0 z-50">
+        <div className="absolute left-0 right-0 top-2 z-40" aria-hidden={expanded ? "true" : undefined}>
+          <TransparentHeader
+            panelId={panelId}
+            icon={HiMenuAlt4}
+            toggleRef={openRef}
+            expanded={expanded}
+            onToggle={() => {
+              setExpanded((expanded) => !expanded);
+              window.setTimeout(() => closeRef.current?.focus({ preventScroll: true }));
+            }}
+          />
+        </div>
+
+        <motion.div
+          layout
+          id={panelId}
+          style={{ height: expanded ? "auto" : "0" }}
+          className="relative z-50 overflow-hidden bg-neutral-950"
+          aria-hidden={expanded ? undefined : "true"}
+        >
+          <motion.div layout className="bg-neutral-800">
+            <div className="bg-neutral-950 pb-16 pt-14">
+              <TransparentHeader
+                invert
+                panelId={panelId}
+                icon={IoMdClose}
+                toggleRef={closeRef}
+                expanded={expanded}
+                onToggle={() => {
+                  setExpanded((expanded) => !expanded);
+                  window.setTimeout(() => openRef.current?.focus({ preventScroll: true }));
+                }}
+              />
+            </div>
+            <Navigation />
+            <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
+              <Container>
+                <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
+                  <div>
+                    <h2 className="font-display text-2xl font-semibold text-white mb-2">
+                      Our Address
+                    </h2>
+                    <Offices invert className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2" />
+                  </div>
+                  <div className="sm:border-l sm:border-transparent sm:pl-16">
+                    <h2 className="font-display text-xl font-semibold text-white mb-2">
+                      Follow us
+                    </h2>
+                    <SocialMedia className="mt-8" invert />
+                  </div>
+                </div>
+              </Container>
+            </div>
+          </motion.div>
+        </motion.div>
+      </header>
+
+      <section
+        className="relative min-h-screen overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Blurred event background */}
+        <div className="absolute inset-0 -z-20">
         <Image
           src="/ecell11.jpeg"
           alt="E-Cell Event"
@@ -251,7 +467,8 @@ const PremiumHeroSection = () => {
           perspective: 1200px;
         }
       `}</style>
-    </section>
+      </section>
+    </MotionConfig>
   );
 };
 

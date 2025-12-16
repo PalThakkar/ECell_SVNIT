@@ -153,6 +153,7 @@ const RootLayoutInner = ({ children }) => {
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     function onClick(event) {
@@ -169,7 +170,7 @@ const RootLayoutInner = ({ children }) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      <header>
+      {!isHomePage && <header>
         <div
           className="absolute left-0 right-0 top-2 z-40"
           aria-hidden={expanded ? "true" : undefined}
@@ -237,16 +238,22 @@ const RootLayoutInner = ({ children }) => {
             </div>
           </motion.div>
         </motion.div>
-      </header>
+      </header>}
 
       <motion.div
         layout
-        style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 pt-14"
+        style={{ borderTopLeftRadius: isHomePage ? 0 : 40, borderTopRightRadius: isHomePage ? 0 : 40 }}
+        className={clsx(
+          "relative flex flex-auto overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100",
+          !isHomePage && "pt-14"
+        )}
       >
         <motion.div
           layout
-          className="relative isolate flex w-full flex-col pt-9"
+          className={clsx(
+            "relative isolate flex w-full flex-col",
+            !isHomePage && "pt-9"
+          )}
         >
           <main className="w-full flex-auto">{children}</main>
           <Footer />
