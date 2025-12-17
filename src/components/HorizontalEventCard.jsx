@@ -176,7 +176,7 @@ export default function HorizontalEventCard({ event }) {
           {event.tagline}
         </p>
 
-        <p className="text-gray-700 mb-6 leading-relaxed">
+        <p className="text-gray-700 text-sm mb-6 leading-relaxed">
           {event.description}
         </p>
 
@@ -205,7 +205,7 @@ export default function HorizontalEventCard({ event }) {
               href={`/events/${event.slug}`}
               className="inline-flex items-center px-6 py-3 border-2 border-transparent text-base font-semibold rounded-lg text-white bg-[#fbbd58] hover:bg-[#e6a12b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fbbd58] transition-all duration-200 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg"
             >
-              Explore More
+              Know More
               <svg
                 className="ml-2 -mr-1 w-5 h-5"
                 fill="currentColor"

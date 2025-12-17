@@ -36,7 +36,7 @@ const ESummitPage = () => {
                   className="block text-4xl md:text-6xl mt-4 font-bold animate-fade-in-up"
                   style={{ animationDelay: "0.3s" }}
                 >
-                  2025
+                  2026
                 </span>
               </h1>
               <p
@@ -56,7 +56,7 @@ const ESummitPage = () => {
                   Ignite Your Entrepreneurial Journey
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  E-Summit 2025 is the flagship entrepreneurship event of E-Cell
+                  E-Summit 2026 is the flagship entrepreneurship event of E-Cell
                   SVNIT, bringing together aspiring entrepreneurs, industry
                   leaders, investors, and mentors. Experience cutting-edge
                   competitions, transformative workshops, and invaluable
@@ -329,7 +329,7 @@ const ESummitPage = () => {
               className="text-xl text-gray-600 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Register now for E-Summit 2025 and be part of premier
+              Register now for E-Summit 2026 and be part of premier
               entrepreneurship events!
             </p>
           </div>
@@ -337,7 +337,7 @@ const ESummitPage = () => {
           <div className="bg-white rounded-3xl shadow-2xl border border-yellow-200/50 overflow-hidden hover:shadow-3xl transition-shadow duration-500">
             <div className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 px-8 py-6 animate-gradient">
               <h3 className="text-2xl font-bold text-gray-900 text-center">
-                E-Summit 2025 Registration
+                E-Summit 2026 Registration
               </h3>
               <p className="text-center text-gray-800 mt-2">
                 Join the Entrepreneurial Revolution
@@ -441,7 +441,7 @@ const ESummitPage = () => {
                     style={{ animationDelay: "0.5s" }}
                   >
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Why do you want to attend E-Summit 2025?*
+                      Why do you want to attend E-Summit 2026?*
                     </label>
                     <textarea
                       rows="4"
@@ -472,7 +472,7 @@ const ESummitPage = () => {
                       type="submit"
                       className="w-full bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
                     >
-                      Register for E-Summit 2025
+                      Register for E-Summit 2026
                     </button>
                   </div>
                 </form>
@@ -485,7 +485,7 @@ const ESummitPage = () => {
                     Registration Opening Soon
                   </h3>
                   <p className="text-gray-600 mb-8">
-                    E-Summit 2025 registration will open soon. Stay tuned for
+                    E-Summit 2026 registration will open soon. Stay tuned for
                     updates!
                   </p>
                   <button className="bg-gray-400 text-white font-bold py-3 px-8 rounded-xl cursor-not-allowed">

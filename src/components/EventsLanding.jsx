@@ -9,58 +9,119 @@ import { ChevronDown } from "lucide-react";
 
 // Sample event data - replace with actual data from your API/database
 const eventsData = [
-  {
-    id: 1,
-    title: "Startup Bootcamp",
-    tagline: "From Idea to MVP in 48 Hours",
-    description: "An intensive weekend workshop where participants will learn the fundamentals of building a startup, from ideation to creating a minimum viable product.",
-    year: 2025,
-    status: "upcoming",
-    images: [
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-    ],
-    date: "March 15-16, 2025",
-    time: "10:00 AM - 6:00 PM",
-    location: "Tech Hub, S.V. National Institute of Technology",
-    slug: "startup-bootcamp"
-  },
-  {
-    id: 2,
-    title: "E-Summit 2025",
-    tagline: "Where Ideas Meet Opportunity",
-    description: "Annual entrepreneurship summit featuring keynote speakers, panel discussions, and networking opportunities with industry leaders and investors.",
-    year: 2025,
-    status: "live",
-    images: [
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-    ],
-    date: "February 20-22, 2025",
-    time: "9:00 AM - 8:00 PM",
-    location: "Main Auditorium, S.V. National Institute of Technology",
-    slug: "esummit-2025"
-  },
-  {
-    id: 3,
-    title: "Hack the Future",
-    tagline: "24-Hour Hackathon",
-    description: "A 24-hour coding competition where participants will solve real-world problems using technology and innovation.",
-    year: 2024,
-    status: "past",
-    images: [
-      "https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      "https://images.unsplash.com/photo-1581092921461-39b2f2f99d9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-    ],
-    date: "October 10-11, 2024",
-    time: "12:00 PM - 12:00 PM",
-    location: "Computer Center, S.V. National Institute of Technology",
-    slug: "hack-the-future-2024"
-  },
-  // Add more events as needed
+{
+id: 1,
+title: "The Lego Startup",
+tagline: "Build a Startup from Scratch",
+description:
+"The Lego Startup is a structured, four-week startup-building journey where teams develop a startup idea from scratch. Each week focuses on a dedicated phase of startup development. After continuous evaluations, selected teams advance to the final D-Day, where they present their product and pitch their ideas to mentors, judges, and external visitors.",
+year: 2025,
+status: "past",
+images: [
+"https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1471&q=80",
+"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1470&q=80"
+],
+date: "Feb 17, 2025",
+time: "10:00 AM - 6:00 PM",
+location: "Canteen Cements, S.V. National Institute of Technology",
+slug: "lego-startup-1.0"
+},
+
+{
+id: 2,
+title: "E-Summit 2026",
+tagline: "Where Ideas Meet Opportunity",
+description:
+"E-Summit is the flagship annual entrepreneurship event of E-Cell SVNIT, bringing together founders, investors, industry leaders, and students. The summit features keynote sessions, panel discussions, startup showcases, and networking opportunities aimed at inspiring innovation and collaboration.",
+year: 2026,
+status: "upcoming",
+images: [
+"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1471&q=80",
+"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1470&q=80"
+],
+date: "Will announce soon",
+time: "Will announce soon",
+location: "Will announce soon",
+slug: "esummit-2026"
+},
+
+{
+id: 3,
+title: "Corporate Catastrophe",
+tagline: "An Escape Room Event",
+description:
+"Corporate Catastrophe is a high-energy escape room–style challenge where teams navigate through business crises, ethical dilemmas, and strategic puzzles. Participants must think critically, communicate effectively, and make quick decisions to ‘escape’ the corporate chaos within the given time.",
+year: 2025,
+status: "past",
+images: [
+"https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&w=687&q=80",
+"https://images.unsplash.com/photo-1581092921461-39b2f2f99d9a?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1470&q=80"
+],
+date: "March 20, 2025",
+time: "10:00 AM - 1:00 PM",
+location: "Old CRC, S.V. National Institute of Technology",
+slug: "corporate-catastrophe-1.0"
+},
+
+{
+id: 4,
+title: "Ignite 2025",
+tagline: "Fuel Your Entrepreneurial Spark",
+description:
+"Ignite 2025 is an entrepreneurial skill–based treasure hunt designed to spark business acumen through interactive challenges and problem-solving rounds. Teams move across campus, solving clues that test creativity, strategy, teamwork, and decision-making, leading them to the final destination.",
+year: 2025,
+status: "past",
+images: [
+"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1470&q=80"
+],
+date: "Oct 12, 2025",
+time: "9:00 AM - 12:00 PM",
+location: "Library Basement, SVNIT",
+slug: "ignite-2025"
+},
+
+{
+id: 5,
+title: "Bitcoin Workshop 2025",
+tagline: "Understanding Crypto & Blockchain",
+description:
+"The Bitcoin Workshop offers a practical introduction to cryptocurrencies and blockchain technology. Participants learn about Bitcoin fundamentals, wallets, transactions, security practices, and real-world use cases, making complex concepts accessible for beginners.",
+year: 2025,
+status: "past",
+images: [
+"https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?auto=format&fit=crop&w=1470&q=80"
+],
+date: "November 12, 2025",
+time: "6:00 PM - 8:00 PM",
+location: "COED 402, Seminar Hall, CSE Dept, S.V. National Institute of Technology",
+slug: "bitcoin-workshop-2025"
+},
+
+{
+id: 6,
+title: "The Lego Startup 2.0",
+tagline: "Build a Startup from Scratch",
+description:
+"The Lego Startup 2.0 builds upon the first edition with a more competitive and refined startup development journey. Across four focused weeks, teams complete defined milestones before a final D-Day, where top teams present their products and pitch to mentors, judges, and an external audience.",
+year: 2026,
+status: "upcoming",
+images: [
+"https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1471&q=80",
+"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1470&q=80"
+],
+date: "Will announce soon",
+time: "Will announce soon",
+location: "Will announce soon",
+slug: "lego-startup-2.0"
+}
 ];
 
 export default function EventsLanding() {
