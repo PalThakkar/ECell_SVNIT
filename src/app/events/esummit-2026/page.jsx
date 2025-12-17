@@ -1,12 +1,28 @@
 "use client";
 import React, { useState } from "react";
+import { Trophy, Medal, PartyPopper, Clock, Sparkles, Lock, Calendar, MapPin, Target } from "lucide-react";
 
 const ESummitPage = () => {
-  const [isRegistrationActive, setIsRegistrationActive] = useState(false);
+  // Registration status: 'coming-soon' | 'live' | 'closed'
+  const [registrationStatus, setRegistrationStatus] = useState('live');
+  const googleFormLink = "https://forms.google.com/your-form-link"; // Update with actual Google Form link
 
-  const toggleRegistration = () => {
-    setIsRegistrationActive(!isRegistrationActive);
-  };
+  // Winners data - can be easily updated
+  const winners = [
+    { position: 1, teamName: "InnovateTech Solutions", icon: Trophy },
+    { position: 2, teamName: "NextGen Ventures", icon: Medal },
+    { position: 3, teamName: "StartUp Mavericks", icon: Medal },
+  ];
+
+  // Event photos - Update with actual image paths
+  const eventPhotos = [
+    { src: "/images/events/esummit-1.jpg", orientation: "horizontal" },
+    { src: "/images/events/esummit-2.jpg", orientation: "vertical" },
+    { src: "/images/events/esummit-3.jpg", orientation: "horizontal" },
+    { src: "/images/events/esummit-4.jpg", orientation: "vertical" },
+    { src: "/images/events/esummit-5.jpg", orientation: "horizontal" },
+    { src: "/images/events/esummit-6.jpg", orientation: "horizontal" },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
@@ -82,7 +98,7 @@ const ESummitPage = () => {
                   style={{ animationDelay: "0.4s" }}
                 >
                   <div className="text-3xl font-black text-yellow-600 mb-2">
-                    ₹10L+
+                    ₹10k+
                   </div>
                   <div className="text-gray-800 font-semibold">
                     Total Prize Pool
@@ -183,6 +199,20 @@ const ESummitPage = () => {
             </p>
           </div>
 
+          {/* Coming Soon Message - Remove this section when ready to show events */}
+          <div className="text-center py-20 animate-fade-in-up">
+            <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse-gentle">
+              <PartyPopper className="w-16 h-16 text-white" />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Will Announce Soon, Stay Tuned!
+            </h3>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Exciting events are being planned. Check back soon for more details!
+            </p>
+          </div>
+
+          {/* Event Cards - Uncomment this section when ready to showcase events
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
@@ -314,6 +344,195 @@ const ESummitPage = () => {
               </div>
             </div>
           </div>
+          */}
+        </div>
+      </section>
+
+      {/* Winners / Hall of Fame Section */}
+{/* 
+      <section className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in-up">
+              Hall of <span className="text-yellow-500">Fame</span>
+            </h2>
+            <p
+              className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Celebrating our champions and their entrepreneurial excellence
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {winners.map((winner, index) => (
+              <div
+                key={winner.position}
+                className="group animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div
+                  className={`relative bg-white rounded-3xl p-8 shadow-xl border-2 transition-all duration-500 h-full flex flex-col items-center justify-center ${
+                    winner.position === 1
+                      ? "border-yellow-400 transform md:-translate-y-4 hover:scale-110 hover:shadow-2xl"
+                      : winner.position === 2
+                      ? "border-gray-300 hover:scale-105 hover:shadow-2xl"
+                      : "border-yellow-600/50 hover:scale-105 hover:shadow-2xl"
+                  }`}
+                >
+                
+                  <div
+                    className={`absolute -top-6 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform duration-300 ${
+                      winner.position === 1
+                        ? "bg-gradient-to-br from-yellow-400 to-yellow-500"
+                        : winner.position === 2
+                        ? "bg-gradient-to-br from-gray-300 to-gray-400"
+                        : "bg-gradient-to-br from-yellow-600 to-yellow-700"
+                    }`}
+                  >
+                    <winner.icon className="w-8 h-8 text-white" />
+                  </div>
+
+                  
+                  <div className="mt-8 mb-4">
+                    <span
+                      className={`text-6xl font-black ${
+                        winner.position === 1
+                          ? "text-yellow-500"
+                          : winner.position === 2
+                          ? "text-gray-400"
+                          : "text-yellow-700"
+                      }`}
+                    >
+                      {winner.position}
+                    </span>
+                    <span className="text-2xl text-gray-400 align-super">
+                      {winner.position === 1 ? "st" : winner.position === 2 ? "nd" : "rd"}
+                    </span>
+                  </div>
+
+                  
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 text-center mb-2">
+                    {winner.teamName}
+                  </h3>
+
+                  
+                  <div
+                    className={`mt-4 px-4 py-2 rounded-full text-sm font-bold ${
+                      winner.position === 1
+                        ? "bg-yellow-100 text-yellow-700"
+                        : winner.position === 2
+                        ? "bg-gray-100 text-gray-700"
+                        : "bg-yellow-50 text-yellow-600"
+                    }`}
+                  >
+                    {winner.position === 1 ? "Champion" : winner.position === 2 ? "Runner-up" : "2nd Runner-up"}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+
+      {/* Photo Carousel Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-16">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in-up">
+              Event <span className="text-yellow-500">Gallery</span>
+            </h2>
+            <p
+              className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Relive the moments from E-Summit 2025
+            </p>
+          </div>
+        </div>
+
+        <div className="relative">
+          {/* Horizontal Scrolling Container */}
+          <div className="flex gap-6 px-6 overflow-x-auto scrollbar-hide hover-pause" style={{ scrollBehavior: 'smooth' }}>
+            {eventPhotos.map((photo, index) => (
+              <div
+                key={index}
+                className={`flex-shrink-0 group relative ${
+                  photo.orientation === "horizontal" ? "w-[600px] h-[400px]" : "w-[300px] h-[450px]"
+                } animate-slide-in-right`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Main Image Container */}
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+                  {/* Demo Image - Replace with actual images */}
+                  <div
+                    className={`w-full h-full bg-gradient-to-br ${
+                      index % 3 === 0
+                        ? "from-yellow-400 to-yellow-600"
+                        : index % 3 === 1
+                        ? "from-gray-700 to-gray-900"
+                        : "from-yellow-500 to-yellow-700"
+                    } flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-700`}
+                  >
+                    <span className="opacity-50">Photo {index + 1}</span>
+                  </div>
+                  {/* Uncomment when using actual images */}
+                  {/* <img
+                    src={photo.src}
+                    alt={`E-Summit Event ${index + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  /> */}
+
+                  {/* Mirror Effect for Vertical Images */}
+                  {photo.orientation === "vertical" && (
+                    <>
+                      {/* Left Mirror */}
+                      <div className="absolute top-0 left-0 w-20 h-full opacity-30 blur-sm overflow-hidden">
+                        <div
+                          className={`w-full h-full bg-gradient-to-br transform scale-x-[-1] ${
+                            index % 3 === 0
+                              ? "from-yellow-400 to-yellow-600"
+                              : index % 3 === 1
+                              ? "from-gray-700 to-gray-900"
+                              : "from-yellow-500 to-yellow-700"
+                          }`}
+                        ></div>
+                      </div>
+                      {/* Right Mirror */}
+                      <div className="absolute top-0 right-0 w-20 h-full opacity-30 blur-sm overflow-hidden">
+                        <div
+                          className={`w-full h-full bg-gradient-to-br transform scale-x-[-1] ${
+                            index % 3 === 0
+                              ? "from-yellow-400 to-yellow-600"
+                              : index % 3 === 1
+                              ? "from-gray-700 to-gray-900"
+                              : "from-yellow-500 to-yellow-700"
+                          }`}
+                        ></div>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                    <p className="text-white font-bold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      E-Summit 2025
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Scroll Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {eventPhotos.map((_, index) => (
+              <div
+                key={index}
+                className="w-2 h-2 rounded-full bg-yellow-400/30 hover:bg-yellow-400 transition-colors duration-300"
+              ></div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -344,167 +563,75 @@ const ESummitPage = () => {
               </p>
             </div>
 
-            <div className="p-8">
-              {isRegistrationActive ? (
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="animate-slide-in-left">
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Participant Name*
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    <div className="animate-slide-in-right">
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Event Category*
-                      </label>
-                      <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105">
-                        <option value="">Select Event Category</option>
-                        <option value="economic-apex">The Economic Apex</option>
-                        <option value="bplan">B-Plan Competition</option>
-                        <option value="vegas-street">Vegas Street</option>
-                        <option value="edify">Edify</option>
-                        <option value="unicorn-talks">Unicorn Talks</option>
-                        <option value="networking">Networking Sessions</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div
-                      className="animate-fade-in-up"
-                      style={{ animationDelay: "0.1s" }}
-                    >
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Email Address*
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                    <div
-                      className="animate-fade-in-up"
-                      style={{ animationDelay: "0.2s" }}
-                    >
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Phone Number*
-                      </label>
-                      <input
-                        type="tel"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105"
-                        placeholder="+91 XXXXX XXXXX"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div
-                      className="animate-fade-in-up"
-                      style={{ animationDelay: "0.3s" }}
-                    >
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Institution*
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105"
-                        placeholder="Your college/university"
-                      />
-                    </div>
-                    <div
-                      className="animate-fade-in-up"
-                      style={{ animationDelay: "0.4s" }}
-                    >
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Year of Study*
-                      </label>
-                      <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105">
-                        <option value="">Select Year</option>
-                        <option value="1">1st Year</option>
-                        <option value="2">2nd Year</option>
-                        <option value="3">3rd Year</option>
-                        <option value="4">4th Year</option>
-                        <option value="pg">Post Graduate</option>
-                        <option value="working">Working Professional</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div
-                    className="animate-fade-in-up"
-                    style={{ animationDelay: "0.5s" }}
-                  >
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Why do you want to attend E-Summit 2026?*
-                    </label>
-                    <textarea
-                      rows="4"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105"
-                      placeholder="Tell us about your entrepreneurial interests and what you hope to gain from this summit"
-                    ></textarea>
-                  </div>
-
-                  <div
-                    className="animate-fade-in-up"
-                    style={{ animationDelay: "0.6s" }}
-                  >
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Any startup ideas or business experience?
-                    </label>
-                    <textarea
-                      rows="3"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-all duration-300 focus:scale-105"
-                      placeholder="Share your entrepreneurial background or startup ideas (optional)"
-                    ></textarea>
-                  </div>
-
-                  <div
-                    className="pt-6 animate-fade-in-up"
-                    style={{ animationDelay: "0.7s" }}
-                  >
-                    <button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
-                    >
-                      Register for E-Summit 2026
-                    </button>
-                  </div>
-                </form>
-              ) : (
+            <div className="p-8 md:p-12">
+              {registrationStatus === 'coming-soon' && (
                 <div className="text-center py-12 animate-fade-in-up">
-                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
-                    <span className="text-4xl">🔒</span>
+                  <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
+                    <Clock className="w-12 h-12 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                     Registration Opening Soon
                   </h3>
-                  <p className="text-gray-600 mb-8">
+                  <p className="text-gray-600 mb-8 text-lg">
                     E-Summit 2026 registration will open soon. Stay tuned for
                     updates!
                   </p>
-                  <button className="bg-gray-400 text-white font-bold py-3 px-8 rounded-xl cursor-not-allowed">
+                  <div className="inline-block bg-gray-100 text-gray-500 font-bold py-3 px-8 rounded-xl cursor-not-allowed">
+                    Coming Soon
+                  </div>
+                </div>
+              )}
+
+              {registrationStatus === 'live' && (
+                <div className="text-center py-12 animate-fade-in-up">
+                  <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle shadow-lg">
+                    <Sparkles className="w-12 h-12 text-white" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    Registration is Now Live!
+                  </h3>
+                  <p className="text-gray-600 mb-8 text-lg">
+                    Secure your spot at E-Summit 2026. Fill out the registration
+                    form and join us!
+                  </p>
+                  <a
+                    href={googleFormLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
+                  >
+                    Register Now →
+                  </a>
+                  <p className="text-sm text-gray-500 mt-4">
+                    You will be redirected to Google Forms
+                  </p>
+                </div>
+              )}
+
+              {registrationStatus === 'closed' && (
+                <div className="text-center py-12 animate-fade-in-up">
+                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
+                    <Lock className="w-12 h-12 text-gray-600" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                     Registration Closed
-                  </button>
+                  </h3>
+                  <p className="text-gray-600 mb-8 text-lg">
+                    Registration for E-Summit 2026 has been closed. Thank you for
+                    your interest!
+                  </p>
+                  <div className="inline-block bg-red-100 text-red-600 font-bold py-3 px-8 rounded-xl cursor-not-allowed">
+                    Registration Closed
+                  </div>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Admin Toggle (for demonstration) */}
-          <div className="mt-8 text-center">
-            <button
-              onClick={toggleRegistration}
-              className="bg-gray-800 text-white px-6 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors hover:scale-105 transform duration-200"
-            >
-              {isRegistrationActive ? "Deactivate" : "Activate"} Registration
-              (Admin)
-            </button>
+          {/* Status Change Instructions (for developers) */}
+          <div className="mt-6 text-center text-sm text-gray-500">
+            <p>To change registration status, update the <code className="bg-gray-100 px-2 py-1 rounded">registrationStatus</code> state:</p>
+            <p className="mt-2">&apos;coming-soon&apos; | &apos;live&apos; | &apos;closed&apos;</p>
           </div>
         </div>
       </section>
@@ -529,8 +656,8 @@ const ESummitPage = () => {
               className="text-center animate-fade-in-up"
               style={{ animationDelay: "0.1s" }}
             >
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl hover:scale-110 transition-transform duration-300">
-                📅
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                <Calendar className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Event Dates</h3>
               <p className="text-gray-600">To be announced soon</p>
@@ -540,8 +667,8 @@ const ESummitPage = () => {
               className="text-center animate-fade-in-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl hover:scale-110 transition-transform duration-300">
-                📍
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                <MapPin className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Venue</h3>
               <p className="text-gray-600">SVNIT Campus</p>
@@ -551,8 +678,8 @@ const ESummitPage = () => {
               className="text-center animate-fade-in-up"
               style={{ animationDelay: "0.5s" }}
             >
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl hover:scale-110 transition-transform duration-300">
-                🎯
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                <Target className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Expected Impact</h3>
               <p className="text-gray-600">1000+ Participants</p>
@@ -709,6 +836,30 @@ const ESummitPage = () => {
         .animate-gradient {
           background-size: 200% 200%;
           animation: gradient 3s ease infinite;
+        }
+
+        /* Hide scrollbar for photo carousel */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Auto scroll animation */
+        @keyframes auto-scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .hover-pause:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </div>
