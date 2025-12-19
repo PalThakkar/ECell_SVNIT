@@ -1286,7 +1286,7 @@
     "@react-aria/overlays" "3.30.0"
     "@react-aria/utils" "3.31.0"
 
-"@heroui/theme@>=2.4.23":
+"@heroui/theme@^2.4.24", "@heroui/theme@>=2.4.23":
   version "2.4.24"
   resolved "https://registry.npmjs.org/@heroui/theme/-/theme-2.4.24.tgz"
   integrity sha512-lL+anmY4GGWwKyTbJ2PEBZE4talIZ3hu4yGpku9TktCVG2nC2YTwiWQFJ+Jcbf8Cf9vuLzI1sla5bz2jUqiBRA==
