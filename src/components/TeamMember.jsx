@@ -9,9 +9,9 @@ import { FaLinkedin, FaInstagram } from "react-icons/fa";
 const TeamMember = ({ photo, name, position, linkedin, instagram }) => {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[17rem] h-auto rounded-xl p-5 border">
+      <CardBody className="!bg-white relative group/card border-black/[0.1] w-auto sm:w-[17rem] h-auto rounded-xl p-5 border" style={{ backgroundColor: '#ffffff' }}>
       <div className="flex justify-between items-center">
-  <CardItem translateZ="50" className="text-lg font-bold text-neutral-600 dark:text-white">
+  <CardItem translateZ="50" className="text-lg font-bold !text-neutral-900" style={{ color: '#171717' }}>
     {name}
   </CardItem>
   {position && (
@@ -45,7 +45,8 @@ const TeamMember = ({ photo, name, position, linkedin, instagram }) => {
           <CardItem
             translateZ={20}
             as="span"
-            className="text-xs font-normal dark:text-white"
+            className="text-xs font-normal !text-neutral-700"
+            style={{ color: '#404040' }}
           >
             Reach out →
           </CardItem>
@@ -55,7 +56,7 @@ const TeamMember = ({ photo, name, position, linkedin, instagram }) => {
               as={Link}
               href={linkedin}
               target="_blank"
-              className="text-blue-600 dark:text-white hover:text-blue-800 dark:hover:text-gray-400"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
             >
               <FaLinkedin size={24} />
             </CardItem>
@@ -64,7 +65,7 @@ const TeamMember = ({ photo, name, position, linkedin, instagram }) => {
               as={Link}
               href={instagram}
               target="_blank"
-              className="text-pink-500 dark:text-white hover:text-pink-700 dark:hover:text-gray-400"
+              className="text-pink-500 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300"
             >
               <FaInstagram size={24} />
             </CardItem>

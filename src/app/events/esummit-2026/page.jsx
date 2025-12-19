@@ -349,7 +349,6 @@ const ESummitPage = () => {
       </section>
 
       {/* Winners / Hall of Fame Section */}
-{/* 
       <section className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -433,7 +432,7 @@ const ESummitPage = () => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Photo Carousel Section */}
       <section className="py-20 bg-white overflow-hidden">

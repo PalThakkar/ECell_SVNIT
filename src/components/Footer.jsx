@@ -142,9 +142,11 @@ const Footer = () => {
               {/* Managed by Technical Team */}
               <div className="text-lg font-bold text-neutral-950">
                 Managed by{" "}
-                <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-                  Technical Team {new Date().getFullYear()}
-                </span>
+                <Link href="/dev-team" className="inline-block">
+                  <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent hover:from-yellow-600 hover:to-yellow-700 transition-all cursor-pointer">
+                    Technical Team {new Date().getFullYear()}
+                  </span>
+                </Link>
               </div>
 
               {/* Copyright */}

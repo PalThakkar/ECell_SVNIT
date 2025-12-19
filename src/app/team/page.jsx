@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import PageIntro from '@/components/PageIntro';
 import Container from '@/components/Container';
 import TeamMember from '@/components/TeamMember';
+import {Rocket} from "lucide-react";
 
 const team2025Data = {
   chiefExecutive: [
@@ -11,29 +12,29 @@ const team2025Data = {
       photo: '/atman.png',
       name: 'Atman Shah',
       position: 'Convener',
-      linkedin: 'https://www.linkedin.com/in/jeet-ariwala-152243256',
-      instagram: 'https://www.instagram.com/jeet_ariwala21',
+      linkedin: 'https://www.linkedin.com/in/atman-shah-0510as/',
+      instagram: 'https://www.instagram.com/atmann_04/',
     },
     {
       photo: '/aman.png',
       name: 'Aman Kapoor',
       position: 'Co-Convener',
-      linkedin: 'https://www.linkedin.com/in/kartik-srivastava-b46b561b7',
-      instagram: 'https://www.instagram.com/__.the.prodigal.son.__',
+      linkedin: 'https://www.linkedin.com/in/aman-kapoor-6a6122308/',
+      instagram: 'https://www.instagram.com/aman__kap33/',
     },
     {
       photo: '/asmi.png',
       name: 'Asmi Wadhwa',
       position: 'Secretary',
-      linkedin: 'https://www.linkedin.com/in/kashish-sharma-545774215',
-      instagram: 'https://www.instagram.com/kashishhh__11',
+      linkedin: 'https://www.linkedin.com/in/asmiwadhwa/',
+      instagram: 'https://www.instagram.com/asmiw.7',
     },
     {
       photo: '/soni.png',
       name: 'Lakshya Soni',
       position: 'Treasurer',
-      linkedin: 'https://www.linkedin.com/in/om-ramanuj-511501266',
-      instagram: 'https://www.instagram.com/ramanuj_om',
+      linkedin: 'https://www.linkedin.com/in/lakshya-soni-6b4099327/',
+      instagram: 'https://www.instagram.com/soni_lakshya_/',
     },
   ],
   finance: [
@@ -41,15 +42,15 @@ const team2025Data = {
       photo: '/adi.jpg',
       name: 'Aditya Panchal',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/srjaykikani',
-      instagram: 'https://www.instagram.com/_srjay',
+      linkedin: 'https://in.linkedin.com/in/panchal-aditya',
+      instagram: 'https://www.instagram.com/aditya._.127',
     },
     {
       photo: '/shabbir.png',
       name: 'Shabbir Hussainy',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/shambhavishinde',
-      instagram: 'https://www.instagram.com/shmbhvi',
+      linkedin: 'https://www.linkedin.com/in/shabbir-svnit/',
+      instagram: 'https://www.instagram.com/shabbir.hussainy',
     },
   ],
   mediaAndDesign: [
@@ -57,14 +58,14 @@ const team2025Data = {
       photo: '/kasera.png',
       name: 'Tanish Kasera',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/ronak-dangar',
-      instagram: 'https://www.instagram.com/ronak_dangar_04',
+      linkedin: 'https://www.linkedin.com/in/tanish-kasera-301343285/',
+      instagram: 'https://www.instagram.com/tanish.xi',
     },
     {
       photo: '/altaf.jpg',
       name: 'Altaf Shams',
       position: 'Head',
-      linkedin: 'https://in.linkedin.com/in/om-panchal-136410257',
+      linkedin: 'https://www.linkedin.com/in/shamsaltaf143/',
       instagram: 'https://www.instagram.com/om_panchal_op7',
     },
   ],
@@ -73,15 +74,15 @@ const team2025Data = {
       photo: '/priti.jpg',
       name: 'Priti Sand',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/pritish-tripathi-362006271',
-      instagram: 'https://www.instagram.com/tripathipritish',
+      linkedin: 'https://www.linkedin.com/in/priti-sand/',
+      instagram: 'https://www.instagram.com/priti_3110',
     },
     {
       photo: '/harsh.png',
       name: 'Harsh Solanki',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/tanish2311',
-      instagram: 'https://www.instagram.com/ttan_ishh',
+      linkedin: 'https://www.linkedin.com/in/harshhsolanki/',
+      instagram: 'https://www.instagram.com/harshsolanki_1206',
     },
   ],
   contentTeam: [
@@ -89,15 +90,15 @@ const team2025Data = {
       photo: '/tanisha.jpg',
       name: 'Tanisha Mishra',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/ridhayu-gosai-4b063a280',
-      instagram: 'https://www.instagram.com/ridhayu_gosai_28',
+      linkedin: 'https://www.linkedin.com/in/tanisha-mishra-b259722a3/',
+      instagram: 'https://www.instagram.com/tanisha.mishraaa',
     },
     {
       photo: '/jash.jpg',
       name: 'Jash Vadani',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/soumyashreeparida785',
-      instagram: 'https://www.instagram.com/pvtt_soumya',
+      linkedin: 'https://www.linkedin.com/in/jash-vanidani/',
+      instagram: 'https://www.instagram.com/jashh_visuals',
     },
   ],
   publicRelations: [
@@ -105,15 +106,15 @@ const team2025Data = {
       photo: '/meet.png',
       name: 'Meet Pandya',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/nanviya-zala-108324306',
-      instagram: 'https://www.instagram.com/notnanviazala',
+      linkedin: 'https://www.linkedin.com/in/meet-pandya-r1705/',
+      instagram: 'https://www.instagram.com/meet.pandya17',
     },
     {
       photo: '/devanshi.jpg',
       name: 'Devanshi Rathwa',
       position: 'Head',
-      linkedin: 'https://www.linkedin.com/in/krish-parmar-a30211258',
-      instagram: 'https://www.instagram.com/krishh_.003',
+      linkedin: 'https://www.linkedin.com/in/devanshirathva/',
+      instagram: 'https://www.instagram.com/rdevanshi23',
     },
   ],
 };
@@ -286,7 +287,7 @@ const renderTeamSection = (sectionTitle, members) => (
   <section className="w-full mb-8">
     <div className="relative flex justify-center mb-6">
       <div className="relative inline-block">
-        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white tracking-tight relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold !text-neutral-900 tracking-tight relative z-10" style={{ color: '#171717' }}>
           {sectionTitle}
         </h2>
         <div className="absolute -bottom-1 left-0 w-full h-3 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-orange-400/30 -z-0 transform -skew-y-1"></div>
@@ -325,12 +326,14 @@ const TeamPage = () => {
   const currentTeamConfig = TEAMS_CONFIG[selectedYear];
 
   return (
-    <>
+    <div className="light-mode-wrapper bg-white text-neutral-900">
       <PageIntro title="Meet Our Amazing Squad" centered>
-        <p className="text-base md:text-lg max-w-3xl mx-auto text-neutral-600 dark:text-neutral-300">
-          The passionate minds driving innovation and entrepreneurship at E-Cell SVNIT 🚀
+        <p className="text-base md:text-lg max-w-3xl mx-auto text-neutral-600 flex items-center justify-center gap-2">
+          The passionate minds driving innovation and entrepreneurship at E-Cell SVNIT
+          <Rocket size={22} className="text-yellow-500" aria-hidden="true" />
         </p>
-      </PageIntro>
+    </PageIntro>
+
 
       {/* Modern Year Selector */}
       <div className="flex justify-center items-center mt-8 mb-10 px-4 gap-4">
@@ -340,10 +343,11 @@ const TeamPage = () => {
             onClick={() => handleYearChange(year)}
             className={`relative px-6 md:px-8 py-2.5 md:py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 overflow-hidden group ${
               selectedYear === year
-                ? 'bg-white dark:bg-white text-neutral-900 shadow-lg scale-105'
-                : 'bg-white/60 dark:bg-white/70 text-neutral-600 dark:text-neutral-700 hover:bg-white hover:shadow-md hover:scale-102'
+                ? 'bg-white !text-neutral-900 shadow-lg scale-105'
+                : 'bg-white/60 !text-neutral-600 hover:bg-white hover:shadow-md hover:scale-102'
             }`}
             style={{
+              color: selectedYear === year ? '#171717' : '#525252',
               boxShadow: selectedYear === year 
                 ? 'inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -2px 4px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.15)'
                 : 'inset 0 1px 2px rgba(255,255,255,0.6), inset 0 -1px 2px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.1)'
@@ -360,7 +364,7 @@ const TeamPage = () => {
 
       {/* Team Sections with Animation */}
       <div 
-        className={`px-4 md:px-6 lg:px-10 max-w-[1600px] mx-auto transition-all duration-300 ${
+        className={`px-4 md:px-6 lg:px-10 max-w-400 mx-auto transition-all duration-300 ${
           isAnimating ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'
         }`}
       >
@@ -373,11 +377,10 @@ const TeamPage = () => {
           ) : null;
         })}
       </div>
-
       {/* Decorative Elements */}
-      <div className="fixed top-20 right-10 w-72 h-72 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="fixed bottom-20 left-10 w-96 h-96 bg-pink-300/20 dark:bg-pink-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-    </>
+        {/* <div className="fixed top-20 right-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="fixed bottom-20 left-10 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl pointer-events-none -z-10" /> */}
+    </div>
   );
 };
 

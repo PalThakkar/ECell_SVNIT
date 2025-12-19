@@ -39,11 +39,11 @@ export const metadata = {
 
 export default function Layout({ children }) {
   return (
-    <html lang="en" className="h-full bg-neutral-950 text-base antialiased text-neutral-100">
+    <html lang="en" className="h-full bg-white text-base antialiased text-neutral-900">
       <head>
         {/* Additional <head> elements can go here if needed */}
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col bg-white text-neutral-900">
         <RootLayout>{children}</RootLayout>
         <SpeedInsights />
         <Analytics />

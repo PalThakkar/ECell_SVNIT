@@ -49,8 +49,8 @@
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: #ffffff !important;
+    color: #171717 !important;
   }
 
   html,

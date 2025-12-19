@@ -16,3 +16,14 @@
   background: hsl(var(--secondary));
   color: hsl(var(--primary-foreground));
 }
+
+/* Force light mode for team page */
+.light-mode-wrapper,
+.light-mode-wrapper * {
+  color-scheme: light !important;
+}
+
+.light-mode-wrapper {
+  background-color: #ffffff !important;
+  color: #171717 !important;
+}

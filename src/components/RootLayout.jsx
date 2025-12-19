@@ -13,7 +13,6 @@ import clsx from "clsx";
 import Offices from "./Offices";
 import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
-import Merch from "./Merch";
 
 const Header = ({
   panelId,
