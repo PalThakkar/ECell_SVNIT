@@ -5,6 +5,7 @@ import "./globals.css";
 
 // Define metadata for the site
 export const metadata = {
+  metadataBase: new URL("https://www.ecellsvnit.vercel.app"),
   title: {
     default: "E-Cell SVNIT",
     template: "%s | E-Cell SVNIT",

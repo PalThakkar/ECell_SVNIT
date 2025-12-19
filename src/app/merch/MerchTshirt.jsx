@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 const MerchTShirt = ({
   title = "E‑Cell Classic Tee",
@@ -85,11 +86,14 @@ const MerchTShirt = ({
                   background: `radial-gradient(520px circle at ${tilt.glowX}% ${tilt.glowY}%, rgba(255,193,7,0.18), transparent 60%)`,
                 }}
               />
-              <img
+              <Image
                 key={active}
                 src={images[active]}
                 alt={`${title} view ${active + 1}`}
-                className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.02]"
+                fill
+                className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               {/* Shine sweep */}
               <div className="absolute inset-0 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-[1400ms] ease-out bg-gradient-to-r from-transparent via-white/14 to-transparent" />
@@ -108,10 +112,12 @@ const MerchTShirt = ({
                   }`}
                   aria-label={`Switch to view ${i + 1}`}
                 >
-                  <img
+                  <Image
                     src={img}
                     alt={`thumb ${i + 1}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="100px"
                   />
                 </button>
               ))}

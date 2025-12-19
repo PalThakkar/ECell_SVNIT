@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -31,15 +31,15 @@ const GroupPhotoCarousel = () => {
     return String(raw);
   };
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % groupPhotos.length);
-  };
+  }, [groupPhotos.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? groupPhotos.length - 1 : prevIndex - 1
     );
-  };
+  }, [groupPhotos.length]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -50,7 +50,7 @@ const GroupPhotoCarousel = () => {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
 
   if (!isMounted) {
     return null;

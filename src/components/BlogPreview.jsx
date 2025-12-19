@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const BlogPreview = ({ posts }) => {
   return (
@@ -24,11 +25,13 @@ const BlogPreview = ({ posts }) => {
               </div>
             </div>
             {post.image && (
-              <div className="ml-4 w-60 h-50"> {/* Increased width and height */}
-                <img
+              <div className="ml-4 w-60 h-50 relative"> {/* Increased width and height */}
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="object-cover rounded-md w-full h-full"
+                  fill
+                  className="object-cover rounded-md"
+                  sizes="240px"
                 />
               </div>
             )}
