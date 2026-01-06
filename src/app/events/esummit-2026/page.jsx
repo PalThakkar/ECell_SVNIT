@@ -5,7 +5,7 @@ import { Trophy, Medal, PartyPopper, Clock, Sparkles, Lock, Calendar, MapPin, Ta
 const ESummitPage = () => {
   // Registration status: 'coming-soon' | 'live' | 'closed'
   const [registrationStatus, setRegistrationStatus] = useState('live');
-  const googleFormLink = "https://forms.google.com/your-form-link"; // Update with actual Google Form link
+  const googleFormLink = "https://linktr.ee/ecellsvnit";
 
   // Winners data - can be easily updated
   const winners = [
@@ -349,7 +349,7 @@ const ESummitPage = () => {
       </section>
 
       {/* Winners / Hall of Fame Section */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
+      {/* <section className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in-up">
@@ -432,7 +432,7 @@ const ESummitPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Photo Carousel Section */}
       <section className="py-20 bg-white overflow-hidden">
@@ -602,7 +602,7 @@ const ESummitPage = () => {
                     Register Now →
                   </a>
                   <p className="text-sm text-gray-500 mt-4">
-                    You will be redirected to Google Forms
+                    You will be redirected to Linktree to choose your event(s).
                   </p>
                 </div>
               )}
@@ -625,12 +625,6 @@ const ESummitPage = () => {
                 </div>
               )}
             </div>
-          </div>
-
-          {/* Status Change Instructions (for developers) */}
-          <div className="mt-6 text-center text-sm text-gray-500">
-            <p>To change registration status, update the <code className="bg-gray-100 px-2 py-1 rounded">registrationStatus</code> state:</p>
-            <p className="mt-2">&apos;coming-soon&apos; | &apos;live&apos; | &apos;closed&apos;</p>
           </div>
         </div>
       </section>
@@ -682,7 +676,7 @@ const ESummitPage = () => {
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Expected Impact</h3>
               <p className="text-gray-600">1000+ Participants</p>
-              <p className="text-gray-600 text-sm">Pan-India Reach</p>
+              <p className="text-gray-600 text-sm">Pan - Gujarat Reach</p>
             </div>
           </div>
         </div>

@@ -1,8 +1,17 @@
 "use client"
 import React, { useState } from "react";
+import Image from "next/image";
 
 const CorporateCatastrophePage = () => {
   const [isRegistrationActive, setIsRegistrationActive] = useState(false);
+
+  // Event photos
+  const eventPhotos = [
+    { src: "/event-photos/corporate_catastrophe_pic1.jpg", orientation: "horizontal" },
+    { src: "/event-photos/corporate_catastrophe_pic2.jpg", orientation: "horizontal" },
+    { src: "/event-photos/corporate_catastrophe_pic3.jpg", orientation: "horizontal" },
+    { src: "/event-photos/corporate_catastrophe_pic4.jpg", orientation: "horizontal" },
+  ];
 
   const toggleRegistration = () => {
     setIsRegistrationActive(!isRegistrationActive);
@@ -219,206 +228,57 @@ const CorporateCatastrophePage = () => {
         </div>
       </section>
 
-      {/* Registration Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">
-              Ready to Face the{" "}
-              <span className="text-yellow-500">Catastrophe</span>?
+      {/* Photo Gallery Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-16">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in-up">
+              Event <span className="text-yellow-500">Gallery</span>
             </h2>
-            <p className="text-xl text-gray-600">
-              Register your team and prepare for the ultimate challenge
+            <p
+              className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Moments from Corporate Catastrophe
             </p>
           </div>
+        </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl border border-yellow-200/50 overflow-hidden">
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-300 px-8 py-6">
-              <h3 className="text-2xl font-bold text-gray-900 text-center">
-                Corporate Catastrophe Registration
-              </h3>
-              <p className="text-center text-gray-800 mt-2">
-                Dare to Enter the Challenge
-              </p>
-            </div>
+        <div className="relative">
+          <div className="flex gap-6 px-6 overflow-x-auto scrollbar-hide hover-pause" style={{ scrollBehavior: 'smooth' }}>
+            {eventPhotos.map((photo, index) => (
+              <div
+                key={index}
+                className={`flex-shrink-0 group relative ${
+                  photo.orientation === "horizontal" ? "w-[600px] h-[400px]" : "w-[300px] h-[450px]"
+                } animate-slide-in-right`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+                  <Image
+                    src={photo.src}
+                    alt={`Corporate Catastrophe - Photo ${index + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
 
-            <div className="p-8">
-              {isRegistrationActive ? (
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Team Name*
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                        placeholder="Enter your team name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Team Size*
-                      </label>
-                      <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors">
-                        <option value="">Select team size</option>
-                        <option value="2">2 Members</option>
-                        <option value="3">3 Members</option>
-                        <option value="4">4 Members</option>
-                        <option value="5">5 Members (Max)</option>
-                      </select>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                    <p className="text-white font-bold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      Corporate Catastrophe 1.0
+                    </p>
                   </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Team Captain Name*
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                        placeholder="Captain full name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Captain Phone*
-                      </label>
-                      <input
-                        type="tel"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                        placeholder="+91 XXXXX XXXXX"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Captain Email*
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                        placeholder="captain@example.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Institution*
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                        placeholder="Your college/university"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-gray-900">
-                      Team Members (Add remaining members)
-                    </h4>
-                    {[1, 2, 3, 4].map((num) => (
-                      <div
-                        key={num}
-                        className="grid md:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200"
-                      >
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Member {num} Name
-                          </label>
-                          <input
-                            type="text"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-yellow-400 focus:outline-none transition-colors"
-                            placeholder={`Member ${num} name`}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Member {num} Email
-                          </label>
-                          <input
-                            type="email"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-yellow-400 focus:outline-none transition-colors"
-                            placeholder={`member${num}@example.com`}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Member {num} Phone
-                          </label>
-                          <input
-                            type="tel"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-yellow-400 focus:outline-none transition-colors"
-                            placeholder={`+91 XXXXX XXXXX`}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Previous Experience with Puzzle/Escape Room Events
-                    </label>
-                    <textarea
-                      rows="3"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                      placeholder="Describe any relevant experience your team has (optional)"
-                    ></textarea>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      What motivates your team to participate?*
-                    </label>
-                    <textarea
-                      rows="3"
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:outline-none transition-colors"
-                      placeholder="Tell us why you want to take on this challenge"
-                    ></textarea>
-                  </div>
-
-                  <div className="pt-6">
-                    <button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-bold py-4 px-8 rounded-xl hover:from-yellow-500 hover:to-yellow-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
-                    >
-                      Enter the Catastrophe
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <div className="text-center py-12">
-                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span className="text-4xl">⚠️</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Challenge Currently Inactive
-                  </h3>
-                  <p className="text-gray-600 mb-8">
-                    The Corporate Catastrophe registration will open soon.
-                    Prepare yourselves!
-                  </p>
-                  <button className="bg-gray-400 text-white font-bold py-3 px-8 rounded-xl cursor-not-allowed">
-                    Registration Closed
-                  </button>
                 </div>
-              )}
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* Admin Toggle (for demonstration) */}
-          <div className="mt-8 text-center">
-            <button
-              onClick={toggleRegistration}
-              className="bg-gray-800 text-white px-6 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors"
-            >
-              {isRegistrationActive ? "Deactivate" : "Activate"} Registration
-              (Admin)
-            </button>
+          <div className="flex justify-center gap-2 mt-8">
+            {eventPhotos.map((_, index) => (
+              <div
+                key={index}
+                className="w-2 h-2 rounded-full bg-yellow-400/30 hover:bg-yellow-400 transition-colors duration-300"
+              ></div>
+            ))}
           </div>
         </div>
       </section>
@@ -510,6 +370,45 @@ const CorporateCatastrophePage = () => {
           50% {
             transform: translateY(-20px);
           }
+        }
+
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slide-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out;
+        }
+
+        .animate-slide-in-right {
+          animation: slide-in-right 1s ease-out;
+        }
+
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </div>

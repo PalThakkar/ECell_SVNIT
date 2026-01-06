@@ -1,27 +1,26 @@
 "use client";
-import React, { useState } from "react";
-import { Trophy, Medal, PartyPopper, Clock, Sparkles, Lock, Calendar, MapPin, Users } from "lucide-react";
+import React, { useState } from "react";import Link from "next/link";import { Trophy, Medal, PartyPopper, Clock, Sparkles, Lock, Calendar, MapPin, Users } from "lucide-react";
 
 const LegoStartup20Page = () => {
   // Registration status: 'coming-soon' | 'live' | 'closed'
-  const [registrationStatus, setRegistrationStatus] = useState('coming-soon');
-  const googleFormLink = "https://forms.google.com/your-form-link"; // Update with actual Google Form link
+  const [registrationStatus, setRegistrationStatus] = useState('closed');
+  const googleFormLink = "https://linktr.ee/ecellsvnit";
 
-  // Event photos - Update with actual image paths
+  // Event photos
   const eventPhotos = [
-    { src: "/images/events/lego-2-1.jpg", orientation: "horizontal" },
-    { src: "/images/events/lego-2-2.jpg", orientation: "vertical" },
-    { src: "/images/events/lego-2-3.jpg", orientation: "horizontal" },
-    { src: "/images/events/lego-2-4.jpg", orientation: "vertical" },
-    { src: "/images/events/lego-2-5.jpg", orientation: "horizontal" },
-    { src: "/images/events/lego-2-6.jpg", orientation: "horizontal" },
+    { src: "/event-photos/lego_pic1.jpg", orientation: "horizontal" },
+    { src: "/event-photos/lego_pic2.png", orientation: "vertical" },
+    { src: "/event-photos/lego_pic3.png", orientation: "horizontal" },
+    { src: "/event-photos/lego_pic4.png", orientation: "vertical" },
+    { src: "/event-photos/lego_pic5.png", orientation: "horizontal" },
+    { src: "/event-photos/lego_pic6.png", orientation: "horizontal" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100">
       {/* Hero Section */}
       <section className="relative py-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-yellow-300/5"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-yellow-400/10 to-yellow-300/5"></div>
 
         {/* Floating Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
@@ -38,14 +37,14 @@ const LegoStartup20Page = () => {
           <div className="text-center mb-16">
             <div className="animate-slide-down">
               <h1 className="text-6xl md:text-8xl font-black mb-6 text-gray-900">
-                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent animate-gradient">
+                <span className="bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent animate-gradient">
                   LEGO STARTUP
                 </span>
                 <span
                   className="block text-4xl md:text-6xl mt-4 font-bold animate-fade-in-up"
                   style={{ animationDelay: "0.3s" }}
                 >
-                  2.0
+                  A BUSINESS FAIR
                 </span>
               </h1>
               <p
@@ -54,7 +53,7 @@ const LegoStartup20Page = () => {
               >
                 The Enhanced Startup Building Experience
               </p>
-              <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 mx-auto mt-8 rounded-full animate-expand"></div>
+              <div className="w-32 h-1 bg-linear-to-r from-yellow-400 to-yellow-300 mx-auto mt-8 rounded-full animate-expand"></div>
             </div>
           </div>
 
@@ -65,33 +64,43 @@ const LegoStartup20Page = () => {
                   More Competitive, More Refined
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  The Lego Startup 2.0 builds upon the first edition with a more competitive and refined startup development journey. Across four focused weeks, teams complete defined milestones before a final D-Day, where top teams present their products and pitch to mentors, judges, and an external audience.
+                  LEGO Startup 2.0 builds upon the success of its first edition with a sharper, more competitive startup-building journey. Over four focused weeks, participating teams move through clearly defined milestones — transforming raw ideas into validated business models and working products. The journey culminates at a high-energy Grand D-Day, where top teams showcase their startups and pitch to mentors, judges, and an external audience.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 <div
-                  className="bg-gradient-to-br from-yellow-400/20 to-yellow-300/10 rounded-xl p-6 border border-yellow-300/30 hover:scale-105 transition-transform duration-300 animate-fade-in-up"
+                  className="bg-linear-to-br from-yellow-400/20 to-yellow-300/10 rounded-xl p-6 border border-yellow-300/30 hover:scale-105 transition-transform duration-300 animate-fade-in-up flex flex-col items-center justify-center"
                   style={{ animationDelay: "0.2s" }}
                 >
                   <div className="text-3xl font-black text-yellow-600 mb-2">
                     4
                   </div>
-                  <div className="text-gray-800 font-semibold">
+                  <div className="text-gray-800 font-semibold text-center">
                     Week Program
                   </div>
                 </div>
                 <div
-                  className="bg-gradient-to-br from-yellow-400/20 to-yellow-300/10 rounded-xl p-6 border border-yellow-300/30 hover:scale-105 transition-transform duration-300 animate-fade-in-up"
+                  className="bg-linear-to-br from-yellow-400/20 to-yellow-300/10 rounded-xl p-6 border border-yellow-300/30 hover:scale-105 transition-transform duration-300 animate-fade-in-up flex flex-col items-center justify-center"
                   style={{ animationDelay: "0.4s" }}
                 >
                   <div className="text-3xl font-black text-yellow-600 mb-2">
                     2.0
                   </div>
-                  <div className="text-gray-800 font-semibold">
+                  <div className="text-gray-800 font-semibold text-center">
                     Enhanced Edition
                   </div>
                 </div>
+                <Link
+                  href="/lego-leaderboard"
+                  className="bg-linear-to-br from-yellow-400/30 to-yellow-300/20 rounded-xl p-6 border border-yellow-400/40 hover:scale-105 hover:shadow-xl hover:border-yellow-400/60 transition-all duration-300 animate-fade-in-up flex flex-col items-center justify-center gap-2 group cursor-pointer"
+                  style={{ animationDelay: "0.6s" }}
+                >
+                  <Trophy className="w-7 h-7 text-yellow-600 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-yellow-700 font-bold text-center text-sm">
+                    View Live Leaderboard
+                  </div>
+                </Link>
               </div>
             </div>
 
@@ -107,10 +116,10 @@ const LegoStartup20Page = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">
-                        Advanced Ideation
+                        Ideation & Validation
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Deep market research and comprehensive idea validation with metrics
+                        Identify real-world problems, validate ideas through market research, and define a clear value proposition.
                       </p>
                     </div>
                   </div>
@@ -123,10 +132,10 @@ const LegoStartup20Page = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">
-                        Strategic Planning
+                        Business Strategy & Planning
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Detailed business modeling, financial projections, and competitive analysis
+                        Build a strong business model with competitive analysis, revenue planning, and structured execution strategy.
                       </p>
                     </div>
                   </div>
@@ -139,26 +148,26 @@ const LegoStartup20Page = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">
-                        Product Excellence
+                        Branding & Market Testing
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Build, test, and iterate your MVP with real user feedback
+                        Create your brand identity, test market demand, and validate customer response through outreach and surveys.
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4 hover:bg-yellow-50 p-3 rounded-lg transition-colors duration-300">
                     <div
-                      className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center text-white font-bold text-sm animate-pulse-gentle"
+                      className="w-8 h-8 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center text-white font-bold text-sm animate-pulse-gentle"
                       style={{ animationDelay: "1.5s" }}
                     >
                       4
                     </div>
                     <div>
                       <h4 className="font-semibold text-yellow-600">
-                        Grand D-Day Finale
+                        Prototype & D-Day Preparation
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Showcase your product and deliver a compelling pitch to expert judges
+                        Develop a working prototype and prepare for the final pitch leading to the Grand D-Day showcase.
                       </p>
                     </div>
                   </div>
@@ -189,8 +198,8 @@ const LegoStartup20Page = () => {
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: "0.1s" }}
             >
-              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
+                <div className="w-16 h-16 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">🎯</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -206,8 +215,8 @@ const LegoStartup20Page = () => {
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
+                <div className="w-16 h-16 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">👥</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -223,8 +232,8 @@ const LegoStartup20Page = () => {
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
+                <div className="w-16 h-16 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">⚡</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -240,8 +249,8 @@ const LegoStartup20Page = () => {
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
+                <div className="w-16 h-16 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">🚀</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -257,7 +266,7 @@ const LegoStartup20Page = () => {
       </section>
 
       {/* Hall of Fame Placeholder */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
+      {/* <section className="py-20 bg-linear-to-br from-yellow-50 via-white to-yellow-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in-up">
@@ -272,7 +281,7 @@ const LegoStartup20Page = () => {
           </div>
 
           <div className="text-center py-20 animate-fade-in-up">
-            <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse-gentle">
+            <div className="w-32 h-32 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse-gentle">
               <PartyPopper className="w-16 h-16 text-white" />
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -283,7 +292,7 @@ const LegoStartup20Page = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Photo Carousel Section */}
       <section className="py-20 bg-white overflow-hidden">
@@ -306,14 +315,14 @@ const LegoStartup20Page = () => {
             {eventPhotos.map((photo, index) => (
               <div
                 key={index}
-                className={`flex-shrink-0 group relative ${
+                className={`shrink-0 group relative ${
                   photo.orientation === "horizontal" ? "w-[600px] h-[400px]" : "w-[300px] h-[450px]"
                 } animate-slide-in-right`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                   <div
-                    className={`w-full h-full bg-gradient-to-br ${
+                    className={`w-full h-full bg-linear-to-br ${
                       index % 3 === 0
                         ? "from-yellow-400 to-yellow-600"
                         : index % 3 === 1
@@ -328,7 +337,7 @@ const LegoStartup20Page = () => {
                     <>
                       <div className="absolute top-0 left-0 w-20 h-full opacity-30 blur-sm overflow-hidden">
                         <div
-                          className={`w-full h-full bg-gradient-to-br transform scale-x-[-1] ${
+                          className={`w-full h-full bg-linear-to-br transform scale-x-[-1] ${
                             index % 3 === 0
                               ? "from-yellow-400 to-yellow-600"
                               : index % 3 === 1
@@ -339,7 +348,7 @@ const LegoStartup20Page = () => {
                       </div>
                       <div className="absolute top-0 right-0 w-20 h-full opacity-30 blur-sm overflow-hidden">
                         <div
-                          className={`w-full h-full bg-gradient-to-br transform scale-x-[-1] ${
+                          className={`w-full h-full bg-linear-to-br transform scale-x-[-1] ${
                             index % 3 === 0
                               ? "from-yellow-400 to-yellow-600"
                               : index % 3 === 1
@@ -351,9 +360,9 @@ const LegoStartup20Page = () => {
                     </>
                   )}
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
                     <p className="text-white font-bold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                      Lego Startup 2.0
+                      Lego Startup
                     </p>
                   </div>
                 </div>
@@ -373,7 +382,7 @@ const LegoStartup20Page = () => {
       </section>
 
       {/* Registration Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-gray-900 mb-4 animate-fade-in-up">
@@ -388,7 +397,7 @@ const LegoStartup20Page = () => {
           </div>
 
           <div className="bg-white rounded-3xl shadow-2xl border border-yellow-200/50 overflow-hidden hover:shadow-3xl transition-shadow duration-500">
-            <div className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 px-8 py-6 animate-gradient">
+            <div className="bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 px-8 py-6 animate-gradient">
               <h3 className="text-2xl font-bold text-gray-900 text-center">
                 Lego Startup 2.0 Registration
               </h3>
@@ -400,7 +409,7 @@ const LegoStartup20Page = () => {
             <div className="p-8 md:p-12">
               {registrationStatus === 'coming-soon' && (
                 <div className="text-center py-12 animate-fade-in-up">
-                  <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
+                  <div className="w-24 h-24 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
                     <Clock className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -417,7 +426,7 @@ const LegoStartup20Page = () => {
 
               {registrationStatus === 'live' && (
                 <div className="text-center py-12 animate-fade-in-up">
-                  <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle shadow-lg">
+                  <div className="w-24 h-24 bg-linear-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle shadow-lg">
                     <Sparkles className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -430,7 +439,7 @@ const LegoStartup20Page = () => {
                     href={googleFormLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
+                    className="inline-block bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
                   >
                     Register Now →
                   </a>
@@ -495,7 +504,7 @@ const LegoStartup20Page = () => {
               <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Venue</h3>
+              <h3 className="font-bold text-gray-900 mb-2">Venue for D-Day</h3>
               <p className="text-gray-600">Will announce soon</p>
               <p className="text-gray-600 text-sm">SVNIT Campus, Surat</p>
             </div>

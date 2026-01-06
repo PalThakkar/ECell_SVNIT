@@ -15,14 +15,14 @@ title: "The Lego Startup",
 tagline: "Build a Startup from Scratch",
 description:
 "The Lego Startup is a structured, four-week startup-building journey where teams develop a startup idea from scratch. Each week focuses on a dedicated phase of startup development. After continuous evaluations, selected teams advance to the final D-Day, where they present their product and pitch their ideas to mentors, judges, and external visitors.",
-year: 2025,
+year: 2024,
 status: "past",
 images: [
-"https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1471&q=80",
-"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1470&q=80"
+"/lego-pics/pic6.png",
+"/lego-pics/pic7.png",
+"/lego-pics/pic4.png"
 ],
-date: "Feb 17, 2025",
+date: "November 17, 2024",
 time: "10:00 AM - 6:00 PM",
 location: "Canteen Cements, S.V. National Institute of Technology",
 slug: "lego-startup-1.0"
@@ -37,9 +37,7 @@ description:
 year: 2026,
 status: "upcoming",
 images: [
-"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1471&q=80",
-"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1470&q=80"
+"/event-photos/bitcoin-workshop-pic-1.jpeg",
 ],
 date: "Will announce soon",
 time: "Will announce soon",
@@ -56,9 +54,9 @@ description:
 year: 2025,
 status: "past",
 images: [
-"https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&w=687&q=80",
-"https://images.unsplash.com/photo-1581092921461-39b2f2f99d9a?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1470&q=80"
+"/event-photos/corporate_catastrophe_pic1.jpg",
+"/event-photos/corporate_catastrophe_pic2.jpg",
+"/event-photos/corporate_catastrophe_pic3.jpg"
 ],
 date: "March 20, 2025",
 time: "10:00 AM - 1:00 PM",
@@ -75,9 +73,9 @@ description:
 year: 2025,
 status: "past",
 images: [
-"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1470&q=80"
+  "/event-photos/ignite_pic6.jpg",
+  "/event-photos/ignite_pic3.jpeg",
+  "/event-photos/ignite_pic1.jpg",
 ],
 date: "Oct 12, 2025",
 time: "9:00 AM - 12:00 PM",
@@ -94,9 +92,9 @@ description:
 year: 2025,
 status: "past",
 images: [
-"https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?auto=format&fit=crop&w=1470&q=80"
+  "/event-photos/bitcoin-workshop-pic-3.jpeg",
+  "/event-photos/bitcoin-workshop-pic-5.jpeg",
+  "/event-photos/bitcoin-workshop-pic-1.jpeg"
 ],
 date: "November 12, 2025",
 time: "6:00 PM - 8:00 PM",
@@ -106,18 +104,35 @@ slug: "bitcoin-workshop-2025"
 
 {
 id: 6,
+title: "Business Wall",
+tagline: "Express Your Entrepreneurial Ideas",
+description:
+"Business Wall was a vibrant morning initiative where students turned a simple board near the canteen into a colorful display of entrepreneurial ideas, motivation, and creativity—forming a collective mosaic of innovation and community spirit.",
+year: 2024,
+status: "past",
+images: [
+"/event-photos/business-wall-pic1.jpeg",
+"/event-photos/business-wall-pic1.png",
+"/event-photos/business-wall-pic2.png"
+],
+date: "September 12, 2024",
+time: "Morning Hours",
+location: "Near Canteen, S.V. National Institute of Technology",
+slug: "business-wall"
+},
+
+{
+id: 7,
 title: "The Lego Startup 2.0",
 tagline: "Build a Startup from Scratch",
 description:
 "The Lego Startup 2.0 builds upon the first edition with a more competitive and refined startup development journey. Across four focused weeks, teams complete defined milestones before a final D-Day, where top teams present their products and pitch to mentors, judges, and an external audience.",
 year: 2026,
-status: "upcoming",
+status: "live",
 images: [
-"https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1471&q=80",
-"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1470&q=80"
+"/lego-pics/pic5.png",
 ],
-date: "Will announce soon",
+date: "Starts from January 1, 2026",
 time: "Will announce soon",
 location: "Will announce soon",
 slug: "lego-startup-2.0"

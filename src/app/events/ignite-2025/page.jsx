@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { Trophy, Medal, PartyPopper, Clock, Sparkles, Lock, Calendar, MapPin, Compass } from "lucide-react";
 
 const Ignite2025Page = () => {
@@ -14,21 +15,22 @@ const Ignite2025Page = () => {
     { position: 3, teamName: "Raat ke Shikari", icon: Medal },
   ];
 
-  // Event photos - Update with actual image paths
+  // Event photos
   const eventPhotos = [
-    { src: "/images/events/ignite-1.jpg", orientation: "horizontal" },
-    { src: "/images/events/ignite-2.jpg", orientation: "vertical" },
-    { src: "/images/events/ignite-3.jpg", orientation: "horizontal" },
-    { src: "/images/events/ignite-4.jpg", orientation: "vertical" },
-    { src: "/images/events/ignite-5.jpg", orientation: "horizontal" },
-    { src: "/images/events/ignite-6.jpg", orientation: "horizontal" },
+    { src: "/event-photos/ignite_pic1.jpg", orientation: "horizontal" },
+    { src: "/event-photos/ignite_pic2.jpeg", orientation: "horizontal" },
+    { src: "/event-photos/ignite_pic3.jpeg", orientation: "horizontal" },
+    { src: "/event-photos/ignite_pic4.jpg", orientation: "horizontal" },
+    { src: "/event-photos/ignite_pic5.jpg", orientation: "vertical" },
+    { src: "/event-photos/ignite_pic6.jpg", orientation: "horizontal" },
+    { src: "/event-photos/ignite_pic7.jpg", orientation: "horizontal" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100">
       {/* Hero Section */}
       <section className="relative py-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-yellow-300/5"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-yellow-400/10 to-yellow-300/5"></div>
 
         {/* Floating Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
@@ -45,7 +47,7 @@ const Ignite2025Page = () => {
           <div className="text-center mb-16">
             <div className="animate-slide-down">
               <h1 className="text-6xl md:text-8xl font-black mb-6 text-gray-900">
-                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent animate-gradient">
+                <span className="bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent animate-gradient">
                   IGNITE
                 </span>
                 <span
@@ -230,8 +232,8 @@ const Ignite2025Page = () => {
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
+                <div className="w-16 h-16 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">⚡</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -247,8 +249,8 @@ const Ignite2025Page = () => {
               className="group hover:transform hover:-translate-y-3 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
-              <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 shadow-lg border-2 border-yellow-200/50 group-hover:shadow-2xl group-hover:border-yellow-300 h-full">
+                <div className="w-16 h-16 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl">🏆</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -264,7 +266,7 @@ const Ignite2025Page = () => {
       </section>
 
       {/* Winners / Hall of Fame Section */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 via-white to-yellow-50">
+      <section className="py-20 bg-linear-to-br from-yellow-50 via-white to-yellow-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 animate-fade-in-up">
@@ -297,10 +299,10 @@ const Ignite2025Page = () => {
                   <div
                     className={`absolute -top-6 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform duration-300 ${
                       winner.position === 1
-                        ? "bg-gradient-to-br from-yellow-400 to-yellow-500"
+                        ? "bg-linear-to-br from-yellow-400 to-yellow-500"
                         : winner.position === 2
-                        ? "bg-gradient-to-br from-gray-300 to-gray-400"
-                        : "bg-gradient-to-br from-yellow-600 to-yellow-700"
+                        ? "bg-linear-to-br from-gray-300 to-gray-400"
+                        : "bg-linear-to-br from-yellow-600 to-yellow-700"
                     }`}
                   >
                     <winner.icon className="w-8 h-8 text-white" />
@@ -366,52 +368,20 @@ const Ignite2025Page = () => {
             {eventPhotos.map((photo, index) => (
               <div
                 key={index}
-                className={`flex-shrink-0 group relative ${
-                  photo.orientation === "horizontal" ? "w-[600px] h-[400px]" : "w-[300px] h-[450px]"
+                className={`shrink-0 group relative ${
+                  photo.orientation === "horizontal" ? "w-150 h-100" : "w-75 h-112.5"
                 } animate-slide-in-right`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
-                  <div
-                    className={`w-full h-full bg-gradient-to-br ${
-                      index % 3 === 0
-                        ? "from-yellow-400 to-yellow-600"
-                        : index % 3 === 1
-                        ? "from-gray-700 to-gray-900"
-                        : "from-yellow-500 to-yellow-700"
-                    } flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-700`}
-                  >
-                    <span className="opacity-50">Photo {index + 1}</span>
-                  </div>
+                  <Image
+                    src={photo.src}
+                    alt={`Ignite 2025 - Photo ${index + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
 
-                  {photo.orientation === "vertical" && (
-                    <>
-                      <div className="absolute top-0 left-0 w-20 h-full opacity-30 blur-sm overflow-hidden">
-                        <div
-                          className={`w-full h-full bg-gradient-to-br transform scale-x-[-1] ${
-                            index % 3 === 0
-                              ? "from-yellow-400 to-yellow-600"
-                              : index % 3 === 1
-                              ? "from-gray-700 to-gray-900"
-                              : "from-yellow-500 to-yellow-700"
-                          }`}
-                        ></div>
-                      </div>
-                      <div className="absolute top-0 right-0 w-20 h-full opacity-30 blur-sm overflow-hidden">
-                        <div
-                          className={`w-full h-full bg-gradient-to-br transform scale-x-[-1] ${
-                            index % 3 === 0
-                              ? "from-yellow-400 to-yellow-600"
-                              : index % 3 === 1
-                              ? "from-gray-700 to-gray-900"
-                              : "from-yellow-500 to-yellow-700"
-                          }`}
-                        ></div>
-                      </div>
-                    </>
-                  )}
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
                     <p className="text-white font-bold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       Ignite 2025
                     </p>
@@ -433,7 +403,7 @@ const Ignite2025Page = () => {
       </section>
 
       {/* Registration Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-black text-gray-900 mb-4 animate-fade-in-up">
@@ -448,7 +418,7 @@ const Ignite2025Page = () => {
           </div>
 
           <div className="bg-white rounded-3xl shadow-2xl border border-yellow-200/50 overflow-hidden hover:shadow-3xl transition-shadow duration-500">
-            <div className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 px-8 py-6 animate-gradient">
+            <div className="bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 px-8 py-6 animate-gradient">
               <h3 className="text-2xl font-bold text-gray-900 text-center">
                 Ignite 2025 Registration
               </h3>
@@ -460,7 +430,7 @@ const Ignite2025Page = () => {
             <div className="p-8 md:p-12">
               {registrationStatus === 'coming-soon' && (
                 <div className="text-center py-12 animate-fade-in-up">
-                  <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
+                  <div className="w-24 h-24 bg-linear-to-br from-yellow-400 to-yellow-300 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle">
                     <Clock className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -477,7 +447,7 @@ const Ignite2025Page = () => {
 
               {registrationStatus === 'live' && (
                 <div className="text-center py-12 animate-fade-in-up">
-                  <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle shadow-lg">
+                  <div className="w-24 h-24 bg-linear-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-gentle shadow-lg">
                     <Sparkles className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -490,7 +460,7 @@ const Ignite2025Page = () => {
                     href={googleFormLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
+                    className="inline-block bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl hover:from-yellow-500 hover:via-yellow-400 hover:to-yellow-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl animate-gradient"
                   >
                     Register Now →
                   </a>
