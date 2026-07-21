@@ -17,7 +17,7 @@ const BlogPreview = ({ posts }) => {
               <h3 className="text-xl font-bold mb-2">{post.title}</h3>
               <p className="text-gray-600 mb-8">{post.excerpt}</p>
               <div className="mt-28"> {/* Added margin-top to shift "Read more" down */}
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={`/blog&podcast/${post.slug}`}>
                   <div className="inline-block bg-black text-white px-4 py-2 rounded-full hover:bg-[#232324] shadow-lg hover:shadow-xl  transition-colors duration-200">
                     Read more
                   </div> 
@@ -39,7 +39,7 @@ const BlogPreview = ({ posts }) => {
         ))}
       </div>
       <div className="mt-8">
-  <Link href="/blog" className="text-black font-medium hover:underline flex items-center">
+  <Link href="/blog&podcast" className="text-black font-medium hover:underline flex items-center">
     View all blog posts
     <span className="ml-2 transform rotate-45">↑</span> {/* Upward arrow */}
   </Link>

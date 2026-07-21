@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { BackgroundBoxesDemo } from "@/components/ui/background-boxes";
-import { JobCard } from "@/components/jobcard";
+import { JobCard } from "@/components/JobCard";
 
 const job1 = {
   title: "Concrete Specialist",

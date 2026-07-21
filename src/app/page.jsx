@@ -1,6 +1,5 @@
 import Container from "@/components/Container"; // Add this import
 import FadeIn from "@/components/FadeIn";
-import Clients from "@/components/Clients";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Services from "@/components/Services";
