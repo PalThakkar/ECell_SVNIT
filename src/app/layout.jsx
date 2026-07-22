@@ -21,8 +21,12 @@ export default function Layout({ children }) {
     <html
       lang="en"
       className="h-full bg-white text-base antialiased text-neutral-900"
+      suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-white text-neutral-900">
+      <body
+        className="flex min-h-full flex-col bg-white text-neutral-900"
+        suppressHydrationWarning
+      >
         <RootLayout>{children}</RootLayout>
         <SpeedInsights />
         <Analytics />
