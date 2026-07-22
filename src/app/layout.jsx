@@ -1,49 +1,27 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import RootLayout from "@/components/RootLayout";
+import { constructMetadata } from "@/config/site";
 import "./globals.css";
 
-// Define metadata for the site
-export const metadata = {
-  metadataBase: new URL("https://www.ecellsvnit.vercel.app"),
+export const metadata = constructMetadata({
   title: {
     default: "E-Cell SVNIT",
     template: "%s | E-Cell SVNIT",
   },
-  description: "E-Cell SVNIT empowers students to transform visionary ideas into successful ventures through networking, mentorship, and resources.",
-  openGraph: {
-    title: "E-Cell SVNIT",
-    description: "Join E-Cell SVNIT, the heart of entrepreneurial spirit on campus. We help turn your concepts into reality.",
-    url: "https://www.ecellsvnit.com/",
-    siteName: "E-Cell SVNIT",
-    images: [
-      {
-        url: "https://www.ecellsvnit.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "E-Cell SVNIT",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "E-Cell SVNIT",
-    description: "Join E-Cell SVNIT and ignite your entrepreneurial journey with us.",
-    images: ["https://www.ecellsvnit.com/og-image.png"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+  description:
+    "E-Cell SVNIT empowers students to transform visionary ideas into successful ventures through networking, mentorship, and resources.",
+  image: "https://www.ecellsvnit.com/og-image.png",
+  url: "https://www.ecellsvnit.vercel.app/",
+  siteName: "E-Cell SVNIT",
+});
 
 export default function Layout({ children }) {
   return (
-    <html lang="en" className="h-full bg-white text-base antialiased text-neutral-900">
-      <head>
-        {/* Additional <head> elements can go here if needed */}
-      </head>
+    <html
+      lang="en"
+      className="h-full bg-white text-base antialiased text-neutral-900"
+    >
       <body className="flex min-h-full flex-col bg-white text-neutral-900">
         <RootLayout>{children}</RootLayout>
         <SpeedInsights />

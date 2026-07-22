@@ -1,9 +1,8 @@
-import Container from "@/components/Container"; // Add this import
+import Container from "@/components/Container";
 import FadeIn from "@/components/FadeIn";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Services from "@/components/Services";
-// import ContactSection from "@/components/ContactSection";
 import logoPhobiaDark from "@/images/ecell.svg";
 import HeroSection from "@/components/HeroSection";
 
@@ -17,9 +16,6 @@ export default function Home() {
   return (
     <main className="text-black">
       <HeroSection />
-      {/* <Container className="mt-24 sm:mt-32">
-      </Container> */}
-      {/* <Clients /> */}
       <Testimonials
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: "Ecell", logo: logoPhobiaDark }}
@@ -29,7 +25,6 @@ export default function Home() {
       </Testimonials>
       <Services />
       <Faq />
-      {/* <ContactSection /> */}
     </main>
   );
 }

@@ -1,9 +1,12 @@
 export function constructMetadata({
-  title = "E-Cell SVNIT ",
+  title = "E-Cell SVNIT",
   description = "E-Cell SVNIT is an open-source website.",
   image = "/agency.PNG",
   icons = "/favicon.ico",
   noIndex = false,
+  url = "https://www.ecellsvnit.vercel.app/",
+  siteName = "E-Cell SVNIT",
+  themeColor = "#FFF",
 }) {
   return {
     title,
@@ -11,6 +14,8 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
+      url,
+      siteName,
       images: [
         {
           url: image,
@@ -25,8 +30,8 @@ export function constructMetadata({
       creator: "@KING_IN_JUNGLE",
     },
     icons,
-    metadataBase: new URL("https://agency-website-E-Cell SVNIT.vercel.app/"),
-    themeColor: "#FFF",
+    metadataBase: new URL(url),
+    themeColor,
     ...(noIndex && {
       robots: {
         index: false,

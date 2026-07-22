@@ -14,6 +14,15 @@ import Offices from "./Offices";
 import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 
+const navigationItems = [
+  { href: "/team", label: "Team" },
+  { href: "/about", label: "About Us" },
+  { href: "/events", label: "Events" },
+  { href: "/jobs", label: "Jobs" },
+  { href: "/merch", label: "Merch" },
+  { href: "/blog&podcast", label: "Podcast & Blogs" },
+];
+
 const Header = ({
   panelId,
   invert = false,
@@ -43,7 +52,7 @@ const Header = ({
             aria-controls={panelId}
             className={clsx(
               "group -m-2.5 rounded-full p-4 transition",
-              invert ? "hover:bg-white/10" : "hover:bg-neutral-950/10"
+              invert ? "hover:bg-white/10" : "hover:bg-neutral-950/10",
             )}
             aria-label="Toggle navigation"
           >
@@ -52,7 +61,7 @@ const Header = ({
                 "h-8 w-8",
                 invert
                   ? "fill-white group-hover:fill-neutral-200"
-                  : "fill-neutral-950 group-hover:fill-neutral-700"
+                  : "fill-neutral-950 group-hover:fill-neutral-700",
               )}
             />
           </button>
@@ -68,14 +77,14 @@ const NavigationItem = ({ href, children, align = "center" }) => {
       href={href}
       className="group relative bg-neutral-950 border-b border-neutral-800 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
     >
-      <div className="relative overflow-hidden px-8 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20 flex items-center justify-center min-h-[120px] sm:min-h-[180px]">
+      <div className="relative flex min-h-30 items-center justify-center overflow-hidden px-8 py-10 sm:min-h-45 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20">
         <div
           className={`relative z-10 text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight w-full ${
             align === "left"
               ? "text-left"
               : align === "right"
-              ? "text-right"
-              : "text-center"
+                ? "text-right"
+                : "text-center"
           }`}
         >
           {children}
@@ -85,10 +94,10 @@ const NavigationItem = ({ href, children, align = "center" }) => {
         <div className="absolute inset-0 bg-neutral-800 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
 
         {/* Animated gradient on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
 
         {/* Shine effect on hover */}
-        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
       </div>
     </Link>
   );
@@ -97,48 +106,20 @@ const NavigationItem = ({ href, children, align = "center" }) => {
 const Navigation = () => {
   return (
     <nav className="font-display text-white bg-neutral-950">
-      {/* Mobile: Single column layout - all center aligned for better mobile UX */}
       <div className="sm:hidden">
-        <NavigationItem href="/team" align="center">
-          Team
-        </NavigationItem>
-        <NavigationItem href="/about" align="center">
-          About Us
-        </NavigationItem>
-        <NavigationItem href="/events" align="center">
-          Events
-        </NavigationItem>
-        <NavigationItem href="/jobs" align="center">
-          Jobs
-        </NavigationItem>
-        <NavigationItem href="/merch" align="center">
-          Merch
-        </NavigationItem>
-        <NavigationItem href="/blog&podcast" align="center">
-          Podcast and Blogs
-        </NavigationItem>
+        {navigationItems.map((item) => (
+          <NavigationItem key={item.href} href={item.href} align="center">
+            {item.label}
+          </NavigationItem>
+        ))}
       </div>
 
-      {/* Tablet & Desktop: 3-column grid with varied alignment */}
       <div className="hidden sm:grid sm:grid-cols-3">
-        <NavigationItem href="/team" align="center">
-          Team
-        </NavigationItem>
-        <NavigationItem href="/about" align="center">
-          About Us
-        </NavigationItem>
-        <NavigationItem href="/events" align="center">
-          Events
-        </NavigationItem>
-        <NavigationItem href="/jobs" align="center">
-          Jobs
-        </NavigationItem>
-        <NavigationItem href="/merch" align="center">
-          Merch
-        </NavigationItem>
-        <NavigationItem href="/blog&podcast" align="center">
-          Podcast & Blogs
-        </NavigationItem>
+        {navigationItems.map((item) => (
+          <NavigationItem key={item.href} href={item.href} align="center">
+            {item.label}
+          </NavigationItem>
+        ))}
       </div>
     </nav>
   );
@@ -152,7 +133,7 @@ const RootLayoutInner = ({ children }) => {
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     function onClick(event) {
@@ -169,89 +150,94 @@ const RootLayoutInner = ({ children }) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      {!isHomePage && <header>
-        <div
-          className="absolute left-0 right-0 top-2 z-40"
-          aria-hidden={expanded ? "true" : undefined}
-          inert={expanded ? true : undefined}
-        >
-          <Header
-            panelId={panelId}
-            icon={HiMenuAlt4}
-            toggleRef={openRef}
-            expanded={expanded}
-            onToggle={() => {
-              setExpanded((expanded) => !expanded);
-              window.setTimeout(() =>
-                closeRef.current?.focus({ preventScroll: true })
-              );
-            }}
-          />
-        </div>
+      {!isHomePage && (
+        <header>
+          <div
+            className="absolute left-0 right-0 top-2 z-40"
+            aria-hidden={expanded ? "true" : undefined}
+            inert={expanded ? true : undefined}
+          >
+            <Header
+              panelId={panelId}
+              icon={HiMenuAlt4}
+              toggleRef={openRef}
+              expanded={expanded}
+              onToggle={() => {
+                setExpanded((expanded) => !expanded);
+                window.setTimeout(() =>
+                  closeRef.current?.focus({ preventScroll: true }),
+                );
+              }}
+            />
+          </div>
 
-        <motion.div
-          layout
-          id={panelId}
-          style={{ height: expanded ? "auto" : "0" }}
-          className="relative z-50 overflow-hidden bg-neutral-950"
-          aria-hidden={expanded ? undefined : "true"}
-          inert={expanded ? undefined : true}
-        >
-          <motion.div layout className="bg-neutral-800">
-            <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
-              <Header
-                invert
-                panelId={panelId}
-                icon={IoMdClose}
-                toggleRef={closeRef}
-                expanded={expanded}
-                onToggle={() => {
-                  setExpanded((expanded) => !expanded);
-                  window.setTimeout(() =>
-                    openRef.current?.focus({ preventScroll: true })
-                  );
-                }}
-              />
-            </div>
-            <Navigation />
-            <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
-              <Container>
-                <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
-                  <div>
-                    <h2 className="font-display text-2xl font-semibold text-white mb-2">
-                      Our Address
-                    </h2>
-                    <Offices
-                      invert
-                      className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                    />
+          <motion.div
+            layout
+            id={panelId}
+            style={{ height: expanded ? "auto" : "0" }}
+            className="relative z-50 overflow-hidden bg-neutral-950"
+            aria-hidden={expanded ? undefined : "true"}
+            inert={expanded ? undefined : true}
+          >
+            <motion.div layout className="bg-neutral-800">
+              <div className="bg-neutral-950 pb-16 pt-14">
+                <Header
+                  invert
+                  panelId={panelId}
+                  icon={IoMdClose}
+                  toggleRef={closeRef}
+                  expanded={expanded}
+                  onToggle={() => {
+                    setExpanded((expanded) => !expanded);
+                    window.setTimeout(() =>
+                      openRef.current?.focus({ preventScroll: true }),
+                    );
+                  }}
+                />
+              </div>
+              <Navigation />
+              <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
+                <Container>
+                  <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
+                    <div>
+                      <h2 className="font-display text-2xl font-semibold text-white mb-2">
+                        Our Address
+                      </h2>
+                      <Offices
+                        invert
+                        className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                      />
+                    </div>
+                    <div className="sm:border-l sm:border-transparent sm:pl-16">
+                      <h2 className="font-display text-xl font-semibold text-white mb-2">
+                        Follow us
+                      </h2>
+                      <SocialMedia className="mt-8" invert />
+                    </div>
                   </div>
-                  <div className="sm:border-l sm:border-transparent sm:pl-16">
-                    <h2 className="font-display text-xl font-semibold text-white mb-2">
-                      Follow us
-                    </h2>
-                    <SocialMedia className="mt-8" invert />
-                  </div>
-                </div>
-              </Container>
-            </div>
+                </Container>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </header>}
+        </header>
+      )}
 
       <motion.div
         layout
-        style={{ borderTopLeftRadius: isHomePage ? 0 : 40, borderTopRightRadius: isHomePage ? 0 : 40 }}
+        style={{
+          borderTopLeftRadius: isHomePage ? 0 : 40,
+          borderTopRightRadius: isHomePage ? 0 : 40,
+        }}
         className={clsx(
-          "relative flex flex-auto overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100",
-          !isHomePage && "pt-14"
+          "relative flex flex-auto overflow-hidden bg-linear-to-br from-white via-gray-50 to-gray-100",
+          !isHomePage && "pt-14",
         )}
       >
         <motion.div
           layout
           className={clsx(
             "relative isolate flex w-full flex-col",
-            !isHomePage && "pt-9"
+            !isHomePage && "pt-9",
           )}
         >
           <main className="w-full flex-auto">{children}</main>
