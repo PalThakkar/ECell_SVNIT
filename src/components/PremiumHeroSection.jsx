@@ -85,10 +85,10 @@ const PremiumHeroSection = () => (
     </div>
 
     {/* ── Floating side badges ── */}
-    <FloatBadge icon={Lightbulb} title="Innovation Hub"  desc="Ideate & Incubate" pos="top-[28%] left-[3%]"  delay={0.7} />
-    <FloatBadge icon={Users}     title="Active Network"  desc="Alumni & Mentors"  pos="top-[58%] left-[2%]"  delay={0.9} />
-    <FloatBadge icon={Rocket}    title="Startup Culture" desc="Build & Launch"    pos="top-[28%] right-[3%]" delay={0.8} />
-    <FloatBadge icon={Award}     title="National Reach"  desc="Flagship E-Summit" pos="top-[58%] right-[2%]" delay={1.0} />
+    <FloatBadge icon={Lightbulb} title="Innovation Hub"  desc="Ideate & Incubate" pos="top-[28%] left-[3.5rem]"  delay={0.7} />
+    <FloatBadge icon={Users}     title="Active Network"  desc="Alumni & Mentors"  pos="top-[58%] left-[3.5rem]"  delay={0.9} />
+    <FloatBadge icon={Rocket}    title="Startup Culture" desc="Build & Launch"    pos="top-[28%] right-[5rem]" delay={0.8} />
+    <FloatBadge icon={Award}     title="National Reach"  desc="Flagship E-Summit" pos="top-[58%] right-[5rem]" delay={1.0} />
 
     {/* ── Main center block ── */}
     <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center max-w-5xl mx-auto w-full gap-7">
@@ -174,10 +174,23 @@ const PremiumHeroSection = () => (
     {/* ── Bottom metrics bar removed ── */}
 
     {/* Scroll indicator */}
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-      <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
-        <ChevronDown className="w-5 h-5" style={{ color: "#B5B0A8" }} />
-      </motion.div>
+    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
+      <button
+        type="button"
+        onClick={() => {
+          window.scrollTo({
+            top: window.innerHeight * 0.9,
+            behavior: "smooth",
+          });
+        }}
+        className="group p-2.5 rounded-full hover:bg-black/5 active:scale-95 transition-all cursor-pointer flex items-center justify-center focus:outline-none"
+        aria-label="Scroll down"
+        title="Scroll down"
+      >
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
+          <ChevronDown className="w-6 h-6 text-[#7A756C] group-hover:text-[#111111] transition-colors" />
+        </motion.div>
+      </button>
     </div>
   </InteractiveParticleNetwork>
 );

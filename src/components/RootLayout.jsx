@@ -14,6 +14,7 @@ import Offices from "./Offices";
 import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import FloatingSocialBar from "./FloatingSocialBar";
 
 const navigationItems = [
   { href: "/team", label: "Team" },
@@ -262,6 +263,7 @@ const RootLayout = ({ children }) => {
     <>
       {loading && <Loader />}
       <RootLayoutInner key={pathName}>{children}</RootLayoutInner>
+      <FloatingSocialBar />
       <ScrollToTop />
     </>
   );

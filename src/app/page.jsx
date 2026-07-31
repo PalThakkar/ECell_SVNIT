@@ -56,8 +56,8 @@ export default function Home() {
         <main className="w-full">
           <PremiumHeroSection />
           <StatsSection />
-          <Services />
           <FeaturedEvents />
+          <Services />
           <PartnersMarquee />
           <GallerySection />
           <Testimonials />
