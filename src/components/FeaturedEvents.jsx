@@ -14,7 +14,7 @@ const featuredEvents = [
 
 const FeaturedEvents = () => {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "#FAF9F6" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "rgba(250,249,246,0.50)" }}>
 
       {/* Warm amber glow bottom left */}
       <div className="absolute bottom-0 left-0 w-[32rem] h-[32rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.09) 0%, transparent 70%)" }} />
@@ -60,16 +60,16 @@ const FeaturedEvents = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="group rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300"
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 cursor-pointer"
                 style={{ background: "#FEFEFE", border: "1px solid #E8E4DC", boxShadow: "0 8px 28px rgba(17,15,10,0.07)" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#FBBD58"; e.currentTarget.style.boxShadow = "0 16px 48px rgba(251,189,88,0.18), 0 8px 16px rgba(17,15,10,0.08)"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#FBBD58"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(251,189,88,0.22), 0 8px 16px rgba(17,15,10,0.08)"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "#E8E4DC"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(17,15,10,0.07)"; }}
               >
-                {/* Thumbnail */}
-                <div className="relative h-56 w-full overflow-hidden" style={{ background: "#E8E4DC" }}>
-                  <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                {/* Thumbnail — Uniform Aspect Ratio */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden" style={{ background: "#E8E4DC" }}>
+                  <Image src={event.image} alt={event.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={idx === 0} className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(17,15,10,0.55) 0%, transparent 60%)" }} />
                   <div className="absolute top-4 left-4">
                     <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs sm:text-sm font-black backdrop-blur-md" style={{ background: "#FBBD58", color: "#111111", border: "1px solid #F5AB35" }}>

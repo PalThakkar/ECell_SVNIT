@@ -71,7 +71,7 @@ const PremiumHeroSection = () => {
   return (
   <InteractiveParticleNetwork
     className="relative min-h-[94vh] flex flex-col justify-between pt-32 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
-    style={{ backgroundColor: "#FEFEFE" }}
+    style={{ backgroundColor: "rgba(254,254,254,0.50)" }}
   >
     {/* ── Subtle campus backdrop ── */}
     <div className="absolute inset-0 pointer-events-none -z-10">
@@ -149,11 +149,15 @@ const PremiumHeroSection = () => {
       {/* CTAs */}
       <motion.div
         {...fadeUp(0.52)}
-        className="flex flex-col sm:flex-row items-center gap-3 w-full justify-center px-4"
+        className="flex flex-col sm:flex-row items-center gap-3.5 w-full justify-center px-4 flex-wrap"
       >
-        <Link href="/about" className="btn-yellow group text-[17px]">
-          <span>Explore E-Cell</span>
+        <Link href="/contact" className="btn-yellow group text-[17px] shadow-lg">
+          <Rocket className="w-4 h-4" />
+          <span>Submit Your Idea</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </Link>
+        <Link href="/about" className="btn-dark text-[17px]">
+          <span>Explore E-Cell</span>
         </Link>
         <Link href="/events" className="btn-dark text-[17px]">
           <Sparkles className="w-4 h-4" />

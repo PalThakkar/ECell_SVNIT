@@ -26,7 +26,7 @@ const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "#FEFEFE" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "rgba(254,254,254,0.50)" }}>
       {/* Warm yellow ambient radial */}
       <div className="absolute top-0 right-0 w-[38rem] h-[38rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.10) 0%, transparent 70%)" }} />
 
@@ -116,12 +116,12 @@ const Services = () => {
                     key={idx}
                     onClick={() => setHoveredIndex(idx)}
                     onMouseEnter={() => setHoveredIndex(idx)}
-                    className="p-6 sm:p-7 rounded-3xl cursor-pointer transition-all duration-300"
+                    whileHover={{ y: -4 }}
+                    className="p-6 sm:p-7 rounded-3xl cursor-pointer transition-all duration-300 hover:shadow-xl"
                     style={{
                       background: isSelected ? "#FEFEFE" : "#FAF9F6",
                       border: isSelected ? "1px solid #FBBD58" : "1px solid #E8E4DC",
-                      boxShadow: isSelected ? "0 10px 32px rgba(251,189,88,0.16), 0 4px 8px rgba(17,15,10,0.06)" : "none",
-                      transform: isSelected ? "scale(1.01)" : "scale(1)",
+                      boxShadow: isSelected ? "0 12px 36px rgba(251,189,88,0.18), 0 4px 12px rgba(17,15,10,0.06)" : "0 4px 12px rgba(17,15,10,0.03)",
                     }}
                   >
                     <div className="flex items-start gap-4">

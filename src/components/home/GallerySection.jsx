@@ -23,7 +23,7 @@ const GallerySection = () => {
   const filteredImages = selectedCategory === "All" ? galleryImages : galleryImages.filter(img => img.category === selectedCategory);
 
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "#FEFEFE" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "rgba(254,254,254,0.50)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}

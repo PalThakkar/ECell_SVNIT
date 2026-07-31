@@ -50,25 +50,20 @@ const Footer = () => {
                 <p className="text-sm mb-5 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
                   Subscribe for news on flagship summits, startup grants, and hackathon announcements.
                 </p>
-                <form onSubmit={e => e.preventDefault()} className="space-y-3">
+                <form onSubmit={e => e.preventDefault()} className="relative flex items-center p-1.5 rounded-2xl bg-white border border-[#D4CFC6] focus-within:border-[#FBBD58] focus-within:ring-2 focus-within:ring-[#FBBD58]/50 transition-all shadow-sm">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 rounded-xl text-sm font-medium focus:outline-none transition-colors"
-                    style={{ background: "#FEFEFE", border: "1px solid #D4CFC6", color: "#111111" }}
-                    onFocus={e => e.currentTarget.style.borderColor = "#FBBD58"}
-                    onBlur={e => e.currentTarget.style.borderColor = "#D4CFC6"}
+                    className="w-full px-3.5 py-2 text-sm font-medium bg-transparent border-none focus:outline-none text-[#111111] placeholder:text-[#9A9488]"
                     required
                   />
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-black text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
-                    style={{ background: "#FBBD58", color: "#111111", border: "1px solid #F5AB35", boxShadow: "0 4px 12px rgba(251,189,88,0.26)" }}
-                    onMouseEnter={e => e.currentTarget.style.background = "#F5AB35"}
-                    onMouseLeave={e => e.currentTarget.style.background = "#FBBD58"}
+                    className="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    style={{ background: "#FBBD58", color: "#111111", border: "1px solid #F5AB35", boxShadow: "0 2px 8px rgba(251,189,88,0.26)" }}
                   >
                     <span>Subscribe</span>
-                    <Send className="w-4 h-4" style={{ color: "#111111" }} />
+                    <Send className="w-3.5 h-3.5" style={{ color: "#111111" }} />
                   </button>
                 </form>
               </div>
@@ -78,23 +73,20 @@ const Footer = () => {
 
           {/* Bottom Bar */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[15px] font-semibold" style={{ color: "#7A756C" }}>
-            <p>© {new Date().getFullYear()} E-Cell SVNIT. All rights reserved.</p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+              <p>© {new Date().getFullYear()} E-Cell SVNIT Surat. All rights reserved.</p>
+              <span className="hidden sm:inline" style={{ color: "#D4CFC6" }}>•</span>
+              <p className="text-xs font-extrabold px-2.5 py-1 rounded-full" style={{ background: "#FEF3C7", color: "#D97706", border: "1px solid #F5AB35" }}>
+                Official Handle: @ecell.svnit
+              </p>
+            </div>
+            <div className="flex items-center gap-4 flex-wrap justify-center">
               <Link href="/dev-team"
-                className="inline-flex items-center gap-1.5 font-black rounded px-2.5 py-1 transition-colors"
-                style={{ color: "#111111", background: "rgba(251,189,88,0.28)" }}>
-                <span>Technical Team 2026</span>
+                className="inline-flex items-center gap-1.5 font-black rounded px-3 py-1.5 transition-colors text-sm"
+                style={{ color: "#111111", background: "rgba(251,189,88,0.28)", border: "1px solid rgba(245,171,53,0.40)" }}>
+                <span>Technical Team</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
-              <button onClick={scrollToTop}
-                className="p-3 rounded-full transition-colors"
-                style={{ background: "#FAF9F6", border: "1px solid #E8E4DC" }}
-                aria-label="Scroll back to top"
-                onMouseEnter={e => { e.currentTarget.style.background = "#FBBD58"; e.currentTarget.style.borderColor = "#F5AB35"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "#FAF9F6"; e.currentTarget.style.borderColor = "#E8E4DC"; }}
-              >
-                <ArrowUp className="w-5 h-5" style={{ color: "#111111" }} />
-              </button>
             </div>
           </div>
         </FadeIn>

@@ -32,15 +32,15 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 sm:py-6 px-4 sm:px-8 bg-transparent">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-6 px-3 sm:px-8 bg-transparent">
         <div className="w-full mx-auto flex items-center justify-between max-w-[1400px]">
-          {/* Logo — Oval Glass View */}
-          <div className="bg-white/40 backdrop-blur-xl rounded-full px-5 py-2 shadow-[0_6px_24px_rgba(17,15,10,0.08)] flex items-center justify-center -ml-2 sm:-ml-4">
-            <Logo href="/" className="h-16 sm:h-20 w-auto transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
+          {/* Logo — Frosted Glass View */}
+          <div className="bg-white/45 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-xl border border-white/70 rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 shadow-[0_6px_24px_rgba(17,15,10,0.08)] flex items-center justify-center -ml-1 sm:-ml-4 shrink-0">
+            <Logo href="/" className="h-10 sm:h-14 w-auto transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
           </div>
 
-          {/* Desktop Nav Links — Oval Glass View (No Border) */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 bg-white/40 backdrop-blur-xl rounded-full px-5 py-2.5 shadow-[0_6px_24px_rgba(17,15,10,0.08)] text-[#111111] overflow-hidden">
+          {/* Desktop Nav Links — Frosted Glassmorphism View */}
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 sm:gap-1.5 xl:gap-2 bg-white/45 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-xl rounded-full px-3.5 sm:px-5 xl:px-6 py-2 sm:py-2.5 xl:py-3 shadow-[0_10px_32px_rgba(17,15,10,0.10)] border border-white/70 text-[#111111] overflow-hidden whitespace-nowrap z-50">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -48,15 +48,15 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   className={clsx(
-                    "relative px-4 py-1.5 text-[15px] font-bold transition-colors duration-200 rounded-full z-10",
-                    isActive ? "text-[#111111] font-extrabold" : "text-[#555047] hover:text-[#111111]"
+                    "relative px-3 sm:px-4 py-1.5 sm:py-2 text-[14px] sm:text-[15px] xl:text-[16px] font-extrabold tracking-tight transition-all duration-200 rounded-full z-10 whitespace-nowrap shrink-0",
+                    isActive ? "text-[#111111]" : "text-[#3D3A35] hover:text-[#111111] hover:bg-white/40"
                   )}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
                       layoutId="navbar-active-pill"
-                      className="absolute inset-0 bg-[#FBBD58] rounded-full -z-10 shadow-sm"
+                      className="absolute inset-0 bg-[#FBBD58] rounded-full -z-10 shadow-[0_3px_12px_rgba(251,189,88,0.35)]"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -65,15 +65,15 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button — Oval Glass View */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* CTA Button — Frosted Glass View */}
+          <div className="hidden sm:flex items-center gap-4 shrink-0">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[15px] font-black text-[#111111] bg-white/40 backdrop-blur-xl shadow-[0_6px_24px_rgba(17,15,10,0.08)] hover:bg-[#FBBD58] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className="group inline-flex items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full text-sm sm:text-[15px] font-black text-[#111111] bg-white/45 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-xl border border-white/70 shadow-[0_6px_24px_rgba(17,15,10,0.08)] hover:bg-[#FBBD58] hover:border-[#F5AB35] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
             >
-              <Sparkles className="w-4 h-4 text-[#F5AB35] group-hover:text-[#111111] transition-colors" />
+              <Sparkles className="w-4 h-4 text-[#D97706] group-hover:text-[#111111] transition-colors shrink-0" />
               <span>Contact Us</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
             </Link>
           </div>
 
@@ -81,12 +81,12 @@ const Navbar = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-3 rounded-full bg-[#FAF9F6] border border-[#E8E4DC] text-[#111111] hover:bg-[#E8E4DC] transition-colors focus:outline-none"
+            className="lg:hidden p-2.5 sm:p-3 rounded-full bg-white/80 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-md border border-[#E8E4DC] text-[#111111] hover:bg-[#E8E4DC] transition-colors focus:outline-none shadow-sm"
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen
-              ? <IoMdClose className="w-6 h-6 text-[#111111]" />
-              : <HiMenuAlt4 className="w-6 h-6 text-[#111111]" />
+              ? <IoMdClose className="w-5 h-5 sm:w-6 sm:h-6 text-[#111111]" />
+              : <HiMenuAlt4 className="w-5 h-5 sm:w-6 sm:h-6 text-[#111111]" />
             }
           </button>
         </div>

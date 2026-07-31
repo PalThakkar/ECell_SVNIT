@@ -34,9 +34,9 @@ const AutoScroll = () => {
     autoScrollRef.current = requestAnimationFrame(step);
   }, [stopAutoScroll]);
 
-  // Stop on user scroll / touch / key
+  // Stop on user scroll / touch / key / stopAutoScroll event
   useEffect(() => {
-    const events = ["wheel", "touchstart", "keydown"];
+    const events = ["wheel", "touchstart", "keydown", "stopAutoScroll"];
     const handleStop = () => stopAutoScroll();
     events.forEach((e) =>
       window.addEventListener(e, handleStop, { passive: true })

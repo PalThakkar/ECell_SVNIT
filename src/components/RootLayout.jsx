@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Loader from "./Loader";
 import Container from "./Container";
 import Link from "next/link";
@@ -228,7 +229,7 @@ const RootLayoutInner = ({ children }) => {
           borderTopRightRadius: isHomePage ? 0 : 40,
         }}
         className={clsx(
-          "relative flex flex-auto overflow-hidden bg-linear-to-br from-white via-gray-50 to-gray-100",
+          "relative flex flex-auto overflow-hidden bg-transparent",
           !isHomePage && "pt-14",
         )}
       >
@@ -263,6 +264,25 @@ const RootLayout = ({ children }) => {
   return (
     <>
       {loading && <Loader />}
+
+      {/* Global Ambient Blurred Campus/E-Cell Background Image */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <Image
+          src="/e-cell-fam.jpg"
+          alt="E-Cell SVNIT Campus Background"
+          fill
+          priority
+          className="object-cover object-center scale-105 filter blur-2xl opacity-40 saturate-[1.3]"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 30%, rgba(254,254,254,0.35) 0%, rgba(250,249,246,0.60) 100%)",
+          }}
+        />
+      </div>
+
       <RootLayoutInner key={pathName}>{children}</RootLayoutInner>
       <FloatingSocialBar />
       <AutoScroll />

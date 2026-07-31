@@ -21,7 +21,7 @@ const Testimonials = () => {
   const current = testimonialsData[currentIndex];
 
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ background: "linear-gradient(to bottom, #FAF9F6 0%, #FEFEFE 50%, #FFFBF0 100%)" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ background: "linear-gradient(to bottom, rgba(250,249,246,0.50) 0%, rgba(254,254,254,0.50) 50%, rgba(255,251,240,0.50) 100%)" }}>
       
       {/* Warm yellow glow center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.10) 0%, transparent 70%)" }} />

@@ -21,6 +21,8 @@ const ScrollToTop = () => {
   }, []);
 
   const scrollToTop = () => {
+    // Stop any running auto-scroll first
+    window.dispatchEvent(new CustomEvent("stopAutoScroll"));
     window.scrollTo({
       top: 0,
       behavior: "smooth",

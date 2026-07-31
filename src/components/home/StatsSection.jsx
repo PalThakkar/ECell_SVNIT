@@ -7,32 +7,35 @@ import InteractiveParticleNetwork from "./InteractiveParticleNetwork";
 
 const stats = [
   { id: 1, value: 2000, suffix: "+", label: "Students Reached",    description: "Engaged across SVNIT engineering departments and regional institutes.", icon: Users    },
-  { id: 2, value: 5,    suffix: "+", label: "Flagship Initiatives", description: "Including E-Summit, Ignite Hackathon, and Lego Startup bootcamp.",      icon: Trophy   },
-  { id: 3, value: 10,   suffix: "+", label: "Incubated Startups",   description: "Nurtured through ASHINE incubation & seed grant support.",               icon: Rocket   },
-  { id: 4, value: 15,   suffix: "+", label: "Industry Mentors",     description: "Successful founders & leaders actively guiding student ventures.",        icon: Briefcase },
+  { id: 2, value: 12,   suffix: "+", label: "Flagship Initiatives", description: "Including E-Summit, Ignite Hackathon, and Lego Startup bootcamp.",      icon: Trophy   },
+  { id: 3, value: 25,   suffix: "+", label: "Incubated Startups",   description: "Nurtured through ASHINE incubation & seed grant support.",               icon: Rocket   },
+  { id: 4, value: 50,   suffix: "+", label: "Industry Mentors",     description: "Successful founders & leaders actively guiding student ventures.",        icon: Briefcase },
 ];
 
 const AnimatedCounter = ({ target, suffix }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-20px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    if (!isInView) return;
     let start = 0;
-    const steps = 40;
-    const stepTime = 1500 / steps;
+    const steps = 30;
+    const stepTime = 1200 / steps;
     const increment = target / steps;
     const timer = setInterval(() => {
       start += increment;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(Math.floor(start));
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
     }, stepTime);
     return () => clearInterval(timer);
   }, [isInView, target]);
 
   return (
-    <div ref={ref} className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight leading-none overflow-hidden my-2" style={{ color: "#111111" }}>
+    <div ref={ref} className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight leading-none my-2" style={{ color: "#111111" }}>
       <span>{count.toLocaleString()}</span>
       <span style={{ color: "#FBBD58" }}>{suffix}</span>
     </div>
@@ -43,7 +46,7 @@ const StatsSection = () => {
   return (
     <InteractiveParticleNetwork
       className="py-20 sm:py-28"
-      style={{ backgroundColor: "#FAF9F6" }}
+      style={{ backgroundColor: "rgba(250,249,246,0.50)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
