@@ -32,10 +32,10 @@ const AnimatedCounter = ({ target, suffix }) => {
   }, [isInView, target]);
 
   return (
-    <span ref={ref} className="font-black text-5xl sm:text-6xl lg:text-7xl tracking-tight" style={{ color: "#111111" }}>
-      {count.toLocaleString()}
+    <div ref={ref} className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight leading-none overflow-hidden my-2" style={{ color: "#111111" }}>
+      <span>{count.toLocaleString()}</span>
       <span style={{ color: "#FBBD58" }}>{suffix}</span>
-    </span>
+    </div>
   );
 };
 

@@ -61,7 +61,9 @@ const InteractiveParticleNetwork = ({ className = "", children }) => {
   const resizeObserverRef = useRef(null);
 
   const initParticles = useCallback((width, height) => {
-    particlesRef.current = Array.from({ length: PARTICLE_CONFIG.count }, () =>
+    const area = width * height;
+    const dynamicCount = Math.min(180, Math.max(70, Math.floor(area / 20000)));
+    particlesRef.current = Array.from({ length: dynamicCount }, () =>
       createParticle(width, height)
     );
   }, []);

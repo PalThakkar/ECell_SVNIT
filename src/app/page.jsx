@@ -7,7 +7,7 @@ import PartnersMarquee from "@/components/home/PartnersMarquee";
 import GallerySection from "@/components/home/GallerySection";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
-import Footer from "@/components/Footer";
+import InteractiveParticleNetwork from "@/components/home/InteractiveParticleNetwork";
 
 export const metadata = {
   title: "Home | E-Cell SVNIT",
@@ -25,34 +25,45 @@ export default function Home() {
         fontFamily: "var(--font-inter), system-ui, sans-serif",
       }}
     >
-      {/* Fixed Background Image */}
+      {/* Fixed Background Image & Dot Grid Pattern Texture */}
       <div className="fixed inset-0 pointer-events-none -z-20">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06]"
           style={{ backgroundImage: "url('/e-cell-fam.jpg')" }}
         />
+        {/* Full-Page Dot Matrix Grid Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.45]"
+          style={{
+            backgroundImage: "radial-gradient(#94A3B8 1.25px, transparent 1.25px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         {/* Subtle gradient overlay to ensure text readability */}
         <div 
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(254,254,254,0.3) 0%, rgba(250,249,246,0.8) 100%)",
+            background: "linear-gradient(to bottom, rgba(254,254,254,0.3) 0%, rgba(250,249,246,0.85) 100%)",
           }}
         />
       </div>
+
       {/* Sticky Glass Navbar */}
       <Navbar />
 
-      {/* Main Landing Sections */}
-      <main className="w-full">
-        <PremiumHeroSection />
-        <StatsSection />
-        <Services />
-        <FeaturedEvents />
-        <PartnersMarquee />
-        <GallerySection />
-        <Testimonials />
-        <Faq />
-      </main>
+      {/* Interactive Particle Network spanning the whole page */}
+      <InteractiveParticleNetwork className="w-full">
+        <main className="w-full">
+          <PremiumHeroSection />
+          <StatsSection />
+          <Services />
+          <FeaturedEvents />
+          <PartnersMarquee />
+          <GallerySection />
+          <Testimonials />
+          <Faq />
+        </main>
+      </InteractiveParticleNetwork>
     </div>
   );
 }
