@@ -34,8 +34,10 @@ const Navbar = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 sm:py-6 px-4 sm:px-8 bg-transparent">
         <div className="w-full mx-auto flex items-center justify-between max-w-[1400px]">
-          {/* Logo */}
-          <Logo href="/" className="h-24 sm:h-32 w-auto relative z-10 -ml-2 sm:-ml-4 transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
+          {/* Logo — Oval Glass View */}
+          <div className="bg-white/40 backdrop-blur-xl rounded-full px-5 py-2 shadow-[0_6px_24px_rgba(17,15,10,0.08)] flex items-center justify-center -ml-2 sm:-ml-4">
+            <Logo href="/" className="h-16 sm:h-20 w-auto transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
+          </div>
 
           {/* Desktop Nav Links — Oval Glass View (No Border) */}
           <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 bg-white/40 backdrop-blur-xl rounded-full px-5 py-2.5 shadow-[0_6px_24px_rgba(17,15,10,0.08)] text-[#111111] overflow-hidden">
@@ -63,13 +65,13 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button — yellow primary */}
+          {/* CTA Button — Oval Glass View */}
           <div className="hidden sm:flex items-center gap-4">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[15px] font-black text-[#111111] bg-[#FBBD58] hover:bg-[#F5AB35] border border-[#F5AB35] shadow-[0_4px_14px_rgba(251,189,88,0.30)] hover:shadow-[0_6px_20px_rgba(251,189,88,0.40)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[15px] font-black text-[#111111] bg-white/40 backdrop-blur-xl shadow-[0_6px_24px_rgba(17,15,10,0.08)] hover:bg-[#FBBD58] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-[#F5AB35] group-hover:text-[#111111] transition-colors" />
               <span>Contact Us</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
