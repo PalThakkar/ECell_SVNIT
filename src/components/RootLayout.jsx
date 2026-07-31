@@ -52,16 +52,14 @@ const Header = ({
             aria-controls={panelId}
             className={clsx(
               "group -m-2.5 rounded-full p-4 transition",
-              invert ? "hover:bg-white/10" : "hover:bg-neutral-950/10",
+              "hover:bg-neutral-900/10"
             )}
             aria-label="Toggle navigation"
           >
             <Icon
               className={clsx(
                 "h-8 w-8",
-                invert
-                  ? "fill-white group-hover:fill-neutral-200"
-                  : "fill-neutral-950 group-hover:fill-neutral-700",
+                "fill-neutral-900 group-hover:fill-neutral-700"
               )}
             />
           </button>
@@ -75,7 +73,7 @@ const NavigationItem = ({ href, children, align = "center" }) => {
   return (
     <Link
       href={href}
-      className="group relative bg-neutral-950 border-b border-neutral-800 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
+      className="group relative bg-[#FAF9F6] border-b border-[#E8E4DC] last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
     >
       <div className="relative flex min-h-30 items-center justify-center overflow-hidden px-8 py-10 sm:min-h-45 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20">
         <div
@@ -91,13 +89,13 @@ const NavigationItem = ({ href, children, align = "center" }) => {
         </div>
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-neutral-800 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-[#FBBD58] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
 
         {/* Animated gradient on hover */}
-        <div className="absolute inset-0 bg-linear-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#FBBD58] via-[#F5AB35] to-[#D97706] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
 
         {/* Shine effect on hover */}
-        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
       </div>
     </Link>
   );
@@ -105,7 +103,7 @@ const NavigationItem = ({ href, children, align = "center" }) => {
 
 const Navigation = () => {
   return (
-    <nav className="font-display text-white bg-neutral-950">
+    <nav className="font-display text-neutral-900 bg-[#FAF9F6]">
       <div className="sm:hidden">
         {navigationItems.map((item) => (
           <NavigationItem key={item.href} href={item.href} align="center">
@@ -175,14 +173,13 @@ const RootLayoutInner = ({ children }) => {
             layout
             id={panelId}
             style={{ height: expanded ? "auto" : "0" }}
-            className="relative z-50 overflow-hidden bg-neutral-950"
+            className="relative z-50 overflow-hidden bg-[#FAF9F6]"
             aria-hidden={expanded ? undefined : "true"}
             inert={expanded ? undefined : true}
           >
-            <motion.div layout className="bg-neutral-800">
-              <div className="bg-neutral-950 pb-16 pt-14">
+            <motion.div layout className="bg-[#E8E4DC]">
+              <div className="bg-[#FEFEFE] pb-16 pt-14 border-b border-[#E8E4DC]">
                 <Header
-                  invert
                   panelId={panelId}
                   icon={IoMdClose}
                   toggleRef={closeRef}
@@ -196,23 +193,22 @@ const RootLayoutInner = ({ children }) => {
                 />
               </div>
               <Navigation />
-              <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
+              <div className="relative bg-[#FAF9F6] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[#E8E4DC]">
                 <Container>
                   <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
                     <div>
-                      <h2 className="font-display text-2xl font-semibold text-white mb-2">
+                      <h2 className="font-display text-2xl font-semibold text-neutral-900 mb-2">
                         Our Address
                       </h2>
                       <Offices
-                        invert
                         className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2"
                       />
                     </div>
-                    <div className="sm:border-l sm:border-transparent sm:pl-16">
-                      <h2 className="font-display text-xl font-semibold text-white mb-2">
+                    <div className="sm:border-l sm:border-[#E8E4DC] sm:pl-16">
+                      <h2 className="font-display text-xl font-semibold text-neutral-900 mb-2">
                         Follow us
                       </h2>
-                      <SocialMedia className="mt-8" invert />
+                      <SocialMedia className="mt-8" />
                     </div>
                   </div>
                 </Container>

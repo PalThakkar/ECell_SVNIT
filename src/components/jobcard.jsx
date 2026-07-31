@@ -57,7 +57,7 @@ export function JobCard({ job }) {
                 ))}
                 <button
                   onClick={handleApplyClick}
-                  className="relative z-10 px-6 py-2 bg-black text-white font-bold rounded-xl text-xs"
+                  className="relative z-10 px-6 py-2 bg-[#FBBD58] text-[#111111] hover:bg-[#F5AB35] border border-[#F5AB35] font-bold rounded-xl text-xs transition-colors"
                 >
                   Apply Now
                 </button>
