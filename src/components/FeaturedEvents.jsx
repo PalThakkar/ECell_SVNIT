@@ -14,7 +14,7 @@ const featuredEvents = [
 
 const FeaturedEvents = () => {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden border-b" style={{ backgroundColor: "#FAF9F6", borderColor: "#E8E4DC" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "#FAF9F6" }}>
 
       {/* Warm amber glow bottom left */}
       <div className="absolute bottom-0 left-0 w-[32rem] h-[32rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.09) 0%, transparent 70%)" }} />

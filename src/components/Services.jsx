@@ -26,7 +26,7 @@ const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
-    <section className="relative py-20 sm:py-28 border-b overflow-hidden" style={{ backgroundColor: "#FEFEFE", borderColor: "#E8E4DC" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "#FEFEFE" }}>
       {/* Warm yellow ambient radial */}
       <div className="absolute top-0 right-0 w-[38rem] h-[38rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.10) 0%, transparent 70%)" }} />
 

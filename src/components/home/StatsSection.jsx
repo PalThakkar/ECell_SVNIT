@@ -42,8 +42,8 @@ const AnimatedCounter = ({ target, suffix }) => {
 const StatsSection = () => {
   return (
     <InteractiveParticleNetwork
-      className="py-20 sm:py-28 border-b"
-      style={{ backgroundColor: "#FAF9F6", borderColor: "#E8E4DC" }}
+      className="py-20 sm:py-28"
+      style={{ backgroundColor: "#FAF9F6" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

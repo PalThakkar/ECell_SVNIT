@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Lightbulb, Rocket, Award,
-  ArrowRight, Users, ChevronDown, Sparkles
+  ArrowRight, Users, Sparkles
 } from "lucide-react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
@@ -66,10 +66,12 @@ const FloatBadge = ({ icon: Icon, title, desc, pos, delay }) => (
   </motion.div>
 );
 
-const PremiumHeroSection = () => (
+const PremiumHeroSection = () => {
+
+  return (
   <InteractiveParticleNetwork
-    className="relative min-h-[94vh] flex flex-col justify-between pt-32 pb-12 px-4 sm:px-6 lg:px-8 border-b overflow-hidden"
-    style={{ backgroundColor: "#FEFEFE", borderColor: "#E8E4DC" }}
+    className="relative min-h-[94vh] flex flex-col justify-between pt-32 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    style={{ backgroundColor: "#FEFEFE" }}
   >
     {/* ── Subtle campus backdrop ── */}
     <div className="absolute inset-0 pointer-events-none -z-10">
@@ -159,40 +161,10 @@ const PremiumHeroSection = () => (
         </Link>
       </motion.div>
 
-      {/* Hint */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
-        className="text-[11px] font-medium uppercase tracking-widest"
-        style={{ color: "#B5B0A8", letterSpacing: "0.14em" }}
-      >
-        ✦ Move cursor & click to interact with the particle network
-      </motion.p>
     </div>
 
-    {/* ── Bottom metrics bar removed ── */}
-
-    {/* Scroll indicator */}
-    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
-      <button
-        type="button"
-        onClick={() => {
-          window.scrollTo({
-            top: window.innerHeight * 0.9,
-            behavior: "smooth",
-          });
-        }}
-        className="group p-2.5 rounded-full hover:bg-black/5 active:scale-95 transition-all cursor-pointer flex items-center justify-center focus:outline-none"
-        aria-label="Scroll down"
-        title="Scroll down"
-      >
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
-          <ChevronDown className="w-6 h-6 text-[#7A756C] group-hover:text-[#111111] transition-colors" />
-        </motion.div>
-      </button>
-    </div>
   </InteractiveParticleNetwork>
-);
+  );
+};
 
 export default PremiumHeroSection;

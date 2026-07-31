@@ -15,7 +15,7 @@ const partners = [
 
 const PartnersMarquee = () => {
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden border-b" style={{ backgroundColor: "#FAF9F6", borderColor: "#E8E4DC" }}>
+    <section className="relative py-16 sm:py-20 overflow-hidden" style={{ backgroundColor: "#FAF9F6" }}>
 
       {/* Section Tag & Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">

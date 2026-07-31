@@ -21,7 +21,7 @@ const Testimonials = () => {
   const current = testimonialsData[currentIndex];
 
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden border-b" style={{ borderColor: "#E8E4DC", background: "linear-gradient(to bottom, #FAF9F6 0%, #FEFEFE 50%, #FFFBF0 100%)" }}>
+    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ background: "linear-gradient(to bottom, #FAF9F6 0%, #FEFEFE 50%, #FFFBF0 100%)" }}>
       
       {/* Warm yellow glow center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.10) 0%, transparent 70%)" }} />
@@ -41,10 +41,10 @@ const Testimonials = () => {
         </div>
 
         {/* Quote Card */}
-        <div className="relative p-9 sm:p-14 rounded-3xl overflow-hidden min-h-[300px] flex flex-col justify-between" style={{ background: "#FEFEFE", border: "1px solid #E8E4DC", boxShadow: "0 24px 60px rgba(17,15,10,0.10)" }}>
+        <div className="relative p-9 sm:p-14 pt-16 sm:pt-20 rounded-3xl min-h-[300px] flex flex-col justify-between" style={{ background: "#FEFEFE", border: "1px solid #E8E4DC", boxShadow: "0 24px 60px rgba(17,15,10,0.10)" }}>
           
           {/* Quote Badge */}
-          <div className="absolute -top-5 left-10 p-4 rounded-2xl" style={{ background: "#FBBD58", border: "1px solid #F5AB35", boxShadow: "0 6px 18px rgba(251,189,88,0.32)" }}>
+          <div className="absolute top-6 left-8 sm:left-10 p-3.5 rounded-2xl" style={{ background: "#FBBD58", border: "1px solid #F5AB35", boxShadow: "0 6px 18px rgba(251,189,88,0.32)" }}>
             <Quote className="w-7 h-7 fill-current" style={{ color: "#111111" }} />
           </div>
 
