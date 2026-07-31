@@ -32,11 +32,11 @@ const Header = ({
   toggleRef,
 }) => {
   return (
-    <Container>
+    <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-[1400px]">
       <div className="flex items-center justify-between">
         {!expanded && (
-          <Link href={"/"} aria-label="Home">
-            <Logo className="h-8 mb-16" fillOnHover />
+          <Link href={"/"} aria-label="Home" className="flex items-center mt-2 -ml-2 sm:-ml-4">
+            <Logo className="h-24 sm:h-32 w-auto" fillOnHover />
           </Link>
         )}
         {expanded && <div className="flex-1" />}
@@ -65,7 +65,7 @@ const Header = ({
           </button>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
@@ -151,7 +151,7 @@ const RootLayoutInner = ({ children }) => {
       {!isHomePage && (
         <header>
           <div
-            className="absolute left-0 right-0 top-2 z-40"
+            className="fixed left-0 right-0 top-0 z-40 bg-transparent py-4 sm:py-6 px-4 sm:px-8"
             aria-hidden={expanded ? "true" : undefined}
             inert={expanded ? true : undefined}
           >
@@ -173,7 +173,7 @@ const RootLayoutInner = ({ children }) => {
             layout
             id={panelId}
             style={{ height: expanded ? "auto" : "0" }}
-            className="relative z-50 overflow-hidden bg-[#FAF9F6]"
+            className="relative z-50 overflow-hidden bg-white/30 backdrop-blur-2xl saturate-150"
             aria-hidden={expanded ? undefined : "true"}
             inert={expanded ? undefined : true}
           >
