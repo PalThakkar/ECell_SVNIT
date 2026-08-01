@@ -17,23 +17,23 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="relative pt-16 pb-32 sm:pt-24 sm:pb-40" style={{ backgroundColor: "rgba(254,254,254,0.50)" }}>
+    <section className="relative pt-10 pb-20 sm:pt-24 sm:pb-40" style={{ backgroundColor: "rgba(254,254,254,0.50)" }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-16">
           <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[15px] font-extrabold mb-4" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
-            <HelpCircle className="w-5 h-5" style={{ color: "#D97706" }} />
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[15px] font-extrabold mb-3 sm:mb-4" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
+            <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#D97706" }} />
             <span>Got Questions?</span>
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight" style={{ color: "#111111" }}>
+            className="text-2xl sm:text-4xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-tight" style={{ color: "#111111" }}>
             Frequently Asked{" "}
             <span className="inline-block px-2 py-0.5 rounded-lg" style={{ background: "#FBBD58", color: "#111111" }}>Questions</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl mt-3 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
+            className="text-sm sm:text-xl mt-2 sm:mt-3 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
             Everything you need to know about E-Cell SVNIT, events, incubation, and community involvement.
           </motion.p>
         </div>

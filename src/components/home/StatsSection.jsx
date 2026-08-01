@@ -45,22 +45,22 @@ const AnimatedCounter = ({ target, suffix }) => {
 const StatsSection = () => {
   return (
     <InteractiveParticleNetwork
-      className="py-20 sm:py-28"
+      className="py-12 sm:py-28"
       style={{ backgroundColor: "rgba(250,249,246,0.50)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[15px] font-extrabold mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[15px] font-extrabold mb-3 sm:mb-4"
             style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}
           >
-            <TrendingUp className="w-5 h-5" style={{ color: "#D97706" }} />
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#D97706" }} />
             <span>Proven Impact</span>
           </motion.div>
 
@@ -69,13 +69,11 @@ const StatsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight"
+            className="text-2xl sm:text-4xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-tight mb-2 sm:mb-4"
             style={{ color: "#111111" }}
           >
-            Empowering the Next Generation of{" "}
-            <span className="inline-block px-2 py-0.5 rounded-lg" style={{ background: "#FBBD58", color: "#111111" }}>
-              Entrepreneurs
-            </span>
+            Empowering Visionary{" "}
+            <span className="inline-block px-2 py-0.5 rounded-lg" style={{ background: "#FBBD58", color: "#111111" }}>Founders</span>
           </motion.h2>
 
           <motion.p
@@ -83,7 +81,7 @@ const StatsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl mt-3 leading-relaxed font-medium"
+            className="text-sm sm:text-xl leading-relaxed font-medium"
             style={{ color: "#7A756C" }}
           >
             Quantifiable growth, nationwide reach, and tangible impact created by E-Cell SVNIT.

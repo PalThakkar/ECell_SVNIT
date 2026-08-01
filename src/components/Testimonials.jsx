@@ -21,7 +21,7 @@ const Testimonials = () => {
   const current = testimonialsData[currentIndex];
 
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ background: "linear-gradient(to bottom, rgba(250,249,246,0.50) 0%, rgba(254,254,254,0.50) 50%, rgba(255,251,240,0.50) 100%)" }}>
+    <section className="relative py-12 sm:py-28 overflow-hidden" style={{ background: "linear-gradient(to bottom, rgba(250,249,246,0.50) 0%, rgba(254,254,254,0.50) 50%, rgba(255,251,240,0.50) 100%)" }}>
       
       {/* Warm yellow glow center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.10) 0%, transparent 70%)" }} />
@@ -29,19 +29,19 @@ const Testimonials = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[15px] font-extrabold mb-4" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
-            <Sparkles className="w-5 h-5" style={{ color: "#D97706" }} />
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[15px] font-extrabold mb-3 sm:mb-4" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#D97706" }} />
             <span>Community Voice</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight" style={{ color: "#111111" }}>
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-tight" style={{ color: "#111111" }}>
             What Founders & Mentors{" "}
             <span className="inline-block px-2 py-0.5 rounded-lg" style={{ background: "#FBBD58", color: "#111111" }}>Say</span>
           </h2>
         </div>
 
         {/* Quote Card */}
-        <div className="relative p-9 sm:p-14 pt-16 sm:pt-20 rounded-3xl min-h-[300px] flex flex-col justify-between" style={{ background: "#FEFEFE", border: "1px solid #E8E4DC", boxShadow: "0 24px 60px rgba(17,15,10,0.10)" }}>
+        <div className="relative p-5 sm:p-14 pt-12 sm:pt-20 rounded-2xl sm:rounded-3xl min-h-[260px] sm:min-h-[300px] flex flex-col justify-between" style={{ background: "#FEFEFE", border: "1px solid #E8E4DC", boxShadow: "0 24px 60px rgba(17,15,10,0.10)" }}>
           
           {/* Quote Badge */}
           <div className="absolute top-6 left-8 sm:left-10 p-3.5 rounded-2xl" style={{ background: "#FBBD58", border: "1px solid #F5AB35", boxShadow: "0 6px 18px rgba(251,189,88,0.32)" }}>

@@ -14,7 +14,7 @@ const featuredEvents = [
 
 const FeaturedEvents = () => {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden" style={{ backgroundColor: "rgba(250,249,246,0.50)" }}>
+    <section className="relative py-12 sm:py-28 overflow-hidden" style={{ backgroundColor: "rgba(250,249,246,0.50)" }}>
 
       {/* Warm amber glow bottom left */}
       <div className="absolute bottom-0 left-0 w-[32rem] h-[32rem] rounded-full pointer-events-none -z-10" style={{ background: "radial-gradient(circle, rgba(251,189,88,0.09) 0%, transparent 70%)" }} />
@@ -22,17 +22,17 @@ const FeaturedEvents = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14">
           <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="max-w-2xl">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[15px] font-extrabold mb-4" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
-              <Sparkles className="w-5 h-5" style={{ color: "#D97706" }} />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[15px] font-extrabold mb-3 sm:mb-4" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#D97706" }} />
               <span>Flagship Initiatives</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight" style={{ color: "#111111" }}>
+            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-tight" style={{ color: "#111111" }}>
               Transformative{" "}
               <span className="inline-block px-2 py-0.5 rounded-lg" style={{ background: "#FBBD58", color: "#111111" }}>Events & Hackathons</span>
             </h2>
-            <p className="text-lg sm:text-xl mt-3 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
+            <p className="text-sm sm:text-xl mt-2 sm:mt-3 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
               National summits, pitch competitions, and intensive bootcamps organized by E-Cell SVNIT.
             </p>
           </motion.div>

@@ -15,16 +15,16 @@ const partners = [
 
 const PartnersMarquee = () => {
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden" style={{ backgroundColor: "rgba(250,249,246,0.50)" }}>
+    <section className="relative py-10 sm:py-20 overflow-hidden" style={{ backgroundColor: "rgba(250,249,246,0.50)" }}>
 
       {/* Section Tag & Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-6 sm:mb-10">
         <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[15px] font-extrabold mb-3" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
-          <Sparkles className="w-4 h-4" style={{ color: "#D97706" }} />
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-[15px] font-extrabold mb-2.5 sm:mb-3" style={{ background: "#FEF3C7", border: "1px solid #F5AB35", color: "#111111" }}>
+          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" style={{ color: "#D97706" }} />
           <span>Ecosystem Network</span>
         </motion.div>
-        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black" style={{ color: "#111111" }}>
+        <h3 className="text-xl sm:text-3xl lg:text-4xl font-black leading-snug" style={{ color: "#111111" }}>
           Backed by Leading Incubators & Innovation Networks
         </h3>
       </div>
