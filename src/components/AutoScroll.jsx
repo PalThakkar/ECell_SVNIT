@@ -20,7 +20,7 @@ const AutoScroll = () => {
   const startAutoScroll = useCallback(() => {
     stopAutoScroll();
     setIsScrolling(true);
-    const scrollSpeed = 0.7;
+    const scrollSpeed = 1.5;
     const step = () => {
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;

@@ -17,7 +17,7 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="relative pt-20 pb-32 sm:pt-28 sm:pb-40" style={{ backgroundColor: "#FEFEFE" }}>
+    <section className="relative pt-16 pb-32 sm:pt-24 sm:pb-40" style={{ backgroundColor: "rgba(254,254,254,0.50)" }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
