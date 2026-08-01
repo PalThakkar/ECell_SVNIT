@@ -69,7 +69,7 @@ const HeroSection = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
                 <button className="w-full sm:w-fit bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-semibold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-400/40 shadow-lg shadow-yellow-400/30">
-                  Get Started
+                  Get Involved
                 </button>
                 <button className="w-full sm:w-fit bg-transparent text-gray-900 border-2 border-gray-900 font-semibold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:bg-gray-900 hover:text-white hover:transform hover:-translate-y-1">
                   Learn More

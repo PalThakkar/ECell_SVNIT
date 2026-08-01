@@ -3,6 +3,7 @@ import Container from "./Container";
 import FadeIn from "./FadeIn";
 import FooterNavigation from "./FooterNavigation";
 import Logo from "./Logo";
+import SocialMedia from "./SocialMedia";
 import Link from "next/link";
 
 const ArrowIcon = (props) => {
@@ -105,6 +106,7 @@ const Footer = () => {
                 <SparkleIcon className="h-4 w-4 text-yellow-400" />
                 <SparkleIcon className="h-3 w-3 text-yellow-300" />
               </div>
+              <SocialMedia className="mt-6" />
             </div>
 
             {/* Our Initiatives */}

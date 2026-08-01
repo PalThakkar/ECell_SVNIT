@@ -172,7 +172,7 @@ const Services = () => {
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-3 font-semibold text-gray-900 no-underline transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl active:scale-95"
                 >
-                  Get Involved by Exploring →
+                  Get Involved →
                 </Link>
               </div>
             </div>

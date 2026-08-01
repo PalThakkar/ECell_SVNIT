@@ -174,10 +174,10 @@ const PremiumHeroSection = () => {
   };
 
   const patchBlocks = [
-    { text: "Have an idea?", icon: Lightbulb, delay: "0s" },
-    { text: "Create real-world Solutions", icon: Laptop, delay: "0.15s" },
-    { text: "SVNIT's Startup Ecosystem!", icon: Award, delay: "0.05s" },
-    { text: "Solopreneurship vs Entrepreneurship", icon: Target, delay: "0.1s" },
+    { text: "2000+ Students Engaged", icon: Lightbulb, delay: "0s" },
+    { text: "5+ Flagship Events", icon: Laptop, delay: "0.15s" },
+    { text: "SVNIT's Startup Ecosystem", icon: Award, delay: "0.05s" },
+    { text: "10+ Industry Connections", icon: Target, delay: "0.1s" },
     { text: "Build. Learn. Launch.", icon: Rocket, delay: "0.15s" },
   ];
 
@@ -343,7 +343,7 @@ const PremiumHeroSection = () => {
             style={{ animationDelay: "0.3s" }}
           >
             <button className="flex-1 sm:flex-none px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-950 font-bold text-sm sm:text-lg rounded-xl sm:rounded-2xl shadow-lg shadow-yellow-400/30 hover:shadow-xl hover:shadow-yellow-400/50 hover:-translate-y-1 transition-all duration-300">
-              Join Us
+              Get Involved
             </button>
             <button className="flex-1 sm:flex-none px-5 py-3 sm:px-8 sm:py-4 bg-black/40 backdrop-blur-md text-yellow-300 font-bold text-sm sm:text-lg rounded-xl sm:rounded-2xl border border-yellow-400/30 hover:bg-black/60 hover:border-yellow-400/60 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
               Learn More
