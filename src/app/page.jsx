@@ -4,6 +4,7 @@ import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Services from "@/components/Services";
 import TeamPreview from "@/components/TeamPreview";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import logoPhobiaDark from "@/images/ecell.svg";
 import HeroSection from "@/components/HeroSection";
 
@@ -24,6 +25,7 @@ export default function Home() {
         The team at E-Cell SVNIT went above and beyond with our onboarding,
         providing unparalleled support and resources.
       </Testimonials>
+      <UpcomingEvents className="mt-16 sm:mt-24 lg:mt-32" />
       <TeamPreview className="mt-16 sm:mt-24 lg:mt-32" />
       <Services />
       <Faq />
