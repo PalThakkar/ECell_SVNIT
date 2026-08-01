@@ -61,7 +61,7 @@ const FloatingSocialBar = () => {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: 0.2 }}
-      className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center py-3 sm:py-5 px-2 sm:px-3 bg-[#1A1813]/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#2D2A24] shadow-[0_12px_36px_rgba(17,15,10,0.25)] gap-y-2 sm:gap-y-4"
+      className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center py-5 px-3 bg-[#1A1813]/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#2D2A24] shadow-[0_12px_36px_rgba(17,15,10,0.25)] gap-y-4"
       aria-label="Social Media Links"
     >
       {socialLinks.map((item) => {

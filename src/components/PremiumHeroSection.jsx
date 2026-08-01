@@ -110,37 +110,37 @@ const PremiumHeroSection = () => {
             style={{ background: "#FBBD58", boxShadow: "0 0 0 3px rgba(251,189,88,0.20)" }}
           />
           <span
-            className="text-xs font-semibold uppercase tracking-widest"
-            style={{ color: "#B5B0A8", letterSpacing: "0.13em" }}
+            className="text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest"
+            style={{ color: "#B5B0A8" }}
           >
             Entrepreneurship Cell · SVNIT Surat
           </span>
         </div>
       </motion.div>
 
-      {/* ── Headline — Plus Jakarta Sans 800, proportionate scale ── */}
+      {/* ── Headline — Plus Jakarta Sans 800, proportionate mobile & desktop scale ── */}
       <motion.h1
         initial={{ opacity: 0, y: 22 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="text-[2.8rem] sm:text-[4.2rem] md:text-[5.2rem] lg:text-[5.8rem] font-extrabold leading-[1.08] tracking-[-0.025em] px-2"
+        className="text-[2rem] min-[400px]:text-[2.35rem] sm:text-[3.8rem] md:text-[4.8rem] lg:text-[5.6rem] font-extrabold leading-[1.12] sm:leading-[1.08] tracking-[-0.025em] px-3 sm:px-6 max-w-4xl mx-auto"
         style={{ fontFamily: "var(--font-display)", color: "#111111" }}
       >
         Ignite{" "}
         <span
-          className="inline-block px-3 py-1 rounded-2xl"
+          className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-xl sm:rounded-2xl"
           style={{ background: "#FBBD58", color: "#111111" }}
         >
           Innovation.
         </span>
-        <br className="hidden sm:block" />
+        <br className="block" />
         Inspire Entrepreneurship.
       </motion.h1>
 
       {/* Sub-headline */}
       <motion.p
         {...fadeUp(0.38)}
-        className="text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed font-medium"
+        className="text-sm sm:text-lg lg:text-xl max-w-2xl leading-relaxed font-medium px-4"
         style={{ fontFamily: "var(--font-body)", color: "#3D3A35", letterSpacing: "0.005em" }}
       >
         The heartbeat of the entrepreneurial spirit on campus. We empower students to transform their visionary ideas into successful ventures through networking, mentorship, and resources.
