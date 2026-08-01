@@ -26,7 +26,7 @@ const ArrowIcon = (props) => {
 
 // const LightbulbIcon = () => (
 //   <svg className="w-12 h-12 text-yellow-400 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-//     <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
+//     <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
 //   </svg>
 // );
 
@@ -90,9 +90,10 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="relative">
           {/* Top Section with gradient border */}
-          <div className="border-t-4 border-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 mb-12" 
-               style={{ borderImage: 'linear-gradient(to right, #fbbf24, #f59e0b, #fbbf24) 1' }}>
-          </div>
+          <div 
+            className="mb-12 h-1 w-full rounded-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400" 
+          />
+          
           <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-4 lg:gap-x-12">
             {/* Logo */}
             <div className="lg:col-span-1">
@@ -100,15 +101,15 @@ const Footer = () => {
                 <Logo className="h-10 w-auto" fillOnHover />
               </Link>
               <div className="mt-6 flex gap-2">
-                <SparkleIcon className="w-5 h-5 text-yellow-500" />
-                <SparkleIcon className="w-4 h-4 text-yellow-400" />
-                <SparkleIcon className="w-3 h-3 text-yellow-300" />
+                <SparkleIcon className="h-5 w-5 text-yellow-500" />
+                <SparkleIcon className="h-4 w-4 text-yellow-400" />
+                <SparkleIcon className="h-3 w-3 text-yellow-300" />
               </div>
             </div>
 
             {/* Our Initiatives */}
             <div className="lg:col-span-1">
-              <h3 className="text-lg font-bold text-neutral-950 mb-6">
+              <h3 className="mb-6 text-lg font-bold text-neutral-950">
                 Our Initiatives
               </h3>
               <ul className="space-y-4">
@@ -116,7 +117,7 @@ const Footer = () => {
                   <li key={initiative.name}>
                     <Link
                       href={initiative.href}
-                      className="group text-sm text-neutral-700 hover:text-yellow-600 transition-colors font-medium hover:translate-x-1 inline-block"
+                      className="group inline-block text-sm font-medium text-neutral-700 transition-colors hover:translate-x-1 hover:text-yellow-600"
                     >
                       {initiative.name}
                     </Link>
@@ -137,13 +138,13 @@ const Footer = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-16 pt-8 border-t border-neutral-200">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-16 border-t border-neutral-200 pt-8">
+            <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
               {/* Managed by Technical Team */}
               <div className="text-lg font-bold text-neutral-950">
                 Managed by{" "}
                 <Link href="/dev-team" className="inline-block">
-                  <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent hover:from-yellow-600 hover:to-yellow-700 transition-all cursor-pointer">
+                  <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent transition-all hover:from-yellow-600 hover:to-yellow-700 cursor-pointer">
                     Technical Team {new Date().getFullYear()}
                   </span>
                 </Link>
@@ -159,9 +160,9 @@ const Footer = () => {
 
           {/* Decorative bottom elements */}
           <div className="mt-8 flex justify-center gap-3 opacity-50">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-            <div className="w-2 h-2 bg-yellow-500 rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
-            <div className="w-2 h-2 bg-yellow-600 rounded-full animate-ping" style={{ animationDelay: '0.4s' }}></div>
+            <div className="h-2 w-2 animate-ping rounded-full bg-yellow-400"></div>
+            <div className="h-2 w-2 animate-ping rounded-full bg-yellow-500" style={{ animationDelay: '0.2s' }}></div>
+            <div className="h-2 w-2 animate-ping rounded-full bg-yellow-600" style={{ animationDelay: '0.4s' }}></div>
           </div>
         </div>
       </FadeIn>
