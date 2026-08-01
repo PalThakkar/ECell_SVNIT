@@ -6,47 +6,47 @@ const HeroSection = () => {
   return (
     <>
       <PremiumHeroSection />
-      <section className="min-h-screen relative overflow-hidden flex items-center py-8">
-        <div className="max-w-6xl mx-auto px-8 relative z-10">
+      <section className="relative overflow-hidden py-12 lg:min-h-screen lg:flex lg:items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
           {/* Background Elements */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none -z-10">
             {/* Large Yellow Circle */}
-            <div className="absolute top-[10%] right-[15%] w-72 h-72 rounded-full bg-gradient-radial from-yellow-400/10 via-yellow-400/5 to-transparent animate-float"></div>
+            <div className="hidden lg:block absolute top-[10%] right-[15%] w-72 h-72 rounded-full bg-gradient-radial from-yellow-400/10 via-yellow-400/5 to-transparent animate-float"></div>
 
             {/* Small Yellow Circle */}
             {/* <div className="absolute bottom-[20%] left-[10%] w-36 h-36 rounded-full bg-gradient-radial from-yellow-400/8 to-transparent animate-float-reverse"></div> */}
 
             {/* Accent Line */}
-            <div className="absolute top-1/2 right-0 w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600 to-transparent transform -translate-y-1/2 rotate-45"></div>
+            <div className="hidden lg:block absolute top-1/2 right-0 w-48 h-0.5 bg-gradient-to-r from-transparent via-yellow-600 to-transparent -translate-y-1/2 rotate-45"></div>
           </div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Text Content */}
-            <div className="animate-slide-in-left">
-              <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
+            <div className="animate-slide-in-left max-w-xl">
+              <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
                 <span className="block">
                   Ignite{" "}
-                  <span className="relative">
+                  <span className="relative inline-block">
                     <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
                       Innovation
                     </span>
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 opacity-30 rounded"></div>
+                    <div className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 opacity-30 rounded"></div>
                   </span>
                   ,
                 </span>
                 <span className="block">
                   Inspire{" "}
-                  <span className="relative">
-                    <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
+                  <span className="relative inline-block">
+                    <span className="block sm:inline bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
                       Entrepreneurship
                     </span>
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 opacity-30 rounded"></div>
+                    <div className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 opacity-30 rounded"></div>
                   </span>
                 </span>
               </h1>
 
-              <p className="text-xl leading-relaxed text-gray-600 mb-8 max-w-[90%]">
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-600 mb-8 max-w-full lg:max-w-[90%]">
                 E-cell is the{" "}
                 <span className="font-bold text-gray-800">
                   heartbeat of Entrepreneurial Spirit
@@ -60,25 +60,25 @@ const HeroSection = () => {
                 Resources.
               </p>
 
-              <div className="mb-10 py-4 border-l-4 border-yellow-400 pl-4">
-                <span className="italic text-lg text-gray-600 font-medium">
+              <div className="mb-6 lg:mb-10 py-3 lg:py-4 border-l-4 border-yellow-400 pl-4">
+                <span className="italic text-base sm:text-lg text-gray-600 font-medium">
                   From Concept to Reality, We Bridge the Gap with
                   Entrepreneurial Flair.
                 </span>
               </div>
 
-              <div className="flex gap-4 flex-wrap">
-                <button className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-400/40 shadow-lg shadow-yellow-400/30">
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <button className="w-full sm:w-fit bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-semibold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-400/40 shadow-lg shadow-yellow-400/30">
                   Get Started
                 </button>
-                <button className="bg-transparent text-gray-900 border-2 border-gray-900 font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:bg-gray-900 hover:text-white hover:transform hover:-translate-y-1">
+                <button className="w-full sm:w-fit bg-transparent text-gray-900 border-2 border-gray-900 font-semibold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 hover:bg-gray-900 hover:text-white hover:transform hover:-translate-y-1">
                   Learn More
                 </button>
               </div>
             </div>
 
             {/* Visual Elements */}
-            <div className="relative h-96 lg:h-[500px] animate-slide-in-right">
+            <div className="hidden lg:block relative h-96 lg:h-[500px] animate-slide-in-right">
               <div className="relative w-full h-full">
                 {/* Floating Cards */}
                 <div className="absolute top-[10%] left-[10%] bg-white rounded-2xl p-6 shadow-xl border border-gray-100 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl border-l-4 border-l-yellow-400 animate-float">

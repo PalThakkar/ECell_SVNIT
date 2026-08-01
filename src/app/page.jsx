@@ -17,7 +17,7 @@ export default function Home() {
     <main className="text-black">
       <HeroSection />
       <Testimonials
-        className="mt-24 sm:mt-32 lg:mt-40"
+        className="mt-16 sm:mt-24 lg:mt-40"
         client={{ name: "Ecell", logo: logoPhobiaDark }}
       >
         The team at E-Cell SVNIT went above and beyond with our onboarding,
