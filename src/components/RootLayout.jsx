@@ -284,7 +284,6 @@ const RootLayout = ({ children }) => {
       </div>
 
       <RootLayoutInner key={pathName}>{children}</RootLayoutInner>
-      <FloatingSocialBar />
       <AutoScroll />
       <ScrollToTop />
     </>

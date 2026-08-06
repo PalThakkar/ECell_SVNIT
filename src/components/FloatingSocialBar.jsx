@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 import {
   BsLinkedin,
   BsInstagram,
-  BsTwitterX,
-  BsYoutube,
-  BsFacebook,
 } from "react-icons/bs";
 
 const socialLinks = [
@@ -21,21 +18,6 @@ const socialLinks = [
     title: "Instagram",
     href: "https://www.instagram.com/ecell.svnit/",
     icon: BsInstagram,
-  },
-  {
-    title: "X (Twitter)",
-    href: "https://twitter.com/ecell_svnit",
-    icon: BsTwitterX,
-  },
-  {
-    title: "YouTube",
-    href: "https://www.youtube.com/@ecellsvnit",
-    icon: BsYoutube,
-  },
-  {
-    title: "Facebook",
-    href: "https://www.facebook.com/ecell.svnit/",
-    icon: BsFacebook,
   },
 ];
 

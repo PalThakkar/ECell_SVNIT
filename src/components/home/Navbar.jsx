@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
+import { BsLinkedin, BsInstagram } from "react-icons/bs";
 import { Sparkles, ArrowUpRight } from "lucide-react";
 import Logo from "../Logo";
 import clsx from "clsx";
@@ -25,7 +26,13 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -34,13 +41,13 @@ const Navbar = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-6 px-3 sm:px-8 bg-transparent">
         <div className="w-full mx-auto flex items-center justify-between max-w-[1400px]">
-          {/* Logo — Frosted Glass View */}
-          <div className="bg-white/45 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-xl border border-white/70 rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 shadow-[0_6px_24px_rgba(17,15,10,0.08)] flex items-center justify-center -ml-1 sm:-ml-4 shrink-0">
-            <Logo href="/" className="h-10 sm:h-14 w-auto transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
+          {/* Logo — High-Clarity Frosted Glass View */}
+          <div className="bg-white/90 backdrop-blur-2xl border border-[#D4CFC6] rounded-full px-4 sm:px-6 py-2 shadow-[0_8px_28px_rgba(17,15,10,0.12)] flex items-center justify-center -ml-1 sm:-ml-4 shrink-0">
+            <Logo href="/" className="h-11 sm:h-16 w-auto transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
           </div>
 
           {/* Desktop Nav Links — Frosted Glassmorphism View */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 sm:gap-1.5 xl:gap-2 bg-white/45 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-xl rounded-full px-3.5 sm:px-5 xl:px-6 py-2 sm:py-2.5 xl:py-3 shadow-[0_10px_32px_rgba(17,15,10,0.10)] border border-white/70 text-[#111111] overflow-hidden whitespace-nowrap z-50">
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 sm:gap-1.5 xl:gap-2 bg-white/90 backdrop-blur-2xl rounded-full px-3.5 sm:px-5 xl:px-6 py-2 sm:py-2.5 xl:py-3 shadow-[0_12px_36px_rgba(17,15,10,0.12)] border border-[#D4CFC6] text-[#111111] overflow-hidden whitespace-nowrap z-50">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -49,7 +56,7 @@ const Navbar = () => {
                   href={link.href}
                   className={clsx(
                     "relative px-3 sm:px-4 py-1.5 sm:py-2 text-[14px] sm:text-[15px] xl:text-[16px] font-extrabold tracking-tight transition-all duration-200 rounded-full z-10 whitespace-nowrap shrink-0",
-                    isActive ? "text-[#111111]" : "text-[#3D3A35] hover:text-[#111111] hover:bg-white/40"
+                    isActive ? "text-[#111111]" : "text-[#3D3A35] hover:text-[#111111] hover:bg-white/60"
                   )}
                 >
                   {link.label}
@@ -65,30 +72,50 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button — Frosted Glass View */}
-          <div className="hidden sm:flex items-center gap-4 shrink-0">
+          {/* CTA & Social Icons — High-Pop Vibrant Brand View */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <Link
+              href="https://www.linkedin.com/company/e-cell-nit-surat/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="p-2 sm:p-2.5 rounded-full text-white bg-[#0A66C2] border border-[#0855A3] shadow-[0_4px_16px_rgba(10,102,194,0.40)] hover:scale-110 active:scale-95 transition-all duration-300 shrink-0 flex items-center justify-center"
+            >
+              <BsLinkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            </Link>
+
+            <Link
+              href="https://www.instagram.com/ecell.svnit/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="p-2 sm:p-2.5 rounded-full text-white bg-gradient-to-tr from-[#F09433] via-[#DC2743] to-[#BC1888] border border-white/30 shadow-[0_4px_16px_rgba(220,39,67,0.40)] hover:scale-110 active:scale-95 transition-all duration-300 shrink-0 flex items-center justify-center"
+            >
+              <BsInstagram className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            </Link>
+
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full text-sm sm:text-[15px] font-black text-[#111111] bg-white/45 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-xl border border-white/70 shadow-[0_6px_24px_rgba(17,15,10,0.08)] hover:bg-[#FBBD58] hover:border-[#F5AB35] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
+              className="hidden sm:inline-flex group items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full text-sm sm:text-[15px] font-black text-[#111111] bg-white/90 backdrop-blur-2xl border border-[#D4CFC6] shadow-[0_8px_28px_rgba(17,15,10,0.12)] hover:bg-[#FBBD58] hover:border-[#F5AB35] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
             >
               <Sparkles className="w-4 h-4 text-[#D97706] group-hover:text-[#111111] transition-colors shrink-0" />
               <span>Contact Us</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
             </Link>
-          </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 sm:p-3 rounded-full bg-white/80 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-md border border-[#E8E4DC] text-[#111111] hover:bg-[#E8E4DC] transition-colors focus:outline-none shadow-sm"
-            aria-label="Toggle navigation"
-          >
-            {mobileMenuOpen
-              ? <IoMdClose className="w-5 h-5 sm:w-6 sm:h-6 text-[#111111]" />
-              : <HiMenuAlt4 className="w-5 h-5 sm:w-6 sm:h-6 text-[#111111]" />
-            }
-          </button>
+            {/* Mobile Hamburger */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2.5 sm:p-3 rounded-full bg-white/90 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-md border border-[#D4CFC6] text-[#111111] hover:bg-[#E8E4DC] transition-colors focus:outline-none shadow-md"
+              aria-label="Toggle navigation"
+            >
+              {mobileMenuOpen
+                ? <IoMdClose className="w-5 h-5 sm:w-6 sm:h-6 text-[#111111]" />
+                : <HiMenuAlt4 className="w-5 h-5 sm:w-6 sm:h-6 text-[#111111]" />
+              }
+            </button>
+          </div>
         </div>
       </header>
 

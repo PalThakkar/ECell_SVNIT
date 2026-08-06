@@ -1,15 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Lightbulb, Rocket, Award,
   ArrowRight, Users, Sparkles
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import InteractiveParticleNetwork from "./home/InteractiveParticleNetwork";
+
+const heroWords = ["Innovation.", "Ambition.", "Ventures.", "Ideas.", "Impact."];
 
 /* ── Simple fade-up utility ────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -67,6 +69,18 @@ const FloatBadge = ({ icon: Icon, title, desc, pos, delay }) => (
 );
 
 const PremiumHeroSection = () => {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  const handleNextWord = () => {
+    setWordIndex((prev) => (prev + 1) % heroWords.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % heroWords.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
   <InteractiveParticleNetwork
@@ -85,12 +99,6 @@ const PremiumHeroSection = () => {
         style={{ background: "radial-gradient(circle, rgba(251,189,88,0.08) 0%, transparent 70%)" }}
       />
     </div>
-
-    {/* ── Floating side badges ── */}
-    <FloatBadge icon={Lightbulb} title="Innovation Hub"  desc="Ideate & Incubate" pos="top-[28%] left-[3.5rem]"  delay={0.7} />
-    <FloatBadge icon={Users}     title="Active Network"  desc="Alumni & Mentors"  pos="top-[58%] left-[3.5rem]"  delay={0.9} />
-    <FloatBadge icon={Rocket}    title="Startup Culture" desc="Build & Launch"    pos="top-[28%] right-[5rem]" delay={0.8} />
-    <FloatBadge icon={Award}     title="National Reach"  desc="Flagship E-Summit" pos="top-[58%] right-[5rem]" delay={1.0} />
 
     {/* ── Main center block ── */}
     <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center max-w-5xl mx-auto w-full gap-7">
@@ -128,10 +136,26 @@ const PremiumHeroSection = () => {
       >
         Ignite{" "}
         <span
-          className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-xl sm:rounded-2xl"
-          style={{ background: "#FBBD58", color: "#111111" }}
+          className="inline-inline-flex cursor-pointer select-none group"
+          onMouseEnter={handleNextWord}
+          onClick={handleNextWord}
+          title="Hover or tap to change word!"
         >
-          Innovation.
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={heroWords[wordIndex]}
+              initial={{ opacity: 0, y: 16, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.94 }}
+              whileHover={{ scale: 1.06, rotate: [-0.5, 0.5, 0] }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-xl sm:rounded-2xl shadow-[0_4px_20px_rgba(251,189,88,0.30)] group-hover:shadow-[0_8px_30px_rgba(251,189,88,0.50)] transition-shadow duration-300"
+              style={{ background: "#FBBD58", color: "#111111" }}
+            >
+              {heroWords[wordIndex]}
+            </motion.span>
+          </AnimatePresence>
         </span>
         <br className="block" />
         Inspire Entrepreneurship.
