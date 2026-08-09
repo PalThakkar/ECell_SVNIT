@@ -1,171 +1,97 @@
+"use client";
+
 import React from "react";
 import Container from "./Container";
 import FadeIn from "./FadeIn";
 import FooterNavigation from "./FooterNavigation";
 import Logo from "./Logo";
 import Link from "next/link";
-
-const ArrowIcon = (props) => {
-  return (
-    <svg viewBox="0 0 16 6" aria-hidden="true" {...props}>
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16 3 10 .5v2H0v1h10v2L16 3Z"
-      />
-    </svg>
-  );
-};
-
-// const RocketIcon = () => (
-//   <svg className="w-16 h-16 text-yellow-500 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
-//     <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
-//   </svg>
-// );
-
-// const LightbulbIcon = () => (
-//   <svg className="w-12 h-12 text-yellow-400 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-//     <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
-//   </svg>
-// );
-
-const SparkleIcon = ({ className }) => (
-  <svg className={`${className} animate-pulse`} fill="currentColor" viewBox="0 0 20 20">
-    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-  </svg>
-);
-
-const NewsletterForm = () => {
-  return (
-    <form className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
-        Sign up for our newsletter
-      </h2>
-      <p className="mt-4 text-sm text-neutral-700">
-        Subscribe to get the latest design news, articles, resources and
-        inspiration.
-      </p>
-      <div className="relative mt-6">
-        <input
-          type="email"
-          placeholder="Email address"
-          autoComplete="email"
-          aria-label="Email address"
-          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"
-        />
-        <div className="absolute inset-y-1 right-1 flex justify-end">
-          <button
-            type="submit"
-            aria-label="Submit"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-neutral-950 text-white transition hover:bg-neutral-800"
-          >
-            <ArrowIcon className="w-4" />
-          </button>
-        </div>
-      </div>
-    </form>
-  );
-};
+import { ArrowUpRight, Sparkles, Send, ArrowUp } from "lucide-react";
 
 const Footer = () => {
-  const initiatives = [
-    { name: "E-Summit", href: "/events" },
-    { name: "Workshops", href: "/events" },
-    { name: "Lego Startup", href: "/lego" },
-    { name: "Collaborations", href: "/work" },
-  ];
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
-      <FadeIn>
-        {/* Decorative elements */}
-        {/* <div className="absolute right-10 top-0 opacity-20 hidden lg:block">
-          <RocketIcon />
-        </div> */}
-        {/* <div className="absolute left-10 top-20 opacity-20 hidden lg:block">
-          <LightbulbIcon />
-        </div> */}
+    <footer className="relative pt-16 pb-12 overflow-hidden" style={{ backgroundColor: "#FEFEFE", borderTop: "1px solid #E8E4DC" }}>
+      
+      {/* Signature Yellow Top Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-1.5" style={{ background: "linear-gradient(to right, #FBBD58, #F5AB35, #FBBD58)" }} />
 
-        {/* Main Footer Content */}
-        <div className="relative">
-          {/* Top Section with gradient border */}
-          <div className="border-t-4 border-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 mb-12" 
-               style={{ borderImage: 'linear-gradient(to right, #fbbf24, #f59e0b, #fbbf24) 1' }}>
-          </div>
-          <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-4 lg:gap-x-12">
-            {/* Logo */}
-            <div className="lg:col-span-1">
-              <Link href={"/"} aria-label="Home" className="block">
-                <Logo className="h-10 w-auto" fillOnHover />
-              </Link>
-              <div className="mt-6 flex gap-2">
-                <SparkleIcon className="w-5 h-5 text-yellow-500" />
-                <SparkleIcon className="w-4 h-4 text-yellow-400" />
-                <SparkleIcon className="w-3 h-3 text-yellow-300" />
+      <Container>
+        <FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12" style={{ borderBottom: "1px solid #E8E4DC" }}>
+
+            {/* Brand Column */}
+            <div className="lg:col-span-5 space-y-5">
+              <Logo href="/" className="block w-32 sm:w-40 h-auto origin-left" fillOnHover />
+              <p className="text-lg leading-relaxed max-w-md font-medium" style={{ color: "#7A756C" }}>
+                The Entrepreneurship Cell of SVNIT Surat empowers students to transform innovative ideas into viable, high-impact ventures through seed grants, incubation, and mentorship.
+              </p>
+              {/* Campus Hub Badge */}
+              <div className="inline-flex items-center gap-3 p-3.5 rounded-2xl text-sm font-bold" style={{ background: "#FAF9F6", border: "1px solid #E8E4DC", color: "#3D3A35" }}>
+                <div className="w-3 h-3 rounded-full animate-pulse" style={{ background: "#FBBD58", border: "1px solid #F5AB35" }} />
+                <span>SVNIT Campus, Ichchhanath, Surat, Gujarat 395007</span>
               </div>
             </div>
 
-            {/* Our Initiatives */}
-            <div className="lg:col-span-1">
-              <h3 className="text-lg font-bold text-neutral-950 mb-6">
-                Our Initiatives
-              </h3>
-              <ul className="space-y-4">
-                {initiatives.map((initiative) => (
-                  <li key={initiative.name}>
-                    <Link
-                      href={initiative.href}
-                      className="group text-sm text-neutral-700 hover:text-yellow-600 transition-colors font-medium hover:translate-x-1 inline-block"
-                    >
-                      {initiative.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Navigation */}
-            <div className="lg:col-span-1">
+            {/* Navigation Column */}
+            <div className="lg:col-span-4">
+              <h4 className="text-sm font-black uppercase tracking-widest mb-6" style={{ color: "#111111" }}>Navigation & Links</h4>
               <FooterNavigation />
             </div>
 
-            {/* Newsletter */}
-            <div className="lg:col-span-1">
-              <NewsletterForm />
+            {/* Newsletter Column */}
+            <div className="lg:col-span-3">
+              <div className="p-6 sm:p-7 rounded-3xl relative overflow-hidden" style={{ background: "#FAF9F6", border: "1px solid #E8E4DC" }}>
+                <h4 className="text-xl font-black mb-2 flex items-center gap-2" style={{ color: "#111111" }}>
+                  <Sparkles className="w-5 h-5" style={{ color: "#D97706" }} />
+                  Stay Connected
+                </h4>
+                <p className="text-sm mb-5 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
+                  Subscribe for news on flagship summits, startup grants, and hackathon announcements.
+                </p>
+                <form onSubmit={e => e.preventDefault()} className="relative flex items-center p-1.5 rounded-2xl bg-white border border-[#D4CFC6] focus-within:border-[#FBBD58] focus-within:ring-2 focus-within:ring-[#FBBD58]/50 transition-all shadow-sm">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full px-3.5 py-2 text-sm font-medium bg-transparent border-none focus:outline-none text-[#111111] placeholder:text-[#9A9488]"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    style={{ background: "#FBBD58", color: "#111111", border: "1px solid #F5AB35", boxShadow: "0 2px 8px rgba(251,189,88,0.26)" }}
+                  >
+                    <span>Subscribe</span>
+                    <Send className="w-3.5 h-3.5" style={{ color: "#111111" }} />
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[15px] font-semibold" style={{ color: "#7A756C" }}>
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+              <p>© {new Date().getFullYear()} E-Cell SVNIT Surat. All rights reserved.</p>
+              <span className="hidden sm:inline" style={{ color: "#D4CFC6" }}>•</span>
+              <p className="text-xs font-extrabold px-2.5 py-1 rounded-full" style={{ background: "#FEF3C7", color: "#D97706", border: "1px solid #F5AB35" }}>
+                Official Handle: @ecell.svnit
+              </p>
+            </div>
+            <div className="flex items-center gap-4 flex-wrap justify-center">
+              <Link href="/dev-team"
+                className="inline-flex items-center gap-1.5 font-black rounded px-3 py-1.5 transition-colors text-sm"
+                style={{ color: "#111111", background: "rgba(251,189,88,0.28)", border: "1px solid rgba(245,171,53,0.40)" }}>
+                <span>Technical Team</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
-
-          {/* Bottom Section */}
-          <div className="mt-16 pt-8 border-t border-neutral-200">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              {/* Managed by Technical Team */}
-              <div className="text-lg font-bold text-neutral-950">
-                Managed by{" "}
-                <Link href="/dev-team" className="inline-block">
-                  <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent hover:from-yellow-600 hover:to-yellow-700 transition-all cursor-pointer">
-                    Technical Team {new Date().getFullYear()}
-                  </span>
-                </Link>
-              </div>
-
-              {/* Copyright */}
-              <div className="text-sm font-bold text-neutral-700">
-                © {new Date().getFullYear()} Copyright:{" "}
-                <span className="text-neutral-950">E-Cell SVNIT</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Decorative bottom elements */}
-          <div className="mt-8 flex justify-center gap-3 opacity-50">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-            <div className="w-2 h-2 bg-yellow-500 rounded-full animate-ping" style={{ animationDelay: '0.2s' }}></div>
-            <div className="w-2 h-2 bg-yellow-600 rounded-full animate-ping" style={{ animationDelay: '0.4s' }}></div>
-          </div>
-        </div>
-      </FadeIn>
-    </Container>
+        </FadeIn>
+      </Container>
+    </footer>
   );
 };
 
