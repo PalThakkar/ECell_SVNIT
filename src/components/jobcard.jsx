@@ -8,7 +8,7 @@ export function JobCard({ job }) {
   const router = useRouter();
 
   const handleApplyClick = () => {
-    const companyNameSlug = job.company.toLowerCase().replace(/\s+/g, '');
+    const companyNameSlug = job.company.toLowerCase().replace(/\s+/g, "");
     router.push(`/${companyNameSlug}`);
   };
 
@@ -40,12 +40,16 @@ export function JobCard({ job }) {
           </div>
           <div className="p-4">
             <h2 className="font-bold text-xl text-zinc-700">{job.company}</h2>
-            <h3 className="font-semibold my-2 text-lg text-zinc-600">{job.title}</h3>
+            <h3 className="font-semibold my-2 text-lg text-zinc-600">
+              {job.title}
+            </h3>
             <p className="font-normal text-sm text-zinc-500 mb-6">
               Eligible Students: {job.eligibility}
             </p>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">Last Date to Apply: {job.date}</span>
+              <span className="text-sm text-gray-500">
+                Last Date to Apply: {job.date}
+              </span>
               <div className="flex items-center space-x-2">
                 {job.tags.map((tag, index) => (
                   <span
