@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useId, useRef, useEffect } from "react";
-import { Lightbulb, Laptop, Rocket, Users, ChevronDown, Info } from "lucide-react";
+import { Lightbulb, Laptop,Award, Target, Rocket, Users, ChevronDown, Info } from "lucide-react";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -354,14 +354,9 @@ const PremiumHeroSection = () => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      {/* Background updated to lighter pure gray: bg-zinc-800 */}
-      <div className="relative bg-zinc-800 text-white min-h-screen flex flex-col justify-between overflow-hidden">
-        
-        {/* Ambient Top-Left Light Glow */}
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-yellow-500/20 rounded-full blur-[128px] pointer-events-none" />
-
-        {/* Header Navigation */}
-        <header className="relative w-full z-50">
+      {/* Transparent Header */}
+      <header className="absolute top-0 left-0 right-0 z-50">
+        <div className="absolute left-0 right-0 top-2 z-40" aria-hidden={expanded ? "true" : undefined}>
           <TransparentHeader
             panelId={panelId}
             icon={HiMenuAlt4}
@@ -414,80 +409,235 @@ const PremiumHeroSection = () => {
           </motion.div>
         </header>
 
-        {/* Hero Body Content */}
-        <main className="max-w-7xl mx-auto px-6 lg:px-8 py-12 flex-1 flex items-center w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-            
-            {/* Left Column: Heading & CTAs */}
-            <div className="lg:col-span-7 space-y-8">
-              <h1 className="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-none uppercase">
-                <span className="text-white block">Empowering</span>
-                <span className="text-white block">Entrepreneurs.</span>
-                <span className="text-yellow-400 block mt-1">Building</span>
-                <span className="text-yellow-400 block">Tomorrow.</span>
-              </h1>
-
-              <p className="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed">
-                E-Cell SVNIT is the entrepreneurial arm of SVNIT, fostering innovation, leadership and enterprise among students.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  href="/join"
-                  className="px-7 py-3.5 bg-yellow-400 text-zinc-950 font-bold text-sm rounded-xl hover:bg-yellow-300 transition-all flex items-center gap-2 shadow-lg shadow-yellow-400/10"
-                >
-                  <Users className="w-4 h-4 fill-current" />
-                  Join Us
-                </Link>
-
-                <Link
-                  href="/learn"
-                  className="px-7 py-3.5 bg-zinc-700 border border-zinc-600 text-yellow-400 font-bold text-sm rounded-xl hover:bg-zinc-600 transition-all flex items-center gap-2"
-                >
-                  <Laptop className="w-4 h-4" />
-                  Learn More
-                </Link>
-
-                <Link
-                  href="/about"
-                  className="px-7 py-3.5 bg-zinc-700 border border-zinc-600 text-zinc-200 font-bold text-sm rounded-xl hover:bg-zinc-600 hover:text-white transition-all flex items-center gap-2"
-                >
-                  <Info className="w-4 h-4" />
-                  About
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column: 2x2 Glowing Action Grid */}
-            <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-              <div className="grid grid-cols-2 gap-6 sm:gap-8">
-                {cards.map((card, idx) => {
-                  const IconComponent = card.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="group relative w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-zinc-700/80 border border-zinc-600 hover:border-yellow-400 flex flex-col items-center justify-center p-4 text-center cursor-pointer transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:shadow-[0_0_35px_rgba(250,204,21,0.35)]"
-                    >
-                      <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 mb-2 group-hover:scale-110 transition-transform duration-300" />
-                      <span className="text-xs sm:text-sm font-semibold text-white leading-tight px-2">
-                        {card.title}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Scroll Down Indicator */}
-              <div className="absolute -bottom-10 right-1/2 transform translate-x-1/2 lg:translate-x-0 lg:right-4 p-3 rounded-full bg-zinc-700/90 border border-zinc-600 text-white hover:border-yellow-400 transition cursor-pointer">
-                <ChevronDown className="w-5 h-5 animate-bounce" />
-              </div>
-            </div>
-
-          </div>
-        </main>
-
+      <section
+        className="relative min-h-screen overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Blurred event background */}
+        <div className="absolute inset-0 -z-20">
+        <Image
+          src="/ecell11.jpeg"
+          alt="E-Cell Event"
+          fill
+          className="object-cover blur-[2px] brightness-[0.8] saturate-80 "
+          priority
+        />
       </div>
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-900/70 via-gray-800/60 to-gray-900/70" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-950/40 via-transparent to-transparent" />
+
+      
+
+      <div className="max-w-7xl mx-auto relative z-10 w-full h-screen">
+        {/* Circular floating blocks positioned across the screen */}
+        
+        {/* Block 1: Top Left */}
+        <div
+          style={{
+            animation: `slide-up 0.6s ease-out ${patchBlocks[0].delay}, float-bounce 3s ease-in-out infinite`,
+            animationFillMode: "both",
+            animationDelay: `${patchBlocks[0].delay}, 0.6s`,
+          }}
+          className="absolute top-[12%] left-[5%] group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full bg-white/10 backdrop-blur-xl border-2 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center gap-3 group-hover:scale-105">
+            {React.createElement(patchBlocks[0].icon, { className: "w-10 h-10 sm:w-12 sm:h-12 text-yellow-400 group-hover:text-yellow-300 transition-all duration-300", strokeWidth: 2 })}
+            <span className="text-xs sm:text-sm lg:text-base font-bold text-white text-center px-6 group-hover:text-yellow-300 transition-colors duration-300">
+              {patchBlocks[0].text}
+            </span>
+          </div>
+        </div>
+
+        {/* Block 2: Middle Left */}
+        <div
+          style={{
+            animation: `slide-up 0.6s ease-out ${patchBlocks[1].delay}, float-bounce 3.5s ease-in-out infinite`,
+            animationFillMode: "both",
+            animationDelay: `${patchBlocks[1].delay}, 0.8s`,
+          }}
+          className="absolute top-[51%] left-[3%] group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full bg-white/10 backdrop-blur-xl border-2 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center gap-3 group-hover:scale-105">
+            {React.createElement(patchBlocks[1].icon, { className: "w-10 h-10 sm:w-12 sm:h-12 text-yellow-400 group-hover:text-yellow-300 transition-all duration-300", strokeWidth: 2 })}
+            <span className="text-xs sm:text-sm lg:text-base font-bold text-white text-center px-6 group-hover:text-yellow-300 transition-colors duration-300">
+              {patchBlocks[1].text}
+            </span>
+          </div>
+        </div>
+
+        {/* Block 3: Center (slightly left) */}
+        <div
+          style={{
+            animation: `slide-up 0.6s ease-out ${patchBlocks[2].delay}, float-bounce 3.2s ease-in-out infinite`,
+            animationFillMode: "both",
+            animationDelay: `${patchBlocks[2].delay}, 1s`,
+          }}
+          className="absolute top-[24%] left-[38%] group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full bg-white/10 backdrop-blur-xl border-2 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center gap-3 group-hover:scale-105">
+            {React.createElement(patchBlocks[2].icon, { className: "w-10 h-10 sm:w-12 sm:h-12 text-yellow-400 group-hover:text-yellow-300 transition-all duration-300", strokeWidth: 2 })}
+            <span className="text-xs sm:text-sm lg:text-base font-bold text-white text-center px-6 group-hover:text-yellow-300 transition-colors duration-300">
+              {patchBlocks[2].text}
+            </span>
+          </div>
+        </div>
+
+        {/* Block 4: Top Right */}
+        <div
+          style={{
+            animation: `slide-up 0.6s ease-out ${patchBlocks[3].delay}, float-bounce 3.8s ease-in-out infinite`,
+            animationFillMode: "both",
+            animationDelay: `${patchBlocks[3].delay}, 1.2s`,
+          }}
+          className="absolute top-[15%] right-[5%] group hidden lg:block"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full bg-white/10 backdrop-blur-xl border-2 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center gap-3 group-hover:scale-105">
+            {React.createElement(patchBlocks[3].icon, { className: "w-10 h-10 sm:w-12 sm:h-12 text-yellow-400 group-hover:text-yellow-300 transition-all duration-300", strokeWidth: 2 })}
+            <span className="text-[10px] sm:text-xs lg:text-sm font-bold text-white text-center px-4 group-hover:text-yellow-300 transition-colors duration-300">
+              {patchBlocks[3].text}
+            </span>
+          </div>
+        </div>
+
+        {/* Block 5: Bottom Right */}
+        <div
+          style={{
+            animation: `slide-up 0.6s ease-out ${patchBlocks[4].delay}, float-bounce 3.3s ease-in-out infinite`,
+            animationFillMode: "both",
+            animationDelay: `${patchBlocks[4].delay}, 1.4s`,
+          }}
+          className="absolute top-[55%] right-[6%] group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full bg-white/10 backdrop-blur-xl border-2 border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300 hover:bg-white/15 cursor-pointer flex flex-col items-center justify-center gap-3 group-hover:scale-105">
+            {React.createElement(patchBlocks[4].icon, { className: "w-10 h-10 sm:w-12 sm:h-12 text-yellow-400 group-hover:text-yellow-300 transition-all duration-300", strokeWidth: 2 })}
+            <span className="text-xs sm:text-sm lg:text-base font-bold text-white text-center px-6 group-hover:text-yellow-300 transition-colors duration-300">
+              {patchBlocks[4].text}
+            </span>
+          </div>
+        </div>
+
+        {/* CTA buttons - Bottom Center */}
+        <div
+          className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-4 animate-fade-in"
+          style={{ animationDelay: "0.5s" }}
+        >
+          <button className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold text-lg rounded-2xl shadow-lg shadow-yellow-400/30 hover:shadow-xl hover:shadow-yellow-400/50 hover:-translate-y-1 transition-all duration-300">
+            Join Us
+          </button>
+          <button className="px-8 py-4 bg-white/10 backdrop-blur-md text-yellow-300 font-bold text-lg rounded-2xl border border-yellow-400/40 hover:bg-white/20 hover:border-yellow-400/60 hover:-translate-y-1 transition-all duration-300">
+            Learn More
+          </button>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg
+            className="w-6 h-6 text-yellow-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes slide-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes float-bounce {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-15px);
+          }
+        }
+
+        @keyframes fade-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fade-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes float-stat {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+
+        .animate-fade-in-left {
+          animation: fade-in-left 0.8s ease-out;
+        }
+
+        .animate-fade-in-right {
+          animation: fade-in-right 0.8s ease-out;
+        }
+
+        .animate-fade-in {
+          animation: fade-in-left 0.8s ease-out;
+        }
+
+        .perspective {
+          perspective: 1200px;
+        }
+      `}</style>
+      </section>
     </MotionConfig>
   );
 };
