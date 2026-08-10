@@ -1,24 +1,25 @@
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm neutral base — harmonises with #FBBD58 E-Cell yellow */
+    --background: 40 10% 99%;       /* #FEFEFE warm white */
+    --foreground: 25 5% 7%;         /* #111111 rich near-black */
+    --card: 40 10% 99%;
+    --card-foreground: 25 5% 7%;
+    --popover: 40 10% 99%;
+    --popover-foreground: 25 5% 7%;
+    --primary: 38 97% 66%;          /* #FBBD58 E-Cell yellow */
+    --primary-foreground: 25 5% 7%; /* black on yellow */
+    --secondary: 37 22% 96%;        /* #FAF9F6 warm off-white */
+    --secondary-foreground: 25 5% 7%;
+    --muted: 37 22% 96%;
+    --muted-foreground: 30 5% 47%;  /* #7A756C warm medium gray */
+    --accent: 45 100% 92%;          /* #FEF3C7 honey tint */
+    --accent-foreground: 25 5% 7%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive-foreground: 40 10% 99%;
+    --border: 35 13% 90%;           /* #E8E4DC warm beige border */
+    --input: 35 13% 90%;
+    --ring: 38 97% 66%;             /* focus ring = yellow */
     --radius: 0.5rem;
   }
 
@@ -49,8 +50,8 @@
   }
 
   body {
-    background-color: #ffffff !important;
-    color: #171717 !important;
+    background-color: #FEFEFE !important;  /* warm white, not cold pure white */
+    color: #111111 !important;             /* rich near-black */
   }
 
   html,

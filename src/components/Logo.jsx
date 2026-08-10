@@ -1,44 +1,36 @@
 import clsx from "clsx";
 import Link from "next/link";
-import Image from "next/image";
 
 const Logo = ({ invert, href, className, fillOnHover, children, ...props }) => {
   // Always use the regular logo
   const logoSrc = "/logo.svg";
   
-  className = clsx(
+  const linkClasses = clsx(
+    "inline-flex items-center shrink-0 select-none",
     className,
-    {
-      'text-white hover:text-blue-600': invert,
-      'text-black hover:text-blue-600': !invert
-    },
-    fillOnHover && "hover:fill-current"
+    fillOnHover && "hover:opacity-90"
   );
 
   const inner = (
-    <span className="relative">
-      <Image
-        src={logoSrc}
-        alt="Logo"
-        width={180}
-        height={180}
-        className="object-contain"
-      />
-    </span>
+    <img
+      src={logoSrc}
+      alt="E-Cell SVNIT Logo"
+      className="h-24 sm:h-32 w-auto object-contain shrink-0"
+    />
   );
 
   if (href) {
     return (
-      <Link href={href} className={className} {...props}>
+      <Link href={href} className={linkClasses} {...props}>
         {inner}
       </Link>
     );
   }
 
   return (
-    <h2 className={clsx("cursor-pointer text-2xl font-semibold duration-300", className)}>
+    <div className={linkClasses} {...props}>
       {inner}
-    </h2>
+    </div>
   );
 };
 

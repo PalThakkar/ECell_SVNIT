@@ -18,7 +18,7 @@ const BlogPreview = ({ posts }) => {
               <p className="text-gray-600 mb-8">{post.excerpt}</p>
               <div className="mt-28"> {/* Added margin-top to shift "Read more" down */}
                 <Link href={`/blog&podcast/${post.slug}`}>
-                  <div className="inline-block bg-black text-white px-4 py-2 rounded-full hover:bg-[#232324] shadow-lg hover:shadow-xl  transition-colors duration-200">
+                  <div className="inline-block bg-[#FBBD58] text-[#111111] px-4 py-2 rounded-full hover:bg-[#F5AB35] shadow-lg hover:shadow-xl border border-[#F5AB35] transition-colors duration-200">
                     Read more
                   </div> 
                 </Link>

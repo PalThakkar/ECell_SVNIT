@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Loader from "./Loader";
 import Container from "./Container";
 import Link from "next/link";
@@ -13,6 +14,9 @@ import clsx from "clsx";
 import Offices from "./Offices";
 import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
+import FloatingSocialBar from "./FloatingSocialBar";
+import AutoScroll from "./AutoScroll";
 
 const navigationItems = [
   { href: "/team", label: "Team" },
@@ -32,16 +36,16 @@ const Header = ({
   toggleRef,
 }) => {
   return (
-    <Container>
+    <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-[1400px]">
       <div className="flex items-center justify-between">
         {!expanded && (
-          <Link href={"/"} aria-label="Home">
-            <Logo className="h-8 mb-16" fillOnHover />
+          <Link href={"/"} aria-label="Home" className="flex items-center mt-1 -ml-1 sm:-ml-4">
+            <Logo className="h-10 sm:h-20 md:h-24 w-auto" fillOnHover />
           </Link>
         )}
         {expanded && <div className="flex-1" />}
-        <div className="flex items-center gap-x-8">
-          <Button href={"/contact"} className="px-6 py-3 text-base">
+        <div className="flex items-center gap-x-3 sm:gap-x-8">
+          <Button href={"/contact"} className="hidden sm:inline-flex px-5 py-2.5 text-sm sm:text-base whitespace-nowrap">
             Contact us
           </Button>
           <button
@@ -51,23 +55,21 @@ const Header = ({
             aria-expanded={expanded.toString()}
             aria-controls={panelId}
             className={clsx(
-              "group -m-2.5 rounded-full p-4 transition",
-              invert ? "hover:bg-white/10" : "hover:bg-neutral-950/10",
+              "group -m-2 rounded-full p-3 sm:p-4 transition",
+              "hover:bg-neutral-900/10"
             )}
             aria-label="Toggle navigation"
           >
             <Icon
               className={clsx(
-                "h-8 w-8",
-                invert
-                  ? "fill-white group-hover:fill-neutral-200"
-                  : "fill-neutral-950 group-hover:fill-neutral-700",
+                "h-6 w-6 sm:h-8 sm:w-8",
+                "fill-neutral-900 group-hover:fill-neutral-700"
               )}
             />
           </button>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
@@ -75,7 +77,7 @@ const NavigationItem = ({ href, children, align = "center" }) => {
   return (
     <Link
       href={href}
-      className="group relative bg-neutral-950 border-b border-neutral-800 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
+      className="group relative bg-[#FAF9F6] border-b border-[#E8E4DC] last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 block"
     >
       <div className="relative flex min-h-30 items-center justify-center overflow-hidden px-8 py-10 sm:min-h-45 sm:px-12 sm:py-14 md:px-16 md:py-16 lg:px-20 lg:py-20">
         <div
@@ -91,13 +93,13 @@ const NavigationItem = ({ href, children, align = "center" }) => {
         </div>
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-neutral-800 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-[#FBBD58] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
 
         {/* Animated gradient on hover */}
-        <div className="absolute inset-0 bg-linear-to-br from-neutral-700 via-neutral-800 to-neutral-900 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#FBBD58] via-[#F5AB35] to-[#D97706] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-60" />
 
         {/* Shine effect on hover */}
-        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+        <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
       </div>
     </Link>
   );
@@ -105,7 +107,7 @@ const NavigationItem = ({ href, children, align = "center" }) => {
 
 const Navigation = () => {
   return (
-    <nav className="font-display text-white bg-neutral-950">
+    <nav className="font-display text-neutral-900 bg-[#FAF9F6]">
       <div className="sm:hidden">
         {navigationItems.map((item) => (
           <NavigationItem key={item.href} href={item.href} align="center">
@@ -153,7 +155,7 @@ const RootLayoutInner = ({ children }) => {
       {!isHomePage && (
         <header>
           <div
-            className="absolute left-0 right-0 top-2 z-40"
+            className="fixed left-0 right-0 top-0 z-40 bg-transparent py-4 sm:py-6 px-4 sm:px-8"
             aria-hidden={expanded ? "true" : undefined}
             inert={expanded ? true : undefined}
           >
@@ -175,14 +177,13 @@ const RootLayoutInner = ({ children }) => {
             layout
             id={panelId}
             style={{ height: expanded ? "auto" : "0" }}
-            className="relative z-50 overflow-hidden bg-neutral-950"
+            className="relative z-50 overflow-hidden bg-white/30 backdrop-blur-2xl saturate-150"
             aria-hidden={expanded ? undefined : "true"}
             inert={expanded ? undefined : true}
           >
-            <motion.div layout className="bg-neutral-800">
-              <div className="bg-neutral-950 pb-16 pt-14">
+            <motion.div layout className="bg-[#E8E4DC]">
+              <div className="bg-[#FEFEFE] pb-16 pt-14 border-b border-[#E8E4DC]">
                 <Header
-                  invert
                   panelId={panelId}
                   icon={IoMdClose}
                   toggleRef={closeRef}
@@ -196,23 +197,22 @@ const RootLayoutInner = ({ children }) => {
                 />
               </div>
               <Navigation />
-              <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
+              <div className="relative bg-[#FAF9F6] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[#E8E4DC]">
                 <Container>
                   <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
                     <div>
-                      <h2 className="font-display text-2xl font-semibold text-white mb-2">
+                      <h2 className="font-display text-2xl font-semibold text-neutral-900 mb-2">
                         Our Address
                       </h2>
                       <Offices
-                        invert
                         className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2"
                       />
                     </div>
-                    <div className="sm:border-l sm:border-transparent sm:pl-16">
-                      <h2 className="font-display text-xl font-semibold text-white mb-2">
+                    <div className="sm:border-l sm:border-[#E8E4DC] sm:pl-16">
+                      <h2 className="font-display text-xl font-semibold text-neutral-900 mb-2">
                         Follow us
                       </h2>
-                      <SocialMedia className="mt-8" invert />
+                      <SocialMedia className="mt-8" />
                     </div>
                   </div>
                 </Container>
@@ -229,7 +229,7 @@ const RootLayoutInner = ({ children }) => {
           borderTopRightRadius: isHomePage ? 0 : 40,
         }}
         className={clsx(
-          "relative flex flex-auto overflow-hidden bg-linear-to-br from-white via-gray-50 to-gray-100",
+          "relative flex flex-auto overflow-hidden bg-transparent",
           !isHomePage && "pt-14",
         )}
       >
@@ -264,7 +264,28 @@ const RootLayout = ({ children }) => {
   return (
     <>
       {loading && <Loader />}
+
+      {/* Global Ambient Blurred Campus/E-Cell Background Image */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <Image
+          src="/e-cell-fam.jpg"
+          alt="E-Cell SVNIT Campus Background"
+          fill
+          priority
+          className="object-cover object-center scale-105 filter blur-2xl opacity-40 saturate-[1.3]"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 30%, rgba(254,254,254,0.35) 0%, rgba(250,249,246,0.60) 100%)",
+          }}
+        />
+      </div>
+
       <RootLayoutInner key={pathName}>{children}</RootLayoutInner>
+      <AutoScroll />
+      <ScrollToTop />
     </>
   );
 };

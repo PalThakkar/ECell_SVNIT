@@ -1,89 +1,93 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import Logo from "./Logo";
+import { ArrowUpRight, Sparkles, Send, ArrowUp } from "lucide-react";
 
-export default function Footer() {
+const Footer = () => {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer className="bg-zinc-800 text-white border-t border-yellow-500/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          
-          {/* Logo Section */}
-          <div className="lg:col-span-1">
-            <Link href="/" aria-label="Home">
-              <Logo className="h-10 w-auto" />
-            </Link>
+    <footer className="relative pt-16 pb-12 overflow-hidden" style={{ backgroundColor: "#FEFEFE", borderTop: "1px solid #E8E4DC" }}>
+      
+      {/* Signature Yellow Top Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-1.5" style={{ background: "linear-gradient(to right, #FBBD58, #F5AB35, #FBBD58)" }} />
+
+      <Container>
+        <FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12" style={{ borderBottom: "1px solid #E8E4DC" }}>
+
+            {/* Brand Column */}
+            <div className="lg:col-span-5 space-y-5">
+              <Logo href="/" className="block w-32 sm:w-40 h-auto origin-left" fillOnHover />
+              <p className="text-lg leading-relaxed max-w-md font-medium" style={{ color: "#7A756C" }}>
+                The Entrepreneurship Cell of SVNIT Surat empowers students to transform innovative ideas into viable, high-impact ventures through seed grants, incubation, and mentorship.
+              </p>
+              {/* Campus Hub Badge */}
+              <div className="inline-flex items-center gap-3 p-3.5 rounded-2xl text-sm font-bold" style={{ background: "#FAF9F6", border: "1px solid #E8E4DC", color: "#3D3A35" }}>
+                <div className="w-3 h-3 rounded-full animate-pulse" style={{ background: "#FBBD58", border: "1px solid #F5AB35" }} />
+                <span>SVNIT Campus, Ichchhanath, Surat, Gujarat 395007</span>
+              </div>
+            </div>
+
+            {/* Navigation Column */}
+            <div className="lg:col-span-4">
+              <h4 className="text-sm font-black uppercase tracking-widest mb-6" style={{ color: "#111111" }}>Navigation & Links</h4>
+              <FooterNavigation />
+            </div>
+
+            {/* Newsletter Column */}
+            <div className="lg:col-span-3">
+              <div className="p-6 sm:p-7 rounded-3xl relative overflow-hidden" style={{ background: "#FAF9F6", border: "1px solid #E8E4DC" }}>
+                <h4 className="text-xl font-black mb-2 flex items-center gap-2" style={{ color: "#111111" }}>
+                  <Sparkles className="w-5 h-5" style={{ color: "#D97706" }} />
+                  Stay Connected
+                </h4>
+                <p className="text-sm mb-5 leading-relaxed font-medium" style={{ color: "#7A756C" }}>
+                  Subscribe for news on flagship summits, startup grants, and hackathon announcements.
+                </p>
+                <form onSubmit={e => e.preventDefault()} className="relative flex items-center p-1.5 rounded-2xl bg-white border border-[#D4CFC6] focus-within:border-[#FBBD58] focus-within:ring-2 focus-within:ring-[#FBBD58]/50 transition-all shadow-sm">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full px-3.5 py-2 text-sm font-medium bg-transparent border-none focus:outline-none text-[#111111] placeholder:text-[#9A9488]"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    style={{ background: "#FBBD58", color: "#111111", border: "1px solid #F5AB35", boxShadow: "0 2px 8px rgba(251,189,88,0.26)" }}
+                  >
+                    <span>Subscribe</span>
+                    <Send className="w-3.5 h-3.5" style={{ color: "#111111" }} />
+                  </button>
+                </form>
+              </div>
+            </div>
+
           </div>
 
-          {/* Column 1: Our Initiatives */}
-          <div>
-            <h3 className="text-white font-bold text-base mb-4">Our Initiatives</h3>
-            <ul className="space-y-2.5 text-sm text-zinc-300">
-              <li><Link href="/e-summit" className="hover:text-yellow-400 transition">E-Summit</Link></li>
-              <li><Link href="/workshops" className="hover:text-yellow-400 transition">Workshops</Link></li>
-              <li><Link href="/lego-startup" className="hover:text-yellow-400 transition">Lego Startup</Link></li>
-              <li><Link href="/collaborations" className="hover:text-yellow-400 transition">Collaborations</Link></li>
-            </ul>
+          {/* Bottom Bar */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[15px] font-semibold" style={{ color: "#7A756C" }}>
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+              <p>© {new Date().getFullYear()} E-Cell SVNIT Surat. All rights reserved.</p>
+              <span className="hidden sm:inline" style={{ color: "#D4CFC6" }}>•</span>
+              <p className="text-xs font-extrabold px-2.5 py-1 rounded-full" style={{ background: "#FEF3C7", color: "#D97706", border: "1px solid #F5AB35" }}>
+                Official Handle: @ecell.svnit
+              </p>
+            </div>
+            <div className="flex items-center gap-4 flex-wrap justify-center">
+              <Link href="/dev-team"
+                className="inline-flex items-center gap-1.5 font-black rounded px-3 py-1.5 transition-colors text-sm"
+                style={{ color: "#111111", background: "rgba(251,189,88,0.28)", border: "1px solid rgba(245,171,53,0.40)" }}>
+                <span>Technical Team</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-
-          {/* Column 2: E Cell SVNIT */}
-          <div>
-            <h3 className="text-white font-bold text-base mb-4">E Cell SVNIT</h3>
-            <ul className="space-y-2.5 text-sm text-zinc-300">
-              <li><Link href="/about" className="hover:text-yellow-400 transition">About</Link></li>
-              <li><Link href="/team" className="hover:text-yellow-400 transition">Team</Link></li>
-              <li><Link href="/events" className="hover:text-yellow-400 transition">Events</Link></li>
-              <li><Link href="/contact" className="hover:text-yellow-400 transition">Contact us</Link></li>
-              <li><Link href="/job" className="hover:text-yellow-400 transition">Job</Link></li>
-              <li><Link href="/faq" className="hover:text-yellow-400 transition">FAQ</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Connect */}
-          <div>
-            <h3 className="text-white font-bold text-base mb-4">Connect</h3>
-            <ul className="space-y-2.5 text-sm text-zinc-300">
-              <li><a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-yellow-400 transition">Instagram</a></li>
-              <li><a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-yellow-400 transition">Facebook</a></li>
-              <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-yellow-400 transition">Linkedin</a></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Newsletter Signup */}
-          <div className="lg:col-span-1">
-            <h3 className="text-white font-bold text-base mb-4">Sign up for our newsletter</h3>
-            <p className="text-zinc-300 text-sm mb-4 leading-relaxed">
-              Subscribe to get the latest design news, articles, resources and inspiration.
-            </p>
-            
-            <form onSubmit={(e) => e.preventDefault()} className="flex items-center gap-2">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="w-full px-4 py-2.5 rounded-xl bg-zinc-700 border border-zinc-600 text-white placeholder-zinc-400 text-sm focus:outline-none focus:border-yellow-400 transition"
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe"
-                className="px-4 py-2.5 bg-zinc-700 hover:bg-yellow-400 hover:text-black border border-zinc-600 text-white rounded-xl transition flex items-center justify-center"
-              >
-                &rarr;
-              </button>
-            </form>
-          </div>
-
-        </div>
-
-        {/* Bottom Sub-footer Bar */}
-        <div className="mt-12 pt-8 border-t border-zinc-700 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-300 gap-4">
-          <p>
-            Managed by <span className="text-yellow-400 font-semibold">Technical Team 2026</span>
-          </p>
-          <p>
-            &copy; {new Date().getFullYear()} Copyright: <span className="text-white font-medium">E-Cell SVNIT</span>
-          </p>
-        </div>
-      </div>
+        </FadeIn>
+      </Container>
     </footer>
   );
 }
+export default Footer;
