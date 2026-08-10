@@ -4,7 +4,8 @@ import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Services from "@/components/Services";
 import logoPhobiaDark from "@/images/ecell.svg";
-import HeroSection from "@/components/HeroSection";
+// 1. Change the import to point to your new component file:
+import PremiumHeroSection from "@/components/PremiumHeroSection";
 
 export const metadata = {
   title: "Home | E-Cell SVNIT",
@@ -14,8 +15,10 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="text-black">
-      <HeroSection />
+    <main className="text-black bg-neutral-950">
+      {/* 2. Replace HeroSection with PremiumHeroSection */}
+      <PremiumHeroSection />
+      
       <Testimonials
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: "Ecell", logo: logoPhobiaDark }}
