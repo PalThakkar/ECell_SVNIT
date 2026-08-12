@@ -21,6 +21,11 @@ export const SocialMediaProfiles = [
     href: "https://www.linkedin.com/company/e-cell-nit-surat/",
     icon: BsLinkedin,
   },
+  {
+    title: "YouTube",
+    href: "https://youtube.com/@e-cellsvnit?si=MlljRlQ1uDgVYfqU",
+    icon: BsYoutube,
+  },
 ];
 
 const SocialMedia = ({ className, invert = false }) => {

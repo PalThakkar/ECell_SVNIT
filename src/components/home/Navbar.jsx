@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
-import { BsLinkedin, BsInstagram } from "react-icons/bs";
+import { BsLinkedin, BsInstagram, BsYoutube } from "react-icons/bs";
 import { Sparkles, ArrowUpRight } from "lucide-react";
 import Logo from "../Logo";
 import clsx from "clsx";
@@ -92,6 +92,16 @@ const Navbar = () => {
               className="p-2 sm:p-2.5 rounded-full text-white bg-gradient-to-tr from-[#F09433] via-[#DC2743] to-[#BC1888] border border-white/30 shadow-[0_4px_16px_rgba(220,39,67,0.40)] hover:scale-110 active:scale-95 transition-all duration-300 shrink-0 flex items-center justify-center"
             >
               <BsInstagram className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            </Link>
+
+            <Link
+              href="https://youtube.com/@e-cellsvnit?si=MlljRlQ1uDgVYfqU"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="p-2 sm:p-2.5 rounded-full text-white bg-[#FF0000] border border-[#CC0000] shadow-[0_4px_16px_rgba(255,0,0,0.40)] hover:scale-110 active:scale-95 transition-all duration-300 shrink-0 flex items-center justify-center"
+            >
+              <BsYoutube className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </Link>
 
             <Link
