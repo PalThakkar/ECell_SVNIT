@@ -1,29 +1,302 @@
 @import "tailwindcss";
 @import "./base.css";
 
-/* custom utility classes */
-.section-spacing {
-  margin-top: 0;
-  margin-bottom: 0;
+/* ═══════════════════════════════════════════════════════════════════════════
+   E-CELL SVNIT — COMPLETE DESIGN SYSTEM
+   Typography: Syne (display) + Inter (body)
+   Palette: Warm Black (#111111) + E-Cell Yellow (#FBBD58) + Warm White (#FEFEFE)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Google Fonts Variable Registration ──────────────────────────────────── */
+:root {
+  --font-display: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body:    var(--font-inter), "Inter", system-ui, sans-serif;
+
+  /* ── Warm Surface Backgrounds ─────────────────────────────────────────── */
+  --ecell-white:         #FEFEFE;
+  --ecell-offwhite:      #FAF9F6;
+  --ecell-warm-50:       #FFFBF0;
+  --ecell-warm-100:      #FEF3C7;
+
+  /* ── E-Cell Signature Yellow ──────────────────────────────────────────── */
+  --ecell-yellow:        #FBBD58;
+  --ecell-yellow-hover:  #F5AB35;
+  --ecell-yellow-deep:   #D97706;
+  --ecell-yellow-tint:   rgba(251,189,88,0.18);
+  --ecell-yellow-glow:   rgba(251,189,88,0.28);
+
+  /* ── Warm Dark ────────────────────────────────────────────────────────── */
+  --ecell-dark:          #111111;
+  --ecell-dark-card:     #1A1813;
+  --ecell-dark-border:   #2D2A24;
+
+  /* ── Warm Neutrals ────────────────────────────────────────────────────── */
+  --ecell-body:          #3D3A35;
+  --ecell-muted:         #7A756C;
+  --ecell-subtle:        #B5B0A8;
+  --ecell-border:        #E8E4DC;
+  --ecell-border-strong: #D4CFC6;
+  --ecell-texture:       rgba(232, 228, 220, 0.4);
+
+  /* ── Type Scale ───────────────────────────────────────────────────────── */
+  --text-xs:    0.75rem;    /* 12px */
+  --text-sm:    0.875rem;   /* 14px */
+  --text-base:  1rem;       /* 16px */
+  --text-lg:    1.125rem;   /* 18px */
+  --text-xl:    1.25rem;    /* 20px */
+  --text-2xl:   1.5rem;     /* 24px */
+  --text-3xl:   1.875rem;   /* 30px */
+  --text-4xl:   2.25rem;    /* 36px */
+  --text-5xl:   3rem;       /* 48px */
+  --text-6xl:   3.75rem;    /* 60px */
+  --text-7xl:   4.5rem;     /* 72px */
+  --text-8xl:   6rem;       /* 96px */
+
+  /* ── Letter Spacing ───────────────────────────────────────────────────── */
+  --tracking-tight:    -0.035em;  /* Headlines — very tight, editorial */
+  --tracking-display:  -0.025em;  /* Section headings */
+  --tracking-normal:    0em;
+  --tracking-wide:      0.025em;
+  --tracking-widest:    0.12em;   /* Eyebrow labels */
+
+  /* ── Line Heights ─────────────────────────────────────────────────────── */
+  --leading-tight:   1.08;   /* Large display type */
+  --leading-snug:    1.22;   /* Sub-headings */
+  --leading-relaxed: 1.65;   /* Body copy */
+  --leading-loose:   1.85;   /* Small captions */
 }
 
-.smooth-transition {
-  background: hsl(var(--background));
-  transition: background 0.3s ease-in-out;
+/* ── Base Typography Reset ────────────────────────────────────────────────── */
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-.faq-section {
-  background: hsl(var(--secondary));
-  color: hsl(var(--primary-foreground));
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--ecell-dark);
+  background-color: var(--ecell-white);
+  letter-spacing: 0.005em;
 }
 
-/* Force light mode for team page */
-.light-mode-wrapper,
-.light-mode-wrapper * {
-  color-scheme: light !important;
+/* ── Display Headings — Plus Jakarta Sans ─────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-weight: 800;
 }
 
-.light-mode-wrapper {
-  background-color: #ffffff !important;
-  color: #171717 !important;
+/* ── Eyebrow / Label Utility ─────────────────────────────────────────────── */
+.ecell-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: var(--ecell-muted);
+}
+
+/* ── Yellow Highlight Span ───────────────────────────────────────────────── */
+.ecell-highlight {
+  background-color: var(--ecell-yellow);
+  color: var(--ecell-dark);
+  padding: 0.06em 0.3em 0.1em;
+  border-radius: 10px;
+  font-style: normal;
+  display: inline-block;
+}
+
+/* ── Selection Color ─────────────────────────────────────────────────────── */
+::selection {
+  background: var(--ecell-yellow);
+  color: var(--ecell-dark);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   EXPRESSIVE CSS ANIMATIONS & MICRO-INTERACTIONS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Gradient Text Utility ───────────────────────────────────────────────── */
+.text-gradient-yellow {
+  background: linear-gradient(135deg, #FBBD58 0%, #F5AB35 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(135deg, #111111 0%, #3D3A35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Shimmer Animation (for badges / pills) ──────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-yellow {
+  background: linear-gradient(90deg, #FBBD58 25%, #FEFEFE 50%, #FBBD58 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* ── Float Animation ─────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+/* ── Pulse Glow (yellow glow pulse) ─────────────────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251,189,88,0); }
+  50%       { box-shadow: 0 0 0 12px rgba(251,189,88,0.18); }
+}
+.animate-pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* ── Ticker / running underline ──────────────────────────────────────────── */
+@keyframes slideUnderline {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Staggered fade-up for lists ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Spin slow ───────────────────────────────────────────────────────────── */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spinSlow 12s linear infinite; }
+
+/* ── Card tilt ripple on hover ───────────────────────────────────────────── */
+.card-interactive {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease;
+  will-change: transform;
+}
+.card-interactive:hover {
+  transform: translateY(-7px) scale(1.01);
+}
+
+/* ── Underline reveal on hover ───────────────────────────────────────────── */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--ecell-yellow);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after { transform: scaleX(1); }
+
+/* ── Yellow border left accent ───────────────────────────────────────────── */
+.accent-left {
+  border-left: 4px solid var(--ecell-yellow);
+  padding-left: 1.25rem;
+}
+
+/* ── Section Divider — warm gradient fade ────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E8E4DC 20%, #E8E4DC 80%, transparent);
+}
+
+/* ── Glow Card (button / CTA) ────────────────────────────────────────────── */
+.btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  border-radius: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 800;
+  background: var(--ecell-yellow);
+  color: var(--ecell-dark);
+  border: 1.5px solid var(--ecell-yellow-hover);
+  box-shadow: 0 4px 14px rgba(251,189,88,0.30);
+  transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.18s cubic-bezier(0.22,1,0.36,1);
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.btn-yellow:hover {
+  background: var(--ecell-yellow-hover);
+  box-shadow: 0 8px 28px rgba(251,189,88,0.42);
+  transform: translateY(-2px) scale(1.015);
+}
+.btn-yellow:active { transform: scale(0.975); }
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  border-radius: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 800;
+  background: var(--ecell-dark-card);
+  color: #D4CFC6;
+  border: 1.5px solid var(--ecell-dark-border);
+  transition: border-color 0.22s ease, color 0.22s ease, transform 0.18s cubic-bezier(0.22,1,0.36,1);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-dark:hover {
+  border-color: var(--ecell-yellow);
+  color: var(--ecell-yellow);
+  transform: translateY(-2px) scale(1.015);
+}
+.btn-dark:active { transform: scale(0.975); }
+
+/* ── Section Spacing ─────────────────────────────────────────────────────── */
+.section-spacing { margin-top: 0; margin-bottom: 0; }
+
+/* ── Force light mode for team page ─────────────────────────────────────── */
+.light-mode-wrapper, .light-mode-wrapper * { color-scheme: light !important; }
+.light-mode-wrapper { background-color: #FEFEFE !important; color: #111111 !important; }
+
+/* ── Scrollbar Styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ecell-offwhite); }
+::-webkit-scrollbar-thumb { background: var(--ecell-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ecell-yellow); }
+
+/* ── Subtle Background Texture ───────────────────────────────────────────── */
+.bg-texture {
+  background-image: radial-gradient(var(--ecell-texture) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

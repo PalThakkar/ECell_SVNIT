@@ -24,8 +24,8 @@ export function GridListItem({ title, children, className, invert = false }) {
       className={clsx(
         "text-base",
         invert
-          ? "text-neutral-300 before:bg-white after:bg-white/10"
-          : "text-neutral-600 before:bg-neutral-950 after:bg-neutral-100",
+          ? "text-[#7A756C] before:bg-[#D4CFC6] after:bg-[#D4CFC6]/10"
+          : "text-[#3D3A35] before:bg-[#FBBD58] after:bg-[#E8E4DC]",
         className
       )}
     >
@@ -34,7 +34,7 @@ export function GridListItem({ title, children, className, invert = false }) {
           <strong
             className={clsx(
               "font-semibold",
-              invert ? "text-white" : "text-neutral-950"
+              "text-[#111111]"
             )}
           >
             {title}.

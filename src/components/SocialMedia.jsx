@@ -17,7 +17,7 @@ export const SocialMediaProfiles = [
     icon: BsFacebook,
   },
   {
-    title: "linkedin",
+    title: "LinkedIn",
     href: "https://www.linkedin.com/company/e-cell-nit-surat/",
     icon: BsLinkedin,
   },
