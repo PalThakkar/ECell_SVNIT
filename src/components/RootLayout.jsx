@@ -17,6 +17,7 @@ import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import FloatingSocialBar from "./FloatingSocialBar";
 import AutoScroll from "./AutoScroll";
+import Navbar from "@/components/home/Navbar";
 
 const navigationItems = [
   { href: "/team", label: "Team" },
@@ -152,75 +153,7 @@ const RootLayoutInner = ({ children }) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      {!isHomePage && (
-        <header>
-          <div
-            className="fixed left-0 right-0 top-0 z-40 bg-transparent py-4 sm:py-6 px-4 sm:px-8"
-            aria-hidden={expanded ? "true" : undefined}
-            inert={expanded ? true : undefined}
-          >
-            <Header
-              panelId={panelId}
-              icon={HiMenuAlt4}
-              toggleRef={openRef}
-              expanded={expanded}
-              onToggle={() => {
-                setExpanded((expanded) => !expanded);
-                window.setTimeout(() =>
-                  closeRef.current?.focus({ preventScroll: true }),
-                );
-              }}
-            />
-          </div>
-
-          <motion.div
-            layout
-            id={panelId}
-            style={{ height: expanded ? "auto" : "0" }}
-            className="relative z-50 overflow-hidden bg-white/30 backdrop-blur-2xl saturate-150"
-            aria-hidden={expanded ? undefined : "true"}
-            inert={expanded ? undefined : true}
-          >
-            <motion.div layout className="bg-[#E8E4DC]">
-              <div className="bg-[#FEFEFE] pb-16 pt-14 border-b border-[#E8E4DC]">
-                <Header
-                  panelId={panelId}
-                  icon={IoMdClose}
-                  toggleRef={closeRef}
-                  expanded={expanded}
-                  onToggle={() => {
-                    setExpanded((expanded) => !expanded);
-                    window.setTimeout(() =>
-                      openRef.current?.focus({ preventScroll: true }),
-                    );
-                  }}
-                />
-              </div>
-              <Navigation />
-              <div className="relative bg-[#FAF9F6] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[#E8E4DC]">
-                <Container>
-                  <div className="grid grid-cols-1 gap-y-12 pb-20 pt-12 sm:grid-cols-2 sm:gap-y-16 sm:pb-24 sm:pt-20">
-                    <div>
-                      <h2 className="font-display text-2xl font-semibold text-neutral-900 mb-2">
-                        Our Address
-                      </h2>
-                      <Offices
-                        className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                      />
-                    </div>
-                    <div className="sm:border-l sm:border-[#E8E4DC] sm:pl-16">
-                      <h2 className="font-display text-xl font-semibold text-neutral-900 mb-2">
-                        Follow us
-                      </h2>
-                      <SocialMedia className="mt-8" />
-                    </div>
-                  </div>
-                </Container>
-              </div>
-            </motion.div>
-          </motion.div>
-        </header>
-      )}
+      <Navbar />
 
       <motion.div
         layout
