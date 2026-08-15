@@ -136,7 +136,7 @@ const RootLayoutInner = ({ children }) => {
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === "/contact";
 
   useEffect(() => {
     function onClick(event) {

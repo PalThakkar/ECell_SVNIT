@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import InteractiveParticleNetwork from "@/components/home/InteractiveParticleNetwork";
 import Container from "@/components/Container";
 import ContactDetails from "@/components/ContactDetails";
-import Faq from "@/components/Faq"; // Empty path as requested
+import Faq from "@/components/Faq";
 import {
   Rocket,
   Mail,
@@ -19,9 +20,7 @@ import {
   Check,
 } from "lucide-react";
 
-// ==========================================
-// Scroll-triggered entrance variants
-// ==========================================
+// Scroll animations
 const fadeInUp = {
   hidden: { opacity: 0, y: 28 },
   visible: {
@@ -65,14 +64,9 @@ const staggerContainer = {
   },
 };
 
-// Shared viewport settings: fires once, a little before the element is fully in view
 const revealViewport = { once: true, amount: 0.25 };
 
-// ==========================================
-// Local page header — replaces the external PageIntro component,
-// which had no entrance animation of its own.
-// ==========================================
-// Word-by-word stagger for the heading
+// Page header animations
 const headingContainer = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
@@ -90,8 +84,8 @@ const headingWord = {
 const PageHeader = () => {
   const words = ["Connect", "With", "Us"];
   return (
-    <div className="relative text-center px-4 pt-10 pb-4 sm:pt-16 sm:pb-6">
-      {/* Ambient floating glow behind the header */}
+    <div className="relative text-center px-4 pt-32 pb-4 sm:pt-40 sm:pb-6">
+      {/* Background glow effects */}
       <motion.div
         aria-hidden
         animate={{ x: [0, 24, 0], y: [0, -16, 0] }}
@@ -105,6 +99,7 @@ const PageHeader = () => {
         className="absolute top-10 left-1/3 w-56 h-56 bg-orange-300/20 rounded-full blur-3xl -z-10 pointer-events-none"
       />
 
+      {/* Main Heading */}
       <motion.h1
         initial="hidden"
         animate="visible"
@@ -123,6 +118,7 @@ const PageHeader = () => {
         ))}
       </motion.h1>
 
+      {/* Subheading text */}
       <motion.p
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -151,8 +147,7 @@ const PageHeader = () => {
   );
 };
 
-// Tab-switch transition: content slides in the direction of travel and
-// crossfades with a soft scale, instead of rising up from below.
+// Tab transition settings
 const tabPanelVariants = {
   enter: (direction) => ({
     opacity: 0,
@@ -174,6 +169,7 @@ const tabPanelVariants = {
 };
 
 export default function ContactPage() {
+  // Form states
   const [projectForm, setProjectForm] = useState({
     name: "",
     email: "",
@@ -191,11 +187,12 @@ export default function ContactPage() {
   const [projectSubmitted, setProjectSubmitted] = useState(false);
   const [querySubmitted, setQuerySubmitted] = useState(false);
 
-  // Form states ke niche add karein:
-  const [activeTab, setActiveTab] = useState("project"); // 'project' ya 'query'
-  const [direction, setDirection] = useState(0); // -1 = came from right tab, 1 = came from left tab
+  // Tab active states
+  const [activeTab, setActiveTab] = useState("project");
+  const [direction, setDirection] = useState(0);
 
   const tabOrder = ["project", "query"];
+  
   const handleTabChange = (tab) => {
     if (tab === activeTab) return;
     setDirection(tabOrder.indexOf(tab) > tabOrder.indexOf(activeTab) ? 1 : -1);
@@ -214,7 +211,7 @@ export default function ContactPage() {
     setTimeout(() => setQuerySubmitted(false), 3000);
   };
 
-  // Shared classes for inputs so the focus/hover micro-interaction is consistent everywhere
+  // Shared input classes
   const inputBaseClasses =
     "w-full pl-12 pr-4 py-3.5 bg-white border-2 border-neutral-300 rounded-xl focus:border-yellow-500 focus:ring-4 focus:ring-yellow-500/20 hover:border-yellow-300 outline-none transition-all duration-300 text-neutral-900 placeholder-neutral-400";
 
@@ -224,9 +221,6 @@ export default function ContactPage() {
   const labelBaseClasses =
     "block text-sm font-semibold text-neutral-700 mb-2 transition-colors duration-300 group-focus-within:text-yellow-600 origin-left";
 
-  // ==========================================
-  // 1. Function to return Project Section
-  // ==========================================
   const renderProjectSection = () => (
     <motion.section
       key="project-section"
@@ -237,8 +231,9 @@ export default function ContactPage() {
       exit="exit"
       className="mb-12"
     >
-      <div className="relative bg-gradient-to-br from-yellow-50 via-white to-orange-50 rounded-3xl p-8 md:p-12 border-2 border-yellow-200 shadow-xl overflow-hidden">
-        {/* Decorative elements */}
+      <div className="relative bg-gradient-to-br from-yellow-100 via-yellow-50 to-orange-100 rounded-3xl p-8 md:p-12 border-2 border-yellow-300 shadow-xl overflow-hidden">
+        
+        {/* Subtle background patterns */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -256,6 +251,8 @@ export default function ContactPage() {
         />
 
         <div className="relative z-10">
+          
+          {/* Project Form Heading */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -284,6 +281,7 @@ export default function ContactPage() {
             support your entrepreneurial journey.
           </motion.p>
 
+          {/* Project Inputs */}
           <motion.form
             onSubmit={handleProjectSubmit}
             initial="hidden"
@@ -292,6 +290,8 @@ export default function ContactPage() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-6"
           >
+            
+            {/* Input: Name */}
             <motion.div className="group" variants={fadeInUp} whileHover={{ y: -2 }}>
               <label className={labelBaseClasses}>Your Name</label>
               <div className="relative">
@@ -311,6 +311,7 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
+            {/* Input: Email */}
             <motion.div className="group" variants={fadeInUp} whileHover={{ y: -2 }}>
               <label className={labelBaseClasses}>Email Address</label>
               <div className="relative">
@@ -330,6 +331,7 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
+            {/* Input: Project Title */}
             <motion.div className="md:col-span-2 group" variants={fadeInUp} whileHover={{ y: -2 }}>
               <label className={labelBaseClasses}>Project Title</label>
               <motion.input
@@ -349,6 +351,7 @@ export default function ContactPage() {
               />
             </motion.div>
 
+            {/* Input: Project Description */}
             <motion.div className="md:col-span-2 group" variants={fadeInUp} whileHover={{ y: -2 }}>
               <label className={labelBaseClasses}>Project Description</label>
               <motion.textarea
@@ -368,6 +371,7 @@ export default function ContactPage() {
               />
             </motion.div>
 
+            {/* Submit Button */}
             <motion.div className="md:col-span-2" variants={fadeInUp}>
               <motion.button
                 type="submit"
@@ -403,15 +407,13 @@ export default function ContactPage() {
                 </AnimatePresence>
               </motion.button>
             </motion.div>
+
           </motion.form>
         </div>
       </div>
     </motion.section>
   );
 
-  // ==========================================
-  // 2. Function to return Query Section
-  // ==========================================
   const renderQuerySection = () => (
     <motion.section
       key="query-section"
@@ -422,9 +424,9 @@ export default function ContactPage() {
       exit="exit"
       className="mb-12"
     >
-      {/* Updated Background & Border to match Yellowish theme */}
-      <div className="relative bg-gradient-to-br from-yellow-50 via-white to-orange-50 rounded-3xl p-6 sm:p-10 border-2 border-yellow-200 shadow-xl overflow-hidden">
-        {/* Yellowish Decorative Blur Orbs */}
+      <div className="relative bg-gradient-to-br from-yellow-100 via-yellow-50 to-orange-100 rounded-3xl p-8 md:p-12 border-2 border-yellow-300 shadow-xl overflow-hidden">
+        
+        {/* Subtle background patterns */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -441,10 +443,9 @@ export default function ContactPage() {
           className="absolute bottom-0 left-0 w-80 h-80 bg-orange-300/20 rounded-full blur-3xl z-0 pointer-events-none"
         />
 
-        {/* Content Container */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-          {/* Left Side: Form Section */}
+          {/* Left Side: Query Form */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -467,7 +468,11 @@ export default function ContactPage() {
               viewport={revealViewport}
               variants={staggerContainer}
             >
+              
+              {/* Query Inputs Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                
+                {/* Input: Name */}
                 <motion.div className="group space-y-2" variants={fadeInUp} whileHover={{ y: -2 }}>
                   <label htmlFor="query-name" className={labelBaseClasses}>Full Name</label>
                   <div className="relative">
@@ -485,6 +490,8 @@ export default function ContactPage() {
                     />
                   </div>
                 </motion.div>
+
+                {/* Input: Email */}
                 <motion.div className="group space-y-2" variants={fadeInUp} whileHover={{ y: -2 }}>
                   <label htmlFor="query-email" className={labelBaseClasses}>Email Address</label>
                   <div className="relative">
@@ -504,6 +511,7 @@ export default function ContactPage() {
                 </motion.div>
               </div>
 
+              {/* Input: Message */}
               <motion.div className="group space-y-2" variants={fadeInUp} whileHover={{ y: -2 }}>
                 <label htmlFor="query-message" className={labelBaseClasses}>Your Message</label>
                 <div className="relative">
@@ -522,6 +530,7 @@ export default function ContactPage() {
                 </div>
               </motion.div>
 
+              {/* Submit Button */}
               <motion.div variants={fadeInUp}>
                 <motion.button
                   type="submit"
@@ -560,7 +569,7 @@ export default function ContactPage() {
             </motion.form>
           </motion.div>
 
-          {/* Right Side: FAQ Section replacing Image */}
+          {/* Right Side: FAQ Widget */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -568,7 +577,6 @@ export default function ContactPage() {
             variants={fadeInRight}
             className="w-full max-h-[600px] overflow-y-auto rounded-3xl relative shadow-md border-2 border-yellow-100 bg-white/50 backdrop-blur-sm custom-scrollbar"
           >
-            {/* Embedded FAQ Component */}
             <div className="scale-[0.85] origin-top">
               <Faq />
             </div>
@@ -580,151 +588,194 @@ export default function ContactPage() {
   );
 
   return (
-    <>
-      <PageHeader />
+    <div
+      className="w-full min-h-screen relative"
+      style={{
+        backgroundColor: "#FEFEFE",
+        color: "#111111",
+      }}
+    >
+      {/* Background patterns */}
+      <div className="fixed inset-0 pointer-events-none -z-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06]"
+          style={{ backgroundImage: "url('/e-cell-fam.jpg')" }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.45]"
+          style={{
+            backgroundImage: "radial-gradient(#94A3B8 1.25px, transparent 1.25px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(254,254,254,0.3) 0%, rgba(250,249,246,0.85) 100%)",
+          }}
+        />
+      </div>
 
-      <Container className="mt-8 max-w-5xl mx-auto">
-        {/* Seamless Connected Tabs Container */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-end justify-center gap-1.5 sm:gap-2 px-2 sm:px-10 relative z-20 -mb-[2px]"
-        >
-          {/* Tab 1: Have an Idea? */}
-          <button
-            type="button"
-            onClick={() => handleTabChange("project")}
-            className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${activeTab === "project"
-                ? "text-neutral-900 border-yellow-200"
-                : "text-neutral-500 border-transparent hover:bg-neutral-200"
-              }`}
-          >
-            {activeTab === "project" && (
-              <motion.span
-                layoutId="activeTabBg"
-                transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                className="absolute inset-0 bg-yellow-50 rounded-t-2xl"
-              />
-            )}
-            <span className="relative flex items-center gap-1.5 sm:gap-2.5">
-              <Sparkles className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "project" ? "text-yellow-600" : "text-neutral-400"}`} />
-              Have an Idea?
-            </span>
-          </button>
+      {/* Main Wrapper */}
+      <InteractiveParticleNetwork className="w-full">
+        <div className="w-full">
+          
+          {/* Top Header Section */}
+          <PageHeader />
 
-          {/* Tab 2: Have a Query? */}
-          <button
-            type="button"
-            onClick={() => handleTabChange("query")}
-            className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${activeTab === "query"
-                ? "text-neutral-900 border-yellow-200"
-                : "text-neutral-500 border-transparent hover:bg-neutral-200"
-              }`}
-          >
-            {activeTab === "query" && (
-              <motion.span
-                layoutId="activeTabBg"
-                transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                className="absolute inset-0 bg-yellow-50 rounded-t-2xl"
-              />
-            )}
-            <span className="relative flex items-center gap-1.5 sm:gap-2.5">
-              <MessageSquare className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "query" ? "text-neutral-900" : "text-neutral-400"}`} />
-              Have a Query?
-            </span>
-          </button>
-        </motion.div>
-        {/* Tab Content Section (Cards wrapped in z-10 for layering) */}
-        <div className="relative z-10 overflow-hidden">
-          <AnimatePresence mode="wait" custom={direction}>
-            {activeTab === "project" ? renderProjectSection() : renderQuerySection()}
-          </AnimatePresence>
-        </div>
-
-        {/* Join Us Section */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={revealViewport}
-          variants={staggerContainer}
-          className="mb-16"
-        >
-          <div className="relative bg-white rounded-3xl p-10 md:p-16 border-2 border-yellow-400 shadow-2xl overflow-hidden">
-            {/* Subtle background patterns */}
+          <Container className="mt-8 max-w-5xl mx-auto pb-10">
+            
+            {/* Tab Navigations */}
             <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-end justify-center gap-1.5 sm:gap-2 px-2 sm:px-10 relative z-20 -mb-[2px]"
+            >
+              
+              {/* Tab 1: Project */}
+              <button
+                type="button"
+                onClick={() => handleTabChange("project")}
+                className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${activeTab === "project"
+                  ? "text-neutral-900 border-yellow-300"
+                  : "text-neutral-500 border-transparent hover:bg-yellow-100/50"
+                  }`}
+              >
+                {activeTab === "project" && (
+                  <motion.span
+                    layoutId="activeTabBg"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    className="absolute inset-0 bg-yellow-100 rounded-t-2xl"
+                  />
+                )}
+                <span className="relative flex items-center gap-1.5 sm:gap-2.5">
+                  <Sparkles className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "project" ? "text-yellow-600" : "text-neutral-400"}`} />
+                  Have an Idea?
+                </span>
+              </button>
+
+              {/* Tab 2: Query */}
+              <button
+                type="button"
+                onClick={() => handleTabChange("query")}
+                className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${activeTab === "query"
+                  ? "text-neutral-900 border-yellow-300"
+                  : "text-neutral-500 border-transparent hover:bg-yellow-100/50"
+                  }`}
+              >
+                {activeTab === "query" && (
+                  <motion.span
+                    layoutId="activeTabBg"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    className="absolute inset-0 bg-yellow-100 rounded-t-2xl"
+                  />
+                )}
+                <span className="relative flex items-center gap-1.5 sm:gap-2.5">
+                  <MessageSquare className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "query" ? "text-neutral-900" : "text-neutral-400"}`} />
+                  Have a Query?
+                </span>
+              </button>
+            </motion.div>
+
+            {/* Rendered Tab View */}
+            <div className="relative z-10 overflow-hidden">
+              <AnimatePresence mode="wait" custom={direction}>
+                {activeTab === "project" ? renderProjectSection() : renderQuerySection()}
+              </AnimatePresence>
+            </div>
+
+            {/* Join Us Section */}
+            <motion.section
               initial="hidden"
               whileInView="visible"
               viewport={revealViewport}
-              variants={scaleIn}
-              className="absolute inset-0 opacity-5 pointer-events-none"
+              variants={staggerContainer}
+              className="mt-16"
             >
-              <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-80 h-80 bg-yellow-400 rounded-full blur-3xl" />
-            </motion.div>
-
-            <div className="relative z-10 text-center max-w-4xl mx-auto">
-              <motion.div
-                variants={scaleIn}
-                className="inline-flex items-center justify-center w-20 h-20 bg-yellow-400 rounded-2xl mb-6 shadow-xl"
-              >
-                <UserPlus className="w-10 h-10 text-neutral-900" strokeWidth={2.5} />
-              </motion.div>
-
-              <motion.h2
-                variants={fadeInUp}
-                className="text-4xl md:text-5xl font-black text-neutral-900 mb-6"
-              >
-                Join the <span className="text-yellow-600">E-Cell Family!</span>
-              </motion.h2>
-
-              <motion.p
-                variants={fadeInUp}
-                className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed"
-              >
-                Every year in <span className="font-bold text-yellow-600">June-July</span>, we
-                recruit passionate 2nd-year students to join our incredible
-                team. Be part of something bigger — help shape the
-                entrepreneurial ecosystem at SVNIT!
-              </motion.p>
-
-              <motion.div
-                variants={fadeInUp}
-                className="flex flex-col sm:flex-row items-center justify-center gap-6"
-              >
-                <motion.a
-                  href="https://www.instagram.com/ecellsvnit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              <div className="relative bg-white rounded-3xl p-10 md:p-16 border-2 border-yellow-400 shadow-2xl overflow-hidden">
+                
+                {/* Subtle background patterns */}
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={revealViewport}
+                  variants={scaleIn}
+                  className="absolute inset-0 opacity-5 pointer-events-none"
                 >
-                  <Instagram className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                  Follow Us on Instagram
-                </motion.a>
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-yellow-400 rounded-full blur-3xl" />
+                </motion.div>
 
-                <div className="flex items-center gap-2 px-6 py-3 bg-neutral-100 rounded-full border-2 border-neutral-300">
-                  <Calendar className="w-5 h-5 text-yellow-600" />
-                  <span className="font-semibold text-neutral-900">Stay Tuned!</span>
+                {/* Join Us Content */}
+                <div className="relative z-10 text-center max-w-4xl mx-auto">
+                  
+                  <motion.div
+                    variants={scaleIn}
+                    className="inline-flex items-center justify-center w-20 h-20 bg-yellow-400 rounded-2xl mb-6 shadow-xl"
+                  >
+                    <UserPlus className="w-10 h-10 text-neutral-900" strokeWidth={2.5} />
+                  </motion.div>
+
+                  <motion.h2
+                    variants={fadeInUp}
+                    className="text-4xl md:text-5xl font-black text-neutral-900 mb-6"
+                  >
+                    Join the <span className="text-yellow-600">E-Cell Family!</span>
+                  </motion.h2>
+
+                  <motion.p
+                    variants={fadeInUp}
+                    className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed"
+                  >
+                    Every year in <span className="font-bold text-yellow-600">June-July</span>, we
+                    recruit passionate 2nd-year students to join our incredible
+                    team. Be part of something bigger — help shape the
+                    entrepreneurial ecosystem at SVNIT!
+                  </motion.p>
+
+                  {/* Social Buttons */}
+                  <motion.div
+                    variants={fadeInUp}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-6"
+                  >
+                    <motion.a
+                      href="https://www.instagram.com/ecellsvnit"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="group px-8 py-4 bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 cursor-pointer"
+                    >
+                      <Instagram className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                      Follow Us on Instagram
+                    </motion.a>
+
+                    <div className="flex items-center gap-2 px-6 py-3 bg-neutral-100 rounded-full border-2 border-neutral-300">
+                      <Calendar className="w-5 h-5 text-yellow-600" />
+                      <span className="font-semibold text-neutral-900">Stay Tuned!</span>
+                    </div>
+                  </motion.div>
+
+                  {/* Pro Tip Box */}
+                  <motion.div
+                    variants={fadeInUp}
+                    className="mt-10 p-6 bg-yellow-50 rounded-2xl border-2 border-yellow-200"
+                  >
+                    <p className="text-sm md:text-base text-neutral-700">
+                      <span className="font-bold text-yellow-600">Pro Tip:</span>{" "}
+                      Follow our Instagram for updates on recruitment drives,
+                      workshops, events, and behind-the-scenes content from E-Cell
+                      SVNIT!
+                    </p>
+                  </motion.div>
+
                 </div>
-              </motion.div>
-
-              <motion.div
-                variants={fadeInUp}
-                className="mt-10 p-6 bg-yellow-50 rounded-2xl border-2 border-yellow-200"
-              >
-                <p className="text-sm md:text-base text-neutral-700">
-                  <span className="font-bold text-yellow-600">Pro Tip:</span>{" "}
-                  Follow our Instagram for updates on recruitment drives,
-                  workshops, events, and behind-the-scenes content from E-Cell
-                  SVNIT!
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </motion.section>
-      </Container>
-    </>
+              </div>
+            </motion.section>
+          </Container>
+        </div>
+      </InteractiveParticleNetwork>
+    </div>
   );
 }
