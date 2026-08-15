@@ -36,16 +36,68 @@ export default function ContactPage() {
   const [projectSubmitted, setProjectSubmitted] = useState(false);
   const [querySubmitted, setQuerySubmitted] = useState(false);
 
-  const handleProjectSubmit = (e) => {
+  const handleProjectSubmit = async (e) => {
     e.preventDefault();
-    setProjectSubmitted(true);
-    setTimeout(() => setProjectSubmitted(false), 3000);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "PROJECT",
+          name: projectForm.name,
+          email: projectForm.email,
+          projectTitle: projectForm.projectTitle,
+          message: projectForm.description,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit project inquiry");
+
+      setProjectSubmitted(true);
+      setProjectForm({
+        name: "",
+        email: "",
+        projectTitle: "",
+        description: "",
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setTimeout(() => setProjectSubmitted(false), 3000);
+    }
   };
 
-  const handleQuerySubmit = (e) => {
+  const handleQuerySubmit = async (e) => {
     e.preventDefault();
-    setQuerySubmitted(true);
-    setTimeout(() => setQuerySubmitted(false), 3000);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "QUERY",
+          name: queryForm.name,
+          email: queryForm.email,
+          phone: queryForm.phone,
+          message: queryForm.query,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit query");
+
+      setQuerySubmitted(true);
+      setQueryForm({
+        name: "",
+        email: "",
+        phone: "",
+        query: "",
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setTimeout(() => setQuerySubmitted(false), 3000);
+    }
   };
 
   return (
