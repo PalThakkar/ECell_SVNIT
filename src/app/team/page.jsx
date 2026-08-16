@@ -765,8 +765,8 @@ const TeamPage = () => {
                   animate={{ opacity: 1 }}
                 >
                   <p className="text-sm font-bold tracking-widest" style={{ color: "#7A756C" }}>
-                    NO NODES MATCHED "{query}"
-                  </p>
+  NO NODES MATCHED &quot;{query}&quot;
+</p>
                 </motion.div>
               )}
             </motion.div>
