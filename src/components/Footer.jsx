@@ -3,7 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, Send, ArrowUp } from "lucide-react";
-
+import Container from "@/components/Container";
+import FadeIn from "@/components/FadeIn";
+import Logo from "@/components/Logo";
+import FooterNavigation from "@/components/FooterNavigation";
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 

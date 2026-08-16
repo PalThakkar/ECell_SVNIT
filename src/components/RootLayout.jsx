@@ -136,6 +136,7 @@ const RootLayoutInner = ({ children }) => {
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isTeamPage = pathname === "/team";
 
   useEffect(() => {
     function onClick(event) {
@@ -152,7 +153,7 @@ const RootLayoutInner = ({ children }) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      {!isHomePage && (
+      {!isHomePage && !isTeamPage && (
         <header>
           <div
             className="fixed left-0 right-0 top-0 z-40 bg-transparent py-4 sm:py-6 px-4 sm:px-8"

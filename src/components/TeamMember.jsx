@@ -32,13 +32,23 @@ const TeamMember = ({ photo, name, position, linkedin, instagram }) => {
 
 
         <CardItem translateZ="100" className="w-full mt-4">
-          <Image
-            src={photo}
-            height="400"
-            width="400"
-            className="w-full h-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt={name}
-          />
+          {/* Fixed-aspect wrapper: every card's photo renders at the same
+              size regardless of the source image's own dimensions. A
+              portrait ratio (4/5, taller than wide) matches headshot
+              photos far better than a square crop — square was cropping
+              heads/foreheads off portrait-oriented source photos.
+              object-position "top" biases the crop toward the top of the
+              frame so faces stay in view even on tightly-cropped portraits
+              or ones where the subject sits high in the source photo. */}
+          <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl group-hover/card:shadow-xl">
+            <Image
+              src={photo}
+              fill
+              sizes="(max-width: 640px) 100vw, 17rem"
+              className="object-cover object-top"
+              alt={name}
+            />
+          </div>
         </CardItem>
 
         <div className="flex justify-between items-center mt-6">
