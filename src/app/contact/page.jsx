@@ -695,18 +695,6 @@ export default function ContactPage() {
             >
               <div className="relative bg-white rounded-3xl p-10 md:p-16 border-2 border-yellow-400 shadow-2xl overflow-hidden">
                 
-                {/* Subtle background patterns */}
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={revealViewport}
-                  variants={scaleIn}
-                  className="absolute inset-0 opacity-5 pointer-events-none"
-                >
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 left-0 w-80 h-80 bg-yellow-400 rounded-full blur-3xl" />
-                </motion.div>
-
                 {/* Join Us Content */}
                 <div className="relative z-10 text-center max-w-4xl mx-auto">
                   
