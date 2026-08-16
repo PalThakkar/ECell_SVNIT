@@ -131,7 +131,7 @@ const eventsData = [
     description:
       "An enhanced startup-building journey with structured milestones, expert mentorship and a final D-Day showcase.",
     year: 2026,
-    status: "live",
+    status: "past",
     images: ["/lego-pics/pic5.png"],
     date: "Starts from January 1, 2026",
     time: "Will announce soon",
@@ -157,26 +157,36 @@ const statusConfig = {
 
 function EventCard({ event, index }) {
   const [currentImage, setCurrentImage] = useState(0);
-
+const [isFlipped, setIsFlipped] = useState(false);
   const image = event.images?.[currentImage] || event.images?.[0];
 
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, y: 35 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{
+  opacity: 0,
+  y: 45,
+  scale: 0.96,
+}}
+      whileInView={{
+  opacity: 1,
+  y: 0,
+  scale: 1,
+}}
       viewport={{ once: true, amount: 0.15 }}
       whileHover={{
-  y: -7,
+  y: -10,
+  scale: 1.015,
   filter: "drop-shadow(0 20px 35px rgba(251,189,88,0.14))",
 }}
+      onClick={() => setIsFlipped((prev) => !prev)}
       transition={{
-        duration: 0.55,
-        delay: index * 0.07,
+        duration: 0.65,
+        delay: index * 0.1,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="
-  group relative h-[520px] w-full
+  group relative h-[500px] sm:h-[520px] w-full
   transition-[filter] duration-500
 "
       style={{ perspective: "1200px" }}
@@ -189,6 +199,9 @@ function EventCard({ event, index }) {
           [transform-style:preserve-3d]
           group-hover:[transform:rotateY(180deg)]
         "
+         style={{
+    transform: isFlipped ? "rotateY(180deg)" : undefined,
+  }}
       >
         {/* ===================================================== */}
         {/* FRONT — IMAGE + EVENT NAME */}
@@ -428,13 +441,67 @@ export default function EventsLanding() {
 
         {/* Decorative background */}
         <div className="pointer-events-none absolute inset-0">
-          
-          <div className="absolute right-[14%] top-[25%] h-2 w-2 rounded-full bg-[#9CA3AF] opacity-60" />
-          <div className="absolute left-[20%] top-[55%] h-1.5 w-1.5 rounded-full bg-[#9CA3AF] opacity-50" />
-          <div className="absolute right-[25%] top-[65%] h-2 w-2 rounded-full bg-[#FBBD58] opacity-50" />
+          <motion.div
+  animate={{ y: [0, -12, 0], x: [0, 5, 0] }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute left-[8%] top-[18%] h-2 w-2 rounded-full bg-[#FBBD58] opacity-70"
+/>
+          <motion.div
+  animate={{ y: [0, 10, 0], x: [0, -6, 0] }}
+  transition={{
+    duration: 5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute right-[14%] top-[25%] h-2 w-2 rounded-full bg-[#9CA3AF] opacity-60"
+/>
+          <motion.div
+  animate={{ y: [0, -8, 0] }}
+  transition={{
+    duration: 3.5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute left-[20%] top-[55%] h-1.5 w-1.5 rounded-full bg-[#9CA3AF] opacity-50"
+/>
+          <motion.div
+  animate={{ y: [0, 12, 0], x: [0, 4, 0] }}
+  transition={{
+    duration: 4.5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute right-[25%] top-[65%] h-2 w-2 rounded-full bg-[#FBBD58] opacity-50"
+/>
 
-          <div className="absolute left-[5%] top-[30%] h-32 w-32 rounded-full bg-[#FBBD58]/10 blur-3xl" />
-          <div className="absolute right-[8%] top-[15%] h-40 w-40 rounded-full bg-[#E5E7EB]/40 blur-3xl" />
+          <motion.div
+  animate={{
+    scale: [1, 1.15, 1],
+    opacity: [0.5, 0.8, 0.5],
+  }}
+  transition={{
+    duration: 6,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute left-[5%] top-[30%] h-32 w-32 rounded-full bg-[#FBBD58]/10 blur-3xl"
+/>
+          <motion.div
+  animate={{
+    scale: [1, 1.12, 1],
+    opacity: [0.4, 0.65, 0.4],
+  }}
+  transition={{
+    duration: 7,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute right-[8%] top-[15%] h-40 w-40 rounded-full bg-[#E5E7EB]/40 blur-3xl"
+/>
         </div>
 
         <div className="relative mx-auto max-w-5xl text-center">
@@ -442,7 +509,14 @@ export default function EventsLanding() {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], }}
+            whileHover={{
+  y: -3,
+  scale: 1.02,
+}}
+            transition={{
+  duration: 0.5,
+  ease: [0.22, 1, 0.36, 1],
+}}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#F5AB35] bg-[#FEF3C7] px-4 py-2 text-xs font-extrabold text-[#111111]"
           >
             <Sparkles className="h-4 w-4 text-[#D97706]" />
@@ -456,9 +530,20 @@ export default function EventsLanding() {
             className="text-5xl font-black leading-[0.98] tracking-[-0.045em] sm:text-7xl lg:text-[88px]"
           >
             Ideas that{" "}
-            <span className="inline-block rounded-[18px] bg-[#FBBD58] px-3 py-1">
-              come alive.
-            </span>
+            <motion.span
+  animate={{
+    y: [0, -3, 0],
+    scale: [1, 1.015, 1],
+  }}
+  transition={{
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="inline-block rounded-[18px] bg-[#FBBD58] px-3 py-1"
+>
+  come alive.
+</motion.span>
             <br />
             Experiences that inspire.
           </motion.h1>
@@ -476,8 +561,16 @@ export default function EventsLanding() {
 
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            animate={{
+  opacity: [0.6, 1, 0.6],
+  scaleX: [0.85, 1, 0.85],
+}}
+            transition={{
+  duration: 2.5,
+  delay: 0.35,
+  repeat: Infinity,
+  ease: "easeInOut",
+}}
             className="mx-auto mt-8 h-1 w-20 origin-center rounded-full bg-[#FBBD58]"
           />
         </div>
@@ -520,13 +613,26 @@ export default function EventsLanding() {
             >
               {/* Image */}
               <div className="relative min-h-[300px] overflow-hidden lg:min-h-[500px]">
-                <Image
-                  src={featuredEvent.images[0]}
-                  alt={featuredEvent.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover transition-transform duration-1000 hover:scale-[1.03]"
-                />
+                <motion.div
+  animate={{
+    scale: [1, 1.035, 1],
+  }}
+  transition={{
+    duration: 10,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute inset-0"
+>
+  <Image
+    src={featuredEvent.images[0]}
+    alt={featuredEvent.title}
+    fill
+    sizes="(max-width: 1024px) 100vw, 55vw"
+    className="object-cover"
+  />
+</motion.div>
+              
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -538,7 +644,16 @@ export default function EventsLanding() {
               </div>
 
               {/* Content */}
-              <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-14">
+              <motion.div
+  initial={{ opacity: 0, x: 35 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{
+    duration: 0.7,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="flex flex-col justify-center p-7 sm:p-10 lg:p-14"
+>
                 <span className="text-xs font-black uppercase tracking-[0.15em] text-[#D97706]">
                   Featured Initiative
                 </span>
@@ -579,7 +694,7 @@ export default function EventsLanding() {
                   Explore Event
                   <ArrowRight className="h-5 w-5" />
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -593,8 +708,16 @@ export default function EventsLanding() {
 
           {/* Heading */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+  opacity: 0,
+  y: 30,
+  scale: 0.98,
+}}
+            whileInView={{
+  opacity: 1,
+  y: 0,
+  scale: 1,
+}}
             viewport={{ once: true }}
             className="flex flex-col justify-between gap-7 md:flex-row md:items-end"
           >
@@ -638,9 +761,15 @@ export default function EventsLanding() {
           {/* Events */}
           <AnimatePresence mode="popLayout">
             <motion.div
-              layout
-              className="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2"
-            >
+  layout
+  transition={{
+    layout: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }}
+  className="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2"
+>
               {archiveEvents.map((event, index) => (
                 <EventCard
                   key={event.id}
@@ -703,7 +832,8 @@ export default function EventsLanding() {
 
           <Link
             href="/"
-            className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-[#FBBD58] px-6 py-3.5 font-black text-[#111111] transition-all duration-300 hover:-translate-y-1 hover:bg-[#F5AB35]"
+            onClick={(e) => e.stopPropagation()}
+            className="group/button mt-8 inline-flex items-center gap-2 rounded-2xl ..."
           >
             Back to E-Cell
             <ArrowRight className="h-4 w-4 transition-transform duration-300
