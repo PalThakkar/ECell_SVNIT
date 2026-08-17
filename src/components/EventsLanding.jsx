@@ -8,7 +8,7 @@ import { Button } from "@heroui/button";
 import { ChevronDown } from "lucide-react";
 
 // Sample event data - replace with actual data from your API/database
-const eventsData = [
+export const eventsData = [
 {
 id: 1,
 title: "The Lego Startup",
