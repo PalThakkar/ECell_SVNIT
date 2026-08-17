@@ -2,9 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Services from "@/components/Services";
 import Image from "next/image";
 import GroupPhotoCarousel from "@/components/GroupPhotoCarousel";
+
 const AboutPage = () => {
   return (
     <main className="min-h-screen text-black">
@@ -324,16 +324,83 @@ const AboutPage = () => {
           </div>
         </motion.section>
 
-        {/* Cultures & Contact Section */}
-        <motion.div
-          className="mt-20"
+        {/* Our Vision & Impact Section (Replaced Services / Testimonials) */}
+        <motion.section
+          className="mt-24 bg-white rounded-2xl py-12 px-[4%] border border-gray-200 shadow-xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <Services />
-        </motion.div>
+          {/* Main Grid: Vision + Right Text Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+            
+            {/* Left Column */}
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-black text-[#fbbd58] tracking-tight">
+                  Our Vision
+                </h2>
+                <span className="block h-1 w-16 mt-2 bg-[#fbbd58] rounded"></span>
+              </div>
+
+              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                Fostering entrepreneurship, innovation, creativity, collaboration, and student leadership
+              </h3>
+
+              <div className="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+                <p>
+                  <span className="font-bold text-[#fbbd58]">E-Cell</span> at SVNIT envisions a vibrant campus where entrepreneurship thrives as the driving force of innovation and impact.
+                </p>
+                <p>
+                  We are building more than just a club we are creating a{" "}
+                  <span className="font-semibold text-[#fbbd58]">movement</span> that transforms ambitious ideas into reality, nurtures creativity, and develops the next generation of industry leaders and change-makers.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Text Card */}
+            <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-sm space-y-4 border-l-4 border-l-[#fbbd58]">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                Empowering young entrepreneurs. We provide resources, mentorship, and networking opportunities to help students scale their ventures. Our programs foster critical thinking, problem-solving, and a global perspective. Through workshops, competitions, and corporate partnerships, we bridge the gap between academic theory and practical business skills.
+              </p>
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed pt-2">
+                From pre-seed funding to series A preparation, E-Cell SVNIT supports your entire entrepreneurial lifecycle, providing the foundation for sustainable success.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Numbers / Impact Subsection */}
+          <div className="mt-16 text-center border-t border-gray-100 pt-12">
+            <h3 className="text-2xl md:text-3xl font-black text-gray-900">
+              Our Impact in <span className="text-[#fbbd58]">Numbers</span>
+            </h3>
+            <p className="text-gray-500 mt-2 text-sm md:text-base">
+              From ideation to execution, we have been the catalyst for entrepreneurial journeys at SVNIT
+            </p>
+
+            {/* Grid Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8">
+              <div className="bg-white border-2 border-[#fbbd58]/40 rounded-xl py-6 px-4 shadow-sm hover:shadow-md hover:border-[#fbbd58] transition-all">
+                <span className="text-3xl md:text-4xl font-extrabold text-[#fbbd58]">2000+</span>
+              </div>
+
+              <div className="bg-white border-2 border-[#fbbd58]/40 rounded-xl py-6 px-4 shadow-sm hover:shadow-md hover:border-[#fbbd58] transition-all">
+                <span className="text-3xl md:text-4xl font-extrabold text-[#fbbd58]">5+</span>
+              </div>
+
+              <div className="bg-white border-2 border-[#fbbd58]/40 rounded-xl py-6 px-4 shadow-sm hover:shadow-md hover:border-[#fbbd58] transition-all">
+                <span className="text-3xl md:text-4xl font-extrabold text-[#fbbd58]">5+</span>
+              </div>
+
+              <div className="bg-white border-2 border-[#fbbd58]/40 rounded-xl py-6 px-4 shadow-sm hover:shadow-md hover:border-[#fbbd58] transition-all">
+                <span className="text-3xl md:text-4xl font-extrabold text-[#fbbd58]">10+</span>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
       </div>
     </main>
   );

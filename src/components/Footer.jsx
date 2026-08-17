@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import Container from "./Container";
-import FadeIn from "./FadeIn";
-import FooterNavigation from "./FooterNavigation";
-import Logo from "./Logo";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, Send, ArrowUp } from "lucide-react";
-
+import Container from "@/components/Container";
+import FadeIn from "@/components/FadeIn";
+import Logo from "@/components/Logo";
+import FooterNavigation from "@/components/FooterNavigation";
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -93,6 +92,5 @@ const Footer = () => {
       </Container>
     </footer>
   );
-};
-
+}
 export default Footer;

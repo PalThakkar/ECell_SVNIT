@@ -15,7 +15,7 @@ const Logo = ({ invert, href, className, fillOnHover, children, ...props }) => {
     <img
       src={logoSrc}
       alt="E-Cell SVNIT Logo"
-      className="h-24 sm:h-32 w-auto object-contain shrink-0"
+      className="h-full w-auto object-contain shrink-0"
     />
   );
 
