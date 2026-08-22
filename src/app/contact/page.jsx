@@ -95,7 +95,12 @@ const PageHeader = () => {
       <motion.div
         aria-hidden
         animate={{ x: [0, -20, 0], y: [0, 14, 0] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
         className="absolute top-10 left-1/3 w-56 h-56 bg-orange-300/20 rounded-full blur-3xl -z-10 pointer-events-none"
       />
 
@@ -125,8 +130,8 @@ const PageHeader = () => {
         transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="text-base md:text-lg max-w-3xl mx-auto text-neutral-700 flex items-center justify-center gap-2"
       >
-        Whether you have a project idea, a query, or want to join our team —
-        we are here to help!
+        Whether you have a project idea, a query, or want to join our team — we
+        are here to help!
         <motion.span
           initial={{ rotate: -20, scale: 0 }}
           animate={{
@@ -135,7 +140,12 @@ const PageHeader = () => {
             y: [0, -5, 0],
           }}
           transition={{
-            rotate: { type: "spring", stiffness: 300, damping: 14, delay: 0.75 },
+            rotate: {
+              type: "spring",
+              stiffness: 300,
+              damping: 14,
+              delay: 0.75,
+            },
             scale: { type: "spring", stiffness: 300, damping: 14, delay: 0.75 },
             y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1.2 },
           }}
@@ -192,7 +202,7 @@ export default function ContactPage() {
   const [direction, setDirection] = useState(0);
 
   const tabOrder = ["project", "query"];
-  
+
   const handleTabChange = (tab) => {
     if (tab === activeTab) return;
     setDirection(tabOrder.indexOf(tab) > tabOrder.indexOf(activeTab) ? 1 : -1);
@@ -232,7 +242,6 @@ export default function ContactPage() {
       className="mb-12"
     >
       <div className="relative bg-gradient-to-br from-yellow-100 via-yellow-50 to-orange-100 rounded-3xl p-8 md:p-12 border-2 border-yellow-300 shadow-xl overflow-hidden">
-        
         {/* Subtle background patterns */}
         <motion.div
           initial="hidden"
@@ -251,7 +260,6 @@ export default function ContactPage() {
         />
 
         <div className="relative z-10">
-          
           {/* Project Form Heading */}
           <motion.div
             initial="hidden"
@@ -290,9 +298,12 @@ export default function ContactPage() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-6"
           >
-            
             {/* Input: Name */}
-            <motion.div className="group" variants={fadeInUp} whileHover={{ y: -2 }}>
+            <motion.div
+              className="group"
+              variants={fadeInUp}
+              whileHover={{ y: -2 }}
+            >
               <label className={labelBaseClasses}>Your Name</label>
               <div className="relative">
                 <User className={iconBaseClasses} />
@@ -312,7 +323,11 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Input: Email */}
-            <motion.div className="group" variants={fadeInUp} whileHover={{ y: -2 }}>
+            <motion.div
+              className="group"
+              variants={fadeInUp}
+              whileHover={{ y: -2 }}
+            >
               <label className={labelBaseClasses}>Email Address</label>
               <div className="relative">
                 <Mail className={iconBaseClasses} />
@@ -332,7 +347,11 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Input: Project Title */}
-            <motion.div className="md:col-span-2 group" variants={fadeInUp} whileHover={{ y: -2 }}>
+            <motion.div
+              className="md:col-span-2 group"
+              variants={fadeInUp}
+              whileHover={{ y: -2 }}
+            >
               <label className={labelBaseClasses}>Project Title</label>
               <motion.input
                 type="text"
@@ -352,7 +371,11 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Input: Project Description */}
-            <motion.div className="md:col-span-2 group" variants={fadeInUp} whileHover={{ y: -2 }}>
+            <motion.div
+              className="md:col-span-2 group"
+              variants={fadeInUp}
+              whileHover={{ y: -2 }}
+            >
               <label className={labelBaseClasses}>Project Description</label>
               <motion.textarea
                 required
@@ -375,7 +398,10 @@ export default function ContactPage() {
             <motion.div className="md:col-span-2" variants={fadeInUp}>
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02, boxShadow: "0 10px 25px -5px rgba(234,179,8,0.45)" }}
+                whileHover={{
+                  scale: 1.02,
+                  boxShadow: "0 10px 25px -5px rgba(234,179,8,0.45)",
+                }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-xl shadow-lg transition-colors duration-300 flex items-center justify-center gap-2 group cursor-pointer"
@@ -387,7 +413,11 @@ export default function ContactPage() {
                       initial={{ scale: 0, rotate: -180, opacity: 0 }}
                       animate={{ scale: 1, rotate: 0, opacity: 1 }}
                       exit={{ scale: 0, opacity: 0 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 15,
+                      }}
                       className="flex items-center gap-2"
                     >
                       <Check className="w-5 h-5" /> Submitted!
@@ -407,7 +437,6 @@ export default function ContactPage() {
                 </AnimatePresence>
               </motion.button>
             </motion.div>
-
           </motion.form>
         </div>
       </div>
@@ -425,7 +454,6 @@ export default function ContactPage() {
       className="mb-12"
     >
       <div className="relative bg-gradient-to-br from-yellow-100 via-yellow-50 to-orange-100 rounded-3xl p-8 md:p-12 border-2 border-yellow-300 shadow-xl overflow-hidden">
-        
         {/* Subtle background patterns */}
         <motion.div
           initial="hidden"
@@ -444,7 +472,6 @@ export default function ContactPage() {
         />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
           {/* Left Side: Query Form */}
           <motion.div
             initial="hidden"
@@ -457,7 +484,8 @@ export default function ContactPage() {
               Drop us a <span className="text-yellow-600">Query</span>
             </h2>
             <p className="text-neutral-600 mb-8 text-base">
-              Have a question? Fill out the form below and we'll get back to you.
+              Have a question? Fill out the form below and we&apos;ll get back
+              to you.
             </p>
 
             <motion.form
@@ -468,13 +496,17 @@ export default function ContactPage() {
               viewport={revealViewport}
               variants={staggerContainer}
             >
-              
               {/* Query Inputs Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                
                 {/* Input: Name */}
-                <motion.div className="group space-y-2" variants={fadeInUp} whileHover={{ y: -2 }}>
-                  <label htmlFor="query-name" className={labelBaseClasses}>Full Name</label>
+                <motion.div
+                  className="group space-y-2"
+                  variants={fadeInUp}
+                  whileHover={{ y: -2 }}
+                >
+                  <label htmlFor="query-name" className={labelBaseClasses}>
+                    Full Name
+                  </label>
                   <div className="relative">
                     <User className={iconBaseClasses} />
                     <motion.input
@@ -482,18 +514,30 @@ export default function ContactPage() {
                       type="text"
                       required
                       value={queryForm.name}
-                      onChange={(e) => setQueryForm({ ...queryForm, name: e.target.value })}
+                      onChange={(e) =>
+                        setQueryForm({ ...queryForm, name: e.target.value })
+                      }
                       placeholder="Enter your full name"
                       whileFocus={{ scale: 1.01 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
                       className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-neutral-300 rounded-2xl focus:border-yellow-500 focus:ring-4 focus:ring-yellow-500/20 hover:border-yellow-300 transition-all outline-none"
                     />
                   </div>
                 </motion.div>
 
                 {/* Input: Email */}
-                <motion.div className="group space-y-2" variants={fadeInUp} whileHover={{ y: -2 }}>
-                  <label htmlFor="query-email" className={labelBaseClasses}>Email Address</label>
+                <motion.div
+                  className="group space-y-2"
+                  variants={fadeInUp}
+                  whileHover={{ y: -2 }}
+                >
+                  <label htmlFor="query-email" className={labelBaseClasses}>
+                    Email Address
+                  </label>
                   <div className="relative">
                     <Mail className={iconBaseClasses} />
                     <motion.input
@@ -501,10 +545,16 @@ export default function ContactPage() {
                       type="email"
                       required
                       value={queryForm.email}
-                      onChange={(e) => setQueryForm({ ...queryForm, email: e.target.value })}
+                      onChange={(e) =>
+                        setQueryForm({ ...queryForm, email: e.target.value })
+                      }
                       placeholder="Enter your email"
                       whileFocus={{ scale: 1.01 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
                       className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-neutral-300 rounded-2xl focus:border-yellow-500 focus:ring-4 focus:ring-yellow-500/20 hover:border-yellow-300 transition-all outline-none"
                     />
                   </div>
@@ -512,8 +562,14 @@ export default function ContactPage() {
               </div>
 
               {/* Input: Message */}
-              <motion.div className="group space-y-2" variants={fadeInUp} whileHover={{ y: -2 }}>
-                <label htmlFor="query-message" className={labelBaseClasses}>Your Message</label>
+              <motion.div
+                className="group space-y-2"
+                variants={fadeInUp}
+                whileHover={{ y: -2 }}
+              >
+                <label htmlFor="query-message" className={labelBaseClasses}>
+                  Your Message
+                </label>
                 <div className="relative">
                   <MessageSquare className={`${iconBaseClasses} top-7`} />
                   <motion.textarea
@@ -521,7 +577,9 @@ export default function ContactPage() {
                     rows={5}
                     required
                     value={queryForm.query}
-                    onChange={(e) => setQueryForm({ ...queryForm, query: e.target.value })}
+                    onChange={(e) =>
+                      setQueryForm({ ...queryForm, query: e.target.value })
+                    }
                     placeholder="How can we help you?"
                     whileFocus={{ scale: 1.01 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -534,7 +592,10 @@ export default function ContactPage() {
               <motion.div variants={fadeInUp}>
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02, boxShadow: "0 10px 25px -5px rgba(234,179,8,0.45)" }}
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 10px 25px -5px rgba(234,179,8,0.45)",
+                  }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-2xl shadow-lg transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer group"
@@ -546,7 +607,11 @@ export default function ContactPage() {
                         initial={{ scale: 0, rotate: -180, opacity: 0 }}
                         animate={{ scale: 1, rotate: 0, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        }}
                         className="flex items-center gap-2"
                       >
                         <Check className="w-5 h-5" /> Submitted!
@@ -581,7 +646,6 @@ export default function ContactPage() {
               <Faq />
             </div>
           </motion.div>
-
         </div>
       </div>
     </motion.section>
@@ -604,14 +668,16 @@ export default function ContactPage() {
         <div
           className="absolute inset-0 opacity-[0.45]"
           style={{
-            backgroundImage: "radial-gradient(#94A3B8 1.25px, transparent 1.25px)",
+            backgroundImage:
+              "radial-gradient(#94A3B8 1.25px, transparent 1.25px)",
             backgroundSize: "24px 24px",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(254,254,254,0.3) 0%, rgba(250,249,246,0.85) 100%)",
+            background:
+              "linear-gradient(to bottom, rgba(254,254,254,0.3) 0%, rgba(250,249,246,0.85) 100%)",
           }}
         />
       </div>
@@ -619,28 +685,30 @@ export default function ContactPage() {
       {/* Main Wrapper */}
       <InteractiveParticleNetwork className="w-full">
         <div className="w-full">
-          
           {/* Top Header Section */}
           <PageHeader />
 
           <Container className="mt-8 max-w-5xl mx-auto pb-10">
-            
             {/* Tab Navigations */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="flex items-end justify-center gap-1.5 sm:gap-2 px-2 sm:px-10 relative z-20 -mb-[2px]"
             >
-              
               {/* Tab 1: Project */}
               <button
                 type="button"
                 onClick={() => handleTabChange("project")}
-                className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${activeTab === "project"
-                  ? "text-neutral-900 border-yellow-300"
-                  : "text-neutral-500 border-transparent hover:bg-yellow-100/50"
-                  }`}
+                className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${
+                  activeTab === "project"
+                    ? "text-neutral-900 border-yellow-300"
+                    : "text-neutral-500 border-transparent hover:bg-yellow-100/50"
+                }`}
               >
                 {activeTab === "project" && (
                   <motion.span
@@ -650,7 +718,9 @@ export default function ContactPage() {
                   />
                 )}
                 <span className="relative flex items-center gap-1.5 sm:gap-2.5">
-                  <Sparkles className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "project" ? "text-yellow-600" : "text-neutral-400"}`} />
+                  <Sparkles
+                    className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "project" ? "text-yellow-600" : "text-neutral-400"}`}
+                  />
                   Have an Idea?
                 </span>
               </button>
@@ -659,10 +729,11 @@ export default function ContactPage() {
               <button
                 type="button"
                 onClick={() => handleTabChange("query")}
-                className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${activeTab === "query"
-                  ? "text-neutral-900 border-yellow-300"
-                  : "text-neutral-500 border-transparent hover:bg-yellow-100/50"
-                  }`}
+                className={`relative px-3.5 py-2.5 sm:px-7 sm:py-3.5 font-bold text-xs sm:text-lg rounded-t-2xl transition-colors duration-300 border-2 border-b-0 cursor-pointer whitespace-nowrap ${
+                  activeTab === "query"
+                    ? "text-neutral-900 border-yellow-300"
+                    : "text-neutral-500 border-transparent hover:bg-yellow-100/50"
+                }`}
               >
                 {activeTab === "query" && (
                   <motion.span
@@ -672,7 +743,9 @@ export default function ContactPage() {
                   />
                 )}
                 <span className="relative flex items-center gap-1.5 sm:gap-2.5">
-                  <MessageSquare className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "query" ? "text-neutral-900" : "text-neutral-400"}`} />
+                  <MessageSquare
+                    className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${activeTab === "query" ? "text-neutral-900" : "text-neutral-400"}`}
+                  />
                   Have a Query?
                 </span>
               </button>
@@ -681,7 +754,9 @@ export default function ContactPage() {
             {/* Rendered Tab View */}
             <div className="relative z-10 overflow-hidden">
               <AnimatePresence mode="wait" custom={direction}>
-                {activeTab === "project" ? renderProjectSection() : renderQuerySection()}
+                {activeTab === "project"
+                  ? renderProjectSection()
+                  : renderQuerySection()}
               </AnimatePresence>
             </div>
 
@@ -694,32 +769,35 @@ export default function ContactPage() {
               className="mt-16"
             >
               <div className="relative bg-white rounded-3xl p-10 md:p-16 border-2 border-yellow-400 shadow-2xl overflow-hidden">
-                
                 {/* Join Us Content */}
                 <div className="relative z-10 text-center max-w-4xl mx-auto">
-                  
                   <motion.div
                     variants={scaleIn}
                     className="inline-flex items-center justify-center w-20 h-20 bg-yellow-400 rounded-2xl mb-6 shadow-xl"
                   >
-                    <UserPlus className="w-10 h-10 text-neutral-900" strokeWidth={2.5} />
+                    <UserPlus
+                      className="w-10 h-10 text-neutral-900"
+                      strokeWidth={2.5}
+                    />
                   </motion.div>
 
                   <motion.h2
                     variants={fadeInUp}
                     className="text-4xl md:text-5xl font-black text-neutral-900 mb-6"
                   >
-                    Join the <span className="text-yellow-600">E-Cell Family!</span>
+                    Join the{" "}
+                    <span className="text-yellow-600">E-Cell Family!</span>
                   </motion.h2>
 
                   <motion.p
                     variants={fadeInUp}
                     className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed"
                   >
-                    Every year in <span className="font-bold text-yellow-600">June-July</span>, we
-                    recruit passionate 2nd-year students to join our incredible
-                    team. Be part of something bigger — help shape the
-                    entrepreneurial ecosystem at SVNIT!
+                    Every year in{" "}
+                    <span className="font-bold text-yellow-600">June-July</span>
+                    , we recruit passionate 2nd-year students to join our
+                    incredible team. Be part of something bigger — help shape
+                    the entrepreneurial ecosystem at SVNIT!
                   </motion.p>
 
                   {/* Social Buttons */}
@@ -741,7 +819,9 @@ export default function ContactPage() {
 
                     <div className="flex items-center gap-2 px-6 py-3 bg-neutral-100 rounded-full border-2 border-neutral-300">
                       <Calendar className="w-5 h-5 text-yellow-600" />
-                      <span className="font-semibold text-neutral-900">Stay Tuned!</span>
+                      <span className="font-semibold text-neutral-900">
+                        Stay Tuned!
+                      </span>
                     </div>
                   </motion.div>
 
@@ -751,13 +831,14 @@ export default function ContactPage() {
                     className="mt-10 p-6 bg-yellow-50 rounded-2xl border-2 border-yellow-200"
                   >
                     <p className="text-sm md:text-base text-neutral-700">
-                      <span className="font-bold text-yellow-600">Pro Tip:</span>{" "}
+                      <span className="font-bold text-yellow-600">
+                        Pro Tip:
+                      </span>{" "}
                       Follow our Instagram for updates on recruitment drives,
-                      workshops, events, and behind-the-scenes content from E-Cell
-                      SVNIT!
+                      workshops, events, and behind-the-scenes content from
+                      E-Cell SVNIT!
                     </p>
                   </motion.div>
-
                 </div>
               </div>
             </motion.section>

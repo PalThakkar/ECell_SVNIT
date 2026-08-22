@@ -34,7 +34,8 @@ const UpcomingEvents = ({ className }) => {
             </h2>
           </div>
           <p className="mt-4 text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't miss out — here's what's happening next at E-Cell SVNIT.
+            Don&apos;t miss out — here&apos;s what&apos;s happening next at
+            E-Cell SVNIT.
           </p>
         </div>
 
