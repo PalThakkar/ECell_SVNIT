@@ -3,6 +3,8 @@ import { BackgroundBoxesDemo } from "@/components/ui/background-boxes";
 import { JobCard } from "@/components/JobCard";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function JobsPage() {
   const jobs = await prisma.job.findMany({
     where: { isActive: true },
