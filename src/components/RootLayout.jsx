@@ -17,6 +17,7 @@ import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import FloatingSocialBar from "./FloatingSocialBar";
 import AutoScroll from "./AutoScroll";
+import Navbar from "@/components/home/Navbar";
 
 const navigationItems = [
   { href: "/team", label: "Team" },
@@ -136,6 +137,7 @@ const RootLayoutInner = ({ children }) => {
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isTeamPage = pathname === "/team";
 
   useEffect(() => {
     function onClick(event) {
