@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
-import { BsLinkedin, BsInstagram } from "react-icons/bs";
+import { BsLinkedin, BsInstagram, BsYoutube } from "react-icons/bs";
 import { Sparkles, ArrowUpRight } from "lucide-react";
 import Logo from "../Logo";
 import clsx from "clsx";
@@ -42,12 +42,12 @@ const Navbar = () => {
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-6 px-3 sm:px-8 bg-transparent">
         <div className="w-full mx-auto flex items-center justify-between max-w-[1400px]">
           {/* Logo — High-Clarity Frosted Glass View */}
-          <div className="bg-white/90 backdrop-blur-2xl border border-[#D4CFC6] rounded-full px-4 sm:px-6 py-2 shadow-[0_8px_28px_rgba(17,15,10,0.12)] flex items-center justify-center -ml-1 sm:-ml-4 shrink-0">
+          <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-full px-4 sm:px-6 py-2 shadow-[0_8px_32px_rgba(17,15,10,0.1)] flex items-center justify-center -ml-1 sm:-ml-4 shrink-0">
             <Logo href="/" className="h-11 sm:h-16 w-auto transition-transform duration-300 hover:scale-105" aria-label="E-Cell SVNIT Home" />
           </div>
 
           {/* Desktop Nav Links — Frosted Glassmorphism View */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-1 sm:gap-1.5 xl:gap-2 bg-white/90 backdrop-blur-2xl rounded-full px-3.5 sm:px-5 xl:px-6 py-2 sm:py-2.5 xl:py-3 shadow-[0_12px_36px_rgba(17,15,10,0.12)] border border-[#D4CFC6] text-[#111111] overflow-hidden whitespace-nowrap z-50">
+          <nav className="hidden lg:flex lg:mx-auto xl:absolute xl:left-1/2 xl:-translate-x-1/2 items-center gap-1 sm:gap-1.5 xl:gap-2 bg-white/40 backdrop-blur-xl rounded-full px-3.5 lg:px-4 xl:px-6 py-2 sm:py-2.5 xl:py-3 shadow-[0_12px_36px_rgba(17,15,10,0.1)] border border-white/50 text-[#111111] overflow-hidden whitespace-nowrap z-50">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -55,7 +55,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   className={clsx(
-                    "relative px-3 sm:px-4 py-1.5 sm:py-2 text-[14px] sm:text-[15px] xl:text-[16px] font-extrabold tracking-tight transition-all duration-200 rounded-full z-10 whitespace-nowrap shrink-0",
+                    "relative px-3 lg:px-3 xl:px-4 py-1.5 sm:py-2 text-[14px] sm:text-[15px] xl:text-[16px] font-extrabold tracking-tight transition-all duration-200 rounded-full z-10 whitespace-nowrap shrink-0",
                     isActive ? "text-[#111111]" : "text-[#3D3A35] hover:text-[#111111] hover:bg-white/60"
                   )}
                 >
@@ -95,8 +95,18 @@ const Navbar = () => {
             </Link>
 
             <Link
+              href="https://youtube.com/@e-cellsvnit?si=MlljRlQ1uDgVYfqU"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="p-2 sm:p-2.5 rounded-full text-white bg-[#FF0000] border border-[#CC0000] shadow-[0_4px_16px_rgba(255,0,0,0.40)] hover:scale-110 active:scale-95 transition-all duration-300 shrink-0 flex items-center justify-center"
+            >
+              <BsYoutube className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            </Link>
+
+            <Link
               href="/contact"
-              className="hidden sm:inline-flex group items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full text-sm sm:text-[15px] font-black text-[#111111] bg-white/90 backdrop-blur-2xl border border-[#D4CFC6] shadow-[0_8px_28px_rgba(17,15,10,0.12)] hover:bg-[#FBBD58] hover:border-[#F5AB35] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
+              className="hidden sm:inline-flex group items-center gap-2 px-5 xl:px-6 py-2.5 rounded-full text-sm sm:text-[15px] font-black text-[#111111] bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(17,15,10,0.1)] hover:bg-[#FBBD58] hover:border-[#F5AB35] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
             >
               <Sparkles className="w-4 h-4 text-[#D97706] group-hover:text-[#111111] transition-colors shrink-0" />
               <span>Contact Us</span>
@@ -107,7 +117,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 sm:p-3 rounded-full bg-white/90 supports-[not(backdrop-filter:blur(0px))]:bg-white/95 backdrop-blur-md border border-[#D4CFC6] text-[#111111] hover:bg-[#E8E4DC] transition-colors focus:outline-none shadow-md"
+              className="lg:hidden p-2.5 sm:p-3 rounded-full bg-white/40 supports-[not(backdrop-filter:blur(0px))]:bg-white/50 backdrop-blur-xl border border-white/50 text-[#111111] hover:bg-white/60 transition-colors focus:outline-none shadow-[0_4px_16px_rgba(17,15,10,0.1)]"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen
