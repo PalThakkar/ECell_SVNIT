@@ -9,6 +9,7 @@ import {
   Calendar,
   Clock,
   MapPin,
+  ArrowRight,
 } from "lucide-react";
 
 export default function HorizontalEventCard({ event }) {
@@ -17,14 +18,14 @@ export default function HorizontalEventCard({ event }) {
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === event.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === event.images.length - 1 ? 0 : prevIndex + 1,
     );
     setImgError(false);
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? event.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? event.images.length - 1 : prevIndex - 1,
     );
     setImgError(false);
   };
@@ -34,120 +35,152 @@ export default function HorizontalEventCard({ event }) {
     setImgError(false);
   };
 
-  const statusClasses = {
-    upcoming: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    live: "bg-green-100 text-green-800 border-green-200 animate-pulse",
-    past: "bg-gray-100 text-gray-800 border-gray-200",
+  const statusStyles = {
+    upcoming: {
+      background: "#FEF3C7",
+      border: "1px solid #F5AB35",
+      color: "#D97706",
+      label: "Coming Soon",
+    },
+    live: {
+      background: "#FBBD58",
+      border: "1px solid #F5AB35",
+      color: "#111111",
+      label: "Live Now",
+    },
+    past: {
+      background: "#FAF9F6",
+      border: "1px solid #E8E4DC",
+      color: "#7A756C",
+      label: "Past Event",
+    },
   };
 
-  const statusText = {
-    upcoming: "Coming Soon",
-    live: "Live Now",
-    past: "Past Event",
+  const status = statusStyles[event.status] || statusStyles.past;
+
+  const resolveSrc = (img) => {
+    if (!img) return "";
+    if (typeof img === "string") {
+      const s = img.trim();
+      if (s.startsWith("http") || s.startsWith("//") || s.startsWith("/"))
+        return s;
+      return "/" + s;
+    }
+    if (typeof img === "object") {
+      if (img.src) return img;
+      if (img.default && typeof img.default === "string") return img.default;
+      if (img.url) return img.url;
+    }
+    return String(img);
   };
 
-  const statusBadge = statusText[event.status] || statusText.past;
-  const statusClass = statusClasses[event.status] || statusClasses.past;
+  const raw = event.images?.[currentImageIndex];
+  const resolved = resolveSrc(raw);
+  const imageProp = typeof resolved === "object" ? resolved : String(resolved);
 
   return (
-    <article className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row border-2 border-gray-100 hover:border-[#fbbd58]/50 transition-all duration-300 hover:shadow-2xl min-h-[500px] lg:h-[500px]">
-      {/* Image Carousel - Left Side */}
-      <div className="relative w-full lg:w-1/2 h-64 lg:h-full bg-gray-100 flex-shrink-0 overflow-hidden">
+    <article
+      className="rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col lg:flex-row transition-all duration-300 min-h-[420px] lg:min-h-[460px]"
+      style={{
+        background: "#FEFEFE",
+        border: "1px solid #E8E4DC",
+        boxShadow: "0 8px 28px rgba(17,15,10,0.07)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "#FBBD58";
+        e.currentTarget.style.boxShadow =
+          "0 20px 48px rgba(251,189,88,0.18), 0 8px 16px rgba(17,15,10,0.08)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "#E8E4DC";
+        e.currentTarget.style.boxShadow = "0 8px 28px rgba(17,15,10,0.07)";
+      }}
+    >
+      <div
+        className="relative w-full lg:w-1/2 h-56 sm:h-72 lg:h-auto lg:min-h-[460px] flex-shrink-0 overflow-hidden"
+        style={{ background: "#E8E4DC" }}
+      >
         <div className="absolute inset-0">
-          {/** Resolve image source: accept plain URL strings or imported image objects (next/image static imports) */}
-          {(() => {
-            const raw = event.images?.[currentImageIndex];
-
-            const resolveSrc = (img) => {
-              if (!img) return "";
-              if (typeof img === "string") {
-                const s = img.trim();
-                if (
-                  s.startsWith("http") ||
-                  s.startsWith("//") ||
-                  s.startsWith("/")
-                )
-                  return s;
-                return "/" + s;
-              }
-              if (typeof img === "object") {
-                if (img.src) return img;
-                if (img.default && typeof img.default === "string")
-                  return img.default;
-                if (img.url) return img.url;
-              }
-              return String(img);
-            };
-
-            const resolved = resolveSrc(raw);
-
-            if (!resolved || imgError) {
-              return (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-sm text-gray-500">
-                    Image unavailable
-                  </span>
-                </div>
-              );
-            }
-
-            const imageProp =
-              typeof resolved === "object" ? resolved : String(resolved);
-
-            return (
-              <Image
-                src={imageProp}
-                alt={`${event.title} - ${currentImageIndex + 1}`}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 45vw"
-                className="object-cover w-full h-full transition-opacity duration-300"
-                onError={() => setImgError(true)}
-              />
-            );
-          })()}
+          {!resolved || imgError ? (
+            <div
+              className="w-full h-full flex items-center justify-center font-medium text-sm"
+              style={{ color: "#7A756C" }}
+            >
+              Image unavailable
+            </div>
+          ) : (
+            <Image
+              src={imageProp}
+              alt={`${event.title} - ${currentImageIndex + 1}`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 45vw"
+              className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
+              onError={() => setImgError(true)}
+            />
+          )}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(17,15,10,0.45) 0%, transparent 55%)",
+            }}
+          />
         </div>
 
-        {/* Navigation Arrows */}
         {event.images.length > 1 && (
           <>
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 prevImage();
               }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all z-10"
+              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all z-10"
+              style={{
+                background: "rgba(17,15,10,0.55)",
+                color: "#FEFEFE",
+              }}
               aria-label="Previous image"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </button>
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 nextImage();
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all z-10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all z-10"
+              style={{
+                background: "rgba(17,15,10,0.55)",
+                color: "#FEFEFE",
+              }}
               aria-label="Next image"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </button>
           </>
         )}
 
-        {/* Image Indicators */}
         {event.images.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
             {event.images.map((_, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   goToImage(index);
                 }}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  currentImageIndex === index
-                    ? "bg-white w-6 scale-110"
-                    : "bg-white/50 hover:bg-white/75"
+                className={`h-2.5 rounded-full transition-all ${
+                  currentImageIndex === index ? "w-6" : "w-2.5"
                 }`}
+                style={{
+                  background:
+                    currentImageIndex === index
+                      ? "#FBBD58"
+                      : "rgba(254,254,254,0.55)",
+                }}
                 aria-label={`View image ${index + 1}`}
               />
             ))}
@@ -155,68 +188,103 @@ export default function HorizontalEventCard({ event }) {
         )}
       </div>
 
-      {/* Event Content - Right Side */}
-      <div className="w-full lg:w-1/2 p-6 md:p-8 flex flex-col">
-        {/* Year and Status Badges */}
-        <div className="flex items-center gap-2 mb-4">
-          <span className="px-3 py-1 rounded-full bg-black/80 text-white text-xs font-semibold">
+      <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col">
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <span
+            className="px-3 py-1 rounded-full text-xs font-extrabold"
+            style={{
+              background: "#111111",
+              color: "#FEFEFE",
+            }}
+          >
             {event.year}
           </span>
           <span
-            className={`px-3 py-1 rounded-full text-xs font-semibold border ${statusClass}`}
+            className="px-3 py-1 rounded-full text-xs font-extrabold"
+            style={{
+              background: status.background,
+              border: status.border,
+              color: status.color,
+            }}
           >
-            {statusBadge}
+            {status.label}
           </span>
         </div>
 
-        <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
+        <h3
+          className="text-2xl sm:text-3xl font-black mb-2 tracking-tight"
+          style={{ color: "#111111" }}
+        >
           {event.title}
         </h3>
-        <p className="text-lg text-[#e6a12b] font-semibold mb-4">
+        <p
+          className="text-base sm:text-lg font-extrabold mb-4"
+          style={{ color: "#D97706" }}
+        >
           {event.tagline}
         </p>
 
-        <p className="text-gray-700 text-sm mb-6 leading-relaxed">
+        <p
+          className="text-sm sm:text-base leading-relaxed font-medium mb-6"
+          style={{ color: "#3D3A35" }}
+        >
           {event.description}
         </p>
 
         <div className="mt-auto">
-          <div className="space-y-3 mb-6">
-            <div className="flex items-center text-gray-700">
-              <Calendar className="w-5 h-5 mr-2 text-[#fbbd58] flex-shrink-0" />
-              <span className="font-medium">{event.date}</span>
+          <div className="space-y-2.5 mb-6">
+            <div
+              className="flex items-center gap-2 text-sm sm:text-[15px] font-semibold"
+              style={{ color: "#3D3A35" }}
+            >
+              <Calendar
+                className="w-4 h-4 shrink-0"
+                style={{ color: "#D97706" }}
+              />
+              <span>{event.date}</span>
             </div>
             {event.time && (
-              <div className="flex items-center text-gray-700">
-                <Clock className="w-5 h-5 mr-2 text-[#fbbd58] flex-shrink-0" />
-                <span className="font-medium">{event.time}</span>
+              <div
+                className="flex items-center gap-2 text-sm sm:text-[15px] font-semibold"
+                style={{ color: "#3D3A35" }}
+              >
+                <Clock
+                  className="w-4 h-4 shrink-0"
+                  style={{ color: "#D97706" }}
+                />
+                <span>{event.time}</span>
               </div>
             )}
             {event.location && (
-              <div className="flex items-start text-gray-700">
-                <MapPin className="w-5 h-5 mr-2 mt-0.5 text-[#fbbd58] flex-shrink-0" />
-                <span className="font-medium">{event.location}</span>
+              <div
+                className="flex items-start gap-2 text-sm sm:text-[15px] font-semibold"
+                style={{ color: "#3D3A35" }}
+              >
+                <MapPin
+                  className="w-4 h-4 shrink-0 mt-0.5"
+                  style={{ color: "#D97706" }}
+                />
+                <span>{event.location}</span>
               </div>
             )}
           </div>
 
-          <div className="pt-4 border-t border-gray-100">
+          <div
+            className="pt-5"
+            style={{ borderTop: "1px solid #E8E4DC" }}
+          >
             <Link
               href={`/events/${event.slug}`}
-              className="inline-flex items-center px-6 py-3 border-2 border-transparent text-base font-semibold rounded-lg text-white bg-[#fbbd58] hover:bg-[#e6a12b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fbbd58] transition-all duration-200 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl sm:rounded-2xl font-black text-sm sm:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              style={{
+                background: "#FBBD58",
+                color: "#111111",
+                border: "1px solid #F5AB35",
+                boxShadow: "0 6px 18px rgba(251,189,88,0.28)",
+              }}
             >
               Know More
-              <svg
-                className="ml-2 -mr-1 w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </div>
         </div>

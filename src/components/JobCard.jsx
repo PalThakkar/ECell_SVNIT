@@ -1,19 +1,25 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Calendar, ArrowRight } from "lucide-react";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 
 export function JobCard({ job }) {
   const router = useRouter();
 
   const handleApplyClick = () => {
+    if (job.applyLink) {
+      window.open(job.applyLink, "_blank", "noopener,noreferrer");
+      return;
+    }
     const companyNameSlug = job.company.toLowerCase().replace(/\s+/g, "");
     router.push(`/${companyNameSlug}`);
   };
 
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full mx-auto h-full">
       <FollowerPointerCard
         title={
           <div className="flex space-x-2 items-center">
@@ -28,44 +34,106 @@ export function JobCard({ job }) {
           </div>
         }
       >
-        <div className="relative overflow-hidden h-full rounded-2xl transition duration-200 group bg-white hover:shadow-xl border border-zinc-100">
-          <div className="w-full h-56 relative bg-gray-100 rounded-tr-lg rounded-tl-lg overflow-hidden">
+        <div
+          className="relative overflow-hidden h-full rounded-2xl sm:rounded-3xl transition-all duration-300 group"
+          style={{
+            background: "#FEFEFE",
+            border: "1px solid #E8E4DC",
+            boxShadow: "0 8px 28px rgba(17,15,10,0.07)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "#FBBD58";
+            e.currentTarget.style.boxShadow =
+              "0 20px 48px rgba(251,189,88,0.18), 0 8px 16px rgba(17,15,10,0.08)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "#E8E4DC";
+            e.currentTarget.style.boxShadow =
+              "0 8px 28px rgba(17,15,10,0.07)";
+          }}
+        >
+          <div
+            className="w-full aspect-[16/10] relative overflow-hidden"
+            style={{ background: "#E8E4DC" }}
+          >
             <Image
               src={job.image}
               alt="Job thumbnail"
-              layout="fill"
-              objectFit="cover"
-              className="group-hover:scale-105 group-hover:rounded-2xl transform transition duration-200"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover group-hover:scale-105 transform transition duration-700"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(17,15,10,0.4) 0%, transparent 55%)",
+              }}
             />
           </div>
-          <div className="p-4">
-            <h2 className="font-bold text-xl text-zinc-700">{job.company}</h2>
-            <h3 className="font-semibold my-2 text-lg text-zinc-600">
+
+          <div className="p-5 sm:p-6">
+            <p
+              className="text-xs font-extrabold uppercase tracking-wide mb-1"
+              style={{ color: "#D97706" }}
+            >
+              {job.company}
+            </p>
+            <h3
+              className="font-black text-xl sm:text-2xl mb-2 tracking-tight"
+              style={{ color: "#111111" }}
+            >
               {job.title}
             </h3>
-            <p className="font-normal text-sm text-zinc-500 mb-6">
-              Eligible Students: {job.eligibility}
+            <p
+              className="text-sm font-medium mb-4 leading-relaxed"
+              style={{ color: "#3D3A35" }}
+            >
+              Eligible: {job.eligibility}
             </p>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">
-                Last Date to Apply: {job.date}
-              </span>
-              <div className="flex items-center space-x-2">
+
+            {job.tags?.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-5">
                 {job.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full"
+                    className="text-xs px-2.5 py-1 rounded-full font-extrabold"
+                    style={{
+                      background: "#FEF3C7",
+                      border: "1px solid #F5AB35",
+                      color: "#111111",
+                    }}
                   >
                     {tag}
                   </span>
                 ))}
-                <button
-                  onClick={handleApplyClick}
-                  className="relative z-10 px-6 py-2 bg-[#FBBD58] text-[#111111] hover:bg-[#F5AB35] border border-[#F5AB35] font-bold rounded-xl text-xs transition-colors"
-                >
-                  Apply Now
-                </button>
               </div>
+            )}
+
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-4"
+              style={{ borderTop: "1px solid #E8E4DC" }}
+            >
+              <span
+                className="inline-flex items-center gap-1.5 text-sm font-semibold"
+                style={{ color: "#7A756C" }}
+              >
+                <Calendar className="w-4 h-4" style={{ color: "#D97706" }} />
+                Apply by {job.date}
+              </span>
+              <button
+                type="button"
+                onClick={handleApplyClick}
+                className="relative z-10 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-black transition-all hover:scale-[1.02]"
+                style={{
+                  background: "#FBBD58",
+                  color: "#111111",
+                  border: "1px solid #F5AB35",
+                  boxShadow: "0 4px 14px rgba(251,189,88,0.28)",
+                }}
+              >
+                Apply Now
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>

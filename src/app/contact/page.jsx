@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import InteractiveParticleNetwork from "@/components/home/InteractiveParticleNetwork";
+import Navbar from "@/components/home/Navbar";
 import Container from "@/components/Container";
 import ContactDetails from "@/components/ContactDetails";
 import Faq from "@/components/Faq";
@@ -707,6 +708,8 @@ export default function ContactPage() {
           }}
         />
       </div>
+
+      <Navbar />
 
       {/* Main Wrapper */}
       <InteractiveParticleNetwork className="w-full">
