@@ -1,23 +1,21 @@
-import BlogPreview from "@/components/BlogPreview";
+import BlogLanding from "@/components/BlogLanding";
 
 const blogPosts = [
- 
   {
     title: "Understanding MVP: The Key to Startup Success",
-    excerpt: "Learn about MVP (Minimum Viable Product) and how it can drive startup success.",
+    excerpt:
+      "Learn about MVP (Minimum Viable Product) and how it can drive startup success.",
     slug: "understanding-mvp",
     image: "/mvp blog.jpg",
   },
 ];
 
+export const metadata = {
+  title: "Podcast & Blogs | E-Cell SVNIT",
+  description:
+    "Ideas, frameworks, and founder stories from the E-Cell SVNIT community.",
+};
+
 export default function BlogPage() {
-  return (
-    <main className="text-black">
-      <div className="container mx-auto px-4 py-1">
-        
-        
-        <BlogPreview posts={blogPosts} />
-      </div>
-    </main>
-  );
+  return <BlogLanding posts={blogPosts} />;
 }

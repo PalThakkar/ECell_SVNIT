@@ -162,9 +162,9 @@ const Services = () => {
           </motion.div>
 
         </div>
+
       </div>
     </section>
   );
-};
-
+}
 export default Services;

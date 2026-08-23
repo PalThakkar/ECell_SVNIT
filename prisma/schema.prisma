@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         AdminRole @default(EDITOR)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model TeamMember {
+  id         String   @id @default(cuid())
+  name       String
+  position   String
+  department String
+  photoUrl   String
+  linkedin   String?
+  instagram  String?
+  year       Int
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([year, department])
+}
+
+model Job {
+  id               String    @id @default(cuid())
+  title            String
+  company          String
+  eligibility      String
+  image            String?
+  shortDescription String
+  tags             String[]
+  applyLink        String?
+  isActive         Boolean   @default(true)
+  postedAt         DateTime  @default(now())
+  closesAt         DateTime?
+
+  @@index([isActive, postedAt])
+}
+
+model BlogPost {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  excerpt     String?
+  content     String
+  coverImage  String?
+  author      String?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([published, publishedAt])
+}
+
+model Event {
+  id               String      @id @default(cuid())
+  slug             String      @unique
+  title            String
+  subtitle         String?
+  year             Int
+  status           EventStatus @default(DRAFT)
+  venue            String?
+  startDate        DateTime?
+  endDate          DateTime?
+  registrationLink String?
+  heroLine1        String?
+  heroLine2        String?
+  description      String?
+  featuredImage    String?
+  metrics          Json?
+  galleryPhotos    Json?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  @@index([year, status])
+}
+
+model LeaderboardEntry {
+  id        String   @id @default(cuid())
+  event     String   @default("lego-2025")
+  teamName  String
+  points    Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@index([event, points])
+}
+
+model ContactSubmission {
+  id           String           @id @default(cuid())
+  type         SubmissionType
+  name         String
+  email        String
+  phone        String?
+  projectTitle String?
+  message      String
+  status       SubmissionStatus @default(NEW)
+  createdAt    DateTime         @default(now())
+
+  @@index([status, createdAt])
+}
+
+enum AdminRole {
+  SUPERADMIN
+  EDITOR
+}
+
+enum EventStatus {
+  DRAFT
+  OPEN
+  CLOSED
+  LIVE
+  COMPLETED
+}
+
+enum SubmissionType {
+  PROJECT_INQUIRY
+  GENERAL_QUERY
+}
+
+enum SubmissionStatus {
+  NEW
+  READ
+  RESPONDED
+}

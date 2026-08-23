@@ -17,6 +17,7 @@ import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import FloatingSocialBar from "./FloatingSocialBar";
 import AutoScroll from "./AutoScroll";
+import Navbar from "@/components/home/Navbar";
 
 const navigationItems = [
   { href: "/team", label: "Team" },
@@ -135,7 +136,17 @@ const RootLayoutInner = ({ children }) => {
   const navRef = useRef();
   const shouldReduceMotion = useReducedMotion();
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  // Pages that mount their own glass Navbar — skip the legacy fixed header
+  const usesHomeShell =
+    pathname === "/" ||
+    pathname?.startsWith("/about") ||
+    pathname === "/events" ||
+    pathname === "/jobs" ||
+    pathname === "/team" ||
+    pathname === "/merch" ||
+    pathname === "/blog&podcast" ||
+    pathname?.startsWith("/blog&podcast/") ||
+    pathname === "/contact";
 
   useEffect(() => {
     function onClick(event) {
@@ -152,7 +163,7 @@ const RootLayoutInner = ({ children }) => {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-      {!isHomePage && (
+      {!usesHomeShell && (
         <header>
           <div
             className="fixed left-0 right-0 top-0 z-40 bg-transparent py-4 sm:py-6 px-4 sm:px-8"
@@ -225,19 +236,19 @@ const RootLayoutInner = ({ children }) => {
       <motion.div
         layout
         style={{
-          borderTopLeftRadius: isHomePage ? 0 : 40,
-          borderTopRightRadius: isHomePage ? 0 : 40,
+          borderTopLeftRadius: usesHomeShell ? 0 : 40,
+          borderTopRightRadius: usesHomeShell ? 0 : 40,
         }}
         className={clsx(
           "relative flex flex-auto overflow-hidden bg-transparent",
-          !isHomePage && "pt-14",
+          !usesHomeShell && "pt-14",
         )}
       >
         <motion.div
           layout
           className={clsx(
             "relative isolate flex w-full flex-col",
-            !isHomePage && "pt-9",
+            !usesHomeShell && "pt-9",
           )}
         >
           <main className="w-full flex-auto">{children}</main>
@@ -251,15 +262,22 @@ const RootLayoutInner = ({ children }) => {
 const RootLayout = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const pathName = usePathname();
+  const isAdmin = pathName?.startsWith("/admin");
 
   useEffect(() => {
+    if (isAdmin) return;
     setLoading(true);
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 2000); // Matches your Loader duration
 
     return () => clearTimeout(timeout);
-  }, [pathName]);
+  }, [pathName, isAdmin]);
+
+  // Admin uses its own shell — skip public header/footer so they don't block clicks
+  if (isAdmin) {
+    return <>{children}</>;
+  }
 
   return (
     <>
