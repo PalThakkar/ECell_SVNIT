@@ -253,15 +253,22 @@ const RootLayoutInner = ({ children }) => {
 const RootLayout = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const pathName = usePathname();
+  const isAdmin = pathName?.startsWith("/admin");
 
   useEffect(() => {
+    if (isAdmin) return;
     setLoading(true);
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 2000); // Matches your Loader duration
 
     return () => clearTimeout(timeout);
-  }, [pathName]);
+  }, [pathName, isAdmin]);
+
+  // Admin uses its own shell — skip public header/footer so they don't block clicks
+  if (isAdmin) {
+    return <>{children}</>;
+  }
 
   return (
     <>

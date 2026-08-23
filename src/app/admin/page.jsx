@@ -3,14 +3,18 @@ import prisma from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
-  const [jobs, submissions] = await Promise.all([
-    prisma.job.findMany({
-      orderBy: { postedAt: "desc" },
-    }),
-    prisma.contactSubmission.findMany({
-      orderBy: { createdAt: "desc" },
-    }),
-  ]);
+  const [jobs, submissions, teamCount, blogCount, eventCount] =
+    await Promise.all([
+      prisma.job.findMany({
+        orderBy: { postedAt: "desc" },
+      }),
+      prisma.contactSubmission.findMany({
+        orderBy: { createdAt: "desc" },
+      }),
+      prisma.teamMember.count(),
+      prisma.blogPost.count(),
+      prisma.event.count(),
+    ]);
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">
@@ -30,7 +34,7 @@ export default async function AdminDashboardPage() {
           </a>
         </header>
 
-        <section className="grid gap-6 md:grid-cols-3">
+        <section className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
           <StatCard label="Total Jobs" value={jobs.length} accent="yellow" />
           <StatCard
             label="Active Jobs"
@@ -42,6 +46,9 @@ export default async function AdminDashboardPage() {
             value={submissions.length}
             accent="sky"
           />
+          <StatCard label="Team Members" value={teamCount} accent="yellow" />
+          <StatCard label="Blog Posts" value={blogCount} accent="emerald" />
+          <StatCard label="Events" value={eventCount} accent="sky" />
         </section>
 
         <section className="grid gap-8 lg:grid-cols-2">
