@@ -4,14 +4,20 @@ import DataTable from "@/components/admin/DataTable";
 export const dynamic = "force-dynamic";
 
 export default async function AdminBlogPage() {
-  const posts = (
-    await prisma.blogPost.findMany({
-      orderBy: { createdAt: "desc" },
-    })
-  ).map((p) => ({
-    ...p,
-    meta: `/${p.slug} · ${p.published ? "Published" : "Draft"}`,
-  }));
+  let posts = [];
+  try {
+    posts = (
+      await prisma.blogPost.findMany({
+        orderBy: { createdAt: "desc" },
+      })
+    ).map((p) => ({
+      ...p,
+      meta: `/${p.slug} · ${p.published ? "Published" : "Draft"}`,
+    }));
+  } catch (error) {
+    console.error("Admin blog fetch error:", error);
+    posts = [];
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">

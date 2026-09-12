@@ -30,7 +30,12 @@ export const dynamic = "force-dynamic";
 
 export default async function EditJobPage({ params }) {
   const { id } = await params;
-  const job = await prisma.job.findUnique({ where: { id } });
+  let job = null;
+  try {
+    job = await prisma.job.findUnique({ where: { id } });
+  } catch (error) {
+    console.error("Failed to load job:", error);
+  }
 
   if (!job) notFound();
 

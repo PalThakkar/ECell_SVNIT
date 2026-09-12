@@ -12,7 +12,7 @@ export function createCollectionHandlers(modelName, { orderBy, transformCreate }
         return Response.json({ items });
       } catch (error) {
         console.error(`${modelName} fetch error:`, error);
-        return Response.json({ items: [] }, { status: 500 });
+        return Response.json({ items: [] });
       }
     },
 

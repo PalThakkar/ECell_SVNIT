@@ -9,7 +9,7 @@ export async function GET() {
     return Response.json({ jobs });
   } catch (error) {
     console.error("Jobs fetch error:", error);
-    return Response.json({ jobs: [] }, { status: 500 });
+    return Response.json({ jobs: [] });
   }
 }
 

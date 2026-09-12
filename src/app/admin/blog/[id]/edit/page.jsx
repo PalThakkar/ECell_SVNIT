@@ -33,7 +33,12 @@ export const dynamic = "force-dynamic";
 
 export default async function EditBlogPostPage({ params }) {
   const { id } = await params;
-  const post = await prisma.blogPost.findUnique({ where: { id } });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({ where: { id } });
+  } catch (error) {
+    console.error("Failed to load blog post:", error);
+  }
 
   if (!post) notFound();
 

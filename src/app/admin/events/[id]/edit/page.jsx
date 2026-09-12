@@ -48,7 +48,12 @@ export const dynamic = "force-dynamic";
 
 export default async function EditEventPage({ params }) {
   const { id } = await params;
-  const event = await prisma.event.findUnique({ where: { id } });
+  let event = null;
+  try {
+    event = await prisma.event.findUnique({ where: { id } });
+  } catch (error) {
+    console.error("Failed to load event:", error);
+  }
 
   if (!event) notFound();
 

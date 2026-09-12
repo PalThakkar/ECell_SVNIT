@@ -18,7 +18,12 @@ export const dynamic = "force-dynamic";
 
 export default async function EditLeaderboardEntryPage({ params }) {
   const { id } = await params;
-  const entry = await prisma.leaderboardEntry.findUnique({ where: { id } });
+  let entry = null;
+  try {
+    entry = await prisma.leaderboardEntry.findUnique({ where: { id } });
+  } catch (error) {
+    console.error("Failed to load leaderboard entry:", error);
+  }
 
   if (!entry) notFound();
 

@@ -4,14 +4,20 @@ import DataTable from "@/components/admin/DataTable";
 export const dynamic = "force-dynamic";
 
 export default async function AdminTeamPage() {
-  const members = (
-    await prisma.teamMember.findMany({
-      orderBy: [{ year: "desc" }, { sortOrder: "asc" }],
-    })
-  ).map((m) => ({
-    ...m,
-    meta: `${m.position} · ${m.department} · ${m.year}`,
-  }));
+  let members = [];
+  try {
+    members = (
+      await prisma.teamMember.findMany({
+        orderBy: [{ year: "desc" }, { sortOrder: "asc" }],
+      })
+    ).map((m) => ({
+      ...m,
+      meta: `${m.position} · ${m.department} · ${m.year}`,
+    }));
+  } catch (error) {
+    console.error("Admin team fetch error:", error);
+    members = [];
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">

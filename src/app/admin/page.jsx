@@ -3,8 +3,14 @@ import prisma from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
-  const [jobs, submissions, teamCount, blogCount, eventCount] =
-    await Promise.all([
+  let jobs = [];
+  let submissions = [];
+  let teamCount = 0;
+  let blogCount = 0;
+  let eventCount = 0;
+
+  try {
+    const results = await Promise.all([
       prisma.job.findMany({
         orderBy: { postedAt: "desc" },
       }),
@@ -15,6 +21,14 @@ export default async function AdminDashboardPage() {
       prisma.blogPost.count(),
       prisma.event.count(),
     ]);
+    jobs = results[0];
+    submissions = results[1];
+    teamCount = results[2];
+    blogCount = results[3];
+    eventCount = results[4];
+  } catch (error) {
+    console.error("Admin dashboard database error:", error);
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">

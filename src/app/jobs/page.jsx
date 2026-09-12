@@ -4,10 +4,16 @@ import JobsLanding from "@/components/JobsLanding";
 export const dynamic = "force-dynamic";
 
 export default async function JobsPage() {
-  const jobs = await prisma.job.findMany({
-    where: { isActive: true },
-    orderBy: { postedAt: "desc" },
-  });
+  let jobs = [];
+  try {
+    jobs = await prisma.job.findMany({
+      where: { isActive: true },
+      orderBy: { postedAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Failed to load jobs from database:", error);
+    jobs = [];
+  }
 
   const formattedJobs = jobs.map((job) => ({
     id: job.id,

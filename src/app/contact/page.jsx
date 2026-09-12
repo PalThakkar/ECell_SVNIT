@@ -244,8 +244,34 @@ export default function ContactPage() {
 
   const handleQuerySubmit = async (e) => {
     e.preventDefault();
-    setQuerySubmitted(true);
-    setTimeout(() => setQuerySubmitted(false), 3000);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "QUERY",
+          name: queryForm.name,
+          email: queryForm.email,
+          phone: queryForm.phone,
+          message: queryForm.query,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit query");
+
+      setQuerySubmitted(true);
+      setQueryForm({
+        name: "",
+        email: "",
+        phone: "",
+        query: "",
+      });
+    } catch (error) {
+      console.error("Query submit error:", error);
+    } finally {
+      setTimeout(() => setQuerySubmitted(false), 3000);
+    }
   };
 
   // Shared input classes

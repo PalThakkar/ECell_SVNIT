@@ -37,7 +37,7 @@ export default function DataTable({
     }
   };
 
-  if (!items.length) {
+  if (!items?.length) {
     return <p className="text-sm text-zinc-400">{emptyLabel}</p>;
   }
 

@@ -4,14 +4,20 @@ import DataTable from "@/components/admin/DataTable";
 export const dynamic = "force-dynamic";
 
 export default async function AdminLeaderboardPage() {
-  const entries = (
-    await prisma.leaderboardEntry.findMany({
-      orderBy: [{ event: "asc" }, { points: "desc" }],
-    })
-  ).map((e) => ({
-    ...e,
-    meta: `${e.event} · ${e.points} pts`,
-  }));
+  let entries = [];
+  try {
+    entries = (
+      await prisma.leaderboardEntry.findMany({
+        orderBy: [{ event: "asc" }, { points: "desc" }],
+      })
+    ).map((e) => ({
+      ...e,
+      meta: `${e.event} · ${e.points} pts`,
+    }));
+  } catch (error) {
+    console.error("Admin leaderboard fetch error:", error);
+    entries = [];
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">

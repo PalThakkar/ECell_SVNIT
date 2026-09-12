@@ -17,7 +17,12 @@ export const dynamic = "force-dynamic";
 
 export default async function EditTeamMemberPage({ params }) {
   const { id } = await params;
-  const member = await prisma.teamMember.findUnique({ where: { id } });
+  let member = null;
+  try {
+    member = await prisma.teamMember.findUnique({ where: { id } });
+  } catch (error) {
+    console.error("Failed to load team member:", error);
+  }
 
   if (!member) notFound();
 

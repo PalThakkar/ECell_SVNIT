@@ -4,12 +4,18 @@ import DataTable from "@/components/admin/DataTable";
 export const dynamic = "force-dynamic";
 
 export default async function AdminJobsPage() {
-  const jobs = (await prisma.job.findMany({ orderBy: { postedAt: "desc" } })).map(
-    (j) => ({
-      ...j,
-      meta: `${j.company} · ${j.isActive ? "Active" : "Inactive"}`,
-    }),
-  );
+  let jobs = [];
+  try {
+    jobs = (await prisma.job.findMany({ orderBy: { postedAt: "desc" } })).map(
+      (j) => ({
+        ...j,
+        meta: `${j.company} · ${j.isActive ? "Active" : "Inactive"}`,
+      }),
+    );
+  } catch (error) {
+    console.error("Admin jobs fetch error:", error);
+    jobs = [];
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">

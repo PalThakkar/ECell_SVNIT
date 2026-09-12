@@ -4,14 +4,20 @@ import DataTable from "@/components/admin/DataTable";
 export const dynamic = "force-dynamic";
 
 export default async function AdminEventsPage() {
-  const events = (
-    await prisma.event.findMany({
-      orderBy: [{ year: "desc" }, { createdAt: "desc" }],
-    })
-  ).map((e) => ({
-    ...e,
-    meta: `/${e.slug} · ${e.year} · ${e.status}`,
-  }));
+  let events = [];
+  try {
+    events = (
+      await prisma.event.findMany({
+        orderBy: [{ year: "desc" }, { createdAt: "desc" }],
+      })
+    ).map((e) => ({
+      ...e,
+      meta: `/${e.slug} · ${e.year} · ${e.status}`,
+    }));
+  } catch (error) {
+    console.error("Admin events fetch error:", error);
+    events = [];
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">

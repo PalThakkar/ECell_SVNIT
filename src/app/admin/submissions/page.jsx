@@ -3,9 +3,15 @@ import prisma from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export default async function AdminSubmissionsPage() {
-  const submissions = await prisma.contactSubmission.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let submissions = [];
+  try {
+    submissions = await prisma.contactSubmission.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Admin submissions fetch error:", error);
+    submissions = [];
+  }
 
   return (
     <main className="min-h-screen bg-zinc-950 p-6 text-white">
@@ -23,7 +29,10 @@ export default async function AdminSubmissionsPage() {
         </div>
 
         <div className="space-y-4">
-          {submissions.map((submission) => (
+          {submissions.length === 0 ? (
+            <p className="text-sm text-zinc-400">No submissions yet.</p>
+          ) : (
+            submissions.map((submission) => (
             <article
               key={submission.id}
               className="rounded-xl border border-zinc-800 bg-zinc-950 p-5"
@@ -57,7 +66,7 @@ export default async function AdminSubmissionsPage() {
 
               <p className="mt-4 text-zinc-200">{submission.message}</p>
             </article>
-          ))}
+          )))}
         </div>
       </div>
     </main>
