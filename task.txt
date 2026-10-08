@@ -1,4 +1,0 @@
-I want the tasks below to be completed by Friday morning at the latest!
-
--> Move the Team page to the database: replace the hardcoded array with a Prisma query, and split the 784-line file into components.
--> Do the same for Events (config/events.js to the Event table), then Blog and Leaderboard.
