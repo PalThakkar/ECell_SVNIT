@@ -6,7 +6,6 @@ export function constructMetadata({
   noIndex = false,
   url = "https://www.ecellsvnit.vercel.app/",
   siteName = "E-Cell SVNIT",
-  themeColor = "#FFF",
 }) {
   return {
     title,
@@ -31,7 +30,6 @@ export function constructMetadata({
     },
     icons,
     metadataBase: new URL(url),
-    themeColor,
     ...(noIndex && {
       robots: {
         index: false,

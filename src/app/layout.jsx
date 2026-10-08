@@ -46,6 +46,10 @@ export const metadata = constructMetadata({
   siteName: "E-Cell SVNIT",
 });
 
+export const viewport = {
+  themeColor: "#FFF",
+};
+
 export default function Layout({ children }) {
   return (
     <html

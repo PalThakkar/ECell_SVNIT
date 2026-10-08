@@ -15,6 +15,7 @@ import InteractiveParticleNetwork from "@/components/home/InteractiveParticleNet
 import HorizontalEventCard from "@/components/HorizontalEventCard";
 
 // Sample event data - replace with actual data from your API/database
+/*
 const eventsData = [
   {
     id: 1,
@@ -142,8 +143,9 @@ const eventsData = [
     slug: "lego-startup-2.0",
   },
 ];
+*/
 
-export default function EventsLanding() {
+export default function EventsLanding({ eventsData }) {
   const [selectedYear, setSelectedYear] = useState("all");
   const [isMounted, setIsMounted] = useState(false);
   const currentYear = new Date().getFullYear();

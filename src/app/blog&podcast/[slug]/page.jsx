@@ -1,7 +1,9 @@
 import React from "react";
 import { notFound } from "next/navigation";
+import prisma from "@/lib/prisma";
 import BlogPostView from "@/components/BlogPostView";
 
+/*
 const blogPosts = [
   {
     title: "How to Kickstart Your Startup Journey",
@@ -23,7 +25,7 @@ const blogPosts = [
   },
   {
     title: "Understanding MVP: The Key to Startup Success",
-    content: `Welcome to our Startup Lingo Series! Today, we’re diving into the world of MVP, or Minimum Viable Product. If you’re embarking on a startup journey, this term is crucial for understanding how to launch your idea successfully.
+    content: \`Welcome to our Startup Lingo Series! Today, we’re diving into the world of MVP, or Minimum Viable Product. If you’re embarking on a startup journey, this term is crucial for understanding how to launch your idea successfully.
 
 **What is an MVP?**
 A Minimum Viable Product (MVP) is the most basic version of a product that includes only the essential features needed to meet the core needs of early users. It is designed to quickly enter the market, gather feedback, and validate business assumptions with minimal investment, allowing for iterative improvements based on real-world usage.
@@ -32,18 +34,31 @@ A Minimum Viable Product (MVP) is the most basic version of a product that inclu
 In 2004, Facebook launched as “TheFacebook” with a minimal set of features—profile creation, friend requests, and messaging—exclusively for Harvard students. This MVP allowed Zuckerberg and his team to quickly test the concept and gather feedback. The initial success led to expansion to other universities and the addition of new features, validating the idea and paving the way for Facebook’s evolution into a global social networking platform.
 
 **Conclusion**
-For a new startup, an MVP strategy facilitates rapid market entry with minimal resources. It enables validation of key concepts through real user feedback and iterative enhancement. This method reduces risk and lays the groundwork for scaling and refining the offering based on genuine market needs.`,
+For a new startup, an MVP strategy facilitates rapid market entry with minimal resources. It enables validation of key concepts through real user feedback and iterative enhancement. This method reduces risk and lays the groundwork for scaling and refining the offering based on genuine market needs.\`,
     slug: "understanding-mvp",
   },
 ];
+*/
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  
+  const post = await prisma.blogPost.findUnique({
+    where: { slug: slug },
+  });
 
   if (!post) {
     notFound();
   }
 
-  return <BlogPostView post={post} />;
+  // Map to format expected by UI if necessary
+  const formattedPost = {
+    title: post.title,
+    content: post.content,
+    slug: post.slug,
+    date: post.publishedAt.toDateString(),
+    author: post.author,
+  };
+
+  return <BlogPostView post={formattedPost} />;
 }
