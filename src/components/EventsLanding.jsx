@@ -186,125 +186,128 @@ export default function EventsLanding({ eventsData }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-[87%] mx-auto">
-        {/* Header */}
-        <motion.header
-          className="text-center mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.h1
-            className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-4"
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-[87%] mx-auto">
+          {/* Header */}
+          <motion.header
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.h1
+              className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Events
+            </motion.h1>
+            <motion.div
+              className="h-1 w-20 bg-[#fbbd58] rounded-full mx-auto mb-6"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            />
+            <motion.p
+              className="max-w-3xl mx-auto text-lg md:text-xl text-gray-700"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Join us for exciting events and workshops designed to inspire,
+              educate, and empower the next generation of entrepreneurs. From
+              ideation to execution, we have got you covered.
+            </motion.p>
+          </motion.header>
+
+          {/* Year Filter */}
+          <motion.div
+            className="flex justify-end mb-8"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Events
-          </motion.h1>
+            <Dropdown>
+              <DropdownTrigger>
+                <Button
+                  variant="bordered"
+                  className="px-6 py-6 text-gray-800 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-[#fbbd58] hover:bg-gray-50 transition-all duration-200 font-semibold text-base"
+                  endContent={<ChevronDown className="w-5 h-5 text-gray-600" />}
+                >
+                  {selectedYear === "all" ? "All Years" : selectedYear}
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu
+                aria-label="Year filter"
+                selectionMode="single"
+                selectedKeys={new Set([selectedYear.toString()])}
+                onSelectionChange={(keys) => {
+                  const selected = Array.from(keys)[0];
+                  setSelectedYear(selected);
+                }}
+                className="min-w-[200px] bg-white rounded-xl shadow-xl border border-gray-100"
+              >
+                {years.map((year) => (
+                  <DropdownItem
+                    key={year}
+                    className="text-gray-800 hover:bg-[#fbbd58]/10 hover:text-[#fbbd58] font-medium py-3 px-4 rounded-lg transition-all"
+                  >
+                    {year === "all" ? "All Years" : year}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+          </motion.div>
+
+          {/* Events Grid - Vertical Stack */}
           <motion.div
-            className="h-1 w-20 bg-[#fbbd58] rounded-full mx-auto mb-6"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          />
-          <motion.p
-            className="max-w-3xl mx-auto text-lg md:text-xl text-gray-700"
+            className="space-y-8 w-[100%] mx-auto "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Join us for exciting events and workshops designed to inspire,
-            educate, and empower the next generation of entrepreneurs. From
-            ideation to execution, we have got you covered.
-          </motion.p>
-        </motion.header>
-
-        {/* Year Filter */}
-        <motion.div
-          className="flex justify-end mb-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <Dropdown>
-            <DropdownTrigger>
-              <Button
-                variant="bordered"
-                className="px-6 py-6 text-gray-800 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-[#fbbd58] hover:bg-gray-50 transition-all duration-200 font-semibold text-base"
-                endContent={<ChevronDown className="w-5 h-5 text-gray-600" />}
+            {filteredEvents.length > 0 ? (
+              <AnimatePresence>
+                {filteredEvents.map((event, index) => (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="w-full"
+                  >
+                    <HorizontalEventCard event={event} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            ) : (
+              <motion.div
+                className="text-center py-16 bg-white rounded-2xl shadow-lg"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
               >
-                {selectedYear === "all" ? "All Years" : selectedYear}
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              aria-label="Year filter"
-              selectionMode="single"
-              selectedKeys={new Set([selectedYear.toString()])}
-              onSelectionChange={(keys) => {
-                const selected = Array.from(keys)[0];
-                setSelectedYear(selected);
-              }}
-              className="min-w-[200px] bg-white rounded-xl shadow-xl border border-gray-100"
-            >
-              {years.map((year) => (
-                <DropdownItem
-                  key={year}
-                  className="text-gray-800 hover:bg-[#fbbd58]/10 hover:text-[#fbbd58] font-medium py-3 px-4 rounded-lg transition-all"
+                <h3 className="text-xl font-semibold text-gray-800">
+                  No events found
+                </h3>
+                <p className="mt-2 text-gray-600">
+                  There are no events scheduled for the selected year.
+                </p>
+                <button
+                  onClick={() => setSelectedYear("all")}
+                  className="mt-4 px-5 py-2.5 text-sm font-medium text-[#fbbd58] hover:text-[#e6a12b] transition-colors cursor-pointer"
                 >
-                  {year === "all" ? "All Years" : year}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </Dropdown>
-        </motion.div>
-
-        {/* Events Grid - Vertical Stack */}
-        <motion.div
-          className="space-y-8 w-[100%] mx-auto "
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          {filteredEvents.length > 0 ? (
-            <AnimatePresence>
-              {filteredEvents.map((event, index) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="w-full"
-                >
-                  <HorizontalEventCard event={event} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          ) : (
-            <motion.div
-              className="text-center py-16 bg-white rounded-2xl shadow-lg"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h3 className="text-xl font-semibold text-gray-800">
-                No events found
-              </h3>
-              <p className="mt-2 text-gray-600">
-                There are no events scheduled for the selected year.
-              </p>
-              <button
-                onClick={() => setSelectedYear("all")}
-                className="mt-4 px-5 py-2.5 text-sm font-medium text-[#fbbd58] hover:text-[#e6a12b] transition-colors cursor-pointer"
-              >
-                View all events
-              </button>
-            </motion.div>
-          )}
-        </motion.div>
+                  View all events
+                </button>
+              </motion.div>
+            )}
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
