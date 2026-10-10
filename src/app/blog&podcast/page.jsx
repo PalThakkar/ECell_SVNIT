@@ -19,13 +19,15 @@ export const metadata = {
     "Ideas, frameworks, and founder stories from the E-Cell SVNIT community.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage() {
   const allPosts = await prisma.blogPost.findMany({
     where: { published: true },
-    orderBy: { publishedAt: 'desc' },
+    orderBy: { publishedAt: "desc" },
   });
 
-  const formattedPosts = allPosts.map(post => ({
+  const formattedPosts = allPosts.map((post) => ({
     title: post.title,
     excerpt: post.excerpt,
     slug: post.slug,

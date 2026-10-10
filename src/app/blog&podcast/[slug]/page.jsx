@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
 import BlogPostView from "@/components/BlogPostView";
 
+export const dynamic = "force-dynamic";
+
 /*
 const blogPosts = [
   {
@@ -42,9 +44,9 @@ For a new startup, an MVP strategy facilitates rapid market entry with minimal r
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  
+
   const post = await prisma.blogPost.findUnique({
-    where: { slug: slug },
+    where: { slug },
   });
 
   if (!post) {
@@ -56,7 +58,7 @@ export default async function BlogPostPage({ params }) {
     title: post.title,
     content: post.content,
     slug: post.slug,
-    date: post.publishedAt.toDateString(),
+    date: post.publishedAt ? post.publishedAt.toDateString() : "",
     author: post.author,
   };
 
