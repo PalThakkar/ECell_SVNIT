@@ -5,6 +5,8 @@ export const metadata = {
   title: "Team | E-Cell SVNIT",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function TeamPage() {
   // Fetch team members from the database
   const allMembers = await prisma.teamMember.findMany({

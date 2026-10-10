@@ -5,6 +5,8 @@ export const metadata = {
   title: "Events | E-Cell SVNIT",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function EventsPage() {
   const allEvents = await prisma.event.findMany({
     orderBy: { year: 'desc' }

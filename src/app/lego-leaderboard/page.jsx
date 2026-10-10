@@ -6,6 +6,8 @@ export const metadata = {
   description: "Live standings for the Lego Startup.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function LegoLeaderboardPage() {
   const entries = await prisma.leaderboardEntry.findMany({
     where: { event: "lego-2025" },
